@@ -1,9 +1,9 @@
 import React from 'react';
-
+import Kyle from './Kyle';
 export default function About() {
   return (
     <div>
-      <h1>About Us</h1>About
+      <Kyle />
     </div>
   );
 }

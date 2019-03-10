@@ -1,0 +1,14 @@
+a#impact-link {
+  color: #4caf50;
+  font-weight: bold;
+  font-style: italic;
+}
+@media (max-width: 576px) {
+  body {
+    font-size: 90%;
+  }
+  #hero-container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

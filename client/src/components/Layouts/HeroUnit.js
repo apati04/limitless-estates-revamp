@@ -21,7 +21,9 @@ function HeroUnit(props) {
   const { classes } = props;
   return (
     <div className={classes.heroUnit}>
-      <div className={classes.heroContent}>{props.children}</div>
+      <div id="hero-container" className={classes.heroContent}>
+        {props.children}
+      </div>
     </div>
   );
 }

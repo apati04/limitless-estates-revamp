@@ -1,5 +1,6 @@
+import 'bootstrap-css-only/css/bootstrap-grid.min.css';
 import React, { Component } from 'react';
-import './style.css';
+
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navigation from './Navigation';
 import {
