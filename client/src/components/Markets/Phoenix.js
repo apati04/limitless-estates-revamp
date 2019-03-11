@@ -1,26 +1,26 @@
-import React from 'react';
-import Grid from '@material-ui/core/Grid';
-import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
-import { withStyles } from '@material-ui/core/styles';
-import GoogleMap from '../GoogleMap/GoogleMap';
-import Divider from '@material-ui/core/Divider';
+import React from "react";
+import Grid from "@material-ui/core/Grid";
+import Card from "@material-ui/core/Card";
+import CardHeader from "@material-ui/core/CardHeader";
+import CardContent from "@material-ui/core/CardContent";
+import Typography from "@material-ui/core/Typography";
+import { withStyles } from "@material-ui/core/styles";
+import GoogleMap from "../GoogleMap/GoogleMap";
+import Divider from "@material-ui/core/Divider";
 const styles = theme => ({
   root: {
     flexGrow: 1,
     padding: theme.spacing.unit * 4
   },
   mapStyle: {
-    height: `${theme.spacing.unit * 42}px`,
-    width: '100%'
+    height: `300px`,
+    width: "100%"
   },
   cardStyle: {
     padding: theme.spacing.unit * 4
   },
   dividerStyle: {
-    paddingLeft: '8px'
+    paddingLeft: "8px"
   }
 });
 function Phoenix(props) {
@@ -84,8 +84,8 @@ function Phoenix(props) {
                   average
                 </li>
                 <li>
-                  PRanked 5th in U.S. for high-tech job growth and Top 10
-                  fastest growing economies
+                  Ranked 5th in U.S. for high-tech job growth and Top 10 fastest
+                  growing economies
                 </li>
                 <li>3rd largest labor pool in the West</li>
               </Typography>
