@@ -1,9 +1,29 @@
 import React from 'react';
 import Kyle from './Kyle';
-export default function About() {
+import Lalita from './Lalita';
+import TeamSideNav from './TeamSideNav';
+import Grid from '@material-ui/core/Grid';
+import { withStyles } from '@material-ui/core/styles';
+
+const styles = theme => ({
+  root: {
+    flexGrow: 1
+  },
+  paper: {
+    padding: theme.spacing.unit * 2,
+    color: theme.palette.text.secondary
+  }
+});
+function About(props) {
+  const { classes } = props;
   return (
-    <div>
-      <Kyle />
+    <div className={classes.root}>
+      <Grid container>
+        <Grid item xs={false} md={8} className={classes.paper}>
+          <Lalita />
+        </Grid>
+      </Grid>
     </div>
   );
 }
+export default withStyles(styles)(About);

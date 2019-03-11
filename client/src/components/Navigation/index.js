@@ -14,7 +14,12 @@ import MobileTopNav from './Mobile/MobileTopNav';
 export default props => {
   return (
     <Fragment>
-      <MobileTopNav />
+      <BrowserView>
+        <DesktopNav />
+      </BrowserView>
+      <MobileView>
+        <MobileTopNav />
+      </MobileView>
     </Fragment>
   );
 };

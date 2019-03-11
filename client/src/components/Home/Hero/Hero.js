@@ -52,7 +52,7 @@ class Hero extends Component {
                   <Typography
                     align="left"
                     gutterBottom
-                    component="h2"
+                    component="h1"
                     variant="h6"
                     className={classes.heroText}
                   >

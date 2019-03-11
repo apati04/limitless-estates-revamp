@@ -11,7 +11,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 //asdf
 const styles = theme => ({
   appBar: {
-    position: 'relative'
+    position: 'relative',
+    zIndex: theme.zIndex.drawer + 1
   },
   icon: {
     marginRight: theme.spacing.unit * 2
@@ -31,11 +32,13 @@ const NavBar = props => {
           color="inherit"
           aria-label="Open drawer"
         >
-          <MenuIcon />
+          Logo here
         </IconButton>
-        <Button color="inherit" variant="text">
-          Home
-        </Button>
+        <div>
+          <Button color="inherit" variant="text">
+            Home
+          </Button>
+        </div>
       </Toolbar>
     </AppBar>
   );
