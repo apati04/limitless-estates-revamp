@@ -1,9 +1,9 @@
-import React from 'react';
-import Kyle from './Kyle';
-import Lalita from './Lalita';
-import TeamSideNav from './TeamSideNav';
-import Grid from '@material-ui/core/Grid';
-import { withStyles } from '@material-ui/core/styles';
+import React from "react";
+import Kyle from "./Kyle";
+import Lalita from "./Lalita";
+import TeamSideNav from "./TeamSideNav";
+import Grid from "@material-ui/core/Grid";
+import { withStyles } from "@material-ui/core/styles";
 
 const styles = theme => ({
   root: {
@@ -18,10 +18,12 @@ function About(props) {
   const { classes } = props;
   return (
     <div className={classes.root}>
-      <Grid container>
-        <Grid item xs={false} md={8} className={classes.paper}>
+      <Grid container justifyContent="center" alignItems="center">
+        <Grid item md={2} />
+        <Grid item md={8} className={classes.paper}>
           <Lalita />
         </Grid>
+        <Grid item md={2} />
       </Grid>
     </div>
   );

@@ -1,14 +1,12 @@
-import React, { Component } from 'react';
-import Avatar from '@material-ui/core/Avatar';
-import { withStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
+import React from "react";
+import Avatar from "@material-ui/core/Avatar";
+import { withStyles } from "@material-ui/core/styles";
+import Card from "@material-ui/core/Card";
 
-import CardMedia from '@material-ui/core/CardMedia';
-import CardContent from '@material-ui/core/CardContent';
-import CardHeader from '@material-ui/core/CardHeader';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
+import CardContent from "@material-ui/core/CardContent";
+import CardHeader from "@material-ui/core/CardHeader";
+
+import Typography from "@material-ui/core/Typography";
 
 const styles = theme => ({
   avatar: {
@@ -21,28 +19,28 @@ const styles = theme => ({
     padding: theme.spacing.unit * 2
   },
   media: {
-    borderRadius: '50%'
+    borderRadius: "50%"
   },
   cardHeader: {
-    display: 'flex',
-    alignContent: 'stretch'
+    display: "flex",
+    alignContent: "stretch"
   },
   bigAvatar: {
     padding: theme.spacing.unit * 3,
-    borderRadius: '50%',
-    width: '100%',
+    borderRadius: "50%",
+    width: "100%",
     margin: 10
   },
   cardInfo: {
     paddingTop: theme.spacing.unit * 3,
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    alignContent: 'stretch',
-    flexWrap: 'wrap'
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    alignContent: "stretch",
+    flexWrap: "wrap"
   },
   center: {
-    textAlign: 'center'
+    textAlign: "center"
   }
 });
 
@@ -50,7 +48,7 @@ function Kyle(props) {
   const { classes } = props;
   return (
     <React.Fragment>
-      <Card style={{ marginBottom: '16px' }}>
+      <Card style={{ marginBottom: "16px" }}>
         <CardHeader
           avatar={
             <Avatar
@@ -66,7 +64,7 @@ function Kyle(props) {
           subheader={
             <Typography variant="body2" gutterBottom component="h1">
               Managing Partner, Limitless Estates LLC <br /> Investor |
-              Entrepreneur | Business Owner | Operator{' '}
+              Entrepreneur | Business Owner | Operator{" "}
             </Typography>
           }
           className={classes.cardHeader}
@@ -77,7 +75,7 @@ function Kyle(props) {
           <Typography gutterBottom variant="h5" component="h2">
             Biography
           </Typography>
-          <Typography component="p">
+          <Typography>
             My passion is in helping others reach their goals in all areas of
             life by doing things the right way and creating long lasting
             relationships based on trust and clarity. I have experience with
@@ -93,7 +91,7 @@ function Kyle(props) {
           <Typography gutterBottom variant="h5" component="h2">
             Real Estate Investor
           </Typography>
-          <Typography component="p">
+          <Typography>
             I have been investing in income producing Real Estate since 2015, I
             currently own 9 single family homes in 3 different markets
             (Illinois, Ohio & Arkansas) totaling to $1 million. I am Managing
@@ -111,7 +109,7 @@ function Kyle(props) {
           <Typography gutterBottom variant="h5" component="h2">
             Club Pilates
           </Typography>
-          <Typography component="p">
+          <Typography>
             I am a Club Pilates franchise owner in Southern California. Club
             Pilates was founded in San Diego in 2007 and has expanded across the
             nation, bringing Pilates to hundreds of thousands of people. In
@@ -132,7 +130,7 @@ function Kyle(props) {
           <Typography gutterBottom variant="h5" component="h2">
             Real Estate Agent
           </Typography>
-          <Typography component="p">
+          <Typography>
             I am a licensed Realtor in California and have been buying and
             selling Real Estate since 2015. One of the ways I love to give back
             is by donating 20% of my commissions to the local charities of my
@@ -147,7 +145,7 @@ function Kyle(props) {
           <Typography gutterBottom variant="h5" component="h2">
             American Golf
           </Typography>
-          <Typography component="p">
+          <Typography>
             Previously a Regional Manager for American Golf and have 15+ years
             of experience in operations management including overseeing more
             than $18 million in revenue and 225+ team members. I began working
@@ -168,7 +166,7 @@ function Kyle(props) {
           <Typography gutterBottom variant="h5" component="h2">
             Other
           </Typography>
-          <Typography component="p">
+          <Typography>
             I played golf Professionally for a few years around California
             before working full-time for American Golf. I am a dog owner &
             lover, I enjoy cooking, traveling, fitness & sports. I currently

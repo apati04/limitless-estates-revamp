@@ -8,6 +8,7 @@
     "@material-ui/lab": "^3.0.0-alpha.30",
     "google-map-react": "^1.1.2",
     "prop-types": "^15.7.2",
+    "query-string": "^6.3.0",
     "react": "^16.8.4",
     "react-device-detect": "^1.6.2",
     "react-dom": "^16.8.4",

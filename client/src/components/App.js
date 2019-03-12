@@ -6,7 +6,6 @@ import {
   About,
   Contact,
   LongBeachMeetup,
-  Faq,
   Phoenix,
   Podcast,
   Home,
@@ -28,6 +27,7 @@ class App extends Component {
             <Navigation />
             <Switch>
               <Route exact path="/" component={Home} />
+
               <Route exact path="/podcasts" component={Podcast} />
               <Route exact path="/members/about" component={About} />
               <Route exact path="/markets/tucson" component={Tucson} />
@@ -37,7 +37,12 @@ class App extends Component {
                 exact
                 path="/resources/:id"
                 render={props => {
-                  return <Resources currentRoute={props.match.params.id} />;
+                  return (
+                    <Resources
+                      currRouteId={props.match.params.id}
+                      currLocation={props.location}
+                    />
+                  );
                 }}
               />
               <Route exact path="/info/contact" component={Contact} />
@@ -46,7 +51,6 @@ class App extends Component {
                 path="/events/meetups/longbeach"
                 component={LongBeachMeetup}
               />
-              <Route exact path="/resources/faq" component={Faq} />
             </Switch>
           </div>
         </Router>
