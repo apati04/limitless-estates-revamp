@@ -6,32 +6,17 @@ import Grid from "@material-ui/core/Grid";
 import CardContent from "@material-ui/core/CardContent";
 import CardHeader from "@material-ui/core/CardHeader";
 import Typography from "@material-ui/core/Typography";
+import BlogTitle from "../../Layouts/BlogTitle";
 import risk from "../api/risks_p1";
 
+import PageHeader from "../../Layouts/PageHeader";
 const styles = theme => ({
-  cardHeader: {
-    flexWrap: "wrap",
-    [theme.breakpoints.down("xs")]: {
-      justifyContent: "center",
-      alignItems: "center",
-      textAlign: "left"
-    }
-  },
-  headerText: {
-    [theme.breakpoints.down("xs")]: {
-      fontSize: "2rem",
-      marginTop: theme.spacing.unit
-    },
-    [theme.breakpoints.up("sm")]: {
-      paddingLeft: theme.spacing.unit * 2
-    }
-  },
-  subHeaderText: {
-    [theme.breakpoints.down("xs")]: {
-      fontSize: "16px"
-    },
-    [theme.breakpoints.up("sm")]: {
-      paddingLeft: theme.spacing.unit * 2
+  root: {
+    flexGrow: 1,
+    background: theme.palette.background.paper,
+    [theme.breakpoints.down("sm")]: {
+      padding: 0,
+      margin: 0
     }
   },
   cardStyle: {
@@ -44,40 +29,6 @@ const styles = theme => ({
       borderRadius: 0
     }
   },
-  media: {
-    display: "block",
-    width: "100%",
-    height: "auto",
-    [theme.breakpoints.down("xs")]: {
-      height: "300px"
-    }
-  },
-  cardInfo: {
-    paddingTop: theme.spacing.unit * 3,
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
-    alignContent: "stretch",
-    flexWrap: "wrap"
-  },
-  center: {
-    textAlign: "center"
-  },
-  root: {
-    flexGrow: 1,
-    background: theme.palette.background.paper,
-    [theme.breakpoints.down("sm")]: {
-      padding: 0,
-      margin: 0
-    }
-  },
-  cardBody: {
-    minHeight: "calc(100vh - 464px)",
-    padding: "1.25em",
-    [theme.breakpoints.up("md")]: {
-      padding: "4rem"
-    }
-  },
   content: {
     marginBottom: theme.spacing.unit * 3
   },
@@ -85,22 +36,15 @@ const styles = theme => ({
     borderBottom: "0.1rem solid rgba(0,0,0,0.87)",
     paddingBottom: "4px"
   },
-  cardTitle: {
-    background: theme.palette.grey[100],
-    color: "rgba(0,0,0,0.87)",
-    borderRadius: 0
-  },
-  cardTitleText: {
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "2rem"
-    }
-  },
   cardBodyGrid: {
     padding: "40px",
     [theme.breakpoints.down("sm")]: {
       margin: 0,
       padding: 0
     }
+  },
+  gridItem: {
+    padding: theme.spacing.unit * 2
   }
 });
 
@@ -144,32 +88,14 @@ function RisksOne(props) {
     });
   }
   const { classes } = props;
+  const imgSrc = "https://i.imgur.com/8xH4YKY.jpg";
   return (
     <div className={classes.root}>
-      <Card elevation={0} className={classes.cardTitle}>
-        <Grid container justify="center" wrap="wrap" alignItems="center">
-          <Grid item md={6}>
-            <img
-              alt="risks-when-investing-in-real-estate"
-              src="https://i.imgur.com/zneMI2U.jpg"
-              className={classes.media}
-            />
-          </Grid>
-          <Grid item md={6} style={{ paddingLeft: "16px" }}>
-            <Typography align="left" variant="overline" color="secondary">
-              <span style={{ borderBottom: "1px solid" }}>Resources</span>
-            </Typography>
-            <Typography
-              align="left"
-              gutterBottom
-              variant="h4"
-              className={classes.cardTitleText}
-            >
-              Risks With Investing in Real Estate
-            </Typography>
-          </Grid>
-        </Grid>
-      </Card>
+      <PageHeader
+        title="Risks With Investing in Real Estate"
+        overlineText="Resources"
+        imgSrc={imgSrc}
+      />
 
       <Grid
         container
@@ -179,13 +105,16 @@ function RisksOne(props) {
         className={classes.cardBodyGrid}
       >
         <Grid item lg={8} md={10} sm={12}>
-          <Typography
-            variant="caption"
-            style={{ color: "rgba(0,0,0, 0.5)", paddingLeft: "16px" }}
-            gutterBottom
-          >
-            Home > Resources > Investing Risks
-          </Typography>
+          <div className={classes.gridItem}>
+            <Typography
+              variant="caption"
+              style={{ color: "rgba(0,0,0, 0.5)" }}
+              gutterBottom
+            >
+              Home > Resources > Investing Risks
+            </Typography>
+            <BlogTitle text="Risks When Investing in Real Estate" />
+          </div>
           {loadPage()}
         </Grid>
       </Grid>

@@ -1,34 +1,39 @@
 import React from "react";
-import { Link } from "react-router-dom";
-const AboutLink = props => <Link to="/members/about" {...props} />;
+import { NavLink } from "react-router-dom";
+const HomeLink = props => <NavLink to="/" {...props} />;
+const AboutLink = props => <NavLink to="/members/about" {...props} />;
 
-const TucsonLink = props => <Link to="/markets/tucson" {...props} />;
-const PhoenixLink = props => <Link to="/markets/phoenix" {...props} />;
-const ColumbusLink = props => <Link to="/markets/columbus" {...props} />;
+const TucsonLink = props => <NavLink to="/markets/tucson" {...props} />;
+const PhoenixLink = props => <NavLink to="/markets/phoenix" {...props} />;
+const ColumbusLink = props => <NavLink to="/markets/columbus" {...props} />;
 
 const WhyInvestLink = props => (
-  <Link to="/resources/why-invest-in-multifamily" {...props} />
+  <NavLink to="/resources/why-invest-in-multifamily" {...props} />
 );
 const ImpactInvestingLink = props => (
-  <Link to="/resources/impact-investing" {...props} />
+  <NavLink to="/resources/impact-investing" {...props} />
 );
 const IraLink = props => (
-  <Link to="/resources/self-direct-401k-ira" {...props} />
+  <NavLink to="/resources/self-direct-401k-ira" {...props} />
 );
 const RisksLink = props => (
-  <Link to="/resources/investing-risks?page=1" {...props} />
+  <NavLink to="/resources/investing-risks?page=1" {...props} />
 );
 const FaqLink = props => (
-  <Link to="/resources/frequently-answered-questions" {...props} />
+  <NavLink to="/resources/frequently-answered-questions" {...props} />
 );
 
-const QuestionnaireLink = props => <Link to="/info/questionnaire" {...props} />;
-const LongBeachLink = props => (
-  <Link to="/events/meetups/longbeach" {...props} />
+const QuestionnaireLink = props => (
+  <NavLink to="/info/questionnaire" {...props} />
 );
-const CerritosLink = props => <Link to="/events/meetups/cerritos" {...props} />;
-const PodcastLink = props => <Link to="/podcasts" {...props} />;
-const ContactLink = props => <Link to="/info/contact" {...props} />;
+const LongBeachLink = props => (
+  <NavLink to="/events/meetups/longbeach" {...props} />
+);
+const CerritosLink = props => (
+  <NavLink to="/events/meetups/cerritos" {...props} />
+);
+const PodcastLink = props => <NavLink to="/podcasts" {...props} />;
+const ContactLink = props => <NavLink to="/info/contact" {...props} />;
 
 export {
   AboutLink,
@@ -44,5 +49,6 @@ export {
   LongBeachLink,
   CerritosLink,
   PodcastLink,
+  HomeLink,
   ContactLink
 };

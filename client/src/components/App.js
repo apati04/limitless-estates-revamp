@@ -26,6 +26,7 @@ class App extends Component {
         <Router>
           <div>
             <Navigation />
+
             <Suspense fallback={<LoadingMessage />}>
               <Switch>
                 <Route exact path="/" component={Home} />

@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { NavLink } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import Grow from "@material-ui/core/Grow";
@@ -39,11 +40,21 @@ class MenuListComposition extends React.Component {
     this.setState({ open: false });
   };
   loadMenuItems = () => {
-    return this.props.listItems.map((item, index) => {
+    const { classes } = this.props;
+    return this.props.listItems.map(({ title, slug }, index) => {
       return (
-        <MenuItem key={index} onClick={this.handleClose}>
-          {item}
-        </MenuItem>
+        <NavLink
+          key={index}
+          to={slug}
+          activeStyle={{
+            fontWeight: "bold",
+            color: "red",
+            textDecoration: "underline"
+          }}
+          style={{ textDecoration: "none" }}
+        >
+          <MenuItem onClick={this.handleClose}>{title}</MenuItem>
+        </NavLink>
       );
     });
   };
@@ -54,6 +65,8 @@ class MenuListComposition extends React.Component {
     return (
       <div className={classes.root}>
         <Button
+          size="small"
+          color="inherit"
           buttonRef={node => {
             this.anchorEl = node;
           }}
@@ -62,7 +75,6 @@ class MenuListComposition extends React.Component {
           onClick={this.handleToggle}
           onMouseEnter={this.handleToggle}
           onMouseLeave={this.handleToggle}
-          style={{ color: "#fafafa" }}
         >
           {this.props.title}
           <ArrowDropDown />
