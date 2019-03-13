@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
 import CardMedia from "@material-ui/core/CardMedia";
+import CardHeader from "@material-ui/core/CardHeader";
 import { withStyles } from "@material-ui/core/styles";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
@@ -12,10 +13,7 @@ const styles = theme => ({
     position: "relative"
   },
   media: {
-    backgroundPosition: "center center",
-    objectFit: "cover",
-    backgroundAttachment: "cover",
-    backgroundRepeat: "no-repeat",
+    width: "50%",
     [theme.breakpoints.down("xs")]: {
       height: "300px"
     }
@@ -43,33 +41,38 @@ function WhyInvestComponent(props) {
   const { classes } = props;
   return (
     <div className={classes.root}>
-      <Card className={classes.card}>
-        <CardMedia
-          component="img"
-          alt="why-invest-in-multifamily"
-          height="400"
-          image="https://i.imgur.com/f4FJAIJ.jpg?1"
-          title="Why Invest in Multifamily"
-          className={classes.media}
-        />
-        <Grid
-          container
-          spacing={0}
-          justify="center"
-          alignItems="center"
-          wrap="wrap"
-        >
-          <Grid item lg={8} md={10} sm={12}>
-            <CardContent className={classes.cardBody}>
-              <Typography
-                className={classes.contentHeader}
-                gutterBottom
-                align="left"
-                variant="h2"
-              >
-                Why Invest in Multifamily
-              </Typography>
+      <Grid
+        container
+        spacing={0}
+        justify="center"
+        alignItems="center"
+        wrap="wrap"
+      >
+        <Grid item lg={10} md={10} sm={12}>
+          <Card>
+            <CardHeader
+              avatar={
+                <CardMedia
+                  component="img"
+                  alt="why-invest-in-multifamily"
+                  image="https://i.imgur.com/f4FJAIJ.jpg?1"
+                  title="Why Invest in Multifamily"
+                  className={classes.media}
+                />
+              }
+              title={
+                <Typography
+                  className={classes.contentHeader}
+                  gutterBottom
+                  align="left"
+                  variant="h2"
+                >
+                  Why Invest in Multifamily
+                </Typography>
+              }
+            />
 
+            <CardContent className={classes.cardBody}>
               <Typography
                 align="left"
                 className={classes.content}
@@ -141,9 +144,9 @@ function WhyInvestComponent(props) {
                 </a>
               </Typography>
             </CardContent>
-          </Grid>
+          </Card>
         </Grid>
-      </Card>
+      </Grid>
     </div>
   );
 }

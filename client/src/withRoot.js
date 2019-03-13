@@ -18,15 +18,13 @@ const theme = createMuiTheme({
     }
   },
   typography: {
-    fontFamily: "Muli",
     useNextVariants: true,
     body1: {
-      color: "rgba(12,12,15,0.87)",
-      fontWeight: 400
+      color: "rgba(12,12,15,0.87)"
     },
     h6: {
-      color: "rgba(12,12,15,0.87)",
-      fontWeight: 300
+      fontWeight: 400,
+      color: "rgba(10,10,10,0.80)"
     }
   }
 });
