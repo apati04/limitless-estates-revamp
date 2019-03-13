@@ -18,7 +18,7 @@ function About(props) {
   const { classes } = props;
   return (
     <div className={classes.root}>
-      <Grid container justifyContent="center" alignItems="center">
+      <Grid container justify="center" alignItems="center">
         <Grid item md={2} />
         <Grid item md={8} className={classes.paper}>
           <Lalita />

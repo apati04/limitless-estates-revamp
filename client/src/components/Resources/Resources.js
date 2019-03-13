@@ -8,9 +8,17 @@ import RisksOne from "./Pages/RisksOne";
 class Resources extends Component {
   loadPage = e => {
     const { currRouteId, currLocation } = this.props;
+    console.log("routeId: ", currRouteId);
+    console.log("location object: ", currLocation);
     switch (currRouteId) {
-      case "invest?page=1":
-        return <div>yes this works</div>;
+      case "why-invest-in-multifamily":
+        return <WhyInvest />;
+      case "impact-investing":
+        return <ImpactInvesting />;
+      case "investing-risks":
+        const pageNum = queryString.parse(currLocation.search);
+        console.log(pageNum);
+        return <div>{pageNum.page === "1" && <RisksOne />}</div>;
       default:
         return <div>no</div>;
     }

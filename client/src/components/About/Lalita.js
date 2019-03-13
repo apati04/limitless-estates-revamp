@@ -73,7 +73,7 @@ function Lalita(props) {
   const { classes } = props;
   return (
     <div className={classes.root}>
-      <Grid container justifyContent="center" alignItems="center" wrap="wrap">
+      <Grid container justify="center" alignItems="center" wrap="wrap">
         <Grid item>
           <Card style={{ marginBottom: "16px" }}>
             <CardHeader

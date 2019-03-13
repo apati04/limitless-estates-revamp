@@ -11,20 +11,18 @@ import Divider from "@material-ui/core/Divider";
 
 import MenuIcon from "@material-ui/icons/Menu";
 import Grid from "@material-ui/core/Grid";
-import Button from "@material-ui/core/Button";
+
 // -----------
 import ListSubheader from "@material-ui/core/ListSubheader";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
+
 import ListItemText from "@material-ui/core/ListItemText";
 import Collapse from "@material-ui/core/Collapse";
 
-import SendIcon from "@material-ui/icons/Send";
 import ExpandLess from "@material-ui/icons/ExpandLess";
 import ExpandMore from "@material-ui/icons/ExpandMore";
-import StarBorder from "@material-ui/icons/StarBorder";
-import HomeIcon from "@material-ui/icons/Home";
+
 import {
   AboutLink,
   TucsonLink,
@@ -197,6 +195,14 @@ class MobileTopNavbar extends Component {
               button
               onClick={this.toggleDrawer("left", false)}
               className={classes.nested}
+              component={RisksLink}
+            >
+              <ListItemText primary="Risks" />
+            </ListItem>
+            <ListItem
+              button
+              onClick={this.toggleDrawer("left", false)}
+              className={classes.nested}
               component={FaqLink}
             >
               <ListItemText primary="F.A.Q" />
@@ -276,7 +282,7 @@ class MobileTopNavbar extends Component {
             <Grid
               container
               spacing={0}
-              justifyContent="between"
+              justify="space-between"
               alignItems="center"
             >
               <Grid item>

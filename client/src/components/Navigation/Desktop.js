@@ -34,12 +34,7 @@ const NavBar = props => {
     <div className={classes.root}>
       <AppBar position="sticky" className={classes.appBar}>
         <Toolbar>
-          <Grid
-            container
-            spacing={8}
-            justifyContent="start"
-            alignItems="center"
-          >
+          <Grid container spacing={8} justify="flex-start" alignItems="center">
             <Grid item>
               <img
                 alt="logo"

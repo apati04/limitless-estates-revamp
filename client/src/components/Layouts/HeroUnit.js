@@ -1,20 +1,15 @@
-import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
-import CardMedia from '@material-ui/core/CardMedia';
+import React from "react";
+import { withStyles } from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography";
+import Grid from "@material-ui/core/Grid";
+import CardMedia from "@material-ui/core/CardMedia";
 const styles = theme => ({
   heroUnit: {
-    position: 'relative'
+    position: "relative"
   },
   heroContent: {
-    margin: '0 auto',
+    margin: "0 auto",
     padding: `${theme.spacing.unit * 8}px ${theme.spacing.unit * 6}px`
-  },
-  heroImage: {
-    padding: '0',
-    background: 'url(https://i.imgur.com/hoNJo5m.jpg) bottom no-repeat',
-    backgroundSize: 'cover'
   }
 });
 function HeroUnit(props) {

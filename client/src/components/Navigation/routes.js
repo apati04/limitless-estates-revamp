@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 const AboutLink = props => <Link to="/members/about" {...props} />;
 
 const TucsonLink = props => <Link to="/markets/tucson" {...props} />;
@@ -11,7 +11,9 @@ const ImpactInvestingLink = props => (
   <Link to="/resources/impactinvesting" {...props} />
 );
 const IraLink = props => <Link to="/info/investing/ira401k" {...props} />;
-const RisksLink = props => <Link to="/resources/investingrisks/1" {...props} />;
+const RisksLink = props => (
+  <Link to="/resources/investingrisks?page=1" {...props} />
+);
 const FaqLink = props => <Link to="/resources/faq" {...props} />;
 
 const QuestionnaireLink = props => <Link to="/info/questionnaire" {...props} />;

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Suspense } from "react";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navigation from "./Navigation";
@@ -18,6 +18,7 @@ import NoSsr from "@material-ui/core/NoSsr";
 // test routes delete after
 
 // ---------------------------------
+const LoadingMessage = () => "Loading...";
 class App extends Component {
   render() {
     return (
@@ -25,33 +26,35 @@ class App extends Component {
         <Router>
           <div>
             <Navigation />
-            <Switch>
-              <Route exact path="/" component={Home} />
+            <Suspense fallback={<LoadingMessage />}>
+              <Switch>
+                <Route exact path="/" component={Home} />
 
-              <Route exact path="/podcasts" component={Podcast} />
-              <Route exact path="/members/about" component={About} />
-              <Route exact path="/markets/tucson" component={Tucson} />
-              <Route exact path="/markets/phoenix" component={Phoenix} />
-              <Route exact path="/markets/columbus" component={Columbus} />
-              <Route
-                exact
-                path="/resources/:id"
-                render={props => {
-                  return (
-                    <Resources
-                      currRouteId={props.match.params.id}
-                      currLocation={props.location}
-                    />
-                  );
-                }}
-              />
-              <Route exact path="/info/contact" component={Contact} />
-              <Route
-                exact
-                path="/events/meetups/longbeach"
-                component={LongBeachMeetup}
-              />
-            </Switch>
+                <Route exact path="/podcasts" component={Podcast} />
+                <Route exact path="/members/about" component={About} />
+                <Route exact path="/markets/tucson" component={Tucson} />
+                <Route exact path="/markets/phoenix" component={Phoenix} />
+                <Route exact path="/markets/columbus" component={Columbus} />
+                <Route
+                  exact
+                  path="/resources/:id"
+                  render={props => {
+                    return (
+                      <Resources
+                        currRouteId={props.match.params.id}
+                        currLocation={props.location}
+                      />
+                    );
+                  }}
+                />
+                <Route exact path="/info/contact" component={Contact} />
+                <Route
+                  exact
+                  path="/events/meetups/longbeach"
+                  component={LongBeachMeetup}
+                />
+              </Switch>
+            </Suspense>
           </div>
         </Router>
       </NoSsr>

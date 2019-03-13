@@ -46,7 +46,7 @@ class Hero extends Component {
             <Grid container>
               <Grid
                 item
-                justifyContent="between"
+                justify="space-between"
                 alignItems="center"
                 wrap="wrap"
               >
