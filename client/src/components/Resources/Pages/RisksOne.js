@@ -8,7 +8,7 @@ import CardHeader from "@material-ui/core/CardHeader";
 import Typography from "@material-ui/core/Typography";
 import BlogTitle from "../../Layouts/BlogTitle";
 import risk from "../api/risks_p1";
-
+import Desktop from "../../Navigation/Desktop";
 import PageHeader from "../../Layouts/PageHeader";
 const styles = theme => ({
   root: {
@@ -96,7 +96,7 @@ function RisksOne(props) {
         overlineText="Resources"
         imgSrc={imgSrc}
       />
-
+      <Desktop />
       <Grid
         container
         justify="center"
@@ -115,6 +115,7 @@ function RisksOne(props) {
             </Typography>
             <BlogTitle text="Risks When Investing in Real Estate" />
           </div>
+
           {loadPage()}
         </Grid>
       </Grid>
