@@ -19,6 +19,8 @@ class Resources extends Component {
         const pageNum = queryString.parse(currLocation.search);
         console.log(pageNum);
         return <div>{pageNum.page === "1" && <RisksOne />}</div>;
+      case "frequently-asked-questions":
+        return <Faq />;
       default:
         return <div>no</div>;
     }

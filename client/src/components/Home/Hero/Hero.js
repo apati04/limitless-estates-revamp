@@ -4,7 +4,6 @@ import HeroUnit from "../../Layouts/HeroUnit";
 import { withStyles } from "@material-ui/core/styles";
 import { NavLink } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
-import Divider from "@material-ui/core/Divider";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 
@@ -43,13 +42,13 @@ class Hero extends Component {
         >
           <div className={classes.overlayEffect} />
           <HeroUnit>
-            <Grid container>
-              <Grid
-                item
-                justify="space-between"
-                alignItems="center"
-                wrap="wrap"
-              >
+            <Grid
+              container
+              justify="space-between"
+              alignItems="center"
+              wrap="wrap"
+            >
+              <Grid item>
                 <Typography
                   align="left"
                   gutterBottom

@@ -6,15 +6,21 @@ const TucsonLink = props => <Link to="/markets/tucson" {...props} />;
 const PhoenixLink = props => <Link to="/markets/phoenix" {...props} />;
 const ColumbusLink = props => <Link to="/markets/columbus" {...props} />;
 
-const WhyInvestLink = props => <Link to="/resources" {...props} />;
+const WhyInvestLink = props => (
+  <Link to="/resources/why-invest-in-multifamily" {...props} />
+);
 const ImpactInvestingLink = props => (
-  <Link to="/resources/impactinvesting" {...props} />
+  <Link to="/resources/impact-investing" {...props} />
 );
-const IraLink = props => <Link to="/info/investing/ira401k" {...props} />;
+const IraLink = props => (
+  <Link to="/resources/self-direct-401k-ira" {...props} />
+);
 const RisksLink = props => (
-  <Link to="/resources/investingrisks?page=1" {...props} />
+  <Link to="/resources/investing-risks?page=1" {...props} />
 );
-const FaqLink = props => <Link to="/resources/faq" {...props} />;
+const FaqLink = props => (
+  <Link to="/resources/frequently-answered-questions" {...props} />
+);
 
 const QuestionnaireLink = props => <Link to="/info/questionnaire" {...props} />;
 const LongBeachLink = props => (

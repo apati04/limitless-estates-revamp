@@ -279,35 +279,22 @@ class MobileTopNavbar extends Component {
       <div className={classes.appRoot}>
         <AppBar position="sticky" className={classes.appBar}>
           <Toolbar>
-            <Grid
-              container
-              spacing={0}
-              justify="space-between"
-              alignItems="center"
-            >
+            <Grid container justify="flex-start" alignItems="center">
               <Grid item>
-                <img
-                  alt="logo"
-                  src="https://i.imgur.com/IlUnKOe.png"
-                  className={classes.imageStyles}
-                />
-              </Grid>
-            </Grid>
-            <Grid item>
-              <IconButton
-                className={classes.icon}
-                color="inherit"
-                onClick={this.toggleDrawer("left", true)}
-                aria-label="Open drawer"
-              >
-                <MenuIcon />
-              </IconButton>
-              <Drawer
-                anchor="right"
-                open={this.state.left}
-                onClose={this.toggleDrawer("left", false)}
-              >
-                {/* <div
+                <IconButton
+                  className={classes.icon}
+                  color="inherit"
+                  onClick={this.toggleDrawer("left", true)}
+                  aria-label="Open drawer"
+                >
+                  <MenuIcon />
+                </IconButton>
+                <Drawer
+                  anchor="left"
+                  open={this.state.left}
+                  onClose={this.toggleDrawer("left", false)}
+                >
+                  {/* <div
               tabIndex={0}
               role="button"
               onClick={this.toggleDrawer('left', false)}
@@ -315,8 +302,16 @@ class MobileTopNavbar extends Component {
             >
              
             </div> */}
-                {this.sidebarItems()}
-              </Drawer>
+                  {this.sidebarItems()}
+                </Drawer>
+              </Grid>
+              <Grid item>
+                <img
+                  alt="logo"
+                  src="https://i.imgur.com/IlUnKOe.png"
+                  className={classes.imageStyles}
+                />
+              </Grid>
             </Grid>
           </Toolbar>
         </AppBar>

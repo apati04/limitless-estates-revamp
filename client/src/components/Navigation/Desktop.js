@@ -4,9 +4,8 @@ import { withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
-import IconButton from "@material-ui/core/IconButton";
 import Grid from "@material-ui/core/Grid";
-import Avatar from "@material-ui/core/Avatar";
+import DropdownItem from "./NavItems/DropdownItem";
 /**
  * 
  *   menuButton: {
@@ -20,12 +19,13 @@ const styles = {
     flexGrow: 1
   },
   appBar: {
-    position: "relative"
+    position: "relative",
+    padding: "8px 24px"
   },
   imageStyles: {
-    maxWidth: "100%",
     height: "auto",
-    width: "10em"
+    width: "10rem",
+    display: "inline-block"
   }
 };
 const NavBar = props => {
@@ -34,17 +34,68 @@ const NavBar = props => {
     <div className={classes.root}>
       <AppBar position="sticky" className={classes.appBar}>
         <Toolbar>
-          <Grid container spacing={8} justify="flex-start" alignItems="center">
+          <img
+            alt="logo"
+            src="https://i.imgur.com/IlUnKOe.png"
+            className={classes.imageStyles}
+          />
+          <Grid
+            container
+            justify="flex-end"
+            wrap="wrap-reverse"
+            alignItems="center"
+          >
             <Grid item>
-              <img
-                alt="logo"
-                src="https://i.imgur.com/IlUnKOe.png"
-                className={classes.imageStyles}
+              <Button color="inherit" variant="text">
+                Home
+              </Button>
+            </Grid>
+            <Grid item>
+              <Button color="inherit" variant="text">
+                About
+              </Button>
+            </Grid>
+            <Grid item>
+              <Button color="inherit" variant="text">
+                Questionnaire
+              </Button>
+            </Grid>
+            <Grid item>
+              <Button color="inherit" variant="text">
+                Podcast
+              </Button>
+            </Grid>
+            <Grid item>
+              <DropdownItem
+                title="markets"
+                listItems={["TUCSON, AZ", "PHOENIX, AZ", "COLUMBUS, OH"]}
+              />
+            </Grid>
+
+            <Grid item>
+              <DropdownItem
+                title="resources"
+                listItems={[
+                  "WHY INVEST IN MULTIFAMILY",
+                  "IMPACT INVESTING",
+                  "SELF DIRECT 401K/IRA",
+                  "INVESTMENT RISKS",
+                  "Frequently Asked Questions"
+                ]}
+              />
+            </Grid>
+            <Grid item>
+              <DropdownItem
+                title="events"
+                listItems={[
+                  "Multifamily Investors Meetup - long beach",
+                  "Multifamily Investors Roundtable - cerritos"
+                ]}
               />
             </Grid>
             <Grid item>
               <Button color="inherit" variant="text">
-                Home
+                Contact
               </Button>
             </Grid>
           </Grid>

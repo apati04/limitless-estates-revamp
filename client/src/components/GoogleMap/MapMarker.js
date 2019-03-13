@@ -17,7 +17,11 @@ export default class MapMarker extends Component {
             }}
           >
             <span>
-              <img src="https://i.imgur.com/llqM3iT.png" width="48px" />
+              <img
+                alt="map-marker"
+                src="https://i.imgur.com/llqM3iT.png"
+                width="48px"
+              />
             </span>
           </div>
         ) : (
