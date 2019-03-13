@@ -281,6 +281,13 @@ class MobileTopNavbar extends Component {
           <Toolbar>
             <Grid container justify="flex-start" alignItems="center">
               <Grid item>
+                <img
+                  alt="logo"
+                  src="https://i.imgur.com/IlUnKOe.png"
+                  className={classes.imageStyles}
+                />
+              </Grid>
+              <Grid item>
                 <IconButton
                   className={classes.icon}
                   color="inherit"
@@ -290,7 +297,7 @@ class MobileTopNavbar extends Component {
                   <MenuIcon />
                 </IconButton>
                 <Drawer
-                  anchor="left"
+                  anchor="right"
                   open={this.state.left}
                   onClose={this.toggleDrawer("left", false)}
                 >
@@ -304,13 +311,6 @@ class MobileTopNavbar extends Component {
             </div> */}
                   {this.sidebarItems()}
                 </Drawer>
-              </Grid>
-              <Grid item>
-                <img
-                  alt="logo"
-                  src="https://i.imgur.com/IlUnKOe.png"
-                  className={classes.imageStyles}
-                />
               </Grid>
             </Grid>
           </Toolbar>
