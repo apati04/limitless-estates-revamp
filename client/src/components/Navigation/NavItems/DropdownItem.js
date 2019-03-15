@@ -1,19 +1,21 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { NavLink } from "react-router-dom";
-import Button from "@material-ui/core/Button";
-import ClickAwayListener from "@material-ui/core/ClickAwayListener";
-import Grow from "@material-ui/core/Grow";
-import Paper from "@material-ui/core/Paper";
-import Popper from "@material-ui/core/Popper";
-import MenuItem from "@material-ui/core/MenuItem";
-import MenuList from "@material-ui/core/MenuList";
-import { withStyles } from "@material-ui/core/styles";
-import ArrowDropDown from "@material-ui/icons/ArrowDropDown";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
+import Grow from '@material-ui/core/Grow';
+import Paper from '@material-ui/core/Paper';
+import Popper from '@material-ui/core/Popper';
+import MenuItem from '@material-ui/core/MenuItem';
+import MenuList from '@material-ui/core/MenuList';
+import { withStyles } from '@material-ui/core/styles';
+import blue from '@material-ui/core/colors/blue';
+
+import ArrowDropDown from '@material-ui/icons/ArrowDropDown';
 
 const styles = theme => ({
   root: {
-    display: "flex"
+    display: 'flex'
   },
   paper: {
     marginRight: theme.spacing.unit * 2
@@ -40,20 +42,21 @@ class MenuListComposition extends React.Component {
     this.setState({ open: false });
   };
   loadMenuItems = () => {
-    const { classes } = this.props;
     return this.props.listItems.map(({ title, slug }, index) => {
       return (
         <NavLink
           key={index}
           to={slug}
+          exact
           activeStyle={{
-            fontWeight: "bold",
-            color: "red",
-            textDecoration: "underline"
+            color: blue[900],
+            textDecoration: 'underline'
           }}
-          style={{ textDecoration: "none" }}
+          style={{ textDecoration: 'none' }}
         >
-          <MenuItem onClick={this.handleClose}>{title}</MenuItem>
+          <MenuItem onClick={this.handleClose}>
+            <span style={{ fontSize: '0.86rem' }}>{title}</span>
+          </MenuItem>
         </NavLink>
       );
     });
@@ -61,7 +64,7 @@ class MenuListComposition extends React.Component {
   render() {
     const { classes } = this.props;
     const { open } = this.state;
-
+    const menuListName = this.props.title;
     return (
       <div className={classes.root}>
         <Button
@@ -70,7 +73,7 @@ class MenuListComposition extends React.Component {
           buttonRef={node => {
             this.anchorEl = node;
           }}
-          aria-owns={open ? "menu-list-grow" : undefined}
+          aria-owns={open ? menuListName : undefined}
           aria-haspopup="true"
           onClick={this.handleToggle}
           onMouseEnter={this.handleToggle}
@@ -88,10 +91,10 @@ class MenuListComposition extends React.Component {
             {({ TransitionProps, placement }) => (
               <Grow
                 {...TransitionProps}
-                id="menu-list-grow"
+                id={menuListName}
                 style={{
                   transformOrigin:
-                    placement === "bottom" ? "center top" : "center bottom"
+                    placement === 'bottom' ? 'center top' : 'center bottom'
                 }}
               >
                 <Paper>

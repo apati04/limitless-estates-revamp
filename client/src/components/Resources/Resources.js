@@ -1,25 +1,27 @@
-import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
-import queryString from "query-string";
-import Faq from "./Pages/Faq/Faq";
-import WhyInvest from "./Pages/WhyInvest";
-import ImpactInvesting from "./Pages/ImpactInvesting";
-import RisksOne from "./Pages/RisksOne";
+import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import queryString from 'query-string';
+import Faq from './Pages/Faq/Faq';
+import WhyInvest from './Pages/WhyInvest';
+import ImpactInvesting from './Pages/ImpactInvesting';
+import RisksOne from './Pages/RisksOne';
 class Resources extends Component {
   loadPage = e => {
     const { currRouteId, currLocation } = this.props;
-    console.log("routeId: ", currRouteId);
-    console.log("location object: ", currLocation);
+    console.log('routeId: ', currRouteId);
+    console.log('location object: ', currLocation);
     switch (currRouteId) {
-      case "why-invest-in-multifamily":
+      case 'why-invest-in-multifamily':
         return <WhyInvest />;
-      case "impact-investing":
+      case 'impact-investing':
         return <ImpactInvesting />;
-      case "investing-risks":
+      case 'investing-risks':
         const pageNum = queryString.parse(currLocation.search);
         console.log(pageNum);
-        return <div>{pageNum.page === "1" && <RisksOne />}</div>;
-      case "frequently-asked-questions":
+        return <div>{pageNum.page === '1' && <RisksOne />}</div>;
+      case 'self-direct-401k-ira':
+        return <div>401k</div>;
+      case 'frequently-asked-questions':
         return <Faq />;
       default:
         return <div>no</div>;
@@ -27,11 +29,7 @@ class Resources extends Component {
   };
 
   render() {
-    return (
-      <div>
-        <div>{this.loadPage()}</div>
-      </div>
-    );
+    return <div>{this.loadPage()}</div>;
   }
 }
 

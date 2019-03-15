@@ -1,7 +1,7 @@
-import React, { Component, Suspense } from "react";
+import React, { Component, Suspense } from 'react';
 
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Navigation from "./Navigation";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Navigation from './Navigation';
 import {
   About,
   Contact,
@@ -12,27 +12,27 @@ import {
   Tucson,
   Columbus,
   Resources
-} from "./pages";
-import withRoot from "../withRoot";
-import NoSsr from "@material-ui/core/NoSsr";
+} from './pages';
+import withRoot from '../withRoot';
+import NoSsr from '@material-ui/core/NoSsr';
 // test routes delete after
 
 // ---------------------------------
-const LoadingMessage = () => "Loading...";
+const LoadingMessage = () => 'Loading...';
 class App extends Component {
   render() {
     return (
       <NoSsr>
         <Router>
           <div>
-            <Navigation />
+            <Route render={props => { return <Navigation currLocation={props.location} /> }} />
 
             <Suspense fallback={<LoadingMessage />}>
               <Switch>
                 <Route exact path="/" component={Home} />
 
                 <Route exact path="/podcasts" component={Podcast} />
-                <Route exact path="/members/about" component={About} />
+                <Route exact path="/about/team" component={About} />
                 <Route exact path="/markets/tucson" component={Tucson} />
                 <Route exact path="/markets/phoenix" component={Phoenix} />
                 <Route exact path="/markets/columbus" component={Columbus} />

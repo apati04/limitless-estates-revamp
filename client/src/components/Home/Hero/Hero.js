@@ -1,24 +1,24 @@
-import React, { Component } from "react";
-import "./style.css";
-import HeroUnit from "../../Layouts/HeroUnit";
-import { withStyles } from "@material-ui/core/styles";
-import { NavLink } from "react-router-dom";
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
-import Grid from "@material-ui/core/Grid";
+import React, { Component } from 'react';
+import './style.css';
+import HeroUnit from '../../../layouts/HeroUnit';
+import { withStyles } from '@material-ui/core/styles';
+import { NavLink } from 'react-router-dom';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
 
-import Limitless from "./wistia";
+import Limitless from './wistia';
 const styles = theme => ({
   overlayEffect: {
-    position: "absolute",
-    backgroundColor: "rgba(0, 0, 0, 0.7)",
+    position: 'absolute',
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
     top: 0,
     left: 0,
-    width: "100%",
-    height: "100%"
+    width: '100%',
+    height: '100%'
   },
   heroText: {
-    color: "white",
+    color: 'white',
     fontWeight: 300
   },
   margin: {
@@ -33,11 +33,11 @@ class Hero extends Component {
       <React.Fragment>
         <div
           style={{
-            padding: "0",
+            padding: '0',
             background:
-              "url(https://i.imgur.com/oxwtIbj.jpg) center center no-repeat",
-            backgroundSize: "cover",
-            position: "relative"
+              'url(https://i.imgur.com/oxwtIbj.jpg) center center no-repeat',
+            backgroundSize: 'cover',
+            position: 'relative'
           }}
         >
           <div className={classes.overlayEffect} />
@@ -69,21 +69,21 @@ class Hero extends Component {
                   className={classes.heroText}
                 >
                   Our mission is to positively impact the lives of the people in
-                  our local neighborhoods through{" "}
+                  our local neighborhoods through{' '}
                   <NavLink id="impact-link" to="/resources/impactinvesting">
                     <span
                       style={{
-                        fontWeight: "bold",
-                        color: "#00c851!important",
-                        fontStyle: "italic"
+                        fontWeight: 'bold',
+                        color: '#00c851!important',
+                        fontStyle: 'italic'
                       }}
                     >
                       impact investing
                     </span>
-                  </NavLink>{" "}
+                  </NavLink>{' '}
                   while achieving double digit returns for our investors.
                 </Typography>
-                <div style={{ textAlign: "left", marginTop: "16px" }}>
+                <div style={{ textAlign: 'left', marginTop: '16px' }}>
                   <Button
                     variant="contained"
                     color="primary"
@@ -103,7 +103,7 @@ class Hero extends Component {
               </div>
 
               <div
-                style={{ paddingBottom: "32px" }}
+                style={{ paddingBottom: '32px' }}
                 className="row flex-wrap-reverse justify-content-between align-items-center"
               >
                 <div className="col-md-6">
@@ -129,12 +129,12 @@ class Hero extends Component {
                     component="h1"
                     variant="h6"
                     className={classes.heroText}
-                    style={{ marginBottom: "20px" }}
+                    style={{ marginBottom: '20px' }}
                   >
                     Click the link below to connect with our preferred partners
                     and setup your self-directed IRA
                   </Typography>
-                  <div style={{ textAlign: "left" }}>
+                  <div style={{ textAlign: 'left' }}>
                     <Button
                       variant="contained"
                       color="primary"

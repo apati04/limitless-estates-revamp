@@ -1,5 +1,5 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 const HomeLink = props => <NavLink to="/" {...props} />;
 const AboutLink = props => <NavLink to="/members/about" {...props} />;
 
@@ -33,7 +33,7 @@ const CerritosLink = props => (
   <NavLink to="/events/meetups/cerritos" {...props} />
 );
 const PodcastLink = props => <NavLink to="/podcasts" {...props} />;
-const ContactLink = props => <NavLink to="/info/contact" {...props} />;
+const ContactLink = props => <NavLink to="/contact-us" {...props} />;
 
 export {
   AboutLink,

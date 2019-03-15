@@ -1,12 +1,12 @@
-import React from "react";
-import Avatar from "@material-ui/core/Avatar";
-import { withStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
+import React from 'react';
+import Avatar from '@material-ui/core/Avatar';
+import { withStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
 
-import CardContent from "@material-ui/core/CardContent";
-import CardHeader from "@material-ui/core/CardHeader";
+import CardContent from '@material-ui/core/CardContent';
+import CardHeader from '@material-ui/core/CardHeader';
 
-import Typography from "@material-ui/core/Typography";
+import Typography from '@material-ui/core/Typography';
 
 const styles = theme => ({
   avatar: {
@@ -19,28 +19,28 @@ const styles = theme => ({
     padding: theme.spacing.unit * 2
   },
   media: {
-    borderRadius: "50%"
+    borderRadius: '50%'
   },
   cardHeader: {
-    display: "flex",
-    alignContent: "stretch"
+    display: 'flex',
+    alignContent: 'stretch'
   },
   bigAvatar: {
     padding: theme.spacing.unit * 3,
-    borderRadius: "50%",
-    width: "100%",
+    borderRadius: '50%',
+    width: '100%',
     margin: 10
   },
   cardInfo: {
     paddingTop: theme.spacing.unit * 3,
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
-    alignContent: "stretch",
-    flexWrap: "wrap"
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    alignContent: 'stretch',
+    flexWrap: 'wrap'
   },
   center: {
-    textAlign: "center"
+    textAlign: 'center'
   }
 });
 
@@ -48,7 +48,7 @@ function Kyle(props) {
   const { classes } = props;
   return (
     <React.Fragment>
-      <Card style={{ marginBottom: "16px" }}>
+      <Card style={{ marginBottom: '16px' }}>
         <CardHeader
           avatar={
             <Avatar
@@ -57,14 +57,14 @@ function Kyle(props) {
             />
           }
           title={
-            <Typography variant="h3" gutterBottom component="h1">
+            <Typography variant="h3" paragraph component="h1">
               Kyle Mitchell
             </Typography>
           }
           subheader={
-            <Typography variant="body2" gutterBottom component="h1">
+            <Typography variant="body2" paragraph component="h1">
               Managing Partner, Limitless Estates LLC <br /> Investor |
-              Entrepreneur | Business Owner | Operator{" "}
+              Entrepreneur | Business Owner | Operator{' '}
             </Typography>
           }
           className={classes.cardHeader}
@@ -72,7 +72,7 @@ function Kyle(props) {
       </Card>
       <Card className={classes.cardStyle}>
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
+          <Typography paragraph variant="h5" component="h2">
             Biography
           </Typography>
           <Typography>
@@ -88,7 +88,7 @@ function Kyle(props) {
       </Card>
       <Card className={classes.cardStyle}>
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
+          <Typography paragraph variant="h5" component="h2">
             Real Estate Investor
           </Typography>
           <Typography>
@@ -106,7 +106,7 @@ function Kyle(props) {
       </Card>
       <Card className={classes.cardStyle}>
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
+          <Typography paragraph variant="h5" component="h2">
             Club Pilates
           </Typography>
           <Typography>
@@ -127,7 +127,7 @@ function Kyle(props) {
 
       <Card className={classes.cardStyle}>
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
+          <Typography paragraph variant="h5" component="h2">
             Real Estate Agent
           </Typography>
           <Typography>
@@ -142,7 +142,7 @@ function Kyle(props) {
 
       <Card className={classes.cardStyle}>
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
+          <Typography paragraph variant="h5" component="h2">
             American Golf
           </Typography>
           <Typography>
@@ -163,7 +163,7 @@ function Kyle(props) {
 
       <Card className={classes.cardStyle}>
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
+          <Typography paragraph variant="h5" component="h2">
             Other
           </Typography>
           <Typography>

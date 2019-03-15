@@ -1,20 +1,19 @@
-import React from "react";
+import React from 'react';
 
-import { withStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-import Grid from "@material-ui/core/Grid";
-import CardContent from "@material-ui/core/CardContent";
-import CardHeader from "@material-ui/core/CardHeader";
-import Typography from "@material-ui/core/Typography";
-import BlogTitle from "../../Layouts/BlogTitle";
-import risk from "../api/risks_p1";
-import Desktop from "../../Navigation/Desktop";
-import PageHeader from "../../Layouts/PageHeader";
+import { withStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import Grid from '@material-ui/core/Grid';
+import CardContent from '@material-ui/core/CardContent';
+import CardHeader from '@material-ui/core/CardHeader';
+import Typography from '@material-ui/core/Typography';
+import BlogTitle from '../../../layouts/BlogTitle';
+import risk from '../api/risks_p1';
+import PageHeader from '../../../layouts/PageHeader';
 const styles = theme => ({
   root: {
     flexGrow: 1,
     background: theme.palette.background.paper,
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down('sm')]: {
       padding: 0,
       margin: 0
     }
@@ -22,10 +21,11 @@ const styles = theme => ({
   cardStyle: {
     marginBottom: theme.spacing.unit / 2,
     padding: theme.spacing.unit * 2,
-    [theme.breakpoints.up("sm")]: {
+
+    [theme.breakpoints.up('md')]: {
       margin: 0,
       padding: 0,
-      boxShadow: "unset",
+      boxShadow: 'unset',
       borderRadius: 0
     }
   },
@@ -33,16 +33,17 @@ const styles = theme => ({
     marginBottom: theme.spacing.unit * 3
   },
   bodyContentHeader: {
-    borderBottom: "0.1rem solid rgba(0,0,0,0.87)",
-    paddingBottom: "4px"
+    borderBottom: '0.1rem solid rgba(0,0,0,0.87)',
+    paddingBottom: '4px'
   },
   cardBodyGrid: {
-    padding: "40px",
-    [theme.breakpoints.down("sm")]: {
-      margin: 0,
-      padding: 0
-    }
+    padding: '40px'
+    // [theme.breakpoints.down('sm')]: {
+    //   margin: '16px',
+    //   padding: 0
+    // }
   },
+
   gridItem: {
     padding: theme.spacing.unit * 2
   }
@@ -88,15 +89,10 @@ function RisksOne(props) {
     });
   }
   const { classes } = props;
-  const imgSrc = "https://i.imgur.com/8xH4YKY.jpg";
+  const imgSrc = 'https://i.imgur.com/LZDGUNH.jpg?1';
   return (
     <div className={classes.root}>
-      <PageHeader
-        title="Risks With Investing in Real Estate"
-        overlineText="Resources"
-        imgSrc={imgSrc}
-      />
-      <Desktop />
+      <PageHeader imgSrc={imgSrc} imgHeight="560px" position="center 80%" />
       <Grid
         container
         justify="center"
@@ -104,18 +100,12 @@ function RisksOne(props) {
         wrap="wrap"
         className={classes.cardBodyGrid}
       >
-        <Grid item lg={8} md={10} sm={12}>
+        <Grid item lg={8} md={10} xs={12}>
           <div className={classes.gridItem}>
-            <Typography
-              variant="caption"
-              style={{ color: "rgba(0,0,0, 0.5)" }}
-              gutterBottom
-            >
-              Home > Resources > Investing Risks
-            </Typography>
             <BlogTitle text="Risks When Investing in Real Estate" />
           </div>
-
+        </Grid>
+        <Grid item lg={8} md={10} xs={12}>
           {loadPage()}
         </Grid>
       </Grid>

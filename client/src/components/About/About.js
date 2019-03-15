@@ -1,9 +1,7 @@
-import React from "react";
-import Kyle from "./Kyle";
-import Lalita from "./Lalita";
-import TeamSideNav from "./TeamSideNav";
-import Grid from "@material-ui/core/Grid";
-import { withStyles } from "@material-ui/core/styles";
+import React from 'react';
+import Lalita from './Lalita';
+import Grid from '@material-ui/core/Grid';
+import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
   root: {

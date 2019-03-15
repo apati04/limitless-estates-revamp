@@ -1,71 +1,70 @@
-import React from "react";
-import Avatar from "@material-ui/core/Avatar";
-import { withStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-import Grid from "@material-ui/core/Grid";
-import CardContent from "@material-ui/core/CardContent";
-import CardHeader from "@material-ui/core/CardHeader";
-import Typography from "@material-ui/core/Typography";
+import React from 'react';
+import Avatar from '@material-ui/core/Avatar';
+import { withStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import Grid from '@material-ui/core/Grid';
+import CardContent from '@material-ui/core/CardContent';
+import CardHeader from '@material-ui/core/CardHeader';
+import Typography from '@material-ui/core/Typography';
 
 const styles = theme => ({
   avatar: {
-    [theme.breakpoints.down("xs")]: {
-      width: "8em",
-      height: "8em",
+    [theme.breakpoints.down('xs')]: {
+      width: '8em',
+      height: '8em',
       margin: 10
     },
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.up('sm')]: {
       margin: 10,
-      width: "10em",
-      height: "10em"
+      width: '10em',
+      height: '10em'
     }
   },
   cardHeader: {
-    flexWrap: "wrap",
-    [theme.breakpoints.down("xs")]: {
-      justifyContent: "center",
-      alignItems: "center",
-      textAlign: "center"
+    flexWrap: 'wrap',
+    [theme.breakpoints.down('xs')]: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      textAlign: 'center'
     }
   },
   headerText: {
-    [theme.breakpoints.down("xs")]: {
-      fontSize: "2rem",
+    [theme.breakpoints.down('xs')]: {
+      fontSize: '2rem',
       marginTop: theme.spacing.unit
     },
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.up('sm')]: {
       paddingLeft: theme.spacing.unit * 2
     }
   },
   subHeaderText: {
-    [theme.breakpoints.down("xs")]: {
-      fontSize: "16px"
+    [theme.breakpoints.down('xs')]: {
+      fontSize: '16px'
     },
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.up('sm')]: {
       paddingLeft: theme.spacing.unit * 2
     }
   },
   cardStyle: {
-    marginBottom: theme.spacing.unit * 2,
+    marginBottom: theme.spacing.unit,
     padding: theme.spacing.unit * 2
   },
   media: {
-    borderRadius: "50%"
+    borderRadius: '50%'
   },
   cardInfo: {
     paddingTop: theme.spacing.unit * 3,
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
-    alignContent: "stretch",
-    flexWrap: "wrap"
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    alignContent: 'stretch',
+    flexWrap: 'wrap'
   },
   center: {
-    textAlign: "center"
+    textAlign: 'center'
   },
   root: {
-    flexGrow: 1,
-    width: "100%"
+    flexGrow: 1
   }
 });
 
@@ -75,7 +74,7 @@ function Lalita(props) {
     <div className={classes.root}>
       <Grid container justify="center" alignItems="center" wrap="wrap">
         <Grid item>
-          <Card style={{ marginBottom: "16px" }}>
+          <Card style={{ marginBottom: '16px' }}>
             <CardHeader
               avatar={
                 <Avatar
@@ -86,7 +85,7 @@ function Lalita(props) {
               title={
                 <Typography
                   variant="h3"
-                  gutterBottom
+                  paragraph
                   className={classes.headerText}
                 >
                   Lalita Patipaksiri
@@ -95,7 +94,7 @@ function Lalita(props) {
               subheader={
                 <Typography
                   variant="body2"
-                  gutterBottom
+                  paragraph
                   className={classes.subHeaderText}
                 >
                   Managing Partner, Limitless Estates LLC <br /> Entrepreneur |
@@ -108,7 +107,6 @@ function Lalita(props) {
 
           <Card className={classes.cardStyle}>
             <CardHeader title="Biography" />
-
             <CardContent>
               <Typography variant="body1">
                 My passion is in helping others and making a difference in any

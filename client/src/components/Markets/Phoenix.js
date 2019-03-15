@@ -1,12 +1,12 @@
-import React from "react";
-import Grid from "@material-ui/core/Grid";
-import Card from "@material-ui/core/Card";
-import CardHeader from "@material-ui/core/CardHeader";
-import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
-import { withStyles } from "@material-ui/core/styles";
-import GoogleMap from "../GoogleMap/GoogleMap";
-import Divider from "@material-ui/core/Divider";
+import React from 'react';
+import Grid from '@material-ui/core/Grid';
+import Card from '@material-ui/core/Card';
+import CardHeader from '@material-ui/core/CardHeader';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
+import { withStyles } from '@material-ui/core/styles';
+import GoogleMap from '../GoogleMap/GoogleMap';
+import Divider from '@material-ui/core/Divider';
 const styles = theme => ({
   root: {
     flexGrow: 1,
@@ -14,13 +14,13 @@ const styles = theme => ({
   },
   mapStyle: {
     height: `300px`,
-    width: "100%"
+    width: '100%'
   },
   cardStyle: {
     padding: theme.spacing.unit * 4
   },
   dividerStyle: {
-    paddingLeft: "8px"
+    paddingLeft: '8px'
   }
 });
 function Phoenix(props) {
@@ -34,7 +34,7 @@ function Phoenix(props) {
             <CardHeader title="Phoenix, Arizona" />
             <Divider variant="middle" />
             <CardContent>
-              <Typography gutterBottom component="p" variant="body1">
+              <Typography paragraph component="p" variant="body1">
                 Phoenix is located in the heart of the fastest growing and most
                 dynamic metro area in the country. As of the Census Bureau's
                 2017 population estimates, metro Phoenix had 4,737,270
@@ -45,7 +45,7 @@ function Phoenix(props) {
                 metro area increased by 45.3% from 1990 through 2000, compared
                 to the average United States rate of 13.2%.
               </Typography>
-              <Typography gutterBottom component="p" variant="body1">
+              <Typography paragraph component="p" variant="body1">
                 The Phoenix metro area has historically been the center of the
                 state's economy. As with the state of Arizona, the area relied
                 on the 5 C's (copper, cattle, climate, citrus, and cotton) for
@@ -62,7 +62,7 @@ function Phoenix(props) {
                 Chase, which is adding 4,000 jobs, State Farm, UPS, ADP, and
                 Santander Consumer USA.
               </Typography>
-              <Typography gutterBottom component="p" variant="body1">
+              <Typography paragraph component="p" variant="body1">
                 Rental demand is being aided by strong population growth in the
                 Phoenix metro area. Besides professional families, retirees
                 continue to move to Phoenix in considerable numbers, and that
@@ -78,7 +78,7 @@ function Phoenix(props) {
                 estimates its population will reach 2.2 million with a metro
                 area that's home to 6.3 million.
               </Typography>
-              <Typography gutterBottom component="ul" variant="body1">
+              <Typography paragraph component="ul" variant="body1">
                 <li>
                   Population, job and rental rate growth all outpacing national
                   average
