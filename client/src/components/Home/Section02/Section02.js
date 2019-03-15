@@ -10,7 +10,7 @@ const styles = theme => ({
     }
   }
 });
-const Section2 = props => {
+const Section02 = props => {
   const { classes } = props;
   return (
     <div className={classes.root}>
@@ -48,4 +48,4 @@ const Section2 = props => {
   );
 };
 
-export default withStyles(styles)(Section2);
+export default withStyles(styles)(Section02);
