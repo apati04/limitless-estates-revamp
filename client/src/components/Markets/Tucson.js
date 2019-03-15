@@ -1,12 +1,12 @@
-import React from "react";
-import Grid from "@material-ui/core/Grid";
-import Card from "@material-ui/core/Card";
-import CardHeader from "@material-ui/core/CardHeader";
-import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
-import { withStyles } from "@material-ui/core/styles";
-import GoogleMap from "../GoogleMap/GoogleMap";
-import Divider from "@material-ui/core/Divider";
+import React from 'react';
+import Grid from '@material-ui/core/Grid';
+import Card from '@material-ui/core/Card';
+import CardHeader from '@material-ui/core/CardHeader';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
+import { withStyles } from '@material-ui/core/styles';
+import GoogleMap from '../GoogleMap/GoogleMap';
+import Divider from '@material-ui/core/Divider';
 const styles = theme => ({
   root: {
     flexGrow: 1,
@@ -14,13 +14,13 @@ const styles = theme => ({
   },
   mapStyle: {
     height: `${theme.spacing.unit * 42}px`,
-    width: "100%"
+    width: '100%'
   },
   cardStyle: {
     padding: theme.spacing.unit * 4
   },
   dividerStyle: {
-    paddingLeft: "8px"
+    paddingLeft: '8px'
   }
 });
 function Tucson(props) {
@@ -28,7 +28,7 @@ function Tucson(props) {
   const [lat, lng] = [32.2151078, -110.9765115];
   return (
     <div className={classes.root}>
-      <Grid container spacing={16} alignItems="start" justify="center">
+      <Grid container spacing={16} alignItems="flex-start" justify="center">
         <Grid item sm={7}>
           <Card className={classes.cardStyle}>
             <CardHeader title="Tucson, Arizona" />

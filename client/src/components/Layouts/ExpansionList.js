@@ -91,7 +91,7 @@ class SectionList extends React.Component {
 }
 
 SectionList.propTypes = {
-  itemsList: PropTypes.array.isRequired
+  itemList: PropTypes.array.isRequired
 };
 
 export default SectionList;

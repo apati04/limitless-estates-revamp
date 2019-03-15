@@ -9,7 +9,6 @@ import api from './api';
 import testImage from './tidbits-1.png';
 import Avatar from '@material-ui/core/Avatar';
 import green from '@material-ui/core/colors/green';
-import orange from '@material-ui/core/colors/orange';
 
 const SectionLink = props => (
   <Link to="/resources/why-invest-in-multifamily" {...props} />
