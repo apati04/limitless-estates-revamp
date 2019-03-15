@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import MuiExpansionPanel from '@material-ui/core/ExpansionPanel';
 import MuiExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import MuiExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Typography from '@material-ui/core/Typography';
 
 const ExpansionPanel = withStyles({
@@ -64,8 +65,8 @@ class SectionList extends React.Component {
   }
   onPageLoad() {
     const { expanded } = this.state;
-    const { itemsList } = this.props;
-    return itemsList.map(({ title, body }, index) => {
+    const { itemList } = this.props;
+    return itemList.map(({ title, body }, index) => {
       let panel = 'panel' + index;
       return (
         <ExpansionPanel
@@ -74,11 +75,11 @@ class SectionList extends React.Component {
           expanded={expanded === panel}
           onChange={this.handleChange(panel)}
         >
-          <ExpansionPanelSummary>
-            <Typography>{title}</Typography>
+          <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+            <Typography variant="h6">{title}</Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
-            <Typography>{body}</Typography>
+            <Typography component="div">{body}</Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
       );
