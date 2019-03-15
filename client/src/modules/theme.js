@@ -2,12 +2,13 @@ import { createMuiTheme } from '@material-ui/core/styles';
 import green from '@material-ui/core/colors/green';
 import grey from '@material-ui/core/colors/grey';
 import red from '@material-ui/core/colors/red';
+import blue from '@material-ui/core/colors/blue';
 
 const rawTheme = createMuiTheme({
   palette: {
     primary: {
-      ligth: '#69696a',
-      main: '#28282a',
+      light: '#69696a',
+      main: blue[900],
       dark: '#1e1e1f'
     },
     secondary: {
