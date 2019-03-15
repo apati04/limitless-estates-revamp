@@ -5,9 +5,9 @@ import Card from '@material-ui/core/Card';
 import { withStyles } from '@material-ui/core/styles';
 
 import Typography from '@material-ui/core/Typography';
-import PageHeader from '../../../layouts/PageHeader';
+import PageHeader from '../../Layouts/PageHeader';
 
-import BlogType1 from '../../../layouts/BlogType1';
+import BlogType1 from '../../Layouts/BlogType1';
 import api from '../api/why_invest';
 import grey from '@material-ui/core/colors/grey';
 const styles = theme => ({

@@ -6,9 +6,11 @@ import Grid from '@material-ui/core/Grid';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
 import Typography from '@material-ui/core/Typography';
-import BlogTitle from '../../../layouts/BlogTitle';
+import BlogTitle from '../../Layouts/BlogTitle';
+import PageHeader from '../../Layouts/PageHeader';
+
 import risk from '../api/risks_p1';
-import PageHeader from '../../../layouts/PageHeader';
+
 const styles = theme => ({
   root: {
     flexGrow: 1,

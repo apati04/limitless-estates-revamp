@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './style.css';
-import HeroUnit from '../../../layouts/HeroUnit';
+import HeroUnit from '../../Layouts/HeroUnit';
 import { withStyles } from '@material-ui/core/styles';
 import { NavLink } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';

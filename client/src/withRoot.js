@@ -1,14 +1,14 @@
-import React from "react";
-import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
-import blue from "@material-ui/core/colors/blue";
-import green from "@material-ui/core/colors/green";
-import CssBaseline from "@material-ui/core/CssBaseline";
+import React from 'react';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import blue from '@material-ui/core/colors/blue';
+import green from '@material-ui/core/colors/green';
+import CssBaseline from '@material-ui/core/CssBaseline';
 const theme = createMuiTheme({
   palette: {
     primary: {
       light: blue[500],
-      main: blue[900],
-      dark: blue[700]
+      main: blue[700],
+      dark: blue[900]
     },
     secondary: {
       light: green[300],
@@ -19,11 +19,11 @@ const theme = createMuiTheme({
   typography: {
     useNextVariants: true,
     body1: {
-      color: "rgba(12,12,15,0.87)"
+      color: 'rgba(12,12,15,0.87)'
     },
     h6: {
       fontWeight: 400,
-      color: "rgba(10,10,10,0.80)"
+      color: 'rgba(10,10,10,0.80)'
     }
   }
 });

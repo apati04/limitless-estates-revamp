@@ -2,7 +2,7 @@ import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import grey from '@material-ui/core/colors/grey';
+
 const styles = theme => ({
   root: {
     height: 20 + 'rem',
@@ -32,7 +32,7 @@ const styles = theme => ({
 });
 const Section3 = props => {
   const { classes } = props;
-  const imgUrl = 'https://i.imgur.com/vnCJr0J.jpg';
+
   return (
     <section className={classes.root}>
       <div className={classes.overlayEffect} />
