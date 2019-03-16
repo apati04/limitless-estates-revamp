@@ -18,7 +18,9 @@ const styles = theme => ({
   root: {
     flexGrow: 1
   },
-
+  mainAppBar: {
+    zIndex: 10
+  },
   imageStyles: {
     height: 'auto',
     marginBottom: '6px',
@@ -31,8 +33,8 @@ const NavBar = props => {
   const { classes } = props;
   return (
     <div className={classes.root}>
-      <AppBar elevation={0} position="static" className={classes.mainAppBar}>
-        <Toolbar>
+      <AppBar elevation={1} position="fixed" className={classes.mainAppBar}>
+        <Toolbar className={classes.mainAppBar}>
           <img
             alt="logo"
             src="https://i.imgur.com/IlUnKOe.png"

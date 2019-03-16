@@ -26,15 +26,14 @@ class App extends Component {
       <React.Fragment>
         <NoSsr>
           <Router>
-            <ScrollToTop>
-              <Route
-                render={props => {
-                  return <Navigation currLocation={props.location} />;
-                }}
-              />
-
-              <Suspense fallback={<LoadingMessage />}>
-                <Switch>
+            <Suspense fallback={<LoadingMessage />}>
+              <Switch>
+                <ScrollToTop>
+                  <Route
+                    render={props => {
+                      return <Navigation currLocation={props.location} />;
+                    }}
+                  />
                   <Route exact path="/" component={Home} />
 
                   <Route exact path="/podcasts" component={Podcast} />
@@ -60,9 +59,9 @@ class App extends Component {
                     path="/events/meetups/longbeach"
                     component={LongBeachMeetup}
                   />
-                </Switch>
-              </Suspense>
-            </ScrollToTop>
+                </ScrollToTop>
+              </Switch>
+            </Suspense>
           </Router>
         </NoSsr>
       </React.Fragment>

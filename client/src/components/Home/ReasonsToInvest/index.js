@@ -9,7 +9,6 @@ import api from './api';
 import testImage from './tidbits-1.png';
 import Avatar from '@material-ui/core/Avatar';
 import green from '@material-ui/core/colors/green';
-import blue from '@material-ui/core/colors/blue';
 import Hidden from '@material-ui/core/Hidden';
 import bgpattern from './bg11.jpg';
 const SectionLink = props => (

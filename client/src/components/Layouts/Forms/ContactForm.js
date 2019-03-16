@@ -4,10 +4,10 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
 import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
-import * as Yup from 'yup';
+// import Button from '@material-ui/core/Button';
+// import * as Yup from 'yup';
 import Recaptcha from 'react-recaptcha';
-import axios from 'axios';
+// import axios from 'axios';
 import { withRouter } from 'react-router-dom';
 import { TextField } from 'formik-material-ui';
 import { withStyles } from '@material-ui/core/styles';
@@ -19,7 +19,7 @@ const styles = theme => ({
 });
 class ContactForm extends Component {
   render() {
-    const { classes } = this.props;
+    // const { classes } = this.props;
     return (
       <Formik
         initialValues={{

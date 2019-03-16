@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ctaImg from './investors-pdf.jpg';
-import SubForm from './SubForm';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-
+// import LayoutBody from '../../Layouts/LayoutBody';
+import CTAForm from './CTAForm';
 const styles = theme => ({
   root: {
     marginTop: theme.spacing.unit * 10,
@@ -30,10 +30,10 @@ class CallToAction extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <div className={classes.root}>
+      <div component="section" width="large" className={classes.root}>
         <Grid container>
           <Grid item xs={12} md={6} className={classes.cardWrapper}>
-            <SubForm />
+            <CTAForm />
           </Grid>
           <Grid item xs={12} md={6} className={classes.imagesWrapper} />
         </Grid>
