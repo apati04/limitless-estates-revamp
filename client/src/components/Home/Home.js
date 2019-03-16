@@ -6,7 +6,7 @@ import ReasonsToInvest from './ReasonsToInvest/';
 import Section04 from './Section04/';
 import Section05 from './Section05/';
 import Section06 from './Section06/';
-import Section07 from './Section07/';
+import CallToAction from './CallToAction/';
 
 export default function Home() {
   return (
@@ -19,7 +19,7 @@ export default function Home() {
       <Section04 />
       <Section05 />
       <Section06 />
-      <Section07 />
+      <CallToAction />
     </div>
   );
 }

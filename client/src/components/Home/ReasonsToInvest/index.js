@@ -10,6 +10,7 @@ import testImage from './tidbits-1.png';
 import Avatar from '@material-ui/core/Avatar';
 import green from '@material-ui/core/colors/green';
 import blue from '@material-ui/core/colors/blue';
+import Hidden from '@material-ui/core/Hidden';
 import bgpattern from './bg11.jpg';
 const SectionLink = props => (
   <Link to="/resources/why-invest-in-multifamily" {...props} />
@@ -67,10 +68,7 @@ const styles = theme => ({
     padding: '42px 0px',
     height: 360,
     width: 360,
-    background: green['A700'],
-    [theme.breakpoints.down('sm')]: {
-      display: 'none'
-    }
+    background: green['A700']
   }
 });
 const Section3 = props => {
@@ -103,11 +101,14 @@ const Section3 = props => {
           </Grid>
           <Grid item md={6} xs={12}>
             <div style={{ textAlign: 'center' }}>
-              <Avatar
-                alt="investment"
-                src={testImage}
-                className={classes.avatar}
-              />
+              <Hidden smDown>
+                <Avatar
+                  alt="investment"
+                  src={testImage}
+                  className={classes.avatar}
+                />
+              </Hidden>
+
               <Button
                 component={SectionLink}
                 variant="contained"

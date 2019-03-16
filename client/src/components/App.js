@@ -54,7 +54,7 @@ class App extends Component {
                       );
                     }}
                   />
-                  <Route exact path="/info/contact" component={Contact} />
+                  <Route exact path="/contact-us" component={Contact} />
                   <Route
                     exact
                     path="/events/meetups/longbeach"
