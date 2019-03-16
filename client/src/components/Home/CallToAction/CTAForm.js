@@ -17,8 +17,10 @@ const CTAForm = props => {
   return (
     <div className={classes.card}>
       <SubscribeForm
-        title="Receive offers"
-        subHeader="Get your free investors guide."
+        title="Insights and Analysis"
+        subHeader="Subscribe to Limitless Estates and get your 
+FREE Passive Investors Guide!"
+        buttonText="Get the Guide"
         formStyle={classes.cardContent}
       />
     </div>

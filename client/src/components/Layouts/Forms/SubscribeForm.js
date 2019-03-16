@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Formik, Field } from 'formik';
 import PropTypes from 'prop-types';
-import Button from '@material-ui/core/Button';
+import Button from '../Button';
 import * as Yup from 'yup';
 import Recaptcha from 'react-recaptcha';
 import axios from 'axios';
+import './style.css';
 import Typography from '../../Layouts/Typography';
 import { withRouter } from 'react-router-dom';
 import { TextField } from 'formik-material-ui';
@@ -18,6 +19,11 @@ const styles = theme => ({
     width: '100%',
     marginTop: theme.spacing.unit * 3,
     marginBottom: theme.spacing.unit * 2
+  },
+  button: {
+    width: '100%',
+    backgroundColor: 'rgba(40,40,42,1)',
+    color: theme.palette.common.white
   }
 });
 class SubscribeForm extends Component {
@@ -63,14 +69,15 @@ class SubscribeForm extends Component {
               {this.props.title}
             </Typography>
             <Typography variant="h5">{this.props.subHeader}</Typography>
+
             <Field
-              required
               component={TextField}
               className={classes.textField}
               type="email"
               label="Your Email Address"
               name="email"
               variant="outlined"
+              id="nife"
             />
 
             <div className=" py-3">
@@ -89,8 +96,14 @@ class SubscribeForm extends Component {
                 <p>{errors.recaptcha}</p>
               )}
             </div>
-            <Button variant="contained" type="submit" disabled={isSubmitting}>
-              Submit
+            <Button
+              variant="contained"
+              color="inherit"
+              type="submit"
+              disabled={isSubmitting}
+              className={classes.button}
+            >
+              {this.props.buttonText}
             </Button>
           </form>
         )}
@@ -102,6 +115,7 @@ class SubscribeForm extends Component {
 SubscribeForm.propTypes = {
   classes: PropTypes.object.isRequired,
   title: PropTypes.string.isRequired,
-  subHeader: PropTypes.string.isRequired
+  subHeader: PropTypes.string.isRequired,
+  buttonText: PropTypes.string.isRequired
 };
 export default withStyles(styles)(withRouter(SubscribeForm));
