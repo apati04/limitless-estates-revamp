@@ -2,7 +2,7 @@ import React from 'react';
 import Lalita from './Lalita';
 import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
-
+import Activities from './Activities';
 const styles = theme => ({
   root: {
     flexGrow: 1
@@ -12,18 +12,21 @@ const styles = theme => ({
     color: theme.palette.text.secondary
   }
 });
+
 function About(props) {
-  const { classes } = props;
-  return (
-    <div className={classes.root}>
-      <Grid container justify="center" alignItems="center">
-        <Grid item md={2} />
-        <Grid item md={8} className={classes.paper}>
-          <Lalita />
-        </Grid>
-        <Grid item md={2} />
-      </Grid>
-    </div>
-  );
+  const { classes, id, location } = props;
+  console.log(location, id);
+  const handleView = () => {
+    switch (location.pathname) {
+      case '/about/what-we-do':
+        return <Activities />;
+      case '/about/team/lalita':
+        return <Lalita />;
+      default:
+        return <div>nomatch</div>;
+    }
+  };
+
+  return <div className={classes.root}>{handleView()}</div>;
 }
 export default withStyles(styles)(About);

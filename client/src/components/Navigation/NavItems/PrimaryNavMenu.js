@@ -11,6 +11,7 @@ const dropdownItems = {
       title="About"
       listItems={[
         { title: 'Meet The Team', slug: '/about/team' },
+        { title: 'What we do', slug: '/about/what-we-do' },
         { title: 'Contact Us', slug: '/contact' }
       ]}
     />

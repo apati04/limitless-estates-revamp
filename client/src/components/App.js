@@ -37,7 +37,15 @@ class App extends Component {
                   <Route exact path="/" component={Home} />
 
                   <Route exact path="/podcasts" component={Podcast} />
-                  <Route exact path="/about/team" component={About} />
+                  <Route
+                    path="/about/:id"
+                    render={props => (
+                      <About
+                        id={props.match.params.id}
+                        location={props.location}
+                      />
+                    )}
+                  />
                   <Route exact path="/markets/tucson" component={Tucson} />
                   <Route exact path="/markets/phoenix" component={Phoenix} />
                   <Route exact path="/markets/columbus" component={Columbus} />
