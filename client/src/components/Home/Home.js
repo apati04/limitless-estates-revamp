@@ -1,7 +1,8 @@
 import React from 'react';
 import Hero from './Hero/Hero';
-import Section02 from './Section02/';
-import Section03 from './Section03/';
+import SelfDirectIra from './SelfDirectIra/';
+import IconSection from './IconSection/';
+import ReasonsToInvest from './ReasonsToInvest/';
 import Section04 from './Section04/';
 import Section05 from './Section05/';
 import Section06 from './Section06/';
@@ -11,8 +12,10 @@ export default function Home() {
   return (
     <div>
       <Hero />
-      <Section02 />
-      <Section03 />
+      <IconSection />
+      <SelfDirectIra />
+
+      <ReasonsToInvest />
       <Section04 />
       <Section05 />
       <Section06 />

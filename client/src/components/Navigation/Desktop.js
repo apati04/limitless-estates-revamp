@@ -14,26 +14,25 @@ import PrimaryNavMenu from './NavItems/PrimaryNavMenu';
   }
  */
 //asdf
-const styles = {
+const styles = theme => ({
   root: {
     flexGrow: 1
   },
-  appBar: {
-    minHeight: '56px'
-  },
+
   imageStyles: {
     height: 'auto',
     marginBottom: '6px',
     width: '9rem',
     display: 'inline-block'
   }
-};
+});
+
 const NavBar = props => {
   const { classes } = props;
   return (
     <div className={classes.root}>
-      <AppBar elevation={0} position="relative">
-        <Toolbar className={classes.appBar}>
+      <AppBar elevation={0} position="static" className={classes.mainAppBar}>
+        <Toolbar>
           <img
             alt="logo"
             src="https://i.imgur.com/IlUnKOe.png"

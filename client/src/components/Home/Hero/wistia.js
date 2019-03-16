@@ -15,7 +15,7 @@ class Limitless extends Component {
     return (
       <div
         className={this.props.wistiaClass}
-        style={{ height: '100%', position: 'relative', width: '100%' }}
+        style={{ height: '100%', position: 'relative', width: '80%' }}
       >
         <div
           className="wistia_swatch"
@@ -27,7 +27,7 @@ class Limitless extends Component {
             position: 'absolute',
             top: 0,
             transition: 'opacity 200ms',
-            width: '100%'
+            width: '80%'
           }}
         >
           <img
@@ -36,7 +36,7 @@ class Limitless extends Component {
               filter: 'blur(5px)',
               height: '100%',
               objectFit: 'contain',
-              width: '100%'
+              width: '80%'
             }}
             alt=""
           />

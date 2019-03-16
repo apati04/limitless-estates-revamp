@@ -2,8 +2,10 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import IconTemplate from './iconTemplate';
 import { withStyles } from '@material-ui/core/styles';
+import grey from '@material-ui/core/colors/grey';
 const styles = theme => ({
   root: {
+    background: grey[50],
     padding: '40px',
     [theme.breakpoints.down('xs')]: {
       padding: '20px'

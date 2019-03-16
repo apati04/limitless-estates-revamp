@@ -9,7 +9,8 @@ import api from './api';
 import testImage from './tidbits-1.png';
 import Avatar from '@material-ui/core/Avatar';
 import green from '@material-ui/core/colors/green';
-
+import blue from '@material-ui/core/colors/blue';
+import bgpattern from './bg11.jpg';
 const SectionLink = props => (
   <Link to="/resources/why-invest-in-multifamily" {...props} />
 );
@@ -18,8 +19,11 @@ const styles = theme => ({
     minHeight: 20 + 'rem',
     padding: '80px',
     position: 'relative',
-    background: `url(https://i.imgur.com/vnCJr0J.jpg) no-repeat center`,
-    backgroundSize: 'cover'
+    background: `url(${bgpattern}) no-repeat center center`,
+    backgroundSize: 'cover',
+    [theme.breakpoints.down('sm')]: {
+      padding: '16px'
+    }
   },
   buttonMargin: {
     margin: theme.spacing.unit * 2,
@@ -34,7 +38,7 @@ const styles = theme => ({
   },
   overlayEffect: {
     position: 'absolute',
-    backgroundColor: 'rgba(0, 0, 0, 0.55)',
+    backgroundColor: 'rgba(10,10,18,0.7)',
     top: 0,
     left: 0,
     width: '100%',
@@ -42,7 +46,10 @@ const styles = theme => ({
   },
   headerText: {
     color: 'white',
-    fontWeight: 300
+    fontWeight: 300,
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '2rem'
+    }
   },
   headerContainer: {
     position: 'relative',
@@ -50,7 +57,10 @@ const styles = theme => ({
   },
   gridContainer: {
     height: '100%',
-    marginBottom: '48px'
+    marginBottom: '48px',
+    [theme.breakpoints.down('sm')]: {
+      margin: 10
+    }
   },
   avatar: {
     margin: '0 auto',
@@ -76,7 +86,7 @@ const Section3 = props => {
           alignItems="center"
           className={classes.gridContainer}
         >
-          <Grid item xs={12} style={{ marginBottom: '16px' }}>
+          <Grid item xs={12}>
             <Typography
               variant="h2"
               align="center"
@@ -88,7 +98,7 @@ const Section3 = props => {
           </Grid>
         </Grid>
         <Grid container justify="flex-end" alignItems="center" spacing={16}>
-          <Grid item md={6}>
+          <Grid item xs={12} md={6}>
             <ExpansionList itemList={api} />
           </Grid>
           <Grid item md={6} xs={12}>

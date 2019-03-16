@@ -4,8 +4,9 @@ import HeroUnit from '../../Layouts/HeroUnit';
 import { withStyles } from '@material-ui/core/styles';
 import { NavLink } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
+import Divider from '@material-ui/core/Divider';
 
 import Limitless from './wistia';
 const styles = theme => ({
@@ -23,6 +24,19 @@ const styles = theme => ({
   },
   margin: {
     margin: theme.spacing.unit
+  },
+  gridContainer: {
+    padding: theme.spacing.unit * 6
+  },
+  heroTitle: {
+    color: 'white',
+    marginBottom: '8px'
+  },
+  divider: {
+    background: 'red',
+    height: '4px',
+    margin: '24px 0',
+    width: '20%'
   }
 });
 
@@ -44,16 +58,32 @@ class Hero extends Component {
           <HeroUnit>
             <Grid
               container
+              spacing={24}
               justify="space-between"
-              alignItems="center"
+              alignItems="flex-start"
+              className={classes.gridContainer}
               wrap="wrap"
             >
-              <Grid item>
+              <Grid
+                item
+                md={6}
+                style={{ paddingRight: '10px' }}
+                className={classes.gridItem}
+              >
                 <Typography
                   align="left"
-                  gutterBottom
+                  variant="h2"
+                  paragraph
+                  className={classes.heroTitle}
+                >
+                  Limitless Estates
+                </Typography>
+                <Divider className={classes.divider} />
+                <Typography
+                  align="left"
+                  paragraph
                   component="h1"
-                  variant="h6"
+                  variant="h5"
                   className={classes.heroText}
                 >
                   Our vision at Limitless Estates is to provide A-class living
@@ -63,9 +93,9 @@ class Hero extends Component {
                 </Typography>
                 <Typography
                   align="left"
-                  gutterBottom
+                  paragraph
                   component="h1"
-                  variant="h6"
+                  variant="h5"
                   className={classes.heroText}
                 >
                   Our mission is to positively impact the lives of the people in
@@ -83,7 +113,7 @@ class Hero extends Component {
                   </NavLink>{' '}
                   while achieving double digit returns for our investors.
                 </Typography>
-                <div style={{ textAlign: 'left', marginTop: '16px' }}>
+                {/* <div style={{ textAlign: 'left', marginTop: 'auto' }}>
                   <Button
                     variant="contained"
                     color="primary"
@@ -92,64 +122,18 @@ class Hero extends Component {
                   >
                     Investor Questionnaire
                   </Button>
-                </div>
+                </div> */}
               </Grid>
 
-              <div className="col-md-6">
+              <Grid item md={6} className={classes.gridItem}>
                 <Limitless
                   wistiaSrc="https://fast.wistia.com/embed/medias/pueh6irs0z/swatch"
                   wistiaClass="wistia_embed wistia_async_pueh6irs0z videoFoam=true"
                 />
-              </div>
-
-              <div
-                style={{ paddingBottom: '32px' }}
-                className="row flex-wrap-reverse justify-content-between align-items-center"
-              >
-                <div className="col-md-6">
-                  <Limitless
-                    wistiaSrc="https://fast.wistia.com/embed/medias/mtdamm7u8i/swatch"
-                    wistiaClass="wistia_embed wistia_async_mtdamm7u8i videoFoam=true"
-                  />
-                </div>
-                <div className="col-md-6">
-                  <Typography
-                    align="left"
-                    gutterBottom
-                    component="h1"
-                    variant="h6"
-                    className={classes.heroText}
-                  >
-                    Did you know you can invest with your 401k/IRA? Watch the
-                    video to find out more.
-                  </Typography>
-                  <Typography
-                    align="left"
-                    gutterBottom
-                    component="h1"
-                    variant="h6"
-                    className={classes.heroText}
-                    style={{ marginBottom: '20px' }}
-                  >
-                    Click the link below to connect with our preferred partners
-                    and setup your self-directed IRA
-                  </Typography>
-                  <div style={{ textAlign: 'left' }}>
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      size="large"
-                      className={classes.margin}
-                    >
-                      Preferred Partners
-                    </Button>
-                  </div>
-                </div>
-              </div>
+              </Grid>
             </Grid>
           </HeroUnit>
         </div>
-        {/* next row */}
       </React.Fragment>
     );
   }
