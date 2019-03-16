@@ -4,7 +4,13 @@ import Grid from '@material-ui/core/Grid';
 
 import Button from '@material-ui/core/Button';
 import * as navRoutes from '../routes';
-
+import { withStyles } from '@material-ui/core/styles';
+const styles = theme => ({
+  root: {
+    fontFamily: 'Roboto Condensed',
+    fontSize: '1rem'
+  }
+});
 const dropdownItems = {
   About: (
     <DropdownItem
@@ -80,31 +86,33 @@ const refactorUrl = {
   Contact: navRoutes.ContactLink
 };
 
-const renderNavItems = () => {
-  const keys = Object.keys(refactorUrl);
-  return keys.map((item, index) => {
-    if (refactorUrl[item].hasOwnProperty('dropdown')) {
+const PrimaryNavMenu = props => {
+  const { classes } = props;
+  const renderNavItems = () => {
+    const keys = Object.keys(refactorUrl);
+    return keys.map((item, index) => {
+      if (refactorUrl[item].hasOwnProperty('dropdown')) {
+        return (
+          <Grid item key={index}>
+            {dropdownItems[item]}
+          </Grid>
+        );
+      }
       return (
         <Grid item key={index}>
-          {dropdownItems[item]}
+          <Button
+            size="small"
+            component={navRoutes[`${item}Link`]}
+            color="inherit"
+            variant="text"
+            className={classes.root}
+          >
+            {item}
+          </Button>
         </Grid>
       );
-    }
-    return (
-      <Grid item key={index}>
-        <Button
-          size="small"
-          component={navRoutes[`${item}Link`]}
-          color="inherit"
-          variant="text"
-        >
-          {item}
-        </Button>
-      </Grid>
-    );
-  });
-};
-const PrimaryNavMenu = () => {
+    });
+  };
   return (
     <Grid container justify="flex-end" wrap="nowrap" alignItems="center">
       {renderNavItems()}
@@ -112,4 +120,4 @@ const PrimaryNavMenu = () => {
   );
 };
 
-export default PrimaryNavMenu;
+export default withStyles(styles)(PrimaryNavMenu);

@@ -11,7 +11,8 @@ import {
   Home,
   Tucson,
   Columbus,
-  Resources
+  Resources,
+  Questionnaire
 } from './pages';
 import ScrollToTop from '../util/ScrollToTop';
 import withRoot from '../withRoot';
@@ -49,6 +50,12 @@ class App extends Component {
                   <Route exact path="/markets/tucson" component={Tucson} />
                   <Route exact path="/markets/phoenix" component={Phoenix} />
                   <Route exact path="/markets/columbus" component={Columbus} />
+                  <Route
+                    exact
+                    path="/investors/form"
+                    component={Questionnaire}
+                  />
+
                   <Route
                     exact
                     path="/resources/:id"

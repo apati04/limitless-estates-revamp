@@ -21,8 +21,6 @@ export default function Home() {
       <Section05 />
       <Section06 />
       <CallToAction />
-      <h1>remove after</h1>
-      <ImageGrid />
     </div>
   );
 }

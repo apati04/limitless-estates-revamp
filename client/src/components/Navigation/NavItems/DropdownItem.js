@@ -15,7 +15,9 @@ import ArrowDropDown from '@material-ui/icons/ArrowDropDown';
 
 const styles = theme => ({
   root: {
-    display: 'flex'
+    display: 'flex',
+    fontFamily: 'Roboto Condensed',
+    fontSize: '1rem'
   },
   paper: {
     marginRight: theme.spacing.unit * 2
@@ -78,6 +80,7 @@ class MenuListComposition extends React.Component {
           onClick={this.handleToggle}
           onMouseEnter={this.handleToggle}
           onMouseLeave={this.handleToggle}
+          className={classes.root}
         >
           {this.props.title}
           <ArrowDropDown />
