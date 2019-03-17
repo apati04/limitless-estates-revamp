@@ -1,17 +1,10 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import { TextField, Checkbox } from 'formik-material-ui';
+import { TextField } from 'formik-material-ui';
 import { Field } from 'formik';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import { withStyles } from '@material-ui/core/styles';
-const initialState = {
-  q1: '',
-  q2: ''
-};
-const Info = props => {
-  const { classes } = props;
 
+const Info = props => {
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>

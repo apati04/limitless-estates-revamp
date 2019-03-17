@@ -87,7 +87,7 @@ const styles = theme => ({
   }
 });
 const PrimaryNavMenu = props => {
-  const { classes, location } = props;
+  const { classes } = props;
   const renderNavItems = () => {
     const keys = Object.keys(refactorUrl);
     return keys.map((item, index) => {

@@ -13,7 +13,7 @@ const styles = theme => ({
 });
 
 function About(props) {
-  const { classes, id, location } = props;
+  const { classes, location } = props;
   const handleView = () => {
     switch (location.pathname) {
       case '/about/what-we-do':

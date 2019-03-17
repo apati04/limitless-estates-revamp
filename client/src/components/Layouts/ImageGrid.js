@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
-import Grid from '@material-ui/core/Grid';
 import tileData from './images/tileData';
 import Hidden from '@material-ui/core/Hidden';
 const styles = theme => ({

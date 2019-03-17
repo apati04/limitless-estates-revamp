@@ -11,7 +11,6 @@ import Divider from '@material-ui/core/Divider';
 
 import MenuIcon from '@material-ui/icons/Menu';
 import Grid from '@material-ui/core/Grid';
-import Hidden from '@material-ui/core/Hidden';
 // -----------
 import ListSubheader from '@material-ui/core/ListSubheader';
 import List from '@material-ui/core/List';

@@ -24,9 +24,7 @@ const styles = theme => ({
   }
 });
 function NavMain(props) {
-  const { classes } = props;
-  console.log('props location', props.currLocation);
-
+  // console.log('props location', props.currLocation);
   return (
     <Fragment>
       <BrowserView>

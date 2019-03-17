@@ -1,37 +1,33 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import MultistepForm from '../Layouts/Forms/WizardForm/Multistep';
+import withStyles from '@material-ui/core/styles/withStyles';
+// form style components
+import Paper from '@material-ui/core/Paper';
+import Stepper from '@material-ui/core/Stepper';
+import Step from '@material-ui/core/Step';
+import StepLabel from '@material-ui/core/StepLabel';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+//---- form pages
 import BasicInformation from './FormPage/BasicInformation';
 import Info from './FormPage/Info';
+import Review from './FormPage/Review';
+//----------
 const styles = theme => ({
   root: {
-    display: 'flex',
-    flexGrow: 1,
-    height: '100vh',
-    padding: '80px'
+    flexGrow: 1
   }
 });
 
-const Questionnaire = props => {
-  const { classes } = props;
-  return (
-    <div className={classes.root}>
-      <Grid container justify="center" alignItems="flex-start">
-        <Grid item xs={12}>
-          <MultistepForm
-            formTitle="Investor Questionnaire"
-            formPages={[BasicInformation, Info]}
-          />
-        </Grid>
-      </Grid>
-    </div>
-  );
-};
+class InvestorForm extends Component {
+  render() {
+    const { classes } = this.props;
+    return <div className={classes.root}>{/* investor form */} test</div>;
+  }
+}
 
-Questionnaire.propTypes = {
+InvestorForm.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(Questionnaire);
+export default withStyles(styles)(InvestorForm);

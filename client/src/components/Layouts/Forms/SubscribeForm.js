@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import Button from '../Button';
 import * as Yup from 'yup';
 import Recaptcha from 'react-recaptcha';
-import axios from 'axios';
 import './style.css';
 import Typography from '../../Layouts/Typography';
 import { withRouter } from 'react-router-dom';

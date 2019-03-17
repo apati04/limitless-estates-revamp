@@ -1,18 +1,12 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import { TextField, Checkbox } from 'formik-material-ui';
+import { TextField } from 'formik-material-ui';
 import { Field } from 'formik';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import { withStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-const initialValues = {
-  fullname: '',
-  email: ''
-};
-const PageOne = props => {
-  const { classes } = props;
 
+import Button from '@material-ui/core/Button';
+
+const PageOne = props => {
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
