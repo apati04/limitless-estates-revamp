@@ -12,11 +12,16 @@ import Typography from '@material-ui/core/Typography';
 import BasicInformation from './FormPage/BasicInformation';
 import Info from './FormPage/Info';
 import Review from './FormPage/Review';
-//----------
+//-----------
 const styles = theme => ({
   root: {
     flexGrow: 1
-  }
+  },
+  layout: {},
+  paper: {},
+  stepper: {},
+  button: {},
+  buttons: {}
 });
 
 class InvestorForm extends Component {
