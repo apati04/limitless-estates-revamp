@@ -23,12 +23,39 @@ const styles = theme => ({
   button: {},
   buttons: {}
 });
-
+const steps = [
+  'Basic Information',
+  'Investor Information',
+  'Review and Submit'
+];
+function getStepContent(step) {
+  switch (step) {
+    case 0:
+      return <BasicInformation />;
+    case 1:
+      return <Info />;
+    case 2:
+      return <Review />;
+    default:
+      throw new Error('Something went Wrong');
+  }
+}
 class InvestorForm extends Component {
+  state = { activeStep: 0 };
   render() {
     const { classes } = this.props;
     return <div className={classes.root}>{/* investor form */} test</div>;
   }
+  _handleNext = () => {
+    this.setState(prevState => ({ activeStep: prevState + 1 }));
+  };
+  _handleBack = () => {
+    this.setState(prevState => ({ activeStep: prevState - 1 }));
+  };
+  _handleReset = () => {
+    this.setState({ activeStep: 0 });
+  };
+  render() {}
 }
 
 InvestorForm.propTypes = {
