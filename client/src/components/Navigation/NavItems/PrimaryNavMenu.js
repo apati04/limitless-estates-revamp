@@ -1,16 +1,10 @@
 import React from 'react';
 import DropdownItem from './DropdownItem';
 import Grid from '@material-ui/core/Grid';
-
 import Button from '@material-ui/core/Button';
 import * as navRoutes from '../routes';
 import { withStyles } from '@material-ui/core/styles';
-const styles = theme => ({
-  root: {
-    fontFamily: 'Roboto Condensed',
-    fontSize: '1rem'
-  }
-});
+
 const dropdownItems = {
   About: (
     <DropdownItem
@@ -86,8 +80,14 @@ const refactorUrl = {
   Contact: navRoutes.ContactLink
 };
 
+const styles = theme => ({
+  root: {
+    fontFamily: 'Roboto Condensed',
+    fontSize: '1rem'
+  }
+});
 const PrimaryNavMenu = props => {
-  const { classes } = props;
+  const { classes, location } = props;
   const renderNavItems = () => {
     const keys = Object.keys(refactorUrl);
     return keys.map((item, index) => {

@@ -7,12 +7,12 @@ import Section04 from './Section04/';
 import Section05 from './Section05/';
 import Section06 from './Section06/';
 import CallToAction from './CallToAction/';
-import ImageGrid from '../Layouts/ImageGrid';
 
 export default function Home() {
   return (
-    <div>
+    <React.Fragment>
       <Hero />
+
       <IconSection />
       <SelfDirectIra />
 
@@ -21,6 +21,6 @@ export default function Home() {
       <Section05 />
       <Section06 />
       <CallToAction />
-    </div>
+    </React.Fragment>
   );
 }

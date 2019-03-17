@@ -1,27 +1,27 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import { Link } from "react-router-dom";
-import { withStyles } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
+import { Link } from 'react-router-dom';
+import { withStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
 
-import IconButton from "@material-ui/core/IconButton";
-import Drawer from "@material-ui/core/Drawer";
-import Divider from "@material-ui/core/Divider";
+import IconButton from '@material-ui/core/IconButton';
+import Drawer from '@material-ui/core/Drawer';
+import Divider from '@material-ui/core/Divider';
 
-import MenuIcon from "@material-ui/icons/Menu";
-import Grid from "@material-ui/core/Grid";
-
+import MenuIcon from '@material-ui/icons/Menu';
+import Grid from '@material-ui/core/Grid';
+import Hidden from '@material-ui/core/Hidden';
 // -----------
-import ListSubheader from "@material-ui/core/ListSubheader";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
+import ListSubheader from '@material-ui/core/ListSubheader';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
 
-import ListItemText from "@material-ui/core/ListItemText";
-import Collapse from "@material-ui/core/Collapse";
+import ListItemText from '@material-ui/core/ListItemText';
+import Collapse from '@material-ui/core/Collapse';
 
-import ExpandLess from "@material-ui/icons/ExpandLess";
-import ExpandMore from "@material-ui/icons/ExpandMore";
+import ExpandLess from '@material-ui/icons/ExpandLess';
+import ExpandMore from '@material-ui/icons/ExpandMore';
 
 import {
   AboutLink,
@@ -38,7 +38,7 @@ import {
   CerritosLink,
   PodcastLink,
   ContactLink
-} from "../routes";
+} from '../routes';
 // const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
 
 const styles = theme => ({
@@ -50,11 +50,11 @@ const styles = theme => ({
     marginRight: 20
   },
   root: {
-    width: "100%",
+    width: '100%',
     maxWidth: 360,
     minWidth: 306,
     backgroundcolor: theme.palette.background.paper,
-    color: "black",
+    color: 'black',
     paddingRight: 0
   },
   appRoot: {
@@ -67,12 +67,12 @@ const styles = theme => ({
     paddingLeft: theme.spacing.unit * 5
   },
   nestedItem: {
-    fontSize: "0.75rem"
+    fontSize: '0.75rem'
   },
   imageStyles: {
-    maxWidth: "100%",
-    height: "auto",
-    width: "10em"
+    maxWidth: '100%',
+    height: 'auto',
+    width: '10em'
   }
 });
 class MobileTopNavbar extends Component {
@@ -94,7 +94,7 @@ class MobileTopNavbar extends Component {
         subheader={
           <ListSubheader
             className={classes.listItem}
-            style={{ color: "black" }}
+            style={{ color: 'black' }}
             component={HomeLink}
           >
             Limitless Estates LLC
@@ -106,7 +106,7 @@ class MobileTopNavbar extends Component {
         <ListItem
           className={classes.listItem}
           button
-          onClick={this.toggleDrawer("left", false)}
+          onClick={this.toggleDrawer('left', false)}
           component={AboutLink}
         >
           <ListItemText primary="About" />
@@ -116,7 +116,7 @@ class MobileTopNavbar extends Component {
         <ListItem
           className={classes.listItem}
           button
-          onClick={this.handleListClick("markets")}
+          onClick={this.handleListClick('markets')}
         >
           <ListItemText primary="Markets" />
           {this.state.markets ? <ExpandLess /> : <ExpandMore />}
@@ -126,7 +126,7 @@ class MobileTopNavbar extends Component {
           <List dense component="div" disablePadding>
             <ListItem
               button
-              onClick={this.toggleDrawer("left", false)}
+              onClick={this.toggleDrawer('left', false)}
               className={classes.nested}
               component={TucsonLink}
             >
@@ -134,7 +134,7 @@ class MobileTopNavbar extends Component {
             </ListItem>
             <ListItem
               button
-              onClick={this.toggleDrawer("left", false)}
+              onClick={this.toggleDrawer('left', false)}
               className={classes.nested}
               component={PhoenixLink}
             >
@@ -142,7 +142,7 @@ class MobileTopNavbar extends Component {
             </ListItem>
             <ListItem
               button
-              onClick={this.toggleDrawer("left", false)}
+              onClick={this.toggleDrawer('left', false)}
               className={classes.nested}
               component={ColumbusLink}
             >
@@ -154,7 +154,7 @@ class MobileTopNavbar extends Component {
         <ListItem
           className={classes.listItem}
           button
-          onClick={this.handleListClick("resources")}
+          onClick={this.handleListClick('resources')}
         >
           <ListItemText primary="Resources" />
           {this.state.resources ? <ExpandLess /> : <ExpandMore />}
@@ -162,14 +162,14 @@ class MobileTopNavbar extends Component {
         <Divider light />
         <Collapse in={this.state.resources} timeout="auto" unmountOnExit>
           <List
-            style={{ backgroundColor: "#f9f9f9" }}
+            style={{ backgroundColor: '#f9f9f9' }}
             dense
             component="div"
             disablePadding
           >
             <ListItem
               button
-              onClick={this.toggleDrawer("left", false)}
+              onClick={this.toggleDrawer('left', false)}
               className={classes.nested}
               component={WhyInvestLink}
             >
@@ -177,7 +177,7 @@ class MobileTopNavbar extends Component {
             </ListItem>
             <ListItem
               button
-              onClick={this.toggleDrawer("left", false)}
+              onClick={this.toggleDrawer('left', false)}
               className={classes.nested}
               component={ImpactInvestingLink}
             >
@@ -185,7 +185,7 @@ class MobileTopNavbar extends Component {
             </ListItem>
             <ListItem
               button
-              onClick={this.toggleDrawer("left", false)}
+              onClick={this.toggleDrawer('left', false)}
               className={classes.nested}
               component={IraLink}
             >
@@ -193,7 +193,7 @@ class MobileTopNavbar extends Component {
             </ListItem>
             <ListItem
               button
-              onClick={this.toggleDrawer("left", false)}
+              onClick={this.toggleDrawer('left', false)}
               className={classes.nested}
               component={RisksLink}
             >
@@ -201,7 +201,7 @@ class MobileTopNavbar extends Component {
             </ListItem>
             <ListItem
               button
-              onClick={this.toggleDrawer("left", false)}
+              onClick={this.toggleDrawer('left', false)}
               className={classes.nested}
               component={FaqLink}
             >
@@ -213,7 +213,7 @@ class MobileTopNavbar extends Component {
         <ListItem
           className={classes.listItem}
           button
-          onClick={this.handleListClick("events")}
+          onClick={this.handleListClick('events')}
         >
           <ListItemText primary="Events" />
           {this.state.events ? <ExpandLess /> : <ExpandMore />}
@@ -225,13 +225,13 @@ class MobileTopNavbar extends Component {
               button
               className={classes.nested}
               component={LongBeachLink}
-              onClick={this.toggleDrawer("left", false)}
+              onClick={this.toggleDrawer('left', false)}
             >
               <ListItemText primary="Long Beach Investors Meetup" />
             </ListItem>
             <ListItem
               button
-              onClick={this.toggleDrawer("left", false)}
+              onClick={this.toggleDrawer('left', false)}
               className={classes.nested}
               component={CerritosLink}
             >
@@ -243,7 +243,7 @@ class MobileTopNavbar extends Component {
         <ListItem
           className={classes.listItem}
           button
-          onClick={this.toggleDrawer("left", false)}
+          onClick={this.toggleDrawer('left', false)}
           component={QuestionnaireLink}
         >
           <ListItemText primary="Questionnaire" />
@@ -252,7 +252,7 @@ class MobileTopNavbar extends Component {
         <ListItem
           className={classes.listItem}
           button
-          onClick={this.toggleDrawer("left", false)}
+          onClick={this.toggleDrawer('left', false)}
           component={PodcastLink}
         >
           <ListItemText primary="Podcast" />
@@ -261,7 +261,7 @@ class MobileTopNavbar extends Component {
         <ListItem
           className={classes.listItem}
           button
-          onClick={this.toggleDrawer("left", false)}
+          onClick={this.toggleDrawer('left', false)}
           component={ContactLink}
         >
           <ListItemText primary="Contact" />
@@ -279,27 +279,20 @@ class MobileTopNavbar extends Component {
       <div className={classes.appRoot}>
         <AppBar position="sticky" className={classes.appBar}>
           <Toolbar>
-            <Grid container justify="flex-start" alignItems="center">
-              <Grid item>
-                <img
-                  alt="logo"
-                  src="https://i.imgur.com/IlUnKOe.png"
-                  className={classes.imageStyles}
-                />
-              </Grid>
-              <Grid item>
+            <Grid container justify="space-between" alignItems="center">
+              <Grid item xs={4}>
                 <IconButton
                   className={classes.icon}
                   color="inherit"
-                  onClick={this.toggleDrawer("left", true)}
+                  onClick={this.toggleDrawer('left', true)}
                   aria-label="Open drawer"
                 >
                   <MenuIcon />
                 </IconButton>
                 <Drawer
-                  anchor="right"
+                  anchor="left"
                   open={this.state.left}
-                  onClose={this.toggleDrawer("left", false)}
+                  onClose={this.toggleDrawer('left', false)}
                 >
                   {/* <div
               tabIndex={0}
@@ -311,6 +304,15 @@ class MobileTopNavbar extends Component {
             </div> */}
                   {this.sidebarItems()}
                 </Drawer>
+              </Grid>
+              <Grid item xs={8}>
+                <Link to="/">
+                  <img
+                    alt="logo"
+                    src="https://i.imgur.com/IlUnKOe.png"
+                    className={classes.imageStyles}
+                  />
+                </Link>
               </Grid>
             </Grid>
           </Toolbar>

@@ -12,7 +12,7 @@ import {
   Tucson,
   Columbus,
   Resources,
-  Questionnaire
+  InvestorForm
 } from './pages';
 import ScrollToTop from '../util/ScrollToTop';
 import withRoot from '../withRoot';
@@ -24,15 +24,16 @@ const LoadingMessage = () => 'Loading...';
 class App extends Component {
   render() {
     return (
-      <React.Fragment>
+      <main>
         <NoSsr>
           <Router>
+            <Navigation />
             <Suspense fallback={<LoadingMessage />}>
               <Switch>
                 <ScrollToTop>
                   <Route
                     render={props => {
-                      return <Navigation currLocation={props.location} />;
+                      return;
                     }}
                   />
                   <Route exact path="/" component={Home} />
@@ -50,11 +51,7 @@ class App extends Component {
                   <Route exact path="/markets/tucson" component={Tucson} />
                   <Route exact path="/markets/phoenix" component={Phoenix} />
                   <Route exact path="/markets/columbus" component={Columbus} />
-                  <Route
-                    exact
-                    path="/investors/form"
-                    component={Questionnaire}
-                  />
+                  <Route exact path="/investor/form" component={InvestorForm} />
 
                   <Route
                     exact
@@ -79,7 +76,7 @@ class App extends Component {
             </Suspense>
           </Router>
         </NoSsr>
-      </React.Fragment>
+      </main>
     );
   }
 }

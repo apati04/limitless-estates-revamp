@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import './style.css';
 import HeroUnit from '../../Layouts/HeroUnit';
 import { withStyles } from '@material-ui/core/styles';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
-// import Button from '@material-ui/core/Button';
+import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Divider from '@material-ui/core/Divider';
+import ReactPlayer from 'react-player';
 
-import Limitless from './wistia';
 const styles = theme => ({
   overlayEffect: {
     position: 'absolute',
@@ -78,6 +78,7 @@ class Hero extends Component {
                 >
                   Limitless Estates
                 </Typography>
+
                 <Divider className={classes.divider} />
                 <Typography
                   align="left"
@@ -113,8 +114,9 @@ class Hero extends Component {
                   </NavLink>{' '}
                   while achieving double digit returns for our investors.
                 </Typography>
-                {/* <div style={{ textAlign: 'left', marginTop: 'auto' }}>
+                <div style={{ textAlign: 'left', marginTop: 'auto' }}>
                   <Button
+                    component={props => <Link {...props} to="/investor/form" />}
                     variant="contained"
                     color="primary"
                     size="large"
@@ -122,14 +124,15 @@ class Hero extends Component {
                   >
                     Investor Questionnaire
                   </Button>
-                </div> */}
+                </div>
               </Grid>
 
               <Grid item md={6} className={classes.gridItem}>
-                <Limitless
+                <ReactPlayer url="https://apax714.wistia.com/medias/pueh6irs0z" />
+                {/* <Limitless
                   wistiaSrc="https://fast.wistia.com/embed/medias/pueh6irs0z/swatch"
                   wistiaClass="wistia_embed wistia_async_pueh6irs0z videoFoam=true"
-                />
+                /> */}
               </Grid>
             </Grid>
           </HeroUnit>

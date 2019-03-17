@@ -1,8 +1,8 @@
-import 'typeface-roboto';
 import React, { Fragment } from 'react';
 import { MobileView, BrowserView } from 'react-device-detect';
 import DesktopNav from './Desktop';
 import MobileTopNav from './Mobile/MobileTopNav';
+import Hidden from '@material-ui/core/Hidden';
 import { withStyles } from '@material-ui/core/styles';
 /**
  * xs, extra-small: 0px or larger
@@ -30,14 +30,14 @@ function NavMain(props) {
   return (
     <Fragment>
       <BrowserView>
-        <div className={classes.desktop}>
+        <Hidden smDown>
           <DesktopNav />
-        </div>
-        <div className={classes.responsiveStyle}>
-          <MobileTopNav />
-        </div>
-      </BrowserView>
+        </Hidden>
 
+        <Hidden mdUp>
+          <MobileTopNav />
+        </Hidden>
+      </BrowserView>
       <MobileView>
         <MobileTopNav />
       </MobileView>

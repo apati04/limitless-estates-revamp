@@ -1,6 +1,5 @@
 import React from 'react';
 import Lalita from './Lalita';
-import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
 import Activities from './Activities';
 const styles = theme => ({
@@ -15,7 +14,6 @@ const styles = theme => ({
 
 function About(props) {
   const { classes, id, location } = props;
-  console.log(location, id);
   const handleView = () => {
     switch (location.pathname) {
       case '/about/what-we-do':
@@ -26,7 +24,6 @@ function About(props) {
         return <div>nomatch</div>;
     }
   };
-
   return <div className={classes.root}>{handleView()}</div>;
 }
 export default withStyles(styles)(About);

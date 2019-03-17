@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import { withRouter } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -33,7 +33,7 @@ const NavBar = props => {
   const { classes } = props;
   return (
     <div className={classes.root}>
-      <AppBar elevation={1} position="fixed" className={classes.mainAppBar}>
+      <AppBar elevation={0} position="static" className={classes.mainAppBar}>
         <Toolbar className={classes.mainAppBar}>
           <img
             alt="logo"
@@ -51,4 +51,5 @@ NavBar.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(NavBar);
+const LocationWithRouterNav = withRouter(NavBar);
+export default withStyles(styles)(LocationWithRouterNav);

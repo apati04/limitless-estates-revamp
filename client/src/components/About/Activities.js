@@ -5,7 +5,7 @@ import ImageGrid from '../Layouts/ImageGrid';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-
+import LightBox from '../Home/Hero/Lightbox';
 const styles = theme => ({
   root: {
     flexGrow: 1
@@ -35,7 +35,7 @@ const Activities = props => {
               backgroundColor: '#eee'
             }}
           >
-            <h1>sWhat We Do</h1>
+            <LightBox />
           </div>
         </Grid>
       </Grid>
