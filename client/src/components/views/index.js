@@ -8,14 +8,5 @@ import Phoenix from './Markets/Phoenix';
 import Tucson from './Markets/Tucson';
 import Columbus from './Markets/Columbus';
 import Resources from './Resources/Resources';
-export {
-  About,
-  Contact,
-  LongBeachMeetup,
-  Phoenix,
-  Podcast,
-  Home,
-  Tucson,
-  Columbus,
-  Resources
-};
+import InvestorForm from './Questionnaire/InvestorForm';
+export { About, Contact, LongBeachMeetup, Phoenix, Podcast, Home, Tucson, Columbus, Resources, InvestorForm };

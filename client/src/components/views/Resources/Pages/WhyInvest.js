@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import PageHeader from '../../Layouts/PageHeader';
 
 import BlogType1 from '../../Layouts/BlogType1';
-import api from '../api/impact_investing';
+import api from '../api/why_invest';
 import grey from '@material-ui/core/colors/grey';
 const styles = theme => ({
 	root: {
@@ -43,7 +43,7 @@ const styles = theme => ({
 function WhyInvestComponent(props) {
 	const { classes } = props;
 	const [title, ...textBody] = api;
-	const headerimg = '/images/strategy.jpg';
+	const headerimg = 'https://i.imgur.com/6Oyse4k.jpg';
 	return (
 		<div className={classes.root}>
 			<Card>
