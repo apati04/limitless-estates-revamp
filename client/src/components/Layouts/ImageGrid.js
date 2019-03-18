@@ -44,16 +44,18 @@ const ImageGrid = props => {
           })}
         </GridList>
       </Hidden>
-      <GridList cellHeight={300} className={classes.gridList} cols={4}>
-        {tileData.map((tile, i) => {
-          const keyalt = tile.title + i;
-          return (
-            <GridListTile key={tile.img} cols={tile.cols || 1}>
-              <img src={tile.img} alt={keyalt} />
-            </GridListTile>
-          );
-        })}
-      </GridList>
+      <Hidden smUp>
+        <GridList cellHeight={300} className={classes.gridList} cols={4}>
+          {tileData.map((tile, i) => {
+            const keyalt = tile.title + i;
+            return (
+              <GridListTile key={tile.img} cols={tile.cols || 1}>
+                <img src={tile.img} alt={keyalt} />
+              </GridListTile>
+            );
+          })}
+        </GridList>
+      </Hidden>
     </div>
   );
 };
