@@ -1,14 +1,8 @@
-import {
-  AboutLink,
-  QuestionnaireLink,
-  PodcastLink,
-  HomeLink,
-  ContactLink
-} from '../routes';
+import { AboutLink, QuestionnaireLink, PodcastLink, ContactLink } from '../routes';
 
 export default {
-  About: AboutLink,
-  Questionnaire: QuestionnaireLink,
-  Podcast: PodcastLink,
-  Contact: ContactLink
+	About: AboutLink,
+	Questionnaire: QuestionnaireLink,
+	Podcast: PodcastLink,
+	Contact: ContactLink
 };
