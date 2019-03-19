@@ -62,7 +62,7 @@ function WhyInvestComponent(props) {
               }
               className={classes.cardHeader}
             /> */}
-						<PageHeader imgSrc={headerimg} position="center center" imgHeight="50vh" />
+						<PageHeader imgSrc={headerimg} position="center center" imgHeight="560px" overlayEffect />
 					</Grid>
 					<Grid item xs={8} className={classes.cardBodyGrid}>
 						<Typography paragraph align="left" variant="h4" className={classes.cardTitle}>

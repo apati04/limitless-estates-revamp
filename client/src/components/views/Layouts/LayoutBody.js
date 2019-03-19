@@ -45,7 +45,7 @@ const styles = theme => ({
 			marginRight: 'auto'
 		},
 		[theme.breakpoints.up(round(880 / 0.7777))]: {
-			width: '77.7777%'
+			width: 'auto'
 		},
 		[theme.breakpoints.up(round(1400 / 0.7777))]: {
 			width: 1400

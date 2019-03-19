@@ -1,21 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
-import classNames from 'classnames';
-
-import CardActions from '@material-ui/core/CardActions';
 import Grid from '@material-ui/core/Grid';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
 import cardStyles from '../modules/landingPageSections/cardStyles';
-
-import IconButton from '@material-ui/core/IconButton';
 import blue from '@material-ui/core/colors/blue';
 // custom styles
 import TeamCard from '../../../../modules/TeamCard';
 import teamStyle from '../modules/landingPageSections/teamStyles';
 import team from '../api/team';
-import Typography from '@material-ui/core/Typography';
 const styles = theme => ({
 	...teamStyle,
 	...cardStyles,
@@ -55,10 +47,6 @@ const styles = theme => ({
 });
 const MeetTheTeam = props => {
 	const { classes } = props;
-
-	const imageClasses = classNames(classes.imgRaised, classes.imgRoundedCircle, classes.imgFluid);
-	const kyle = '';
-	const lalita = '/images/team-member2.jpg';
 	return (
 		<section className={classes.section}>
 			<h2 className={classes.title}>Here is our team</h2>

@@ -3,7 +3,13 @@ import green from '@material-ui/core/colors/green';
 import grey from '@material-ui/core/colors/grey';
 import red from '@material-ui/core/colors/red';
 import blue from '@material-ui/core/colors/blue';
-
+const containerFluid = {
+	paddingRight: '8px',
+	paddingLeft: '8px',
+	marginRight: 'auto',
+	marginLeft: 'auto',
+	width: '100%'
+};
 const rawTheme = createMuiTheme({
 	palette: {
 		primary: {
@@ -43,9 +49,39 @@ const rawTheme = createMuiTheme({
 		fontWeightRegular: 400, // Work Sans
 		fontWeightMedium: 700, // Roboto Condensed
 		fontFamilySecondary: "'Roboto Condensed', sans-serif"
+	},
+	overlayEffect: {
+		position: 'absolute',
+		backgroundColor: 'rgba(0, 0, 0, 0.56)',
+		top: 0,
+		left: 0,
+		width: '100%',
+		height: '100%'
+	},
+	lightOverlay: {
+		position: 'absolute',
+		backgroundColor: 'rgba(0, 0, 0, 0.08)',
+		top: 0,
+		left: 0,
+		width: '100%',
+		height: '100%'
+	},
+	container: {
+		...containerFluid,
+		'@media (min-width: 576px)': {
+			maxWidth: '540px'
+		},
+		'@media (min-width: 768px)': {
+			maxWidth: '720px'
+		},
+		'@media (min-width: 992px)': {
+			maxWidth: '960px'
+		},
+		'@media (min-width: 1200px)': {
+			maxWidth: '1140px'
+		}
 	}
 });
-
 const fontHeader = {
 	color: rawTheme.palette.text.primary,
 	fontWeight: rawTheme.typography.fontWeightMedium,

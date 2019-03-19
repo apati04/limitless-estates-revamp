@@ -15,17 +15,19 @@ const styles = theme => ({
 	image: {
 		position: 'absolute',
 		top: -40,
-		left: -27,
+		left: -80,
 		right: 0,
 		bottom: 0,
-		width: '696px'
+		maxWidth: 640,
+		width: 'auto%'
 	},
 	imagesWrapper: {
 		position: 'relative'
 	},
 	cardWrapper: {
 		zIndex: 1
-	}
+	},
+	appContainer: theme.container
 });
 class CallToAction extends Component {
 	state = { open: false };
@@ -40,7 +42,7 @@ class CallToAction extends Component {
 		const { classes } = this.props;
 		return (
 			<LayoutBody component="section" width="large" className={classes.root}>
-				<Grid container>
+				<Grid container justify="flex-start" className={classes.appContainer}>
 					<Grid item xs={12} md={6} className={classes.cardWrapper}>
 						<CTAForm />
 					</Grid>
