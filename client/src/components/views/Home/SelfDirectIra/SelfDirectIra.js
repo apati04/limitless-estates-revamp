@@ -9,7 +9,7 @@ import Limitless from '../Hero/wistia';
 import Card from '@material-ui/core/Card';
 import grey from '@material-ui/core/colors/grey';
 import CardContent from '@material-ui/core/CardContent';
-const styles = theme => ({
+const styles = (theme) => ({
   root: {
     flexGrow: 1,
     padding: theme.spacing.unit * 6,
@@ -20,7 +20,8 @@ const styles = theme => ({
   },
   headerContainer: {
     position: 'relative',
-    height: '100%'
+    height: '100%',
+    ...theme.container
   },
   gridItem: {
     textAlign: 'center',
@@ -69,86 +70,50 @@ const styles = theme => ({
     }
   }
 });
-const Section01 = props => {
+const Section01 = (props) => {
   const { classes } = props;
   return (
     <section className={classes.root}>
       {/* <div className={classes.overlayEffect} /> */}
       <div className={classes.headerContainer}>
         <div style={{ marginBottom: '20px' }}>
-          <Grid
-            container
-            justify="center"
-            alignItems="center"
-            className={classes.gridContainer}
-            wrap="wrap"
-          >
+          <Grid container justify='center' alignItems='center' className={classes.gridContainer} wrap='wrap'>
             <Grid item xs={12} className={classes.gridItem}>
-              <Typography
-                align="center"
-                variant="h2"
-                paragraph
-                className={classes.heroTitle}
-              >
+              <Typography align='center' variant='h2' paragraph className={classes.heroTitle}>
                 Invest with your 401k / IRA
               </Typography>
             </Grid>
           </Grid>
-          <Divider variant="middle" className={classes.divider} />
+          <Divider variant='middle' className={classes.divider} />
         </div>
-        <Grid
-          container
-          justify="center"
-          spacing={16}
-          alignItems="center"
-          className={classes.gridContainer}
-        >
-          <Grid item xs={12} md={8}>
+        <Grid container justify='center' spacing={16} alignItems='center' className={classes.gridContainer}>
+          <Grid item xs={12}>
             <Limitless
-              wistiaSrc="https://fast.wistia.com/embed/medias/mtdamm7u8i/swatch"
-              wistiaClass="wistia_embed wistia_async_mtdamm7u8i videoFoam=true"
+              wistiaSrc='https://fast.wistia.com/embed/medias/mtdamm7u8i/swatch'
+              wistiaClass='wistia_embed wistia_async_mtdamm7u8i videoFoam=true'
             />
           </Grid>
         </Grid>
-        <Grid
-          container
-          justify="center"
-          spacing={16}
-          alignItems="center"
-          className={classes.gridContainer}
-        >
-          <Grid item xs={12} md={8}>
+        <Grid container justify='center' spacing={16} alignItems='center' className={classes.gridContainer}>
+          <Grid item xs={12}>
             <Card elevation={3} className={classes.cardStyle}>
               <CardContent>
-                <Typography
-                  align="left"
-                  paragraph
-                  component="h1"
-                  variant="h5"
-                  className={classes.heroText}
-                >
-                  Did you know you can invest with your 401k/IRA? Watch the
-                  video to find out more.
+                <Typography align='left' paragraph component='h1' variant='h5' className={classes.heroText}>
+                  Did you know you can invest with your 401k/IRA? Watch the video to find out more.
                 </Typography>
                 <Typography
-                  align="left"
+                  align='left'
                   paragraph
-                  component="h1"
-                  variant="h5"
+                  component='h1'
+                  variant='h5'
                   className={classes.heroText}
                   style={{ marginBottom: '20px' }}
                 >
-                  If you find this information helpful and want to see how you
-                  can get started click the link below to connect with our
-                  preferred partners and setup your self-directed IRA
+                  If you find this information helpful and want to see how you can get started click the link below to
+                  connect with our preferred partners and setup your self-directed IRA
                 </Typography>
                 <div className={classes.buttonDiv}>
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    size="large"
-                    className={classes.margin}
-                  >
+                  <Button variant='contained' color='primary' size='large' className={classes.margin}>
                     Preferred Partners
                   </Button>
                 </div>

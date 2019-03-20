@@ -48,7 +48,7 @@ const styles = theme => ({
 class Hero extends Component {
 	render() {
 		const { classes } = this.props;
-		console.log('classess: ', classes);
+		console.log('props: ', this.props);
 		return (
 			<React.Fragment>
 				<div
@@ -69,7 +69,7 @@ class Hero extends Component {
 							className={classNames(classes.appContainer, classes.gridContainer)}
 							wrap="wrap"
 						>
-							<Grid item sm={12} md={5} style={{ paddingRight: '10px' }} className={classes.gridItem}>
+							<Grid item sm={12} lg={5} className={classes.gridItem}>
 								<Typography align="left" variant="h2" paragraph className={classes.heroTitle}>
 									Limitless Estates
 								</Typography>
@@ -121,7 +121,7 @@ class Hero extends Component {
 								</div>
 							</Grid>
 
-							<Grid item sm={12} md={7} className={classes.gridItem}>
+							<Grid item sm={12} lg={7} className={classes.gridItem}>
 								<ReactPlayer url="https://apax714.wistia.com/medias/pueh6irs0z" />
 								{/* <Limitless
                   wistiaSrc="https://fast.wistia.com/embed/medias/pueh6irs0z/swatch"

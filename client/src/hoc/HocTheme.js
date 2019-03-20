@@ -4,49 +4,33 @@ import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-
-const styles = theme => ({
-	credit: {
-		marginTop: theme.spacing.unit * 6,
-		marginBottom: theme.spacing.unit * 4
-	},
-	hideCredit: {
-		position: 'absolute',
-		top: -100
-	}
+import Footer from '../components/Navigation/Footer/Footer';
+const styles = (theme) => ({
+  credit: {
+    marginTop: theme.spacing.unit * 4,
+    marginBottom: theme.spacing.unit * 2
+  },
+  hideCredit: {
+    position: 'absolute',
+    top: -100
+  }
 });
-const AppTheme = props => {
-	const { children, classes, hideCredit, title } = props;
-	return (
-		<React.Fragment>
-			{children}
-			<Typography
-				color="textSecondary"
-				align="center"
-				className={classNames(classes.credit, {
-					[classes.hideCredit]: hideCredit
-				})}
-			>
-				{title}
-				{': '}
-				{'Built with '}
-				<span role="img" aria-label="Love">
-					❤️
-				</span>
-				{' by the '}
-				<Button color="inherit">Aitech</Button>
-				{' team.'}
-			</Typography>
-		</React.Fragment>
-	);
+const AppTheme = (props) => {
+  const { children, classes, hideCredit, title } = props;
+  return (
+    <React.Fragment>
+      {children}
+      <Footer />
+    </React.Fragment>
+  );
 };
 AppTheme.propTypes = {
-	children: PropTypes.element.isRequired,
-	classes: PropTypes.object.isRequired,
-	hideCredit: PropTypes.bool,
-	title: PropTypes.string.isRequired
+  children: PropTypes.element.isRequired,
+  classes: PropTypes.object.isRequired,
+  hideCredit: PropTypes.bool,
+  title: PropTypes.string.isRequired
 };
 AppTheme.defaultProps = {
-	hideCredit: false
+  hideCredit: false
 };
 export default withStyles(styles)(AppTheme);

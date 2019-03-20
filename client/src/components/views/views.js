@@ -9,4 +9,19 @@ import Tucson from './Markets/Tucson';
 import Columbus from './Markets/Columbus';
 import Resources from './Resources/Resources';
 import InvestorForm from './Questionnaire/InvestorForm';
-export { About, Contact, LongBeachMeetup, Phoenix, Podcast, Home, Tucson, Columbus, Resources, InvestorForm };
+import Kyle from './About/Profile/Kyle';
+import Lalita from './About/Profile/Lalita';
+export {
+  About,
+  Contact,
+  LongBeachMeetup,
+  Phoenix,
+  Podcast,
+  Home,
+  Tucson,
+  Columbus,
+  Resources,
+  InvestorForm,
+  Kyle,
+  Lalita
+};
