@@ -6,28 +6,29 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import {withStyles} from '@material-ui/core/styles';
 import GoogleMap from '../../GoogleMap/GoogleMap';
-import PageHeader from '../Layouts/PageHeader';
 import Divider from '@material-ui/core/Divider';
+import Parallax from '../Layouts/Parallax';
+
 const styles = theme => ({
   root: {
     flexGrow: 1,
     ...theme.container,
   },
-  mapStyle: {
-    height: `${theme.spacing.unit * 42}px`,
-    width: '100%',
-  },
-  cardStyle: {
-    padding: theme.spacing.unit * 4,
-    [theme.breakpoints.up ('sm')]: {
-      boxShadow: 'none',
-    },
-  },
+
+  cardStyle: {borderRadius: '6px'},
   mapContainer: {
     marginTop: theme.spacing.unit * 11,
   },
   dividerStyle: {
     paddingLeft: '8px',
+  },
+  gridContainer: {
+    padding: `${theme.spacing.unit * 6}px ${theme.spacing.unit * 6}px`,
+  },
+  gridItem: {
+    marginTop: -72,
+    marginBottom: 40,
+    zIndex: 10,
   },
 });
 function Phoenix (props) {
@@ -36,29 +37,25 @@ function Phoenix (props) {
   const bgImg = '/images/phoenix-sky.jpg';
   return (
     <React.Fragment>
-      <PageHeader
-        imgSrc={bgImg}
-        imgHeight="480px"
-        position="center center"
-        overlayEffect
-      />
 
+      <Parallax image={bgImg} />
       <div className={classes.root}>
-        <Grid container spacing={32} justify="center" style={{padding: '16px'}}>
-          <Grid
-            item
-            xs={12}
-            style={{
-              marginTop: -56,
-              marginBottom: 40,
-
-              zIndex: 10,
-            }}
-          >
-            <Card raised>
-              <Grid container alignItems="flex-start" justify="space-between">
-                <Grid item xs={12} sm={8}>
-                  <CardHeader title="Phoenix, Arizona" />
+        <Grid container spacing={0} justify="space-between">
+          <Grid item xs={12} className={classes.gridItem}>
+            <Card raised className={classes.cardStyle}>
+              <Grid
+                container
+                alignItems="flex-start"
+                justify="center"
+                spacing={32}
+                className={classes.gridContainer}
+              >
+                <Grid item xs={12} sm={7}>
+                  <CardHeader
+                    title={
+                      <Typography variant="h3">Phoenix, Arizona</Typography>
+                    }
+                  />
                   <Divider variant="middle" />
                   <CardContent>
                     <Typography paragraph variant="body1">
@@ -84,7 +81,7 @@ function Phoenix (props) {
                   </CardContent>
 
                 </Grid>
-                <Grid item xs={12} sm={4}>
+                <Grid item xs={12} sm={5}>
 
                   <div className={classes.mapStyle}>
                     <GoogleMap

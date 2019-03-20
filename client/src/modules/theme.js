@@ -5,7 +5,66 @@ import red from '@material-ui/core/colors/red';
 import blue from '@material-ui/core/colors/blue';
 import cyan from '@material-ui/core/colors/cyan';
 import lightBlue from '@material-ui/core/colors/lightBlue';
+const containerFluid = {
+  paddingRight: '15px',
+  paddingLeft: '15px',
+  marginRight: 'auto',
+  marginLeft: 'auto',
+  width: '100%',
+};
+const cardHeader = {
+  margin: '-30px 15px 0',
+  borderRadius: '3px',
+  padding: '15px',
+};
+
+const title = {
+  color: '#3C4858',
+  margin: '1.75rem 0 0.875rem',
+  textDecoration: 'none',
+  fontWeight: '700',
+  fontFamily: `"Roboto Slab", "Times New Roman", serif`,
+};
+
+const cardTitle = {
+  ...title,
+  marginTop: '.625rem',
+};
+
+const cardLink = {
+  '& + $cardLink': {
+    marginLeft: '1.25rem',
+  },
+};
+
+const cardSubtitle = {
+  marginBottom: '0',
+  marginTop: '-.375rem',
+};
+
+const container = {
+  ...containerFluid,
+  '@media (min-width: 576px)': {
+    maxWidth: '540px',
+  },
+  '@media (min-width: 768px)': {
+    maxWidth: '720px',
+  },
+  '@media (min-width: 992px)': {
+    maxWidth: '960px',
+  },
+  '@media (min-width: 1200px)': {
+    maxWidth: '1140px',
+  },
+};
 const rawTheme = createMuiTheme ({
+  containerFluid,
+  container,
+  cardHeader,
+  title,
+  cardTitle,
+  cardLink,
+  cardSubtitle,
   palette: {
     primary: {
       light: blue[300],
@@ -67,27 +126,6 @@ const rawTheme = createMuiTheme ({
     left: 0,
     width: '100%',
     height: '100%',
-  },
-  container: {
-    marginRight: 'auto',
-    marginLeft: 'auto',
-    width: '100%',
-    '@media (min-width: 576px)': {
-      // maxWidth: '540px'
-      maxWidth: '576px',
-    },
-    '@media (min-width: 768px)': {
-      // maxWidth: '720px'
-      maxWidth: '768px',
-    },
-    '@media (min-width: 992px)': {
-      // maxWidth: '960px'
-      maxWidth: '992px',
-    },
-    '@media (min-width: 1200px)': {
-      // maxWidth: '1140px'
-      maxWidth: '1200px',
-    },
   },
 });
 const fontHeader = {
