@@ -1,11 +1,11 @@
-import { container } from './mkr';
+import {container} from './mkr';
 
 const headerStyle = {
   appBar: {
     display: 'flex',
     border: '0',
-    borderRadius: '3px',
-    padding: '0.125rem 0',
+    borderRadius: '0px',
+    padding: '0.275rem 0',
     marginBottom: '20px',
     width: '100%',
     boxShadow: '0 4px 18px 0px rgba(0, 0, 0, 0.12), 0 7px 10px -5px rgba(0, 0, 0, 0.15)',
@@ -14,15 +14,15 @@ const headerStyle = {
     flexFlow: 'row nowrap',
     justifyContent: 'flex-start',
     position: 'relative',
-    zIndex: 'unset'
+    zIndex: 'unset',
   },
   absolute: {
     position: 'absolute',
-    zIndex: '1100'
+    zIndex: '1100',
   },
   fixed: {
     position: 'fixed',
-    zIndex: '1100'
+    zIndex: '1100',
   },
   container: {
     ...container,
@@ -31,26 +31,26 @@ const headerStyle = {
     alignItems: 'center',
     justifyContent: 'space-between',
     display: 'flex',
-    flexWrap: 'nowrap'
+    flexWrap: 'nowrap',
   },
   flex: {
-    flex: 1
+    flex: 1,
   },
 
   appResponsive: {
-    margin: '20px 10px'
+    margin: '20px 10px',
   },
 
   transparent: {
     backgroundColor: 'rgba(0,0,0,0.2)!important',
     // boxShadow: 'none',
     padding: '8px 0',
-    color: '#FFFFFF'
+    color: '#FFFFFF',
   },
   dark: {
     color: '#FFFFFF',
     backgroundColor: '#212121 !important',
-    boxShadow: '0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(33, 33, 33, 0.46)'
+    boxShadow: '0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 12px -5px rgba(33, 33, 33, 0.46)',
   },
   white: {
     border: '0',
@@ -58,8 +58,8 @@ const headerStyle = {
     marginBottom: '20px',
     color: '#555',
     backgroundColor: '#fff !important',
-    boxShadow: '0 4px 18px 0px rgba(0, 0, 0, 0.12), 0 7px 10px -5px rgba(0, 0, 0, 0.15)'
-  }
+    boxShadow: '0 4px 18px 0px rgba(0, 0, 0, 0.12), 0 7px 10px -5px rgba(0, 0, 0, 0.15)',
+  },
 };
 
 export default headerStyle;
