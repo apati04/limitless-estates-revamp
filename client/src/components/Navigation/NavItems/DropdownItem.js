@@ -89,6 +89,7 @@ class MenuListComposition extends React.Component {
             anchorEl={this.anchorEl}
             transition
             disablePortal
+            style={{marginTop: '8px'}}
           >
             {({TransitionProps, placement}) => (
               <Grow

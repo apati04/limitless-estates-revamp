@@ -3,8 +3,6 @@ import green from '@material-ui/core/colors/green';
 import grey from '@material-ui/core/colors/grey';
 import red from '@material-ui/core/colors/red';
 import blue from '@material-ui/core/colors/blue';
-import cyan from '@material-ui/core/colors/cyan';
-import lightBlue from '@material-ui/core/colors/lightBlue';
 const containerFluid = {
   paddingRight: '15px',
   paddingLeft: '15px',
@@ -65,6 +63,12 @@ const rawTheme = createMuiTheme ({
   cardTitle,
   cardLink,
   cardSubtitle,
+  cardFooter: {
+    display: 'flex',
+    alignItems: 'center',
+    backgroundColor: 'transparent',
+    padding: '0.9375rem 1.875rem',
+  },
   palette: {
     primary: {
       light: blue[300],
@@ -94,6 +98,72 @@ const rawTheme = createMuiTheme ({
     MuiButton: {
       extendedFab: {
         margin: 8,
+      },
+    },
+    MuiAppBar: {
+      root: {
+        marginBottom: '-20px',
+        zIndex: '100',
+        position: 'relative',
+
+        '& header': {
+          borderRadius: '0',
+        },
+      },
+    },
+    MuiCard: {
+      root: {
+        border: '0',
+        marginBottom: '30px',
+        marginTop: '30px',
+        borderRadius: '6px',
+        color: 'rgba(0, 0, 0, 0.87)',
+        background: '#fff',
+        width: '100%',
+        boxShadow: '0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12)',
+        position: 'relative',
+        display: 'flex',
+        flexDirection: 'column',
+        minWidth: '0',
+        wordWrap: 'break-word',
+        fontSize: '.875rem',
+        transition: 'all 300ms linear',
+      },
+    },
+    MuiCardContent: {
+      root: {
+        padding: '0.9375rem 1.875rem',
+        flex: '1 1 auto',
+      },
+    },
+    MuiCardActionArea: {
+      root: {
+        display: 'flex',
+        alignItems: 'center',
+        backgroundColor: 'transparent',
+        padding: '0.9375rem 1.875rem',
+      },
+    },
+    MuiCardHeader: {
+      root: {
+        borderRadius: '3px',
+        padding: '1rem 15px',
+        marginLeft: '15px',
+        marginRight: '15px',
+        marginTop: '-30px',
+        border: '0',
+        marginBottom: '0',
+      },
+      title: {
+        color: '#3C4858',
+        margin: '1.75rem 0 0.875rem',
+        textDecoration: 'none',
+        fontWeight: '700',
+        fontFamily: `"Roboto Slab", "Times New Roman", serif`,
+      },
+      subheader: {
+        marginBottom: '0',
+        marginTop: '-.375rem',
       },
     },
   },
