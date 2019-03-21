@@ -99,7 +99,6 @@ function Columbus (props) {
                   zoomLevel={13}
                 />
               </div>
-              <CardContent>asdfasdfasdf</CardContent>
             </Card>
           </Grid>
         </Grid>

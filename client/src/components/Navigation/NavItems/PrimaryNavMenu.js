@@ -3,16 +3,16 @@ import DropdownItem from './DropdownItem';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import * as navRoutes from '../routes';
-import {withStyles} from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 
 const dropdownItems = {
   About: (
     <DropdownItem
       title="About"
       listItems={[
-        {title: 'Meet The Team', slug: '/about/meet-the-team'},
-        {title: 'What we do', slug: '/about/what-we-do'},
-        {title: 'Contact Us', slug: '/contact'},
+        { title: 'Meet The Team', slug: '/about/meet-the-team' },
+        { title: 'What we do', slug: '/about/what-we-do' },
+        { title: 'Contact Us', slug: '/contact' }
       ]}
     />
   ),
@@ -20,9 +20,9 @@ const dropdownItems = {
     <DropdownItem
       title="markets"
       listItems={[
-        {title: 'TUCSON, AZ', slug: '/markets/tucson'},
-        {title: 'PHOENIX, AZ', slug: '/markets/phoenix'},
-        {title: 'COLUMBUS, OH', slug: '/markets/columbus'},
+        { title: 'PHOENIX, AZ', slug: '/markets/phoenix-arizona' },
+        { title: 'TUCSON, AZ', slug: '/markets/tucson-arizona' },
+        { title: 'COLUMBUS, OH', slug: '/markets/columbus-ohio' }
       ]}
     />
   ),
@@ -32,25 +32,25 @@ const dropdownItems = {
       listItems={[
         {
           title: 'WHY INVEST IN MULTIFAMILY',
-          slug: '/resources/why-invest-in-multifamily',
+          slug: '/resources/why-invest-in-multifamily'
         },
         {
           title: 'IMPACT INVESTING',
-          slug: '/resources/impact-investing',
+          slug: '/resources/impact-investing'
         },
         {
           title: 'Investing risks',
-          slug: '/resources/investing-risks?page=1',
+          slug: '/resources/investing-risks?page=1'
         },
         {
           title: 'SELF DIRECT 401K/IRA',
-          slug: '/resources/self-direct-401k-ira',
+          slug: '/resources/self-direct-401k-ira'
         },
 
         {
           title: 'Frequently Asked Questions',
-          slug: '/resources/frequently-asked-questions',
-        },
+          slug: '/resources/frequently-asked-questions'
+        }
       ]}
     />
   ),
@@ -60,38 +60,38 @@ const dropdownItems = {
       listItems={[
         {
           title: 'Multifamily Investors Meetup - long beach',
-          slug: '/events/meetups/longbeach',
+          slug: '/events/meetups/longbeach'
         },
         {
           title: 'Multifamily Investors Roundtable - cerritos',
-          slug: '/events/meetups/cerritos',
-        },
+          slug: '/events/meetups/cerritos'
+        }
       ]}
     />
-  ),
+  )
 };
 const refactorUrl = {
   Home: navRoutes.HomeLink,
-  About: {dropdown: true},
-  Markets: {dropdown: true},
-  Resources: {dropdown: true},
-  Events: {dropdown: true},
+  About: { dropdown: true },
+  Markets: { dropdown: true },
+  Resources: { dropdown: true },
+  Events: { dropdown: true },
   Podcast: navRoutes.PodcastLink,
-  Contact: navRoutes.ContactLink,
+  Contact: navRoutes.ContactLink
 };
 
 const styles = theme => ({
   root: {
     fontFamily: 'Roboto Condensed',
-    fontSize: '0.96rem',
-  },
+    fontSize: '0.96rem'
+  }
 });
 const PrimaryNavMenu = props => {
-  const {classes} = props;
+  const { classes } = props;
   const renderNavItems = () => {
-    const keys = Object.keys (refactorUrl);
-    return keys.map ((item, index) => {
-      if (refactorUrl[item].hasOwnProperty ('dropdown')) {
+    const keys = Object.keys(refactorUrl);
+    return keys.map((item, index) => {
+      if (refactorUrl[item].hasOwnProperty('dropdown')) {
         return (
           <Grid item key={index}>
             {dropdownItems[item]}
@@ -115,9 +115,9 @@ const PrimaryNavMenu = props => {
   };
   return (
     <Grid container justify="flex-end" wrap="nowrap" alignItems="center">
-      {renderNavItems ()}
+      {renderNavItems()}
     </Grid>
   );
 };
 
-export default withStyles (styles) (PrimaryNavMenu);
+export default withStyles(styles)(PrimaryNavMenu);
