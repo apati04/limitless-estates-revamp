@@ -46,7 +46,7 @@ const parallaxStyle = {
     height: '440px'
   },
   medium: {
-    height: '640px'
+    height: '75vh'
   }
 };
 
