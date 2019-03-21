@@ -10,31 +10,31 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import parallaxStyle from './parallaxStyle';
 
 class Parallax extends React.Component {
-  constructor (props) {
-    super (props);
+  constructor(props) {
+    super(props);
     var windowScrollTop = window.pageYOffset / 3;
     this.state = {
-      transform: 'translate3d(0,' + windowScrollTop + 'px,0)',
+      transform: 'translate3d(0,' + windowScrollTop + 'px,0)'
     };
-    this.resetTransform = this.resetTransform.bind (this);
+    this.resetTransform = this.resetTransform.bind(this);
   }
-  componentDidMount () {
+  componentDidMount() {
     var windowScrollTop = window.pageYOffset / 3;
-    this.setState ({
-      transform: 'translate3d(0,' + windowScrollTop + 'px,0)',
+    this.setState({
+      transform: 'translate3d(0,' + windowScrollTop + 'px,0)'
     });
-    window.addEventListener ('scroll', this.resetTransform);
+    window.addEventListener('scroll', this.resetTransform);
   }
-  componentWillUnmount () {
-    window.removeEventListener ('scroll', this.resetTransform);
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.resetTransform);
   }
-  resetTransform () {
+  resetTransform() {
     var windowScrollTop = window.pageYOffset / 3;
-    this.setState ({
-      transform: 'translate3d(0,' + windowScrollTop + 'px,0)',
+    this.setState({
+      transform: 'translate3d(0,' + windowScrollTop + 'px,0)'
     });
   }
-  render () {
+  render() {
     const {
       classes,
       filter,
@@ -43,14 +43,16 @@ class Parallax extends React.Component {
       style,
       image,
       small,
-      lightFilter,
+      medium,
+      lightFilter
     } = this.props;
-    const parallaxClasses = classNames ({
+    const parallaxClasses = classNames({
       [classes.parallax]: true,
       [classes.filter]: filter,
       [classes.lightFilter]: lightFilter,
       [classes.small]: small,
-      [className]: className !== undefined,
+      [classes.medium]: medium,
+      [className]: className !== undefined
     });
     return (
       <div
@@ -58,7 +60,7 @@ class Parallax extends React.Component {
         style={{
           ...style,
           backgroundImage: 'url(' + image + ')',
-          ...this.state,
+          ...this.state
         }}
         ref="parallax"
       >
@@ -74,7 +76,7 @@ Parallax.propTypes = {
   filter: PropTypes.bool,
   children: PropTypes.node,
   style: PropTypes.string,
-  image: PropTypes.string,
+  image: PropTypes.string
 };
 
-export default withStyles (parallaxStyle) (Parallax);
+export default withStyles(parallaxStyle)(Parallax);

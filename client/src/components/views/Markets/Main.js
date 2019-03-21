@@ -47,7 +47,7 @@ function Main(props) {
 
   return (
     <section>
-      <Parallax image={headerImageUrl} lightFilter small />
+      <Parallax image={headerImageUrl} lightFilter medium />
       <div className={classes.root}>
         <Grid container spacing={0} justify="space-between">
           <Grid item xs={12} className={classes.gridItem}>
