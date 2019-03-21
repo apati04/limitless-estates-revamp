@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {Formik, Field} from 'formik';
+import React, { Component } from 'react';
+import { Formik, Field } from 'formik';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
 import Grid from '@material-ui/core/Grid';
@@ -10,31 +10,34 @@ import * as Yup from 'yup';
 import Recaptcha from 'react-recaptcha';
 import Typography from '@material-ui/core/Typography';
 // import axios from 'axios';
-import {withRouter} from 'react-router-dom';
-import {TextField} from 'formik-material-ui';
-import {withStyles} from '@material-ui/core/styles';
+import { withRouter } from 'react-router-dom';
+import { TextField } from 'formik-material-ui';
+import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
   textField: {
     marginLeft: theme.spacing.unit,
-    marginRight: theme.spacing.unit,
+    marginRight: theme.spacing.unit
   },
   button: {
     backgroundColor: blue['A400'],
     width: '50%',
-    margin: '0 auto',
+    margin: '0 auto'
   },
   content: {
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection: 'column'
   },
   cardContent: {
-    flexGrow: 1,
-  },
+    flexGrow: 1
+  }
 });
 class ContactForm extends Component {
-  render () {
-    const {classes} = this.props;
+  verifyCallback = recaptchaToken => {
+    console.log('recaptcha token ', recaptchaToken);
+  };
+  render() {
+    const { classes } = this.props;
     return (
       <Formik
         initialValues={{
@@ -43,14 +46,14 @@ class ContactForm extends Component {
           lastname: '',
           company: '',
           email: '',
-          message: '',
+          message: ''
         }}
         validateOnChange={false}
         validateOnBlur={false}
-        onSubmit={async (values, {resetForm, setSubmitting}) => {
-          console.log ('values: ', values);
-          resetForm ();
-          setSubmitting (false);
+        onSubmit={async (values, { resetForm, setSubmitting }) => {
+          console.log('values: ', values);
+          resetForm();
+          setSubmitting(false);
           // const onReq = await axios.post('/dev/contactreq', {
           //   token: values.recaptcha
           // });
@@ -64,14 +67,14 @@ class ContactForm extends Component {
                           setSubmitting(false);
            */
         }}
-        validationSchema={Yup.object ().shape ({
+        validationSchema={Yup.object().shape({
           // recaptcha: Yup.string().required(),
-          firstname: Yup.string ().required ('Required'),
-          lastname: Yup.string ().required ('Required'),
-          email: Yup.string ()
-            .email ('Email is not valid')
-            .required ('Required'),
-          message: Yup.string ().required ('Required'),
+          firstname: Yup.string().required('Required'),
+          lastname: Yup.string().required('Required'),
+          email: Yup.string()
+            .email('Email is not valid')
+            .required('Required'),
+          message: Yup.string().required('Required')
         })}
         render={({
           values,
@@ -81,17 +84,24 @@ class ContactForm extends Component {
           handleBlur,
           handleSubmit,
           setFieldValue,
-          isSubmitting,
+          isSubmitting
         }) => (
           <CardContent className={classes.cardContent}>
             <CardHeader
               title={
-                <Typography variant="h2" gutterBottom>Contact Us</Typography>
+                <Typography variant="h2" gutterBottom>
+                  Contact Us
+                </Typography>
               }
               subheader={<Typography>We'd love you hear from you</Typography>}
             />
             <form onSubmit={handleSubmit}>
-              <Grid container spacing={24}>
+              <Grid
+                container
+                spacing={24}
+                justify="center"
+                alignItems="stretch"
+              >
                 <Grid item xs={12} sm={6}>
                   <Field
                     name="firstname"
@@ -155,22 +165,23 @@ class ContactForm extends Component {
                     margin="dense"
                   />
                 </Grid>
+                <Grid item xs={12}>
+                  <Recaptcha
+                    sitekey="6LcAD5UUAAAAAJ_fTPzRw2IDZhRZEKEcKdGyqd-r"
+                    render="explicit"
+                    theme="light"
+                    verifyCallback={response => {
+                      setFieldValue('recaptcha', response);
+                    }}
+                    onloadCallback={() => {
+                      console.log('doneloading');
+                    }}
+                  />
+                  {errors.recaptcha && touched.recaptcha && (
+                    <p>{errors.recaptcha}</p>
+                  )}
+                </Grid>
               </Grid>
-
-              <Recaptcha
-                sitekey="6LcAD5UUAAAAAJ_fTPzRw2IDZhRZEKEcKdGyqd-r"
-                render="explicit"
-                theme="light"
-                verifyCallback={response => {
-                  setFieldValue ('recaptcha', response);
-                }}
-                onloadCallback={() => {
-                  console.log ('doneloading');
-                }}
-              />
-              {errors.recaptcha &&
-                touched.recaptcha &&
-                <p>{errors.recaptcha}</p>}
 
               <Button
                 variant="contained"
@@ -191,4 +202,4 @@ class ContactForm extends Component {
   }
 }
 
-export default withStyles (styles) (withRouter (ContactForm));
+export default withStyles(styles)(withRouter(ContactForm));
