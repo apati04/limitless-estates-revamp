@@ -15,7 +15,7 @@ function Markets(props) {
       case 'columbus-ohio':
         return <Main api={columbus} />;
       default:
-        return <div>redirect</div>;
+        return <Redirect from={`/markets/${id}`} exact to="/" />;
     }
   }
   return <React.Fragment>{loadPage()}</React.Fragment>;

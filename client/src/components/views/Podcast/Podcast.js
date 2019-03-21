@@ -43,23 +43,6 @@ class Podcast extends Component {
     }
   };
   render() {
-    const deviceWidth = {
-      mobile: 576,
-      tablet: 768,
-      laptop: 992,
-      desktop: 1200
-    };
-    let device;
-    if (this.state.width < deviceWidth.mobile) {
-      device = 'mobile';
-    } else if (this.state.width < deviceWidth.tablet) {
-      device = 'tablet';
-    } else if (this.state.width < deviceWidth.laptop) {
-      device = 'laptop';
-    } else {
-      device = 'desktop';
-    }
-    let pageView;
     return <div>{this.handlePageView()}</div>;
   }
 }

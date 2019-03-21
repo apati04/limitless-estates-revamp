@@ -44,7 +44,6 @@ class PodcastContainer extends Component {
     return episodes.map(item => {
       const s1 = item.audio_url.split('/');
       const s2 = s1[s1.length - 1].split('.')[0];
-      const day = new Date(item.published_at).getDate();
       const duration = item.duration * 1000;
       let ep;
       if (item.id === 949981) {
