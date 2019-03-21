@@ -20,7 +20,7 @@ class Podcast extends Component {
   };
   componentDidMount() {
     window.addEventListener('resize', this.handleWindowSizeChange);
-    axios.get('/api/podcast').then(result => {
+    axios.get('/podcasts/podcast').then(result => {
       this.setState({ episodes: result.data.data });
     });
   }
@@ -31,7 +31,6 @@ class Podcast extends Component {
     this.setState({ width: window.innerWidth });
   };
   handlePageView = () => {
-    console.log('hello');
     if (this.state.episodes === null) {
       return (
         <div className="loading">

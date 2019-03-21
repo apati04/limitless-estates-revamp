@@ -9,14 +9,14 @@ import { withStyles } from '@material-ui/core/styles';
 import GoogleMap from '../../GoogleMap/GoogleMap';
 import Divider from '@material-ui/core/Divider';
 import Parallax from '../Layouts/Parallax';
-import tucson from './api/tucson_api';
-import phoenix from './api/phoenix_api';
-import columbus from './api/columbus_api';
 import loadContent from './loadContent';
 const styles = theme => ({
   root: {
     flexGrow: 1,
-    ...theme.container
+    ...theme.container,
+    [theme.breakpoints.down('sm')]: {
+      padding: 0
+    }
   },
   cardStyle: { borderRadius: '6px' },
   dividerStyle: {
@@ -26,7 +26,10 @@ const styles = theme => ({
     paddingLeft: theme.spacing.unit * 4,
     paddingRight: theme.spacing.unit * 4,
     paddingTop: theme.spacing.unit * 8,
-    paddingBottom: theme.spacing.unit * 4
+    paddingBottom: theme.spacing.unit * 4,
+    [theme.breakpoints.down('sm')]: {
+      padding: `${theme.spacing.unit * 6}px ${theme.spacing.unit}px`
+    }
   },
   gridItem: {
     marginTop: -96,

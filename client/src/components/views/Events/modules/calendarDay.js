@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { CalendarIcon } from 'react-calendar-icon';
-import { ThemeProvider } from 'styled-components';
+import withStyles from '@material-ui/core/styles/withStyles';
 
-const theme = {
+const styles = {
   calendarIcon: {
     display: 'flex !important',
     alignItems: 'center !important',
@@ -11,14 +11,14 @@ const theme = {
 };
 class CalendarDay extends Component {
   render() {
-    const { dateTime } = this.props;
+    const { classes, dateTime } = this.props;
 
     return (
-      <ThemeProvider theme={theme}>
+      <div className={classes.calendarIcon}>
         <CalendarIcon date={new Date(dateTime)} />
-      </ThemeProvider>
+      </div>
     );
   }
 }
 
-export default CalendarDay;
+export default withStyles(styles)(CalendarDay);

@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
+
 import PrimaryNavMenu from './NavItems/PrimaryNavMenu';
 import headerStyles from '../views/About/modules/headerStyles';
 
@@ -61,7 +62,10 @@ class PrimaryNav extends Component {
     });
 
     return (
-      <AppBar style={{ borderRadius: 0 }} className={appBarClasses}>
+      <AppBar
+        style={{ borderRadius: 0, backgroundColor: '#212121' }}
+        className={appBarClasses}
+      >
         <Toolbar disableGutters variant="dense" className={classes.container}>
           <img
             alt="logo"

@@ -53,11 +53,7 @@ class App extends Component {
                   }}
                 />
                 <Route exact path="/contact-us" component={Views.Contact} />
-                <Route
-                  exact
-                  path="/events/meetups/longbeach"
-                  component={Views.LongBeachMeetup}
-                />
+                <Route path="/events/meetups/:id" component={Views.Events} />
               </ScrollToTop>
             </Switch>
           </NoSsr>

@@ -1,6 +1,7 @@
 import React from 'react';
 import FormatDate from '../FormatDate/FormatDate';
-import CalendarDay from '../../components/Events/calendarDay';
+import CalendarDay from './calendarDay';
+import Card from '@material-ui/core/Card';
 const EventListItem = props => {
   let eventFee = null;
   if (!props.link.includes('Out-of-State-Multifamily')) {
@@ -9,7 +10,7 @@ const EventListItem = props => {
   }
 
   return (
-    <div className="col-lg-6 pl-0">
+    <Card className="col-lg-6 pl-0">
       <div style={{ opacity: '1' }} className="card my-1 rgba-stylish-slight">
         <div className="card-body">
           <div className="row align-items-stretch justify-content-start">
@@ -43,7 +44,7 @@ const EventListItem = props => {
           </div>
         </div>
       </div>
-    </div>
+    </Card>
   );
 };
 

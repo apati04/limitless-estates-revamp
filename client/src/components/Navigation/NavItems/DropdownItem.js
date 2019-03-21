@@ -89,7 +89,6 @@ class MenuListComposition extends React.Component {
           disablePortal
           style={{ marginTop: '8px' }}
           className={classes.button}
-          k
         >
           {({ TransitionProps, placement }) => (
             <Grow

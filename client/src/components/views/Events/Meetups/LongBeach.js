@@ -1,14 +1,15 @@
-import React, { Fragment, Component } from 'react';
-import Events from '../../components/Events/Events';
-import EventMap from '../../components/Events/EventMap';
-import ReactHtmlParser from 'react-html-parser';
-import { ListGroup, ListGroupItem } from 'mdbreact';
+import React, { Component, Fragment } from 'react';
+import Events from '../modules/Events';
+import EventMap from '../modules/EventMap';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import MeetupDescription from '../modules/meetupDescription';
 import Moment from 'react-moment';
 import axios from 'axios';
-class CerritosMeetup extends Component {
+class LongBeach extends Component {
   state = { meetups: null };
   componentDidMount() {
-    axios.get('/api/meetups/cerritos').then(({ data }) => {
+    axios.get('/events/meetups/lbc').then(({ data }) => {
       this.setState({ meetups: data });
     });
   }
@@ -75,18 +76,20 @@ class CerritosMeetup extends Component {
               <p>
                 Hosted By:{' '}
                 <a
-                  href="https://www.meetup.com/Cerritos-Multifamily-Investors-Roundtable/"
+                  href="https://www.meetup.com/Out-of-State-Multifamily-Apartment-Investors-Meetup/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Kyle Mitchell
+                  Kyle Mitchell and Lalita Patipaksiri
                 </a>
               </p>
               <div className="text-justify">
-                {ReactHtmlParser(meetupDescription)}
-                <ul className="list-unstyled p-0">
-                  <li key="meetuplb-3">Admission: $2.50</li>
-                </ul>
+                <MeetupDescription />
+                <p>
+                  <strong>Admission/Venue:</strong> We encourage each attendee
+                  to spend at least $10 in food/drink, however it is not
+                  required.
+                </p>
               </div>
             </div>
           </div>
@@ -97,8 +100,8 @@ class CerritosMeetup extends Component {
               </h3>
               <div />
               <Events
-                time={meetupTime}
                 description={meetupDescription}
+                time={meetupTime}
                 howToFindUs={atVenueLocation}
                 meetupArray={this.state.meetups}
               />
@@ -110,8 +113,24 @@ class CerritosMeetup extends Component {
               <div className="pt-2 ml-2 my-4">
                 <div className="p-0 m-0">{meetupMap}</div>
 
-                <ListGroup className="z-depth-1 rounded m-0 p-0">
-                  <ListGroupItem>
+                <List className="z-depth-1 rounded m-0 p-0">
+                  <ListItem>
+                    <div className="d-flex w-100 align-items-baseline justify-content-start">
+                      <i
+                        style={styles.markerStyle}
+                        className="mr-1 far fa-clock"
+                      />
+                      <div className="ml-3">
+                        <p>
+                          {meetupTime}{' '}
+                          <span className="text-muted ">
+                            Every 2nd Tuesday of the month
+                          </span>
+                        </p>
+                      </div>
+                    </div>
+                  </ListItem>
+                  <ListItem>
                     <div className="d-flex w-100 align-items-baseline justify-content-start">
                       <i style={styles.markerStyle} className="far fa-map" />
                       <div className="ml-3">
@@ -124,8 +143,8 @@ class CerritosMeetup extends Component {
                         </p>
                       </div>
                     </div>
-                  </ListGroupItem>
-                  <ListGroupItem>
+                  </ListItem>
+                  <ListItem>
                     <div className="d-flex w-100 align-items-baseline justify-content-start">
                       <i
                         style={styles.markerStyle}
@@ -137,8 +156,8 @@ class CerritosMeetup extends Component {
                         </p>
                       </div>
                     </div>
-                  </ListGroupItem>
-                </ListGroup>
+                  </ListItem>
+                </List>
               </div>
             </div>
           </div>
@@ -148,4 +167,4 @@ class CerritosMeetup extends Component {
   }
 }
 
-export default CerritosMeetup;
+export default LongBeach;
