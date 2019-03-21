@@ -4,22 +4,19 @@ import About from './About/About';
 import Contact from './Contact/Contact';
 import LongBeachMeetup from './Events/LongBeach';
 import Podcast from './Podcast/Podcast';
-import Phoenix from './Markets/Phoenix';
-import Tucson from './Markets/Tucson';
-import Columbus from './Markets/Columbus';
+
 import Resources from './Resources/Resources';
 import InvestorForm from './Questionnaire/InvestorForm';
 import Kyle from './About/Profile/Kyle';
 import Lalita from './About/Profile/Lalita';
+import Markets from './Markets/Markets';
 export {
   About,
   Contact,
   LongBeachMeetup,
-  Phoenix,
   Podcast,
   Home,
-  Tucson,
-  Columbus,
+  Markets,
   Resources,
   InvestorForm,
   Kyle,
