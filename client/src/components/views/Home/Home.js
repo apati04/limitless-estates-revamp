@@ -9,16 +9,16 @@ import Section06 from './Section06/';
 import CallToAction from './CallToAction/CallToAction';
 
 export default function Home() {
-	return (
-		<React.Fragment>
-			<Hero />
-			<IconSection />
-			<SelfDirectIra />
-			<ReasonsToInvest />
-			<CTASection />
-			<Section05 />
-			<Section06 />
-			<CallToAction />
-		</React.Fragment>
-	);
+  return (
+    <React.Fragment>
+      <Hero />
+      <IconSection />
+      <SelfDirectIra />
+      <ReasonsToInvest />
+      <CTASection />
+      <Section05 />
+      <Section06 />
+      <CallToAction />
+    </React.Fragment>
+  );
 }

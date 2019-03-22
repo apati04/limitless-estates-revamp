@@ -66,7 +66,7 @@ class PrimaryNav extends Component {
         style={{ borderRadius: 0, backgroundColor: '#212121' }}
         className={appBarClasses}
       >
-        <Toolbar disableGutters variant="dense" className={classes.container}>
+        <Toolbar variant="dense" className={classes.container}>
           <img
             alt="logo"
             src="https://i.imgur.com/IlUnKOe.png"

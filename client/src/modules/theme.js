@@ -94,8 +94,40 @@ const rawTheme = createMuiTheme({
       dark: green[700]
     }
   },
+  gridItem: {
+    position: 'relative',
+    width: '100%',
+    minHeight: '1px',
+    paddingRight: '15px',
+    paddingLeft: '15px',
+    flexBasis: 'auto'
+  },
+  gridContainer: {
+    marginRight: '-15px',
+    marginLeft: '-15px',
+    width: 'auto'
+  },
   overrides: {
     MuiButton: {
+      root: {
+        padding: '12px 30px',
+        margin: '.3125rem 1px',
+        lineHeight: '1.42857143'
+      },
+      sizeSmall: {
+        padding: '0.40625rem 1.25rem',
+        fontSize: '0.6875rem',
+        lineHeight: '1.5',
+        borderRadius: '0.2rem'
+      },
+      sizeLarge: {
+        padding: '1.125rem 2.25rem',
+        fontSize: '0.875rem',
+        letterSpacing: '0.5px',
+        lineHeight: '1.333333',
+        borderRadius: '0.2rem'
+      },
+
       extendedFab: {
         margin: 8
       }
@@ -120,8 +152,8 @@ const rawTheme = createMuiTheme({
         color: 'rgba(0, 0, 0, 0.87)',
         background: '#fff',
         width: '100%',
-        boxShadow:
-          '0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12)',
+        // boxShadow:
+        //   '0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12)',
         position: 'relative',
         display: 'flex',
         flexDirection: 'column',
@@ -175,7 +207,7 @@ const rawTheme = createMuiTheme({
   },
   typography: {
     useNextVariants: true,
-    fontFamily: "'Work-Sans', sans-serif",
+    fontFamily: 'Roboto, sans-serif',
     fontSize: 14,
     fontWeightLight: 300,
     fontWeightRegular: 400, // Work Sans
@@ -242,13 +274,13 @@ const theme = {
     },
     h5: {
       ...rawTheme.typography.h5,
-      fontSize: 20,
+      fontSize: 18,
       fontWeight: rawTheme.typography.fontWeightLight
     },
     h6: {
       ...rawTheme.typography.h6,
       ...fontHeader,
-      fontSize: 18
+      fontSize: 20
     },
     subtitle1: {
       ...rawTheme.typography.subtitle1,
@@ -261,7 +293,8 @@ const theme = {
     },
     body2: {
       ...rawTheme.typography.body1,
-      fontSize: 14
+      fontSize: 17,
+      fontWeight: rawTheme.typography.fontWeightLight
     }
   }
 };

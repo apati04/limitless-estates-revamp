@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
 import { withRouter, Redirect } from 'react-router-dom';
-import LongBeach from './Meetups/LongBeach';
+import LBPage from './LBPage';
 import Cerritos from './Meetups/Cerritos';
 
 class EventsContainer extends Component {
@@ -10,7 +9,7 @@ class EventsContainer extends Component {
     const { id } = this.props.match.params;
     switch (id) {
       case 'longbeach':
-        return <LongBeach />;
+        return <LBPage />;
       case 'cerritos':
         return <Cerritos />;
       default:
@@ -22,9 +21,5 @@ class EventsContainer extends Component {
     return <React.Fragment>{this.loadPage()}</React.Fragment>;
   }
 }
-
-EventsContainer.propTypes = {
-  classes: PropTypes.object.isRequired
-};
 
 export default withRouter(EventsContainer);
