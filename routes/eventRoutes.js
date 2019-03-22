@@ -7,7 +7,6 @@ router.get('/meetups/lbc', async (req, res) => {
   const apiKey = keys.meetupApiKey;
   const url = `https://api.meetup.com/Out-of-State-Multifamily-Apartment-Investors-Meetup/events?sign=true&key=${apiKey}&status=upcoming&page=20&photo-host=public`;
   const response = await axios.get(url);
-
   if (response.data[0]) {
     const filterData = response.data.filter(({ name, fee }) => {
       return (
