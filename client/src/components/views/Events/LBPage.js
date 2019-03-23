@@ -9,6 +9,7 @@ import landingStyles from '../About/modules/landingPage';
 import Typography from '@material-ui/core/Typography';
 import ReactHtmlParser from 'react-html-parser';
 import AboutEvent from './Meetups/AboutEvent';
+import { Link } from 'react-router-dom';
 import placeholderImg from './placeholder.jpg';
 import EventSchedule from './Meetups/EventSchedule';
 import cardStyles from '../About/modules/landingPageSections/cardStyles';
@@ -60,9 +61,9 @@ class EventPage extends Component {
     axios
       .get('/auth/meetup')
       .then(response => {
-        console.log('handleSignup:', response.data);
+        console.log('responseData: ', response.data);
       })
-      .catch(err => console.log('error: ', err));
+      .catch(error => console.log('react err: ', error));
   };
   render() {
     const { classes } = this.props;
@@ -85,6 +86,7 @@ class EventPage extends Component {
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
                   tempus, turpis vestibulum pulvinar ultrices, ante orci
                   convallis enim, vel finibus ipsum urna vitae orci. Vivamus id
+                  <a href="https://4eb1b737.ngrok.io/auth/meetup">reserve</a>
                 </Typography>
                 <Button
                   size="large"

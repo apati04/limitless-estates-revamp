@@ -1,10 +1,6 @@
 const passport = require('passport');
 const MeetupStrategy = require('passport-oauth2-meetup').Strategy;
-const {
-  meetupOauthKey,
-  meetupOauthSecret,
-  meetupOauthCallback
-} = require('../config/keys');
+const { meetupOauthKey, meetupOauthSecret } = require('../config/keys');
 
 passport.serializeUser(function(user, done) {
   done(null, user);
@@ -24,9 +20,7 @@ passport.use(
       proxy: true
     },
     function(accessToken, refreshToken, profile, done) {
-      if (!profile) {
-        return;
-      }
+      console.log('passport: ', accessToken);
       return done(null, { accessToken, profile });
     }
   )
