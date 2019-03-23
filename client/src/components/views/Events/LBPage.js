@@ -57,14 +57,6 @@ class EventPage extends Component {
       });
     });
   }
-  handleSignup = () => {
-    axios
-      .get('/auth/meetup')
-      .then(response => {
-        console.log('responseData: ', response.data);
-      })
-      .catch(error => console.log('react err: ', error));
-  };
   render() {
     const { classes } = this.props;
     console.log('this.', this.state);
@@ -85,15 +77,10 @@ class EventPage extends Component {
                 >
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
                   tempus, turpis vestibulum pulvinar ultrices, ante orci
-                  convallis enim, vel finibus ipsum urna vitae orci. Vivamus id
-                  <a href="https://4eb1b737.ngrok.io/auth/meetup">reserve</a>
+                  convallis enim, vel finibus ipsum urna vitae orci.{' '}
                 </Typography>
-                <Button
-                  size="large"
-                  onClick={this.handleSignup}
-                  variant="contained"
-                  color="primary"
-                >
+
+                <Button size="large" variant="contained" color="primary">
                   See signup
                 </Button>
               </Grid>
@@ -103,6 +90,7 @@ class EventPage extends Component {
         <div className={classNames(classes.main, classes.mainRaised)}>
           <div className={classes.container}>
             <AboutEvent />
+            <a href="/auth/meetup">TEST LINK FOR SIGN UP</a>
             <EventSchedule />
             <Typography variant="h6">{this.state.parsedData}</Typography>
           </div>

@@ -6,7 +6,6 @@ module.exports = app => {
   app.get(
     '/auth/meetup',
     passport.authenticate('meetup', {
-      session: false,
       scope: ['rsvp']
     }),
     (req, res) => {
@@ -16,12 +15,10 @@ module.exports = app => {
   app.get(
     '/auth/meetup/callback',
     passport.authenticate('meetup', {
-      successRedirect: '/user',
+      session: false,
+      successRedirect: '/events/meetups/longbeach/thankyou',
       failureRedirect: '/404'
-    }),
-    (req, res) => {
-      res.send(req.user);
-    }
+    })
   );
   app.get('/user', (req, res) => {
     console.log('user');

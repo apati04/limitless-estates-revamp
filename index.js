@@ -35,17 +35,21 @@ app.use((error, req, res, next) => {
   res.status(status).json({ message: message, data: data });
 });
 
-// if (process.env.NODE_ENV === 'production') {
-//   app.use(express.static(path.resolve(__dirname, 'client', 'build')));
-//   app.get('*', (req, res) => {
-//     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-//   });
-// }
-app.use(express.static(path.resolve(__dirname, 'client', 'build')));
+if (process.env.NODE_ENV === 'production') {
+  console.log('prod');
+  app.use(express.static(path.resolve(__dirname, 'client', 'build')));
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
+} else {
+  app.use(express.static(path.resolve(__dirname, 'client', 'public')));
+  console.log('publc');
+  app.get('/', (req, res) => {
+    console.log('publc');
+    res.sendFile(path.resolve(__dirname, 'client', 'public', 'index.html'));
+  });
+}
 
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-});
 // Serve up static assets (usually on heroku)
 
 app.listen(PORT, () => {
