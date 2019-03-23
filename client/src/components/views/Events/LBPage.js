@@ -44,19 +44,26 @@ class EventPage extends Component {
   };
   componentDidMount() {
     axios.get('/events/meetups/lbc').then(({ data }) => {
-      let parsedData = ReactHtmlParser(data[0].description);
+      let parsedData = ReactHtmlParser(data.results[0].description);
       console.log(data);
       this.setState({
         isFetching: false,
         isComplete: true,
-        eventList: data,
-        eventListLength: data.length,
-        eventObject: data[0],
+        eventList: data.results,
+        eventListLength: data.resultslength,
+        eventObject: data.results[0],
         parsedData
       });
     });
   }
-
+  handleSignup = () => {
+    axios
+      .get('https://a2019e13.ngrok.io/auth/meetup')
+      .then(response => {
+        console.log('handleSignup:', response.data);
+      })
+      .catch(err => console.log('error: ', err));
+  };
   render() {
     const { classes } = this.props;
     console.log('this.', this.state);
@@ -79,8 +86,13 @@ class EventPage extends Component {
                   tempus, turpis vestibulum pulvinar ultrices, ante orci
                   convallis enim, vel finibus ipsum urna vitae orci. Vivamus id
                 </Typography>
-                <Button size="large" variant="contained" color="primary">
-                  See Gallery
+                <Button
+                  size="large"
+                  onClick={this.handleSignup}
+                  variant="contained"
+                  color="primary"
+                >
+                  See signup
                 </Button>
               </Grid>
             </Grid>

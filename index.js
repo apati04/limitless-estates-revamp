@@ -2,6 +2,7 @@ const express = require('express');
 const helmet = require('helmet');
 const compression = require('compression');
 const path = require('path');
+const passport = require('passport');
 const podcastRoutes = require('./routes/podcastRoutes');
 const eventRoutes = require('./routes/eventRoutes');
 const app = express();
@@ -10,6 +11,8 @@ app.use(helmet());
 app.use(compression());
 app.use(express.json());
 
+app.use(passport.initialize());
+app.use(passport.session());
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader(
@@ -19,7 +22,8 @@ app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   next();
 });
-
+require('./services/passport');
+require('./routes/meetupRoutes')(app);
 app.use('/podcasts', podcastRoutes);
 app.use('/events', eventRoutes);
 app.use((error, req, res, next) => {

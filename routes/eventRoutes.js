@@ -6,15 +6,15 @@ const router = express.Router();
 router.get('/meetups/lbc', async (req, res) => {
   const apiKey = keys.meetupApiKey;
   const url = `https://api.meetup.com/Out-of-State-Multifamily-Apartment-Investors-Meetup/events?sign=true&key=${apiKey}&status=upcoming&page=20&photo-host=public`;
-  const response = await axios.get(url);
-  if (response.data[0]) {
-    const filterData = response.data.filter(({ name, fee }) => {
-      return (
-        name ===
-        'Out of State Apartment Investing Mastermind - Long Beach Chapter'
-      );
-    });
-    res.status(200).send(filterData);
+
+  try {
+    const response = await axios.get(url);
+    const filterData = response.data.filter(({ name }) =>
+      name.includes('Long Beach Chapter')
+    );
+    res.status(200).send({ results: filterData });
+  } catch (err) {
+    res.status(404).send({ error: err });
   }
 });
 router.get('/meetups/cerritos', async (req, res) => {
