@@ -19,7 +19,8 @@ passport.use(
     {
       clientID: meetupOauthKey,
       clientSecret: meetupOauthSecret,
-      callbackURL: 'https://a2019e13.ngrok.io/auth/meetup/callback',
+      callbackURL:
+        'https://test-limitless-dev.herokuapp.com/auth/meetup/callback',
       autoGenerateUsername: true
     },
     function(accessToken, refreshToken, profile, done) {
