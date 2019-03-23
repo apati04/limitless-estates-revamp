@@ -58,7 +58,7 @@ class EventPage extends Component {
   }
   handleSignup = () => {
     axios
-      .get('https://a2019e13.ngrok.io/auth/meetup')
+      .get('/auth/meetup')
       .then(response => {
         console.log('handleSignup:', response.data);
       })

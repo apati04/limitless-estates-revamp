@@ -19,9 +19,9 @@ passport.use(
     {
       clientID: meetupOauthKey,
       clientSecret: meetupOauthSecret,
-      callbackURL:
-        'https://test-limitless-dev.herokuapp.com/auth/meetup/callback',
-      autoGenerateUsername: true
+      callbackURL: '/auth/meetup/callback',
+      autoGenerateUsername: true,
+      proxy: true
     },
     function(accessToken, refreshToken, profile, done) {
       if (!profile) {

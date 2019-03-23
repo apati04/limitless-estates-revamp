@@ -11,8 +11,6 @@ app.use(helmet());
 app.use(compression());
 app.use(express.json());
 
-app.use(passport.initialize());
-app.use(passport.session());
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader(
@@ -22,6 +20,8 @@ app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   next();
 });
+app.use(passport.initialize());
+app.use(passport.session());
 require('./services/passport');
 require('./routes/meetupRoutes')(app);
 app.use('/podcasts', podcastRoutes);
@@ -33,12 +33,10 @@ app.use((error, req, res, next) => {
   const data = error.data;
   res.status(status).json({ message: message, data: data });
 });
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.resolve(__dirname, 'client', 'build')));
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-  });
-}
+app.use(express.static(path.resolve(__dirname, 'client', 'build')));
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+});
 
 // Serve up static assets (usually on heroku)
 
