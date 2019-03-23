@@ -10,7 +10,6 @@ const PORT = process.env.PORT || 5000;
 app.use(helmet());
 app.use(compression());
 app.use(express.json());
-
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader(
@@ -22,6 +21,7 @@ app.use((req, res, next) => {
 });
 app.use(passport.initialize());
 app.use(passport.session());
+
 require('./services/passport');
 require('./routes/meetupRoutes')(app);
 app.use('/podcasts', podcastRoutes);
