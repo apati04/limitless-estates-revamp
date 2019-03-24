@@ -14,10 +14,6 @@ import blue from '@material-ui/core/colors/blue';
 import ArrowDropDown from '@material-ui/icons/ArrowDropDown';
 
 const styles = theme => ({
-  button: {
-    fontFamily: 'Roboto Condensed',
-    fontSize: '0.96rem'
-  },
   paper: {
     marginRight: theme.spacing.unit * 2
   }
@@ -55,9 +51,7 @@ class MenuListComposition extends React.Component {
           }}
           style={{ textDecoration: 'none' }}
         >
-          <MenuItem onClick={this.handleClose}>
-            <span style={{ fontSize: '0.86rem' }}>{title}</span>
-          </MenuItem>
+          <MenuItem onClick={this.handleClose}>{title}</MenuItem>
         </NavLink>
       );
     });
@@ -67,7 +61,7 @@ class MenuListComposition extends React.Component {
     const { open } = this.state;
     const menuListName = this.props.title;
     return (
-      <div className={classes.root}>
+      <React.Fragment>
         <Button
           size="small"
           color="inherit"
@@ -107,7 +101,7 @@ class MenuListComposition extends React.Component {
             </Grow>
           )}
         </Popper>
-      </div>
+      </React.Fragment>
     );
   }
 }

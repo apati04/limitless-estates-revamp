@@ -8,7 +8,7 @@ import Section05 from './Section05/';
 import Section06 from './Section06/';
 import CallToAction from './CallToAction/CallToAction';
 
-export default function Home() {
+function Home(props) {
   return (
     <React.Fragment>
       <Hero />
@@ -22,3 +22,4 @@ export default function Home() {
     </React.Fragment>
   );
 }
+export default Home;

@@ -14,6 +14,7 @@ import placeholderImg from './placeholder.jpg';
 import EventSchedule from './Meetups/EventSchedule';
 import cardStyles from '../About/modules/landingPageSections/cardStyles';
 import axios from 'axios';
+
 const styles = theme => ({
   ...cardStyles,
   ...landingStyles,
@@ -90,6 +91,7 @@ class EventPage extends Component {
         <div className={classNames(classes.main, classes.mainRaised)}>
           <div className={classes.container}>
             <AboutEvent />
+
             <a href="/auth/meetup">TEST LINK FOR SIGN UP</a>
             <EventSchedule />
             <Typography variant="h6">{this.state.parsedData}</Typography>

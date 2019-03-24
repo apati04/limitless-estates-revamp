@@ -13,12 +13,6 @@ const styles = theme => ({
   ...headerStyles,
   mainAppBar: {
     zIndex: 10
-  },
-  imageStyles: {
-    height: 'auto',
-    marginBottom: '6px',
-    width: '10em',
-    display: 'inline-block'
   }
 });
 
@@ -63,15 +57,15 @@ class PrimaryNav extends Component {
 
     return (
       <AppBar
-        style={{ borderRadius: 0, backgroundColor: '#212121' }}
+        style={{
+          borderRadius: 0,
+          paddingTop: '8px',
+          opacity: 0.97,
+          background: '#212121'
+        }}
         className={appBarClasses}
       >
-        <Toolbar variant="dense" className={classes.container}>
-          <img
-            alt="logo"
-            src="https://i.imgur.com/IlUnKOe.png"
-            className={classes.imageStyles}
-          />
+        <Toolbar className={classes.container}>
           <PrimaryNavMenu />
         </Toolbar>
       </AppBar>

@@ -81,9 +81,11 @@ const refactorUrl = {
 };
 
 const styles = theme => ({
-  root: {
-    fontFamily: 'Roboto Condensed',
-    fontSize: '0.96rem'
+  imageStyles: {
+    height: 'auto',
+    marginBottom: '6px',
+    width: '10em',
+    display: 'inline-block'
   }
 });
 const PrimaryNavMenu = props => {
@@ -92,29 +94,30 @@ const PrimaryNavMenu = props => {
     const keys = Object.keys(refactorUrl);
     return keys.map((item, index) => {
       if (refactorUrl[item].hasOwnProperty('dropdown')) {
-        return (
-          <Grid item key={index}>
-            {dropdownItems[item]}
-          </Grid>
-        );
+        return dropdownItems[item];
       }
       return (
-        <Grid item key={index}>
-          <Button
-            size="small"
-            component={navRoutes[`${item}Link`]}
-            color="inherit"
-            variant="text"
-            className={classes.root}
-          >
-            {item}
-          </Button>
-        </Grid>
+        <Button
+          size="small"
+          component={navRoutes[`${item}Link`]}
+          color="inherit"
+          variant="text"
+          className={classes.root}
+        >
+          {item}
+        </Button>
       );
     });
   };
   return (
-    <Grid container justify="flex-end" wrap="nowrap" alignItems="center">
+    <Grid container justify="space-between" wrap="nowrap" alignItems="center">
+      <Grid item xs={4}>
+        <img
+          alt="logo"
+          src="https://i.imgur.com/IlUnKOe.png"
+          className={classes.imageStyles}
+        />
+      </Grid>
       {renderNavItems()}
     </Grid>
   );

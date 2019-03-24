@@ -1,12 +1,25 @@
 import React from 'react';
 import EventListItem from './eventListItem';
+import ScheduleTable from '../Meetups/ScheduleTable';
 //
 const EventList = ({ eventDetails, meetupTime, description }) => {
   let eventDetailList = eventDetails.map(
-    ({ rsvp_limit, yes_rsvp_count, id, time, link, fee = '' }) => (
-      <EventListItem
+    ({
+      rsvp_limit,
+      name,
+      yes_rsvp_count,
+      status,
+      id,
+      time,
+      link,
+      fee = ''
+    }) => (
+      <ScheduleTable
+        eventName={name}
         rsvpLimit={rsvp_limit}
+        status={status}
         yesRsvp={yes_rsvp_count}
+        meetupDetails={eventDetails}
         key={id}
         link={link}
         time={time}

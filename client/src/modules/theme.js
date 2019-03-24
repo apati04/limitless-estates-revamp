@@ -3,6 +3,10 @@ import green from '@material-ui/core/colors/green';
 import grey from '@material-ui/core/colors/grey';
 import red from '@material-ui/core/colors/red';
 import blue from '@material-ui/core/colors/blue';
+import lightBlue from '@material-ui/core/colors/lightBlue';
+import indigo from '@material-ui/core/colors/indigo';
+
+import wavesWhite from '../components/waves-white.svg';
 const containerFluid = {
   paddingRight: '15px',
   paddingLeft: '15px',
@@ -71,14 +75,14 @@ const rawTheme = createMuiTheme({
   },
   palette: {
     primary: {
-      light: blue[300],
-      main: blue[900],
-      dark: blue[900]
+      light: '#35afea',
+      main: blue[500],
+      dark: '#026ca0'
     },
     secondary: {
-      light: green[300],
-      main: green[500],
-      dark: green[700]
+      light: '#68b36b',
+      main: green[600],
+      dark: '#2e7031'
     },
     warning: {
       main: '#ffc071',
@@ -207,7 +211,7 @@ const rawTheme = createMuiTheme({
   },
   typography: {
     useNextVariants: true,
-    fontFamily: 'Nunito, sans-serif',
+    fontFamily: 'Roboto, sans-serif',
     fontSize: 14,
     fontWeightLight: 300,
     fontWeightRegular: 400,
@@ -221,6 +225,13 @@ const rawTheme = createMuiTheme({
     left: 0,
     width: '100%',
     height: '100%'
+  },
+  preFooter: {
+    width: '100%',
+    backgroundImage: `url(${wavesWhite}),linear-gradient(to right, #0b72dc, #399ff0)`,
+    backgroundPosition: 'initial',
+    backgroundSize: 'cover, cover',
+    textAlign: 'center'
   },
   lightOverlay: {
     position: 'absolute',
