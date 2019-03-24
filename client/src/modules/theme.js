@@ -207,11 +207,11 @@ const rawTheme = createMuiTheme({
   },
   typography: {
     useNextVariants: true,
-    fontFamily: 'Roboto, sans-serif',
+    fontFamily: 'Nunito, sans-serif',
     fontSize: 14,
     fontWeightLight: 300,
-    fontWeightRegular: 400, // Work Sans
-    fontWeightMedium: 700, // Roboto Condensed
+    fontWeightRegular: 400,
+    fontWeightMedium: 700,
     fontFamilySecondary: "'Roboto Condensed', sans-serif"
   },
   overlayEffect: {
