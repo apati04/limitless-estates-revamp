@@ -38,9 +38,10 @@ import {
   PodcastLink,
   ContactLink
 } from '../routes';
-// const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
+import headerStyles from '../../views/About/modules/headerStyles';
 
 const styles = theme => ({
+  ...headerStyles,
   icon: {
     marginRight: theme.spacing.unit * 2
   },
@@ -91,19 +92,32 @@ class MobileTopNavbar extends Component {
       <List
         component="nav"
         subheader={
-          <ListSubheader className={classes.listItem} style={{ color: 'black' }} component={HomeLink}>
+          <ListSubheader
+            className={classes.listItem}
+            style={{ color: 'black' }}
+            component={HomeLink}
+          >
             Limitless Estates LLC
           </ListSubheader>
         }
         className={classes.root}
       >
         <Divider light />
-        <ListItem className={classes.listItem} button onClick={this.toggleDrawer('left', false)} component={AboutLink}>
+        <ListItem
+          className={classes.listItem}
+          button
+          onClick={this.toggleDrawer('left', false)}
+          component={AboutLink}
+        >
           <ListItemText primary="About" />
         </ListItem>
         <Divider light />
 
-        <ListItem className={classes.listItem} button onClick={this.handleListClick('markets')}>
+        <ListItem
+          className={classes.listItem}
+          button
+          onClick={this.handleListClick('markets')}
+        >
           <ListItemText primary="Markets" />
           {this.state.markets ? <ExpandLess /> : <ExpandMore />}
         </ListItem>
@@ -137,13 +151,22 @@ class MobileTopNavbar extends Component {
           </List>
         </Collapse>
         <Divider light />
-        <ListItem className={classes.listItem} button onClick={this.handleListClick('resources')}>
+        <ListItem
+          className={classes.listItem}
+          button
+          onClick={this.handleListClick('resources')}
+        >
           <ListItemText primary="Resources" />
           {this.state.resources ? <ExpandLess /> : <ExpandMore />}
         </ListItem>
         <Divider light />
         <Collapse in={this.state.resources} timeout="auto" unmountOnExit>
-          <List style={{ backgroundColor: '#f9f9f9' }} dense component="div" disablePadding>
+          <List
+            style={{ backgroundColor: '#f9f9f9' }}
+            dense
+            component="div"
+            disablePadding
+          >
             <ListItem
               button
               onClick={this.toggleDrawer('left', false)}
@@ -160,7 +183,12 @@ class MobileTopNavbar extends Component {
             >
               <ListItemText primary="Impact Investing" />
             </ListItem>
-            <ListItem button onClick={this.toggleDrawer('left', false)} className={classes.nested} component={IraLink}>
+            <ListItem
+              button
+              onClick={this.toggleDrawer('left', false)}
+              className={classes.nested}
+              component={IraLink}
+            >
               <ListItemText primary="Self Direct 401K/IRA" />
             </ListItem>
             <ListItem
@@ -171,13 +199,22 @@ class MobileTopNavbar extends Component {
             >
               <ListItemText primary="Risks" />
             </ListItem>
-            <ListItem button onClick={this.toggleDrawer('left', false)} className={classes.nested} component={FaqLink}>
+            <ListItem
+              button
+              onClick={this.toggleDrawer('left', false)}
+              className={classes.nested}
+              component={FaqLink}
+            >
               <ListItemText primary="F.A.Q" />
             </ListItem>
           </List>
         </Collapse>
         <Divider light />
-        <ListItem className={classes.listItem} button onClick={this.handleListClick('events')}>
+        <ListItem
+          className={classes.listItem}
+          button
+          onClick={this.handleListClick('events')}
+        >
           <ListItemText primary="Events" />
           {this.state.events ? <ExpandLess /> : <ExpandMore />}
         </ListItem>
@@ -240,7 +277,7 @@ class MobileTopNavbar extends Component {
     const { classes } = this.props;
     return (
       <div className={classes.appRoot}>
-        <AppBar position="sticky" className={classes.appBar}>
+        <AppBar position="absolute" style={{ background: 'transparent' }}>
           <Toolbar>
             <Grid container justify="space-between" alignItems="center">
               <Grid item xs={4}>
@@ -252,7 +289,11 @@ class MobileTopNavbar extends Component {
                 >
                   <MenuIcon />
                 </IconButton>
-                <Drawer anchor="left" open={this.state.left} onClose={this.toggleDrawer('left', false)}>
+                <Drawer
+                  anchor="left"
+                  open={this.state.left}
+                  onClose={this.toggleDrawer('left', false)}
+                >
                   {/* <div
               tabIndex={0}
               role="button"
@@ -266,7 +307,11 @@ class MobileTopNavbar extends Component {
               </Grid>
               <Grid item xs={8}>
                 <Link to="/">
-                  <img alt="logo" src="https://i.imgur.com/IlUnKOe.png" className={classes.imageStyles} />
+                  <img
+                    alt="logo"
+                    src="https://i.imgur.com/IlUnKOe.png"
+                    className={classes.imageStyles}
+                  />
                 </Link>
               </Grid>
             </Grid>

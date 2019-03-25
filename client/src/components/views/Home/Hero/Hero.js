@@ -80,7 +80,7 @@ class Hero extends Component {
                   paragraph
                   className={classes.heroTitle}
                 >
-                  Limitless Estates
+                  ! Limitless Estates!
                 </Typography>
 
                 <Divider className={classes.divider} />

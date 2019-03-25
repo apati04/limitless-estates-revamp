@@ -14,6 +14,7 @@ import placeholderImg from './placeholder.jpg';
 
 import cardStyles from '../About/modules/landingPageSections/cardStyles';
 import UpcomingEvents from './Meetups/UpcomingEvents/UpcomingEvents';
+
 import axios from 'axios';
 
 const styles = theme => ({
@@ -33,6 +34,12 @@ const styles = theme => ({
   },
   fontStyles: {
     color: 'white'
+  },
+  mobileContainer: {
+    [theme.breakpoints.down('xs')]: {
+      margin: 0,
+      padding: 0
+    }
   }
 });
 
@@ -42,16 +49,19 @@ class EventPage extends Component {
     isComplete: false,
     eventList: null,
     eventListLength: 0,
-    eventObject: null
+    eventObject: null,
+    parsedSchedule: ''
   };
   componentDidMount() {
     axios.get('/events/meetups/lbc').then(({ data }) => {
+      let parsedSchedule = ReactHtmlParser(data.results[0].description);
       this.setState({
         isFetching: false,
         isComplete: true,
         eventList: data.results,
         eventListLength: data.resultslength,
-        eventObject: data.results[0]
+        eventObject: data.results[0],
+        parsedSchedule
       });
     });
   }
@@ -91,12 +101,15 @@ class EventPage extends Component {
                 </Grid>
               </div>
             </Parallax>
-            <div className={classNames(classes.main, classes.mainRaised)}>
+            <div className={classNames(classes.mobileContainer, classes.main)}>
               <div className={classes.container}>
                 <AboutEvent />
 
                 <a href="/auth/meetup">TEST LINK FOR SIGN UP</a>
-                <UpcomingEvents eventList={this.state.eventList} />
+                <UpcomingEvents
+                  eventList={this.state.eventList}
+                  eventSchedule={this.state.parsedSchedule}
+                />
               </div>
             </div>
           </React.Fragment>

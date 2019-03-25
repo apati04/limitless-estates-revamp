@@ -24,14 +24,14 @@ const styles = theme => ({
     ...theme.gridContainer
   },
   gridItem: {
-    ...theme.gridItem
+    ...theme.gridItem,
+    width: 'auto'
   },
   layout: {
     width: 'auto',
-    marginLeft: theme.spacing.unit * 3,
-    marginRight: theme.spacing.unit * 3,
+    marginLeft: theme.spacing.unit,
+    marginRight: theme.spacing.unit,
     [theme.breakpoints.up(1100 + theme.spacing.unit * 3 * 2)]: {
-      width: 1100,
       marginLeft: 'auto',
       marginRight: 'auto'
     }
@@ -40,7 +40,6 @@ const styles = theme => ({
     padding: `${theme.spacing.unit * 8}px 0`
   },
   card: {
-    height: '100%',
     display: 'flex',
     flexDirection: 'column'
   },
@@ -48,23 +47,24 @@ const styles = theme => ({
     paddingTop: '56.25%' // 16:9
   },
   cardContent: {
-    width: 'auto',
-    flexGrow: 1,
-    padding: '15px'
+    flex: 1,
+    padding: '1rem 0.5rem'
   },
-  cardActions: {
-    justifyContent: 'flex-end'
-  },
+  cardActions: {},
   eventName: {
-    overflow: 'hidden',
-    textOverflow: 'ellipsis',
-    'white-space': 'nowrap'
+    // overflow: 'hidden',
+    // textOverflow: 'ellipsis',
+    // 'white-space': 'nowrap'
+    lineHeight: 'normal'
   },
   eventDate: {
     margin: 0
   },
   eventDetailText: {
     color: 'rgba(0,0,0,0.6)'
+  },
+  gridContent: {
+    paddingLeft: 0
   }
 });
 class UpcomingEvents extends React.Component {
@@ -88,27 +88,34 @@ class UpcomingEvents extends React.Component {
       let [year, month, day] = event.local_date.split('-');
       let localTime = new Date(year, month, day);
       let endTime = event.time + event.duration;
-      let [groupName, subGroupName] = event.name.split(' - ');
+      let title = event.name.split(' ').filter(item => item !== '-');
+      console.log('title: ', title);
       return (
-        <Grid item key={event.id} sm={6} md={4} lg={4}>
+        <Grid item key={event.id} xs={12} sm={6} md={6} lg={4}>
           <Card className={classes.card}>
             <CardMedia
               className={classes.cardMedia}
-              image={event.featured_photo.photo_link} // eslint-disable-line max-len
+              image={event.featured_photo.photo_link}
               title="Image title"
             />
             <CardContent className={classes.cardContent}>
               <Grid
                 container
-                justify="space-between"
+                justify="space-around"
                 alignItems="flex-start"
                 spacing={0}
-                className={classes.gridContainer}
               >
-                <Grid item xs={12} sm={3} md={3} className={classes.gridItem}>
+                <Grid
+                  item
+                  xs={3}
+                  sm={3}
+                  md={3}
+                  lg={3}
+                  className={classNames(classes.gridItem, classes.gridContent)}
+                >
                   <Typography
                     align="center"
-                    variant="h2"
+                    variant="h4"
                     component="h2"
                     className={classes.eventDate}
                   >
@@ -126,24 +133,29 @@ class UpcomingEvents extends React.Component {
                     <Moment format="MMM">{event.time}</Moment>
                   </Typography>
                 </Grid>
-                <Grid item xs={12} sm={9} md={9} className={classes.gridItem}>
+                <Grid
+                  item
+                  xs={9}
+                  sm={9}
+                  md={9}
+                  className={classNames(classes.gridItem, classes.gridContent)}
+                >
                   <Typography
                     align="left"
-                    variant="body1"
+                    variant="subtitle1"
                     className={classes.eventName}
                   >
-                    {groupName} <br />
-                    {subGroupName}
+                    {event.name}
                   </Typography>
                   <Typography
-                    align="left"
+                    align="justify"
                     variant="body2"
                     className={classes.eventDetailText}
                   >
                     <Moment format="ddd, hh:mm a">{event.time}</Moment> to{' '}
                     <Moment format="hh:mm a">{endTime}</Moment>
                   </Typography>
-                  <Typography align="left" variant="body1">
+                  <Typography align="justify" variant="body1">
                     {event.venue.name}
                   </Typography>
                 </Grid>
@@ -162,51 +174,24 @@ class UpcomingEvents extends React.Component {
         </Grid>
       );
     });
-    // return cards.map(card => (
-    //   <Grid item key={card} sm={6} md={4} lg={3}>
-    //     <Card className={classes.card}>
-    //       <CardMedia
-    //         className={classes.cardMedia}
-    //         image=""
-    //         title="Image title"
-    //       />
-    //       <CardContent className={classes.cardContent}>
-    //         <Typography gutterBottom variant="h5" component="h2">
-    //           Heading
-    //         </Typography>
-    //         <Typography>
-    //           This is a media card. You can use this section to describe the
-    //           content.
-    //         </Typography>
-    //       </CardContent>
-    //       <CardActions>
-    //         <Button size="small" color="primary">
-    //           View
-    //         </Button>
-    //         <Button size="small" color="primary">
-    //           Edit
-    //         </Button>
-    //       </CardActions>
-    //     </Card>
-    //   </Grid>
-    // ));
   };
   render() {
     const { classes } = this.props;
     return (
       <div className={classes.section}>
-        <Grid
-          container
-          justify="center"
-          alignItems="stretch"
-          className={classes.gridContainer}
-        >
+        <Grid container justify="center" className={classes.gridContainer}>
           <Grid item xs={12} sm={12} md={12} className={classes.gridItem}>
             <hr className="hr-text" data-content="Upcoming" />
           </Grid>
         </Grid>
         <div className={classNames(classes.layout, classes.cardGrid)}>
-          <Grid container spacing={40}>
+          <Grid
+            container
+            spacing={40}
+            justify="space-between"
+            alignItems="center"
+            wrap="wrap"
+          >
             {this.props.eventList.length ? (
               this.loadCards()
             ) : (
