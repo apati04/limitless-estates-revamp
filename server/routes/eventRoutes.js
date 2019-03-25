@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get('/meetups/lbc', async (req, res) => {
   const apiKey = keys.meetupApiKey;
-  const url = `https://api.meetup.com/Out-of-State-Multifamily-Apartment-Investors-Meetup/events?sign=true&key=${apiKey}&status=upcoming&page=20&photo-host=public`;
+  const url = `https://api.meetup.com/Out-of-State-Multifamily-Apartment-Investors-Meetup/events?sign=true&key=${apiKey}&status=upcoming&page=20&fields=featured_photo&photo-host=public`;
 
   try {
     const response = await axios.get(url);

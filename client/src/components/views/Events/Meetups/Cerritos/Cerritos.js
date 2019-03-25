@@ -1,13 +1,13 @@
 import React, { Component, Fragment } from 'react';
-import Events from '../modules/Events';
-import EventMap from '../modules/EventMap';
+import Events from '../../modules/Events';
+import EventMap from '../../modules/EventMap';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import ReactHtmlParser from 'react-html-parser';
 import Moment from 'react-moment';
 import axios from 'axios';
-import placeholderImg from '../placeholder.jpg';
-import Parallax from '../../Layouts/Parallax';
+import placeholderImg from '../../placeholder.jpg';
+import Parallax from '../../../Layouts/Parallax';
 import withStyles from '@material-ui/core/styles/withStyles';
 import Grid from '@material-ui/core/Grid';
 const styles = theme => ({

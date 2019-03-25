@@ -16,6 +16,7 @@
     "lightbox-react": "^0.3.7",
     "material-ui-flat-pagination": "^3.2.0",
     "moment": "^2.24.0",
+    "notistack": "^0.5.1",
     "prop-types": "^15.7.2",
     "query-string": "^6.3.0",
     "react": "^16.8.4",
@@ -30,6 +31,7 @@
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "^2.1.8",
+    "react-swipeable-views": "^0.13.1",
     "yup": "^0.27.0"
   },
   "scripts": {

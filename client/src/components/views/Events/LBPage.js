@@ -10,6 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import ReactHtmlParser from 'react-html-parser';
 import AboutEvent from './Meetups/AboutEvent';
 import { Link } from 'react-router-dom';
+import Moment from 'react-moment';
 import placeholderImg from './placeholder.jpg';
 import EventSchedule from './Meetups/EventSchedule';
 import cardStyles from '../About/modules/landingPageSections/cardStyles';
@@ -98,7 +99,7 @@ class EventPage extends Component {
                 <AboutEvent />
 
                 <a href="/auth/meetup">TEST LINK FOR SIGN UP</a>
-                <EventSchedule />
+                <EventSchedule eventList={this.state.eventList} />
                 <Typography variant="h6">{this.state.parsedData}</Typography>
               </div>
             </div>

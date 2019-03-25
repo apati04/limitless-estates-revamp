@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { withRouter, Redirect } from 'react-router-dom';
 import LBPage from './LBPage';
-import Cerritos from './Meetups/Cerritos';
+import Cerritos from './Meetups/Cerritos/Cerritos';
 
 class EventsContainer extends Component {
   loadPage = () => {
