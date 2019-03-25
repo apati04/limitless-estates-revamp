@@ -50,8 +50,8 @@ class SurveyModal extends React.Component {
 
     return (
       <div>
-        <Button color="info" onClick={this.handleOpen}>
-          RSVP
+        <Button color="secondary" variant="contained" onClick={this.handleOpen}>
+          Attend
         </Button>
         <Modal
           aria-labelledby="simple-modal-title"

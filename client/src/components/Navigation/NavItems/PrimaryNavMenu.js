@@ -8,6 +8,7 @@ import { withStyles } from '@material-ui/core/styles';
 const dropdownItems = {
   About: (
     <DropdownItem
+      key={'aboutkey'}
       title="About"
       listItems={[
         { title: 'Meet The Team', slug: '/about/meet-the-team' },
@@ -18,6 +19,7 @@ const dropdownItems = {
   ),
   Markets: (
     <DropdownItem
+      key={'marketskey'}
       title="markets"
       listItems={[
         { title: 'PHOENIX, AZ', slug: '/markets/phoenix-arizona' },
@@ -28,6 +30,7 @@ const dropdownItems = {
   ),
   Resources: (
     <DropdownItem
+      key={'resourceskey'}
       title="resources"
       listItems={[
         {
@@ -56,6 +59,7 @@ const dropdownItems = {
   ),
   Events: (
     <DropdownItem
+      key={'eventskey'}
       title="events"
       listItems={[
         {
@@ -98,6 +102,7 @@ const PrimaryNavMenu = props => {
       }
       return (
         <Button
+          key={index + item}
           size="small"
           component={navRoutes[`${item}Link`]}
           color="inherit"

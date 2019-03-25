@@ -47,7 +47,6 @@ class EventPage extends Component {
   componentDidMount() {
     axios.get('/events/meetups/lbc').then(({ data }) => {
       let parsedData = ReactHtmlParser(data.results[0].description);
-      console.log(data);
       this.setState({
         isFetching: false,
         isComplete: true,
@@ -60,43 +59,53 @@ class EventPage extends Component {
   }
   render() {
     const { classes } = this.props;
-    console.log('this.', this.state);
+    console.log('STATE: ', this.state);
     return (
       <React.Fragment>
-        <Parallax filter image={placeholderImg}>
-          <div className={classes.container}>
-            <Grid container className={classes.gridContainer}>
-              <Grid item xs={12} sm={12} md={8}>
-                <Typography variant="h1" paragraph className={classes.title}>
-                  Multifamily Meetup <br /> Long Beach Chapter
-                </Typography>
+        {this.state.isComplete && !this.state.isFetching ? (
+          <React.Fragment>
+            <Parallax filter image={placeholderImg}>
+              <div className={classes.container}>
+                <Grid container className={classes.gridContainer}>
+                  <Grid item xs={12} sm={12} md={8}>
+                    <Typography
+                      variant="h1"
+                      paragraph
+                      className={classes.title}
+                    >
+                      Multifamily Meetup <br /> Long Beach Chapter
+                    </Typography>
 
-                <Typography
-                  paragraph
-                  variant="body1"
-                  className={classes.fontStyles}
-                >
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  tempus, turpis vestibulum pulvinar ultrices, ante orci
-                  convallis enim, vel finibus ipsum urna vitae orci.{' '}
-                </Typography>
+                    <Typography
+                      paragraph
+                      variant="body1"
+                      className={classes.fontStyles}
+                    >
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Sed tempus, turpis vestibulum pulvinar ultrices, ante orci
+                      convallis enim, vel finibus ipsum urna vitae orci.{' '}
+                    </Typography>
 
-                <Button size="large" variant="contained" color="primary">
-                  See signup
-                </Button>
-              </Grid>
-            </Grid>
-          </div>
-        </Parallax>
-        <div className={classNames(classes.main, classes.mainRaised)}>
-          <div className={classes.container}>
-            <AboutEvent />
+                    <Button size="large" variant="contained" color="primary">
+                      See signup
+                    </Button>
+                  </Grid>
+                </Grid>
+              </div>
+            </Parallax>
+            <div className={classNames(classes.main, classes.mainRaised)}>
+              <div className={classes.container}>
+                <AboutEvent />
 
-            <a href="/auth/meetup">TEST LINK FOR SIGN UP</a>
-            <EventSchedule />
-            <Typography variant="h6">{this.state.parsedData}</Typography>
-          </div>
-        </div>
+                <a href="/auth/meetup">TEST LINK FOR SIGN UP</a>
+                <EventSchedule />
+                <Typography variant="h6">{this.state.parsedData}</Typography>
+              </div>
+            </div>
+          </React.Fragment>
+        ) : (
+          <div>Loading...</div>
+        )}
       </React.Fragment>
     );
   }
