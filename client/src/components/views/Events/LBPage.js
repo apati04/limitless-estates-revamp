@@ -9,11 +9,11 @@ import landingStyles from '../About/modules/landingPage';
 import Typography from '@material-ui/core/Typography';
 import ReactHtmlParser from 'react-html-parser';
 import AboutEvent from './Meetups/AboutEvent';
-import { Link } from 'react-router-dom';
-import Moment from 'react-moment';
+
 import placeholderImg from './placeholder.jpg';
-import EventSchedule from './Meetups/EventSchedule';
+
 import cardStyles from '../About/modules/landingPageSections/cardStyles';
+import UpcomingEvents from './Meetups/UpcomingEvents/UpcomingEvents';
 import axios from 'axios';
 
 const styles = theme => ({
@@ -42,25 +42,22 @@ class EventPage extends Component {
     isComplete: false,
     eventList: null,
     eventListLength: 0,
-    eventObject: null,
-    parsedData: ''
+    eventObject: null
   };
   componentDidMount() {
     axios.get('/events/meetups/lbc').then(({ data }) => {
-      let parsedData = ReactHtmlParser(data.results[0].description);
       this.setState({
         isFetching: false,
         isComplete: true,
         eventList: data.results,
         eventListLength: data.resultslength,
-        eventObject: data.results[0],
-        parsedData
+        eventObject: data.results[0]
       });
     });
   }
   render() {
     const { classes } = this.props;
-    console.log('STATE: ', this.state);
+
     return (
       <React.Fragment>
         {this.state.isComplete && !this.state.isFetching ? (
@@ -99,8 +96,7 @@ class EventPage extends Component {
                 <AboutEvent />
 
                 <a href="/auth/meetup">TEST LINK FOR SIGN UP</a>
-                <EventSchedule eventList={this.state.eventList} />
-                <Typography variant="h6">{this.state.parsedData}</Typography>
+                <UpcomingEvents eventList={this.state.eventList} />
               </div>
             </div>
           </React.Fragment>

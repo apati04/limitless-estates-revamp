@@ -117,10 +117,7 @@ class CerritosMeetup extends Component {
                   <Card className="z-depth-1 rounded m-0 p-0">
                     <CardContent>
                       <div className="d-flex w-100 align-items-baseline justify-content-start">
-                        <i
-                          className={styles.markerStyle}
-                          className="far fa-map"
-                        />
+                        <i className={styles.markerStyle} />
                         <div className="ml-3">
                           <p>{meetupVenue.name}</p>
                           <p className="text-muted">{meetupVenue.address_1}</p>
@@ -132,10 +129,7 @@ class CerritosMeetup extends Component {
                     </CardContent>
                     <CardContent>
                       <div className="d-flex w-100 align-items-baseline justify-content-start">
-                        <i
-                          className={styles.markerStyle}
-                          className="far fa-compass"
-                        />
+                        <i className={styles.markerStyle} />
                         <div className="ml-3">
                           <p className="">{atVenueLocation}</p>
                         </div>

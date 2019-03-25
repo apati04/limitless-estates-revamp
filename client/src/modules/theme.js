@@ -204,11 +204,6 @@ const rawTheme = createMuiTheme({
       }
     }
   },
-  props: {
-    MuiButtonBase: {
-      disableRipple: true
-    }
-  },
   typography: {
     useNextVariants: true,
     fontFamily: 'Roboto, sans-serif',
@@ -304,7 +299,7 @@ const theme = {
     },
     body2: {
       ...rawTheme.typography.body1,
-      fontSize: 17,
+      fontSize: 14,
       fontWeight: rawTheme.typography.fontWeightLight
     }
   }

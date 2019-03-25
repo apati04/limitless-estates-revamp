@@ -1,5 +1,4 @@
 import React from 'react';
-import EventListItem from './eventListItem';
 import ScheduleTable from '../Meetups/ScheduleTable';
 //
 const EventList = ({ eventDetails, meetupTime, description }) => {

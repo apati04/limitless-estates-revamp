@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+
 import withStyles from '@material-ui/core/styles/withStyles';
 import Grid from '@material-ui/core/Grid';
 import productStyles from '../../About/modules/landingPageSections/productStyles';
 import InfoSection from '../../Layouts/InfoSection';
-import Typography from '@material-ui/core/Typography';
+
 import Chat from '@material-ui/icons/Chat';
 const styles = theme => ({
   ...productStyles,
