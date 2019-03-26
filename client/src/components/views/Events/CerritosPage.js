@@ -11,10 +11,10 @@ import ReactHtmlParser from 'react-html-parser';
 import AboutEvent from './Meetups/AboutEvent';
 import EventMap from './modules/EventMap';
 import placeholderImg from './placeholder.jpg';
-import { HashLink as Link } from 'react-router-hash-link';
 
 import cardStyles from '../About/modules/landingPageSections/cardStyles';
 import UpcomingEvents from './Meetups/UpcomingEvents/UpcomingEvents';
+
 import axios from 'axios';
 
 const styles = theme => ({
@@ -53,7 +53,7 @@ const styles = theme => ({
   }
 });
 
-class EventPage extends Component {
+class CerritosPage extends Component {
   state = {
     isFetching: true,
     isComplete: false,
@@ -63,7 +63,7 @@ class EventPage extends Component {
     parsedSchedule: ''
   };
   componentDidMount() {
-    axios.get('/events/meetups/lbc').then(({ data }) => {
+    axios.get('/events/meetups/cerritos').then(({ data }) => {
       let parsedSchedule = ReactHtmlParser(data.results[0].description);
       this.setState({
         isFetching: false,
@@ -90,7 +90,7 @@ class EventPage extends Component {
                       paragraph
                       className={classes.title}
                     >
-                      Multifamily Meetup <br /> Long Beach Chapter
+                      Cerritos Meetup page
                     </Typography>
 
                     <Typography
@@ -103,26 +103,8 @@ class EventPage extends Component {
                       convallis enim, vel finibus ipsum urna vitae orci.{' '}
                     </Typography>
 
-                    <Button
-                      size="large"
-                      component={props => (
-                        <Link
-                          {...props}
-                          to="/events/meetups/longbeach#schedule"
-                          scroll={el =>
-                            el.scrollIntoView({
-                              behavior: 'smooth',
-                              block: 'start',
-                              inline: 'start'
-                            })
-                          }
-                          offset={100}
-                        />
-                      )}
-                      variant="contained"
-                      color="primary"
-                    >
-                      See Schedule
+                    <Button size="large" variant="contained" color="primary">
+                      See signup
                     </Button>
                   </Grid>
                 </Grid>
@@ -146,21 +128,6 @@ class EventPage extends Component {
                   className={classes.gridContainer}
                 >
                   <Grid item xs={12} sm={6} className={classes.gridItem}>
-                    <div
-                      style={{
-                        background: 'rgba(0,0,0,0.09)'
-                      }}
-                    >
-                      <img
-                        src="/images/600.jpg"
-                        alt="meetup"
-                        title="meetup"
-                        className={classes.imageStyle}
-                      />
-                    </div>
-                  </Grid>
-
-                  <Grid item xs={12} sm={6} className={classes.gridItem}>
                     <Typography
                       variant="h6"
                       align="left"
@@ -169,19 +136,19 @@ class EventPage extends Component {
                       {this.state.parsedSchedule}
                     </Typography>
                   </Grid>
+                  <Grid item xs={12} sm={6} className={classes.gridItem}>
+                    <img
+                      src="/images/600.jpg"
+                      alt="meetup"
+                      title="meetup"
+                      className={classes.imageStyle}
+                    />
+                  </Grid>
                 </Grid>
-                <div
-                  id="schedule"
-                  style={{
-                    position: 'absolute',
-                    marginTop: '-100px',
-                    width: 0,
-                    height: 0
-                  }}
-                />
+
                 <UpcomingEvents
                   eventList={this.state.eventList}
-                  eventHosts={this.state.eventObject.event_hosts}
+                  hosts={this.state.eventObject.event_hosts}
                 />
                 <EventMap meetupLocation={this.state.eventObject.venue} />
               </div>
@@ -195,8 +162,8 @@ class EventPage extends Component {
   }
 }
 
-EventPage.propTypes = {
+CerritosPage.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(EventPage);
+export default withStyles(styles)(CerritosPage);

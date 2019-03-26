@@ -21,12 +21,13 @@ router.get('/meetups/cerritos', async (req, res) => {
   const rootUrl = `https://api.meetup.com/Cerritos-Multifamily-Investors-Roundtable/events?sign=true&key=${
     keys.meetupApiKey
   }&status=upcoming&fields=featured_photo,event_hosts,rsvp_rules&page=6&photo-host=public`;
+
   const response = await axios.get(rootUrl);
   if (response.data[0]) {
     const filterData = response.data.filter(({ name, fee }) => {
-      return name === 'Cerritos Multifamily Investors Roundtable';
+      return name.includes('Cerritos Multifamily Investors Roundtable');
     });
-    res.status(200).send(filterData);
+    res.status(200).send({ results: filterData });
   }
 });
 
