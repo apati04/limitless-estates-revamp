@@ -73,6 +73,14 @@ const rawTheme = createMuiTheme({
     backgroundColor: 'transparent',
     padding: '0.9375rem 1.875rem'
   },
+  avatar: {
+    margin: 10
+  },
+  bigAvatar: {
+    margin: 10,
+    width: 60,
+    height: 60
+  },
   palette: {
     primary: {
       light: '#35afea',

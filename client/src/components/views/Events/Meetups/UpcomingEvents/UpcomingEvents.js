@@ -12,10 +12,11 @@ import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
-import CardActionArea from '@material-ui/core/CardActionArea';
+import CardHeader from '@material-ui/core/CardHeader';
 import Hidden from '@material-ui/core/Hidden';
 import Icon from '@material-ui/core/Icon';
 import GroupAdd from '@material-ui/icons/GroupAdd';
+import Avatar from '@material-ui/core/Avatar';
 const styles = theme => ({
   ...productStyles,
   root: {
@@ -30,6 +31,10 @@ const styles = theme => ({
   gridItem: {
     ...theme.gridItem,
     width: 'auto'
+  },
+  avatar: {
+    ...theme.avatar
+    // theme.bigAvatar
   },
   layout: {
     width: 'auto',
@@ -58,7 +63,7 @@ const styles = theme => ({
   },
   cardContent: {
     flex: 1,
-    padding: '1rem 0.2rem'
+    padding: '0.9375rem'
   },
   cardActions: {
     justifyContent: 'space-between',
@@ -81,6 +86,9 @@ const styles = theme => ({
     [theme.breakpoints.down('md')]: {
       padding: 0
     }
+  },
+  cardContentMargin: {
+    margin: '0.6rem 1.1rem'
   }
 });
 class UpcomingEvents extends React.Component {
@@ -109,12 +117,6 @@ class UpcomingEvents extends React.Component {
       return (
         <Grid item key={event.id} xs={12} sm={6} md={6} lg={4}>
           <Card elevation={5} className={classes.card}>
-            <CardMedia
-              className={classes.cardMedia}
-              image={event.featured_photo.photo_link}
-              title="Image title"
-            />
-
             <CardContent className={classes.cardContent}>
               <Grid
                 container
@@ -132,7 +134,73 @@ class UpcomingEvents extends React.Component {
                 >
                   <Typography
                     align="center"
-                    variant="h4"
+                    variant="h3"
+                    component="h2"
+                    className={classes.eventDate}
+                  >
+                    <Moment format="DD">{event.time}</Moment>
+                  </Typography>
+                  <Typography
+                    align="center"
+                    variant="overline"
+                    style={{
+                      lineHeight: 'normal',
+                      color: 'rgba(0,0,0,0.87)',
+                      fontSize: '1rem'
+                    }}
+                  >
+                    <Moment format="MMM">{event.time}</Moment>
+                  </Typography>
+                </Grid>
+                <Grid
+                  item
+                  xs={9}
+                  sm={9}
+                  md={9}
+                  className={classNames(classes.gridItem, classes.gridContent)}
+                >
+                  <Typography
+                    align="left"
+                    variant="subtitle1"
+                    className={classes.eventName}
+                  >
+                    {event.group.name}
+                  </Typography>
+                  <Typography
+                    align="left"
+                    variant="caption"
+                    className={classes.eventDetailText}
+                  >
+                    <Moment format="ddd, hh:mm a">{event.time}</Moment> {'- '}
+                    <Moment format="hh:mm a">{endTime}</Moment> <br />
+                  </Typography>
+                </Grid>
+              </Grid>
+            </CardContent>
+            <CardMedia
+              className={classes.cardMedia}
+              image={event.featured_photo.photo_link}
+              title="Image title"
+            />
+
+            <CardContent
+              className={classNames(
+                classes.cardContent,
+                classes.cardContentMargin
+              )}
+            >
+              <Grid container justify="space-between" alignItems="stretch">
+                {/* <Grid
+                  item
+                  xs={3}
+                  sm={3}
+                  md={3}
+                  lg={3}
+                  className={classNames(classes.gridItem, classes.gridContent)}
+                >
+                  <Typography
+                    align="center"
+                    variant="h2"
                     component="h2"
                     className={classes.eventDate}
                   >
@@ -149,30 +217,35 @@ class UpcomingEvents extends React.Component {
                   >
                     <Moment format="MMM">{event.time}</Moment>
                   </Typography>
-                </Grid>
+                </Grid> */}
                 <Grid
                   item
-                  xs={9}
-                  sm={9}
-                  md={9}
+                  xs={'auto'}
                   className={classNames(classes.gridItem, classes.gridContent)}
                 >
-                  <Typography
+                  <Typography paragraph align="left" variant="body1">
+                    Hosted by <br />
+                    <a href={event.link} style={{ color: 'inherit' }}>
+                      Kyle Mitchell and Lalita Patipaksiri
+                    </a>
+                  </Typography>
+
+                  {/* <Typography
                     align="left"
                     variant="subtitle1"
                     gutterBottom
                     className={classes.eventName}
                   >
                     {event.name}
-                  </Typography>
-                  <Typography
+                  </Typography> */}
+                  {/* <Typography
                     align="left"
                     variant="caption"
                     className={classes.eventDetailText}
                   >
                     <Moment format="ddd, hh:mm a">{event.time}</Moment> {'- '}
                     <Moment format="hh:mm a">{endTime}</Moment> <br />
-                  </Typography>
+                  </Typography> */}
                   <Hidden smDown>
                     <Typography
                       gutterBottom
@@ -230,13 +303,15 @@ class UpcomingEvents extends React.Component {
   render() {
     const { classes } = this.props;
     return (
-      <div className={classes.section}>
-        <hr className="hr-text" data-content="Upcoming Meetups" />
-
+      <React.Fragment>
+        <hr className="hr-text" data-content="Upcoming" />
+        <Typography>
+          <em>Brought to you by Meetup.com</em>
+        </Typography>
         <div className={classNames(classes.layout, classes.cardGrid)}>
           <Grid
             container
-            spacing={32}
+            spacing={24}
             justify="space-evenly"
             alignItems="center"
             wrap="wrap"
@@ -248,7 +323,7 @@ class UpcomingEvents extends React.Component {
             )}
           </Grid>
         </div>
-      </div>
+      </React.Fragment>
     );
   }
 }

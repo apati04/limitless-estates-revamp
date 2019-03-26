@@ -7,7 +7,6 @@ export default class GoogleMap extends Component {
     center: { lat: 40.73, lng: -73.93 },
     zoom: 12
   };
-
   state = {
     center: [59.938043, 30.337157],
     zoom: 9,

@@ -2,21 +2,18 @@ import React, { Component } from 'react';
 import GoogleMap from '../../../GoogleMap/GoogleMap';
 class EventMap extends Component {
   render() {
-    let mapkey = 'AIzaSyAzFLuNuk1zRYOPag2-dNnVqw8I-R2qnjE';
-    const { lat, lon, ...rest } = this.props.meetupLocation;
+    const { lat, lon: lng } = this.props.meetupLocation;
+    let geo = { lat, lng };
     return (
-      <div
-        style={{ width: '100%', height: '300px' }}
-        className="mb-2 border border-light"
-      >
-        <GoogleMap
-          centerMap={{ lat, lng: lon }}
-          mapLng={lon}
-          mapLat={lat}
-          renderMapMarker
-          zoomLevel={15}
-        />
-      </div>
+      <GoogleMap
+        height={'300px'}
+        width={'100%'}
+        centerMap={geo}
+        mapLng={lng}
+        mapLat={lat}
+        zoomLevel={15}
+        renderMapMarker
+      />
     );
   }
 }

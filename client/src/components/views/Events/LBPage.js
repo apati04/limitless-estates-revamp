@@ -9,7 +9,7 @@ import landingStyles from '../About/modules/landingPage';
 import Typography from '@material-ui/core/Typography';
 import ReactHtmlParser from 'react-html-parser';
 import AboutEvent from './Meetups/AboutEvent';
-
+import EventMap from './modules/EventMap';
 import placeholderImg from './placeholder.jpg';
 
 import cardStyles from '../About/modules/landingPageSections/cardStyles';
@@ -27,7 +27,8 @@ const styles = theme => ({
     ...theme.gridContainer
   },
   gridItem: {
-    ...theme.gridItem
+    ...theme.gridItem,
+    width: '100%'
   },
   appContainer: {
     ...theme.container
@@ -41,6 +42,14 @@ const styles = theme => ({
       padding: '0 8px',
       maxWidth: 'unset'
     }
+  },
+  imageStyle: {
+    borderRadius: '24px',
+    padding: '8px',
+    width: '100%'
+  },
+  scheduleText: {
+    color: 'rgba(0,0,0,0.8)'
   }
 });
 
@@ -68,7 +77,6 @@ class EventPage extends Component {
   }
   render() {
     const { classes } = this.props;
-
     return (
       <React.Fragment>
         {this.state.isComplete && !this.state.isFetching ? (
@@ -112,9 +120,37 @@ class EventPage extends Component {
                 <AboutEvent />
 
                 <a href="/auth/meetup">TEST LINK FOR SIGN UP</a>
+                <hr className="hr-text" data-content="Meetup Schedule" />
+                <Grid
+                  container
+                  justify="space-between"
+                  spacing={32}
+                  className={classes.gridContainer}
+                >
+                  <Grid item xs={12} sm={6} className={classes.gridItem}>
+                    <Typography
+                      variant="h6"
+                      align="left"
+                      className={classes.scheduleText}
+                    >
+                      {this.state.parsedSchedule}
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12} sm={6} className={classes.gridItem}>
+                    {/* <img
+                        src="/images/600.jpg"
+                        alt="meetup"
+                        title="meetup"
+                        className={classes.imageStyle}
+                      /> */}
+
+                    <EventMap meetupLocation={this.state.eventObject.venue} />
+                  </Grid>
+                </Grid>
+
                 <UpcomingEvents
                   eventList={this.state.eventList}
-                  eventSchedule={this.state.parsedSchedule}
+                  hosts={this.state.eventObject.event_hosts}
                 />
               </div>
             </div>

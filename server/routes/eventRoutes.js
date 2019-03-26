@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get('/meetups/lbc', async (req, res) => {
   const apiKey = keys.meetupApiKey;
-  const url = `https://api.meetup.com/Out-of-State-Multifamily-Apartment-Investors-Meetup/events?sign=true&key=${apiKey}&status=upcoming&page=20&fields=featured_photo&photo-host=public`;
+  const url = `https://api.meetup.com/Out-of-State-Multifamily-Apartment-Investors-Meetup/events?sign=true&key=${apiKey}&status=upcoming&page=20&fields=featured_photo,event_hosts,rsvp_rules&photo-host=public`;
 
   try {
     const response = await axios.get(url);
@@ -20,7 +20,7 @@ router.get('/meetups/lbc', async (req, res) => {
 router.get('/meetups/cerritos', async (req, res) => {
   const rootUrl = `https://api.meetup.com/Cerritos-Multifamily-Investors-Roundtable/events?sign=true&key=${
     keys.meetupApiKey
-  }&status=upcoming&page=6&photo-host=public`;
+  }&status=upcoming&fields=featured_photo,event_hosts,rsvp_rules&page=6&photo-host=public`;
   const response = await axios.get(rootUrl);
   if (response.data[0]) {
     const filterData = response.data.filter(({ name, fee }) => {
