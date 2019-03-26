@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import withStyles from '@material-ui/core/styles/withStyles';
 import Grid from '@material-ui/core/Grid';
@@ -12,6 +12,10 @@ import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import Hidden from '@material-ui/core/Hidden';
+import Icon from '@material-ui/core/Icon';
+import GroupAdd from '@material-ui/icons/GroupAdd';
 const styles = theme => ({
   ...productStyles,
   root: {
@@ -36,6 +40,12 @@ const styles = theme => ({
       marginRight: 'auto'
     }
   },
+  leftIcon: {
+    marginRight: theme.spacing.unit
+  },
+  rightIcon: {
+    marginLeft: theme.spacing.unit
+  },
   cardGrid: {
     padding: `${theme.spacing.unit * 8}px 0`
   },
@@ -44,27 +54,33 @@ const styles = theme => ({
     flexDirection: 'column'
   },
   cardMedia: {
-    paddingTop: '56.25%' // 16:9
+    paddingTop: '56.25%'
   },
   cardContent: {
     flex: 1,
-    padding: '1rem 0.5rem'
+    padding: '1rem 0.2rem'
   },
-  cardActions: {},
+  cardActions: {
+    justifyContent: 'space-between',
+    margin: `0 ${theme.spacing.unit}px`
+  },
   eventName: {
     // overflow: 'hidden',
     // textOverflow: 'ellipsis',
     // 'white-space': 'nowrap'
     lineHeight: 'normal'
   },
-  eventDate: {
-    margin: 0
-  },
+  eventDate: {},
   eventDetailText: {
-    color: 'rgba(0,0,0,0.6)'
+    color: 'rgba(0,0,0,0.56)',
+    fontWeight: '400',
+    fontSize: '0.9rem'
   },
   gridContent: {
-    paddingLeft: 0
+    padding: '4px',
+    [theme.breakpoints.down('md')]: {
+      padding: 0
+    }
   }
 });
 class UpcomingEvents extends React.Component {
@@ -89,15 +105,16 @@ class UpcomingEvents extends React.Component {
       let localTime = new Date(year, month, day);
       let endTime = event.time + event.duration;
       let title = event.name.split(' ').filter(item => item !== '-');
-      console.log('title: ', title);
+
       return (
         <Grid item key={event.id} xs={12} sm={6} md={6} lg={4}>
-          <Card className={classes.card}>
+          <Card elevation={5} className={classes.card}>
             <CardMedia
               className={classes.cardMedia}
               image={event.featured_photo.photo_link}
               title="Image title"
             />
+
             <CardContent className={classes.cardContent}>
               <Grid
                 container
@@ -143,32 +160,67 @@ class UpcomingEvents extends React.Component {
                   <Typography
                     align="left"
                     variant="subtitle1"
+                    gutterBottom
                     className={classes.eventName}
                   >
                     {event.name}
                   </Typography>
                   <Typography
-                    align="justify"
-                    variant="body2"
+                    align="left"
+                    variant="caption"
                     className={classes.eventDetailText}
                   >
-                    <Moment format="ddd, hh:mm a">{event.time}</Moment> to{' '}
-                    <Moment format="hh:mm a">{endTime}</Moment>
+                    <Moment format="ddd, hh:mm a">{event.time}</Moment> {'- '}
+                    <Moment format="hh:mm a">{endTime}</Moment> <br />
                   </Typography>
-                  <Typography align="justify" variant="body1">
-                    {event.venue.name}
+                  <Hidden smDown>
+                    <Typography
+                      gutterBottom
+                      align="left"
+                      variant="caption"
+                      className={classes.eventDetailText}
+                    >
+                      {event.venue.name} <br />
+                      {event.venue.address_1} <br />
+                      {`${event.venue.city}, ${event.venue.state}`} <br />
+                    </Typography>
+                  </Hidden>
+                  <Typography
+                    align="left"
+                    variant="caption"
+                    className={classes.eventDetailText}
+                  >
+                    <a href="https://goo.gl/maps/X1M9w8ucj3q">Directions</a> |{' '}
+                    <a href={event.link}>Event Page</a>
                   </Typography>
                 </Grid>
               </Grid>
             </CardContent>
             <Divider variant="fullWidth" />
-            <CardActions className={classes.cardActions}>
-              <Button size="small" color="primary">
-                View
-              </Button>
-              <Button size="small" variant="contained" color="secondary">
-                Rsvp
-              </Button>
+            <CardActions className={classNames(classes.cardActions)}>
+              <div>
+                <Button
+                  component="a"
+                  href={event.link}
+                  size="small"
+                  color="primary"
+                >
+                  View
+                </Button>
+                <Button size="small" variant="contained" color="secondary">
+                  Join
+                </Button>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'flex-end' }}>
+                <Icon>how_to_reg</Icon>
+                <Typography
+                  align="left"
+                  variant="caption"
+                  className={classes.eventDetailText}
+                >
+                  {event.yes_rsvp_count} Attending
+                </Typography>
+              </div>
             </CardActions>
           </Card>
         </Grid>
@@ -179,16 +231,13 @@ class UpcomingEvents extends React.Component {
     const { classes } = this.props;
     return (
       <div className={classes.section}>
-        <Grid container justify="center" className={classes.gridContainer}>
-          <Grid item xs={12} sm={12} md={12} className={classes.gridItem}>
-            <hr className="hr-text" data-content="Upcoming" />
-          </Grid>
-        </Grid>
+        <hr className="hr-text" data-content="Upcoming Meetups" />
+
         <div className={classNames(classes.layout, classes.cardGrid)}>
           <Grid
             container
-            spacing={40}
-            justify="space-between"
+            spacing={32}
+            justify="space-evenly"
             alignItems="center"
             wrap="wrap"
           >

@@ -36,9 +36,10 @@ const styles = theme => ({
     color: 'white'
   },
   mobileContainer: {
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       margin: 0,
-      padding: 0
+      padding: '0 8px',
+      maxWidth: 'unset'
     }
   }
 });
@@ -102,7 +103,12 @@ class EventPage extends Component {
               </div>
             </Parallax>
             <div className={classNames(classes.mobileContainer, classes.main)}>
-              <div className={classes.container}>
+              <div
+                className={classNames(
+                  classes.container,
+                  classes.mobileContainer
+                )}
+              >
                 <AboutEvent />
 
                 <a href="/auth/meetup">TEST LINK FOR SIGN UP</a>
