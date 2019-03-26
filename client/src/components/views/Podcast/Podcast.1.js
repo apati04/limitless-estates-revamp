@@ -1,19 +1,12 @@
 import React, { Component } from 'react';
+import './loader.css';
+import axios from 'axios';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import withStyles from '@material-ui/core/styles/withStyles';
-import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
-import Parallax from '../Layouts/Parallax';
+import PodcastContainer from './PodcastContainer';
 import landingStyles from '../About/modules/landingPage';
-import Typography from '@material-ui/core/Typography';
-import placeholderImg from './placeholder.1.jpg';
 import cardStyles from '../About/modules/landingPageSections/cardStyles';
 
-import axios from 'axios';
-// --------TEMP DATA
-import podcastEpisodes from './tempdata';
-// __ tmpdata
 const styles = theme => ({
   ...cardStyles,
   ...landingStyles,
@@ -45,30 +38,34 @@ const styles = theme => ({
 
 class Podcast extends Component {
   state = {
-    episodes: null
+    episodes: null,
+    width: window.innerWidth
   };
   componentDidMount() {
-    console.log('mount');
-    // axios.get('/podcasts/podcast').then(result => {
-    //   this.setState({ episodes: result.data.data });
-    // });
+    window.addEventListener('resize', this.handleWindowSizeChange);
+    axios.get('/podcasts/podcast').then(result => {
+      this.setState({ episodes: result.data.data });
+    });
   }
-  render() {
-    const { classes } = this.props;
-    console.log(this.state.episodes);
-    return (
-      <React.Fragment>
-        <Parallax filter image={placeholderImg} />
-
-        <div className={classes.container}>
-          <Grid container>
-            <Grid item xs={12} sm={12} md={4}>
-              <p>asdf</p>
-            </Grid>
-          </Grid>
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleWindowSizeChange);
+  }
+  handleWindowSizeChange = () => {
+    this.setState({ width: window.innerWidth });
+  };
+  handlePageView = () => {
+    if (this.state.episodes === null) {
+      return (
+        <div className="loading">
+          <div className="loader" />
         </div>
-      </React.Fragment>
-    );
+      );
+    } else {
+      return <PodcastContainer episodes={this.state.episodes} />;
+    }
+  };
+  render() {
+    return <div>{this.handlePageView()}</div>;
   }
 }
 

@@ -77,8 +77,8 @@ const Section01 = (props) => {
       {/* <div className={classes.overlayEffect} /> */}
       <div className={classes.headerContainer}>
         <div style={{ marginBottom: '20px' }}>
-          <Grid container justify='center' alignItems='center' className={classes.gridContainer} wrap='wrap'>
-            <Grid item xs={12} className={classes.gridItem}>
+          <Grid container justify='center' alignItems='center'  wrap='wrap'>
+            <Grid item xs={12} >
               <Typography align='center' variant='h2' paragraph className={classes.heroTitle}>
                 Invest with your 401k / IRA
               </Typography>
@@ -86,7 +86,7 @@ const Section01 = (props) => {
           </Grid>
           <Divider variant='middle' className={classes.divider} />
         </div>
-        <Grid container justify='center' spacing={16} alignItems='center' className={classes.gridContainer}>
+        <Grid container justify='center' spacing={16} alignItems='center' >
           <Grid item xs={12}>
             <Limitless
               wistiaSrc='https://fast.wistia.com/embed/medias/mtdamm7u8i/swatch'
@@ -94,7 +94,7 @@ const Section01 = (props) => {
             />
           </Grid>
         </Grid>
-        <Grid container justify='center' spacing={16} alignItems='center' className={classes.gridContainer}>
+        <Grid container justify='center' spacing={16} alignItems='center' >
           <Grid item xs={12}>
             <Card elevation={3} className={classes.cardStyle}>
               <CardContent>

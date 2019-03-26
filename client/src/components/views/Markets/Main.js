@@ -22,7 +22,7 @@ const styles = theme => ({
   dividerStyle: {
     paddingLeft: '8px'
   },
-  gridContainer: {
+  cardGrid: {
     paddingLeft: theme.spacing.unit * 4,
     paddingRight: theme.spacing.unit * 4,
     paddingTop: theme.spacing.unit * 8,
@@ -50,14 +50,14 @@ function Main(props) {
       <Parallax image={headerImageUrl} lightFilter medium />
       <div className={classes.root}>
         <Grid container spacing={0} justify="space-between">
-          <Grid item xs={12} className={classes.gridItem}>
+          <Grid item xs={12}>
             <Card>
               <Grid
                 container
                 alignItems="flex-start"
                 spacing={0}
                 justify="center"
-                className={classes.gridContainer}
+                className={classes.cardGrid}
               >
                 <Grid item xs={12} sm={12}>
                   <CardHeader

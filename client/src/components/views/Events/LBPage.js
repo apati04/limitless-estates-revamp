@@ -23,13 +23,6 @@ const styles = theme => ({
   root: {
     flexGrow: 1
   },
-  gridContainer: {
-    ...theme.gridContainer
-  },
-  gridItem: {
-    ...theme.gridItem,
-    width: '100%'
-  },
   appContainer: {
     ...theme.container
   },
@@ -83,7 +76,7 @@ class EventPage extends Component {
           <React.Fragment>
             <Parallax filter image={placeholderImg}>
               <div className={classes.container}>
-                <Grid container className={classes.gridContainer}>
+                <Grid container>
                   <Grid item xs={12} sm={12} md={8}>
                     <Typography
                       variant="h1"
@@ -139,13 +132,8 @@ class EventPage extends Component {
 
                 <a href="/auth/meetup">TEST LINK FOR SIGN UP</a>
                 <hr className="hr-text" data-content="Meetup Schedule" />
-                <Grid
-                  container
-                  justify="space-between"
-                  spacing={32}
-                  className={classes.gridContainer}
-                >
-                  <Grid item xs={12} sm={6} className={classes.gridItem}>
+                <Grid container justify="space-between" spacing={32}>
+                  <Grid item xs={12} sm={6}>
                     <div
                       style={{
                         background: 'rgba(0,0,0,0.09)'
@@ -160,7 +148,7 @@ class EventPage extends Component {
                     </div>
                   </Grid>
 
-                  <Grid item xs={12} sm={6} className={classes.gridItem}>
+                  <Grid item xs={12} sm={6}>
                     <Typography
                       variant="h6"
                       align="left"

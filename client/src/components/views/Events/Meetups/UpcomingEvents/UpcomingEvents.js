@@ -21,13 +21,6 @@ const styles = theme => ({
   mainTitle: {
     fontSize: 36
   },
-  gridContainer: {
-    ...theme.gridContainer
-  },
-  gridItem: {
-    ...theme.gridItem,
-    width: 'auto'
-  },
   avatar: {
     ...theme.avatar
     // theme.bigAvatar
@@ -93,23 +86,7 @@ class UpcomingEvents extends React.Component {
     const { classes, eventList } = this.props;
     console.log('cards: ', eventList);
     return eventList.map((event, index) => {
-      let timePeriod;
-      let [hr, minutes] = event.local_time.split(':');
-
-      let len = event.duration / (60 * 60 * 1000);
-      let hour = +hr % 12;
-      if (+hr >= 12) {
-        timePeriod = 'PM';
-      } else {
-        timePeriod = 'AM';
-      }
-      let formatedTime = hour + ':' + minutes + ' ' + timePeriod;
-      let endtime = `${hour + len}:${minutes} ${timePeriod}`;
-      // ---- day
-      let [year, month, day] = event.local_date.split('-');
-      let localTime = new Date(year, month, day);
       let endTime = event.time + event.duration;
-      let title = event.name.split(' ').filter(item => item !== '-');
 
       return (
         <Grid item key={event.id} xs={12} sm={6} md={6} lg={4}>
@@ -127,7 +104,7 @@ class UpcomingEvents extends React.Component {
                   sm={3}
                   md={3}
                   lg={3}
-                  className={classNames(classes.gridItem, classes.gridContent)}
+                  className={classNames(classes.gridContent)}
                 >
                   <Typography
                     align="center"
@@ -187,69 +164,12 @@ class UpcomingEvents extends React.Component {
               )}
             >
               <Grid container justify="space-around" alignItems="flex-start">
-                {/* <Grid
-                  item
-                  xs={3}
-                  sm={3}
-                  md={3}
-                  lg={3}
-                  className={classNames(classes.gridItem, classes.gridContent)}
-                >
-                  <Typography
-                    align="center"
-                    variant="h2"
-                    component="h2"
-                    className={classes.eventDate}
-                  >
-                    <Moment format="DD">{event.time}</Moment>
+                <Grid item xs={3} sm={3} md={3} lg={3}>
+                  <Typography align="center" variant="body2" gutterBottom>
+                    Venue:
                   </Typography>
-                  <Typography
-                    align="center"
-                    variant="overline"
-                    style={{
-                      lineHeight: 'normal',
-                      color: 'rgba(0,0,0,0.6)',
-                      fontSize: '0.825rem'
-                    }}
-                  >
-                    <Moment format="MMM">{event.time}</Moment>
-                  </Typography>
-                </Grid> */}
-                <Grid
-                  item
-                  xs={'auto'}
-                  md={3}
-                  className={classNames(classes.gridItem, classes.gridContent)}
-                >
-                  <Typography align="left" variant="caption">
-                    Hosts: <br />
-                    <a href={event.link} style={{ color: 'inherit' }}>
-                      Kyle M.
-                    </a>
-                    <br />
-                    <a href={event.link} style={{ color: 'inherit' }}>
-                      Lalita P.
-                    </a>
-                  </Typography>
-
-                  {/* <Typography
-                    align="left"
-                    variant="subtitle1"
-                    gutterBottom
-                    className={classes.eventName}
-                  >
-                    {event.name}
-                  </Typography> */}
-                  {/* <Typography
-                    align="left"
-                    variant="caption"
-                    className={classes.eventDetailText}
-                  >
-                    <Moment format="ddd, hh:mm a">{event.time}</Moment> {'- '}
-                    <Moment format="hh:mm a">{endTime}</Moment> <br />
-                  </Typography> */}
                 </Grid>
-                <Grid item sm={9} md={9}>
+                <Grid item xs={9} sm={9} md={9} lg={9}>
                   <Typography
                     gutterBottom
                     align="left"
@@ -275,15 +195,21 @@ class UpcomingEvents extends React.Component {
             </CardContent>
             <Divider variant="fullWidth" />
             <CardActions className={classNames(classes.cardActions)}>
-              <div style={{ display: 'flex', alignItems: 'flex-end' }}>
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center'
+                }}
+              >
+                <Icon color="secondary" fontSize="medium">
+                  how_to_reg
+                </Icon>
                 <Typography
-                  align="left"
                   variant="caption"
                   className={classes.eventDetailText}
                 >
-                  Going: {event.yes_rsvp_count}
+                  {event.yes_rsvp_count}
                 </Typography>
-                <Icon>how_to_reg</Icon>
               </div>
               <div>
                 <Button

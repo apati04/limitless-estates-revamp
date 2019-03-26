@@ -27,12 +27,6 @@ const styles = theme => ({
     margin: theme.spacing.unit
   },
   appContainer: theme.container,
-  gridContainer: {
-    padding: `${theme.spacing.unit * 6}px 0`
-  },
-  gridItem: {
-    width: '100%'
-  },
   heroTitle: {
     color: 'white',
     marginBottom: '8px'
@@ -67,13 +61,10 @@ class Hero extends Component {
               spacing={24}
               justify="space-between"
               alignItems="flex-start"
-              className={classNames(
-                classes.appContainer,
-                classes.gridContainer
-              )}
+              className={classNames(classes.appContainer)}
               wrap="wrap"
             >
-              <Grid item sm={12} lg={5} className={classes.gridItem}>
+              <Grid item sm={12} lg={5}>
                 <Typography
                   align="left"
                   variant="h2"
@@ -131,7 +122,7 @@ class Hero extends Component {
                 </div>
               </Grid>
 
-              <Grid item sm={12} lg={7} className={classes.gridItem}>
+              <Grid item sm={12} lg={7}>
                 <ReactPlayer url="https://apax714.wistia.com/medias/pueh6irs0z" />
                 {/* <Limitless
                   wistiaSrc="https://fast.wistia.com/embed/medias/pueh6irs0z/swatch"

@@ -13,12 +13,6 @@ const styles = theme => ({
   },
   mainTitle: {
     fontSize: 36
-  },
-  gridContainer: {
-    ...theme.gridContainer
-  },
-  gridItem: {
-    ...theme.gridItem
   }
 });
 
@@ -27,8 +21,8 @@ const AboutEvent = props => {
 
   return (
     <div className={classes.section}>
-      <Grid container justify="center" className={classes.gridContainer}>
-        <Grid item xs={12} sm={12} md={10} className={classes.gridItem}>
+      <Grid container justify="center">
+        <Grid item xs={12} sm={12} md={10}>
           <Typography
             component="h2"
             paragraph
@@ -54,7 +48,7 @@ const AboutEvent = props => {
             best team in LA.
           </Typography>
         </Grid>
-        <Grid item className={classes.gridItem} xs={12} sm={12} md={10}>
+        <Grid item xs={12} sm={12} md={10}>
           <EventGrid />
         </Grid>
       </Grid>

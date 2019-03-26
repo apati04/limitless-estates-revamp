@@ -62,7 +62,7 @@ function RisksOne (props) {
       if (index === 0) {
         return (
           <Card key={index} className={classes.cardStyle}>
-            <div className={classes.gridItem}>
+            <div >
               <BlogTitle text="Risks When Investing in Real Estate" />
               <Typography className={classes.subTitleText}>
                 Page 1 of 2

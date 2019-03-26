@@ -3,8 +3,6 @@ import green from '@material-ui/core/colors/green';
 import grey from '@material-ui/core/colors/grey';
 import red from '@material-ui/core/colors/red';
 import blue from '@material-ui/core/colors/blue';
-import lightBlue from '@material-ui/core/colors/lightBlue';
-import indigo from '@material-ui/core/colors/indigo';
 
 import wavesWhite from '../components/waves-white.svg';
 const containerFluid = {
@@ -106,19 +104,7 @@ const rawTheme = createMuiTheme({
       dark: green[700]
     }
   },
-  gridItem: {
-    position: 'relative',
-    width: '100%',
-    minHeight: '1px',
-    paddingRight: '15px',
-    paddingLeft: '15px',
-    flexBasis: 'auto'
-  },
-  gridContainer: {
-    marginRight: '-15px',
-    marginLeft: '-15px',
-    width: 'auto'
-  },
+
   overrides: {
     MuiButton: {
       root: {
@@ -144,6 +130,21 @@ const rawTheme = createMuiTheme({
         margin: 8
       }
     },
+    MuiGrid: {
+      container: {
+        marginRight: '-15px',
+        marginLeft: '-15px',
+        width: 'auto'
+      },
+      item: {
+        position: 'relative',
+        width: '100%',
+        minHeight: '1px',
+        paddingRight: '15px',
+        paddingLeft: '15px',
+        flexBasis: 'auto'
+      }
+    },
     MuiAppBar: {
       root: {
         marginBottom: '-20px',
@@ -159,7 +160,6 @@ const rawTheme = createMuiTheme({
       root: {
         border: '0',
         marginBottom: '30px',
-        marginTop: '30px',
         borderRadius: '6px',
         color: 'rgba(0, 0, 0, 0.87)',
         background: '#fff',
@@ -171,7 +171,7 @@ const rawTheme = createMuiTheme({
         flexDirection: 'column',
         minWidth: '0',
         wordWrap: 'break-word',
-        fontSize: '.875rem',
+        // fontSize: '.875rem',
         transition: 'all 300ms linear'
       }
     },

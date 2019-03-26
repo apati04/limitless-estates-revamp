@@ -8,13 +8,13 @@ import Parallax from '../Layouts/Parallax';
 import landingStyles from '../About/modules/landingPage';
 import Typography from '@material-ui/core/Typography';
 import ReactHtmlParser from 'react-html-parser';
-import AboutEvent from './Meetups/AboutEvent';
-import EventMap from './modules/EventMap';
+import AboutEvent from '../Events/Meetups/AboutEvent';
+import EventMap from '../Events/modules/EventMap';
 import placeholderImg from './placeholder.jpg';
+import { HashLink as Link } from 'react-router-hash-link';
 
 import cardStyles from '../About/modules/landingPageSections/cardStyles';
-import UpcomingEvents from './Meetups/UpcomingEvents/UpcomingEvents';
-
+import UpcomingEvents from '../Events/Meetups/UpcomingEvents/UpcomingEvents';
 import axios from 'axios';
 
 const styles = theme => ({
@@ -24,7 +24,7 @@ const styles = theme => ({
     flexGrow: 1
   },
   appContainer: {
-    flex: 1
+    ...theme.container
   },
   fontStyles: {
     color: 'white'
@@ -46,7 +46,7 @@ const styles = theme => ({
   }
 });
 
-class CerritosPage extends Component {
+class EventPage extends Component {
   state = {
     isFetching: true,
     isComplete: false,
@@ -56,7 +56,7 @@ class CerritosPage extends Component {
     parsedSchedule: ''
   };
   componentDidMount() {
-    axios.get('/events/meetups/cerritos').then(({ data }) => {
+    axios.get('/events/meetups/lbc').then(({ data }) => {
       let parsedSchedule = ReactHtmlParser(data.results[0].description);
       this.setState({
         isFetching: false,
@@ -83,7 +83,7 @@ class CerritosPage extends Component {
                       paragraph
                       className={classes.title}
                     >
-                      Cerritos Meetup page
+                      Multifamily Meetup <br /> Long Beach Chapter
                     </Typography>
 
                     <Typography
@@ -96,8 +96,26 @@ class CerritosPage extends Component {
                       convallis enim, vel finibus ipsum urna vitae orci.{' '}
                     </Typography>
 
-                    <Button size="large" variant="contained" color="primary">
-                      See signup
+                    <Button
+                      size="large"
+                      component={props => (
+                        <Link
+                          {...props}
+                          to="/events/meetups/longbeach#schedule"
+                          scroll={el =>
+                            el.scrollIntoView({
+                              behavior: 'smooth',
+                              block: 'start',
+                              inline: 'start'
+                            })
+                          }
+                          offset={100}
+                        />
+                      )}
+                      variant="contained"
+                      color="primary"
+                    >
+                      See Schedule
                     </Button>
                   </Grid>
                 </Grid>
@@ -116,6 +134,21 @@ class CerritosPage extends Component {
                 <hr className="hr-text" data-content="Meetup Schedule" />
                 <Grid container justify="space-between" spacing={32}>
                   <Grid item xs={12} sm={6}>
+                    <div
+                      style={{
+                        background: 'rgba(0,0,0,0.09)'
+                      }}
+                    >
+                      <img
+                        src="/images/600.jpg"
+                        alt="meetup"
+                        title="meetup"
+                        className={classes.imageStyle}
+                      />
+                    </div>
+                  </Grid>
+
+                  <Grid item xs={12} sm={6}>
                     <Typography
                       variant="h6"
                       align="left"
@@ -124,19 +157,19 @@ class CerritosPage extends Component {
                       {this.state.parsedSchedule}
                     </Typography>
                   </Grid>
-                  <Grid item xs={12} sm={6}>
-                    <img
-                      src="/images/600.jpg"
-                      alt="meetup"
-                      title="meetup"
-                      className={classes.imageStyle}
-                    />
-                  </Grid>
                 </Grid>
-
+                <div
+                  id="schedule"
+                  style={{
+                    position: 'absolute',
+                    marginTop: '-100px',
+                    width: 0,
+                    height: 0
+                  }}
+                />
                 <UpcomingEvents
                   eventList={this.state.eventList}
-                  hosts={this.state.eventObject.event_hosts}
+                  eventHosts={this.state.eventObject.event_hosts}
                 />
                 <EventMap meetupLocation={this.state.eventObject.venue} />
               </div>
@@ -150,8 +183,8 @@ class CerritosPage extends Component {
   }
 }
 
-CerritosPage.propTypes = {
+EventPage.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(CerritosPage);
+export default withStyles(styles)(EventPage);

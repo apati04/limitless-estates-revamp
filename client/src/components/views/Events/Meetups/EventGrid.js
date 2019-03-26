@@ -14,12 +14,6 @@ const styles = theme => ({
   },
   mainTitle: {
     fontSize: 36
-  },
-  gridContainer: {
-    ...theme.gridContainer
-  },
-  gridItem: {
-    ...theme.gridItem
   }
 });
 
@@ -27,8 +21,8 @@ const EventGrid = props => {
   const { classes } = props;
 
   return (
-    <Grid container justify="center" className={classes.gridContainer}>
-      <Grid item xs={12} sm={12} md={4} className={classes.gridItem}>
+    <Grid container justify="center">
+      <Grid item xs={12} sm={12} md={4}>
         <InfoSection
           title="Catching Detail"
           description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
@@ -37,7 +31,7 @@ const EventGrid = props => {
           vertical
         />
       </Grid>
-      <Grid item xs={12} sm={12} md={4} className={classes.gridItem}>
+      <Grid item xs={12} sm={12} md={4}>
         <InfoSection
           title="Catching Detail"
           description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
@@ -46,7 +40,7 @@ const EventGrid = props => {
           vertical
         />
       </Grid>
-      <Grid item xs={12} sm={12} md={4} className={classes.gridItem}>
+      <Grid item xs={12} sm={12} md={4}>
         <InfoSection
           title="Catching Detail"
           description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."

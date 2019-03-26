@@ -60,7 +60,7 @@ function RisksOne(props) {
         return (
           <Card key={index} className={classes.cardStyle}>
             <CardHeader
-              className={classes.gridItem}
+              
               title={<BlogTitle text='Risks When Investing in Real Estate' />}
               subheader={<Typography className={classes.subTitleText}>Part 2 of 2</Typography>}
             />

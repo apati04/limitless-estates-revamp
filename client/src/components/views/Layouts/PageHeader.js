@@ -27,7 +27,7 @@ const PageHeader = props => {
     <div>
 
       <Grid container justify="center" wrap="wrap" alignItems="center">
-        <Grid item xs={12} className={classes.gridItem}>
+        <Grid item xs={12} >
           <div
             style={{
               background: `url(${imgurl}) no-repeat ${props.position}`,
