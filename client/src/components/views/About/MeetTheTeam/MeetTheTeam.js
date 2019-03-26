@@ -2,58 +2,58 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
 import Grid from '@material-ui/core/Grid';
-import cardStyles from '../modules/landingPageSections/cardStyles';
+
 import blue from '@material-ui/core/colors/blue';
 // custom styles
 import TeamCard from '../../../../modules/TeamCard';
-import teamStyle from '../modules/landingPageSections/teamStyles';
+
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 import PageHeader from '../../Layouts/PageHeader';
 import team from '../api/team';
 import advisors from '../api/advisors';
 const styles = theme => ({
-  ...teamStyle,
-  ...cardStyles,
+  ...theme.teamStyles,
+  ...theme.cardStyles,
   muiMainGrid: {
     marginRight: -15,
     marginLeft: -15,
-    width: 'auto',
+    width: 'auto'
   },
   muiGridItem: {
     position: 'relative',
     width: '100%',
     minHeight: '1px',
     padding: '0 15px',
-    flexBasis: 'auto',
+    flexBasis: 'auto'
   },
   muiCardBody: {
     padding: '0.9375rem 1.875rem',
-    flex: '1 1 auto',
+    flex: '1 1 auto'
   },
   muiCardFooter: {
     display: 'flex',
     alignItems: 'center',
     backgroundColor: 'transparent',
-    padding: '0.9375rem 1.875rem',
+    padding: '0.9375rem 1.875rem'
   },
   muiCardHeader: {
-    marginBottom: 0,
+    marginBottom: 0
   },
   muiIcon: {
     margin: theme.spacing.unit,
     '&:hover': {
       // backgroundColor: 'rgba(0,0,0,0.1)',
       backgroundColor: 'rgba(68,138,255,0.08)',
-      color: blue['A200'],
-    },
+      color: blue['A200']
+    }
   },
   appContainer: {
-    ...theme.container,
-  },
+    ...theme.container
+  }
 });
 const MeetTheTeam = props => {
-  const {classes} = props;
+  const { classes } = props;
   const headerimg = '/images/meet-the-team.jpg';
   return (
     <React.Fragment>
@@ -68,7 +68,7 @@ const MeetTheTeam = props => {
             Meet The Team
           </Typography>
           <Grid container justify="center" className={classes.muiMainGrid}>
-            {team.map ((item, index) => (
+            {team.map((item, index) => (
               <Grid
                 key={index}
                 item
@@ -94,7 +94,7 @@ const MeetTheTeam = props => {
             Meet The Advisors
           </Typography>
           <Grid container justify="center" className={classes.muiMainGrid}>
-            {advisors.map ((item, index) => (
+            {advisors.map((item, index) => (
               <Grid
                 key={index}
                 item
@@ -120,7 +120,7 @@ const MeetTheTeam = props => {
 };
 
 MeetTheTeam.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 
-export default withStyles (styles) (MeetTheTeam);
+export default withStyles(styles)(MeetTheTeam);

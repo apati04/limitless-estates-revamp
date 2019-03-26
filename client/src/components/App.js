@@ -10,7 +10,7 @@ import NoSsr from '@material-ui/core/NoSsr';
 class App extends Component {
   render() {
     return (
-      <div className="mainContent">
+      <div className="mainContent" style={{ paddingTop: '4em' }}>
         <Router>
           <Suspense fallback={<div>loading...</div>}>
             <Navigation />

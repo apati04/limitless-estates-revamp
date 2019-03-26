@@ -31,12 +31,7 @@ function NavMain(props) {
     <Fragment>
       <BrowserView>
         <Hidden smDown>
-          <PrimaryNav
-            {...rest}
-            color="transparent"
-            fixed
-            changeColorOnScroll={{ height: 360, color: classes.navcolor }}
-          />
+          <PrimaryNav {...rest} fixed />
         </Hidden>
 
         <Hidden mdUp>

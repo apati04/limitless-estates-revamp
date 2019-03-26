@@ -3,8 +3,11 @@ import green from '@material-ui/core/colors/green';
 import grey from '@material-ui/core/colors/grey';
 import red from '@material-ui/core/colors/red';
 import blue from '@material-ui/core/colors/blue';
-
+import cardStyles from '../components/views/About/modules/landingPageSections/cardStyles';
+import landingStyles from '../components/views/About/modules/landingPage';
+import teamStyles from '../components/views/About/modules/landingPageSections/teamStyles';
 import wavesWhite from '../components/waves-white.svg';
+import productStyles from '../components/views/About/modules/landingPageSections/productStyles';
 const containerFluid = {
   paddingRight: '15px',
   paddingLeft: '15px',
@@ -54,17 +57,20 @@ const container = {
     maxWidth: '960px'
   },
   '@media (min-width: 1200px)': {
-    maxWidth: '1140px'
+    maxWidth: '1280px'
   }
 };
 const rawTheme = createMuiTheme({
-  containerFluid,
+  cardStyles,
   container,
   cardHeader,
   title,
   cardTitle,
   cardLink,
   cardSubtitle,
+  landingStyles,
+  teamStyles,
+  productStyles,
   cardFooter: {
     display: 'flex',
     alignItems: 'center',

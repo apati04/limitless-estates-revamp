@@ -90,7 +90,8 @@ const styles = theme => ({
     marginBottom: '6px',
     width: '10em',
     display: 'inline-block'
-  }
+  },
+  ...theme.container
 });
 const PrimaryNavMenu = props => {
   const { classes } = props;
@@ -115,16 +116,31 @@ const PrimaryNavMenu = props => {
     });
   };
   return (
-    <Grid container justify="space-between" wrap="nowrap" alignItems="center">
-      <Grid item xs={4}>
-        <img
-          alt="logo"
-          src="https://i.imgur.com/IlUnKOe.png"
-          className={classes.imageStyles}
-        />
+    <div
+      style={{ width: '100%', padding: '0 32px' }}
+      className={classes.container}
+    >
+      <Grid
+        container
+        spacing={40}
+        justify="space-between"
+        wrap="nowrap"
+        alignItems="center"
+      >
+        <Grid item xs={4}>
+          <img
+            alt="logo"
+            src="https://i.imgur.com/IlUnKOe.png"
+            className={classes.imageStyles}
+          />
+        </Grid>
+        <Grid item xs>
+          <Grid container justify="flex-end">
+            {renderNavItems()}
+          </Grid>
+        </Grid>
       </Grid>
-      {renderNavItems()}
-    </Grid>
+    </div>
   );
 };
 

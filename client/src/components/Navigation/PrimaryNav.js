@@ -59,13 +59,11 @@ class PrimaryNav extends Component {
       <AppBar
         style={{
           borderRadius: 0,
-          paddingTop: '8px',
-          opacity: 0.97,
-          background: '#212121'
+          paddingTop: '8px'
         }}
         className={appBarClasses}
       >
-        <Toolbar className={classes.container}>
+        <Toolbar className={classes.container} style={{ width: '100%' }}>
           <PrimaryNavMenu />
         </Toolbar>
       </AppBar>

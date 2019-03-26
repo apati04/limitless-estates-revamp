@@ -5,21 +5,20 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import Parallax from '../Layouts/Parallax';
-import landingStyles from '../About/modules/landingPage';
+
 import Typography from '@material-ui/core/Typography';
 import ReactHtmlParser from 'react-html-parser';
 import AboutEvent from './Meetups/AboutEvent';
 import EventMap from './modules/EventMap';
 import placeholderImg from './placeholder.jpg';
 
-import cardStyles from '../About/modules/landingPageSections/cardStyles';
 import UpcomingEvents from './Meetups/UpcomingEvents/UpcomingEvents';
 
 import axios from 'axios';
 
 const styles = theme => ({
-  ...cardStyles,
-  ...landingStyles,
+  ...theme.cardStyles,
+  ...theme.landingStyles,
   root: {
     flexGrow: 1
   },

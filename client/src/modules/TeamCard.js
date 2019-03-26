@@ -9,12 +9,12 @@ import IconButton from '@material-ui/core/IconButton';
 import { Link } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import cardStyles from '../components/views/About/modules/landingPageSections/cardStyles';
+
 import blue from '@material-ui/core/colors/blue';
-import teamStyles from '../components/views/About/modules/landingPageSections/teamStyles';
+
 const styles = theme => ({
-  ...teamStyles,
-  ...cardStyles,
+  ...theme.teamStyles,
+  ...theme.cardStyles,
   muiMainGrid: {
     marginRight: -15,
     marginLeft: -15,
@@ -52,7 +52,11 @@ const styles = theme => ({
 
 const TeamCard = props => {
   const { classes } = props;
-  const imageClasses = classNames(classes.imgRaised, classes.imgRoundedCircle, classes.imgFluid);
+  const imageClasses = classNames(
+    classes.imgRaised,
+    classes.imgRoundedCircle,
+    classes.imgFluid
+  );
   let imgLink;
   let linkText;
   if (props.website) {
@@ -74,14 +78,20 @@ const TeamCard = props => {
     );
     linkText = <Link to={props.profilePage}>Continue Reading</Link>;
   } else {
-    imgLink = <img src={props.photo} alt={props.name} className={imageClasses} />;
+    imgLink = (
+      <img src={props.photo} alt={props.name} className={imageClasses} />
+    );
   }
   return (
     <Card className={classNames(classes.card, classes.cardPlain)}>
       <Grid item xs={12} sm={12} md={6} className={classes.itemGrid}>
         {imgLink}
       </Grid>
-      <Typography variant="body1" gutterBottom className={classNames(classes.cardTitle, classes.muiCardHeader)}>
+      <Typography
+        variant="body1"
+        gutterBottom
+        className={classNames(classes.cardTitle, classes.muiCardHeader)}
+      >
         {props.name}
       </Typography>
       <Typography variant="body1" className={classNames(classes.cardTitle)}>
@@ -101,7 +111,11 @@ const TeamCard = props => {
             <i className=" fab fa-facebook" />
           </IconButton>
 
-          <IconButton hover={classes.noHover} className={classes.muiIcon} aria-label="phone-square">
+          <IconButton
+            hover={classes.noHover}
+            className={classes.muiIcon}
+            aria-label="phone-square"
+          >
             <i className="fas fa-phone-square" />
           </IconButton>
         </Grid>
