@@ -11,6 +11,8 @@ import Typography from '@material-ui/core/Typography';
 import placeholderImg from './placeholder.1.jpg';
 import api from './podcast_api';
 import Paper from '@material-ui/core/Paper';
+
+import EpisodeGrid from './EpisodeGrid';
 // import axios from 'axios';
 // --------TEMP DATA
 import podcastEpisodes from './tempdata';
@@ -31,7 +33,7 @@ const styles = theme => ({
   fontStyles: {
     color: 'white'
   },
-  podcastIntro: {
+  podcastGrid: {
     marginTop: theme.spacing.unit * 8,
     marginBottom: theme.spacing.unit * 16,
     padding: `${theme.spacing.unit * 4}px ${theme.spacing.unit * 4}px 0 ${theme
@@ -87,7 +89,7 @@ class Podcast extends Component {
     console.log(classes);
     return (
       <div className={classes.appContainer}>
-        <div className={classNames(classes.section, classes.podcastIntro)}>
+        <div className={classNames(classes.section, classes.podcastGrid)}>
           <Grid
             container
             justify="space-between"
@@ -126,29 +128,8 @@ class Podcast extends Component {
             </Grid>
           </Grid>
         </div>
-        {/* 
-            <GridListTile component="picture">
-                    <img
-                      src="https://i.imgur.com/TxnoBIK.jpg"
-                      height="260"
-                      width="260"
-                      className={classes.imageFluid}
-                      alt="podcast"
-                      title="podcast"
-                    />
-                    <span className={classes.imageBackdrop} />
-                    <GridListTileBar
-                      classname={classes.imageBackdrop}
-                      titlePosition="bottom"
-                      title={
-                        <Typography variant="h1" className={classes.title}>
-                          01
-                        </Typography>
-                      }
-                      subtitle={<span>by: ASDFASDF</span>}
-                    />
-                  </GridListTile>
-           */}
+
+        <EpisodeGrid episodes={this.state.episodes} />
       </div>
     );
   }

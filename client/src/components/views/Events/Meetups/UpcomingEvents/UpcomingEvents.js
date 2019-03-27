@@ -14,7 +14,7 @@ import Button from '@material-ui/core/Button';
 
 import Icon from '@material-ui/core/Icon';
 const styles = theme => ({
-  ...productStyles,
+  ...theme.productStyles,
   root: {
     flexGrow: 1
   },
@@ -201,9 +201,7 @@ class UpcomingEvents extends React.Component {
                   alignItems: 'center'
                 }}
               >
-                <Icon color="secondary" fontSize="medium">
-                  how_to_reg
-                </Icon>
+                <Icon color="secondary">how_to_reg</Icon>
                 <Typography
                   variant="caption"
                   className={classes.eventDetailText}
