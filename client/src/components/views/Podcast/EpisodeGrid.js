@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 import withStyles from '@material-ui/core/styles/withStyles';
 import Grid from '@material-ui/core/Grid';
 import GridList from '@material-ui/core/GridList';
@@ -17,6 +18,7 @@ import Icon from '@material-ui/core/Icon';
 import Divider from '@material-ui/core/Divider';
 import Truncate from 'react-truncate';
 import ReactHtmlParser from 'react-html-parser';
+import OpenInNewRounded from '@material-ui/icons/OpenInNewRounded';
 const styles = theme => ({
   root: {
     marginTop: theme.spacing.unit * 8,
@@ -48,7 +50,7 @@ const styles = theme => ({
     marginLeft: theme.spacing.unit
   },
   cardGrid: {
-    padding: `${theme.spacing.unit * 4}px`,
+    border: '1px solid grey',
     [theme.breakpoints.up('840px')]: {
       width: 'calc(33.33333% -16px)',
       display: 'block'
@@ -96,8 +98,27 @@ const styles = theme => ({
       padding: 0
     }
   },
+  icons: {
+    marginRight: theme.spacing.unit + 1,
+    verticalAlign: 'middle'
+  },
   cardContentMargin: {
     margin: '0.rem 1rem'
+  },
+  truncateText: {
+    marginTop: theme.spacing.unit * 3,
+    color: '#5f6368',
+    fontWeight: 400
+    // display: 'flex',
+    // justifyContent: 'flex-start',
+    // alignItems: 'center'
+  },
+  navLink: {
+    fontSize: '0.875rem',
+    color: '#5f6368',
+    verticalAlign: 'middle',
+    fontFamily: 'Roboto Slab',
+    textDecorationLine: 'none'
   }
 });
 
@@ -107,6 +128,13 @@ class EpisodeGrid extends Component {
 
     console.log();
     return episodes.map((item, index) => {
+      let desc = ReactHtmlParser(item.description, {
+        transform: function(node, index) {
+          if (node.type === 'tag' && node.name === 'br') {
+            return null;
+          }
+        }
+      });
       return (
         <Grid
           item
@@ -134,70 +162,51 @@ class EpisodeGrid extends Component {
                   component="div"
                   gutterBottom
                   className={classes.cardContentMargin}
-                  noWrap
                 >
-                  Episode {item.episode_number}
+                  Episode {item.episode_number} with
+                  <br />
+                  {item.artist}
                 </Typography>
-                <Typography variant="body1" component="div">
+
+                <Typography
+                  style={{
+                    hyphens: 'manual',
+                    color: '#424242',
+                    lineHeight: '20px',
+                    marginTop: '4px',
+                    fontWeight: 400
+                  }}
+                  variant="body2"
+                  paragraph
+                  component="div"
+                >
                   <Truncate
                     lines={4}
+                    trimWhitespace
                     ellipsis={
-                      <span>
-                        ... <a href="/link/to/article">Read more</a>
-                      </span>
+                      <span>...</span>
+                      // {/* <Typography
+                      //   component="span"
+                      //   paragraph
+                      //   className={classes.truncateText}
+                      // >
+                      //   {' '}
+                      //   {/* <NavLink className={classes.navLink}>
+                      //     Full Episode
+                      //   </NavLink> */}
+                      // </Typography> */}
                     }
                   >
-                    {ReactHtmlParser(item.description)}
+                    <span style={{ hyphens: 'auto' }}>{desc}</span>
                   </Truncate>
                 </Typography>
-                <Grid container justify="space-around" alignItems="flex-start">
-                  <Grid item xs={3} sm={3} md={3} lg={3} />
-                  <Grid item xs={9} sm={9} md={9} lg={9}>
-                    <Typography
-                      gutterBottom
-                      align="left"
-                      variant="caption"
-                      className={classes.eventDetailText}
-                    >
-                      text
-                    </Typography>
 
-                    <Typography
-                      align="left"
-                      variant="caption"
-                      gutterBottom
-                      className={classes.eventDetailText}
-                    >
-                      event text
-                    </Typography>
-                  </Grid>
-                </Grid>
-              </div>
-            </CardContent>
-            <Divider variant="fullWidth" />
-            <CardActions className={classNames(classes.cardActions)}>
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center'
-                }}
-              >
-                <Typography
-                  variant="caption"
-                  className={classes.eventDetailText}
-                >
-                  asdfsadf
+                <Typography align="left">
+                  <OpenInNewRounded className={classes.icons} />
+                  Full Episode
                 </Typography>
               </div>
-              <div>
-                <Button size="small" color="primary">
-                  View
-                </Button>
-                <Button size="small" variant="contained" color="secondary">
-                  Join
-                </Button>
-              </div>
-            </CardActions>
+            </CardContent>
           </Card>
         </Grid>
       );
@@ -207,7 +216,7 @@ class EpisodeGrid extends Component {
     const { classes, episodes } = this.props;
     console.log('clas: ', classes);
     return (
-      <div style={{ paddingTop: '64px' }}>
+      <div style={{ paddingTop: '64px' }} className={classes.root}>
         <div className={classes.marginTop}>
           <Grid
             container

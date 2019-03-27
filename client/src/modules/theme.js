@@ -172,7 +172,7 @@ const rawTheme = createMuiTheme({
   },
   typography: {
     useNextVariants: true,
-    fontFamily: '"Nunito Sans", sans-serif',
+    fontFamily: 'Roboto, sans-serif',
     fontSize: 14,
     fontWeightLight: 300,
     fontWeightRegular: 400,

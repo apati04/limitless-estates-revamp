@@ -84,7 +84,7 @@ class Podcast extends Component {
     const { classes } = this.props;
     console.log(classes);
     return (
-      <div className={classes.appContainer}>
+      <div className={classNames(classes.podcastGrid, classes.appContainer)}>
         <div>
           <Grid
             container
