@@ -15,11 +15,9 @@ import CardActions from '@material-ui/core/CardActions';
 import placeholderSquare from './placeholder-square.png';
 import Icon from '@material-ui/core/Icon';
 import Divider from '@material-ui/core/Divider';
+import Truncate from 'react-truncate';
+import ReactHtmlParser from 'react-html-parser';
 const styles = theme => ({
-  ...theme.productStyles,
-  appContainer: {
-    ...theme.container
-  },
   root: {
     marginTop: theme.spacing.unit * 8,
     display: 'block'
@@ -30,7 +28,9 @@ const styles = theme => ({
   },
   imageStyle: {
     width: '100%',
-    objectFit: 'cover'
+    display: 'block',
+    objectFit: 'cover',
+    paddingTop: '66.66667%'
   },
   layout: {
     width: 'auto',
@@ -48,12 +48,16 @@ const styles = theme => ({
     marginLeft: theme.spacing.unit
   },
   cardGrid: {
-    padding: `${theme.spacing.unit * 4}px`
+    padding: `${theme.spacing.unit * 4}px`,
+    [theme.breakpoints.up('840px')]: {
+      width: 'calc(33.33333% -16px)',
+      display: 'block'
+    }
   },
   marginTop: {
+    ...theme.container,
     [theme.breakpoints.up('sm')]: {
-      marginTop: theme.spacing.unit * 4,
-      marginLeft: theme.spacing.unit * 2
+      marginTop: theme.spacing.unit * 4
     }
   },
   card: {
@@ -61,7 +65,8 @@ const styles = theme => ({
     flexDirection: 'column'
   },
   cardMedia: {
-    paddingTop: '56.25%'
+    paddingTop: '66.66667%',
+    width: '100%'
   },
   cardContent: {
     flex: 1,
@@ -99,87 +104,114 @@ const styles = theme => ({
 class EpisodeGrid extends Component {
   loadEpisodeList = () => {
     const { classes, episodes } = this.props;
-    return episodes.map((item, index) => (
-      <Grid
-        item
-        key={item.id}
-        xs={12}
-        sm={6}
-        md={6}
-        lg={4}
-        className={classes.cardGrid}
-      >
-        <Card elevation={0} className={classes.card}>
-          <CardMedia
-            className={classes.cardMedia}
-            image={`https://placeholder.com/300?text=${item.episode_number}`}
-            title="Image title"
-          />
-          <CardContent
-            className={classNames(
-              classes.cardContent,
-              classes.cardContentMargin
-            )}
-          >
-            <Typography align="left" variant="body1" gutterBottom>
-              Episode {item.episode_number}
-            </Typography>
-            <Grid container justify="space-around" alignItems="flex-start">
-              <Grid item xs={3} sm={3} md={3} lg={3} />
-              <Grid item xs={9} sm={9} md={9} lg={9}>
-                <Typography
-                  gutterBottom
-                  align="left"
-                  variant="caption"
-                  className={classes.eventDetailText}
-                >
-                  text
-                </Typography>
 
+    console.log();
+    return episodes.map((item, index) => {
+      return (
+        <Grid
+          item
+          key={item.id}
+          xs={12}
+          sm={6}
+          md={4}
+          lg={4}
+          className={classes.cardGrid}
+        >
+          <Card elevation={0} className={classes.card}>
+            <CardContent>
+              <CardMedia
+                className={classes.cardMedia}
+                image={`https://via.placeholder.com/300/0010ff?text=Ep. ${
+                  item.episode_number
+                }`}
+                title="Image title"
+              />
+
+              <div className={classes.cardContent}>
                 <Typography
                   align="left"
-                  variant="caption"
+                  variant="h5"
+                  component="div"
                   gutterBottom
+                  className={classes.cardContentMargin}
+                  noWrap
+                >
+                  Episode {item.episode_number}
+                </Typography>
+                <Typography variant="body1" component="div">
+                  <Truncate
+                    lines={4}
+                    ellipsis={
+                      <span>
+                        ... <a href="/link/to/article">Read more</a>
+                      </span>
+                    }
+                  >
+                    {ReactHtmlParser(item.description)}
+                  </Truncate>
+                </Typography>
+                <Grid container justify="space-around" alignItems="flex-start">
+                  <Grid item xs={3} sm={3} md={3} lg={3} />
+                  <Grid item xs={9} sm={9} md={9} lg={9}>
+                    <Typography
+                      gutterBottom
+                      align="left"
+                      variant="caption"
+                      className={classes.eventDetailText}
+                    >
+                      text
+                    </Typography>
+
+                    <Typography
+                      align="left"
+                      variant="caption"
+                      gutterBottom
+                      className={classes.eventDetailText}
+                    >
+                      event text
+                    </Typography>
+                  </Grid>
+                </Grid>
+              </div>
+            </CardContent>
+            <Divider variant="fullWidth" />
+            <CardActions className={classNames(classes.cardActions)}>
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center'
+                }}
+              >
+                <Typography
+                  variant="caption"
                   className={classes.eventDetailText}
                 >
-                  event text
+                  asdfsadf
                 </Typography>
-              </Grid>
-            </Grid>
-          </CardContent>
-          <Divider variant="fullWidth" />
-          <CardActions className={classNames(classes.cardActions)}>
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center'
-              }}
-            >
-              <Typography variant="caption" className={classes.eventDetailText}>
-                asdfsadf
-              </Typography>
-            </div>
-            <div>
-              <Button size="small" color="primary">
-                View
-              </Button>
-              <Button size="small" variant="contained" color="secondary">
-                Join
-              </Button>
-            </div>
-          </CardActions>
-        </Card>
-      </Grid>
-    ));
+              </div>
+              <div>
+                <Button size="small" color="primary">
+                  View
+                </Button>
+                <Button size="small" variant="contained" color="secondary">
+                  Join
+                </Button>
+              </div>
+            </CardActions>
+          </Card>
+        </Grid>
+      );
+    });
   };
   render() {
     const { classes, episodes } = this.props;
-    console.log(episodes);
+    console.log('clas: ', classes);
     return (
       <div style={{ paddingTop: '64px' }}>
         <div className={classes.marginTop}>
           <Grid
             container
+            spacing={40}
             justify="space-between"
             alignItems="center"
             wrap="wrap"

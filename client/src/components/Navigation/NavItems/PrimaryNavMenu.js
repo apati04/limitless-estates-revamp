@@ -91,7 +91,9 @@ const styles = theme => ({
     width: '10em',
     display: 'inline-block'
   },
-  ...theme.container
+  container: {
+    ...theme.container
+  }
 });
 const PrimaryNavMenu = props => {
   const { classes } = props;
@@ -116,10 +118,7 @@ const PrimaryNavMenu = props => {
     });
   };
   return (
-    <div
-      style={{ width: '100%', padding: '0 32px' }}
-      className={classes.container}
-    >
+    <div style={{ width: '100%' }} className={classes.container}>
       <Grid
         container
         spacing={40}

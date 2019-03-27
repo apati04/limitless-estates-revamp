@@ -22,9 +22,6 @@ const styles = theme => ({
   root: {
     flexGrow: 1
   },
-  appContainer: {
-    ...theme.container
-  },
   fontStyles: {
     color: 'white'
   },
@@ -69,6 +66,7 @@ class EventPage extends Component {
   }
   render() {
     const { classes } = this.props;
+    console.log('classes: ', classes);
     return (
       <React.Fragment>
         {this.state.isComplete && !this.state.isFetching ? (

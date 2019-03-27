@@ -11,6 +11,10 @@ import headerStyles from '../views/About/modules/headerStyles';
 
 const styles = theme => ({
   ...headerStyles,
+  appContainer: {
+    ...theme.container
+  },
+
   mainAppBar: {
     zIndex: 10
   }
@@ -63,7 +67,7 @@ class PrimaryNav extends Component {
         }}
         className={appBarClasses}
       >
-        <Toolbar className={classes.container} style={{ width: '100%' }}>
+        <Toolbar className={classes.appContainer}>
           <PrimaryNavMenu />
         </Toolbar>
       </AppBar>

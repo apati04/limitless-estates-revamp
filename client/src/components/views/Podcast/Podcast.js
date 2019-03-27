@@ -18,17 +18,13 @@ import EpisodeGrid from './EpisodeGrid';
 import podcastEpisodes from './tempdata';
 // __ tmpdata
 const styles = theme => ({
-  ...theme.cardStyles,
-  ...theme.landingStyles,
-  ...theme.productStyles,
   podcastCard: {
     ...theme.cardTitle
   },
-  root: {
-    flexGrow: 1
-  },
+
   appContainer: {
-    ...theme.container
+    ...theme.container,
+    flexGrow: 1
   },
   fontStyles: {
     color: 'white'
@@ -89,10 +85,11 @@ class Podcast extends Component {
     console.log(classes);
     return (
       <div className={classes.appContainer}>
-        <div className={classNames(classes.section, classes.podcastGrid)}>
+        <div>
           <Grid
             container
-            justify="space-between"
+            justify="space-around"
+            spacing={40}
             alignItems="flex-start"
             wrap="wrap"
           >

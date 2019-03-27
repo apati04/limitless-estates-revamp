@@ -8,13 +8,13 @@ import Button from '@material-ui/core/Button';
 
 const styles = theme => ({
   credit: {
-    marginTop: theme.spacing.unit * 4,
+    marginTop: theme.spacing.unit * 4
   },
   root: {
-    flexGrow: 1,
+    flexGrow: 1
   },
   layout: {
-    ...theme.container,
+    ...theme.container
     // width: 'auto',
     // marginLeft: theme.spacing.unit * 3,
     // marginRight: theme.spacing.unit * 3,
@@ -27,17 +27,17 @@ const styles = theme => ({
   footer: {
     borderTop: `1px solid ${theme.palette.divider}`,
     padding: `${theme.spacing.unit * 4}px 0 ${theme.spacing.unit * 2}px 0`,
-    backgroundColor: theme.palette.background.default,
+    backgroundColor: theme.palette.background.default
   },
   hideFooter: {
     position: 'absolute',
-    top: -100,
-  },
+    top: -100
+  }
 });
 const footers = [
   {
     title: 'Company',
-    description: ['Team', 'History', 'Contact us', 'Locations'],
+    description: ['Team', 'History', 'Contact us', 'Locations']
   },
   {
     title: 'Features',
@@ -46,8 +46,8 @@ const footers = [
       'Random feature',
       'Team feature',
       'Developer stuff',
-      'Another one',
-    ],
+      'Another one'
+    ]
   },
   {
     title: 'Resources',
@@ -55,26 +55,28 @@ const footers = [
       'Resource',
       'Resource name',
       'Another resource',
-      'Final resource',
-    ],
+      'Final resource'
+    ]
   },
   {
     title: 'Legal',
-    description: ['Privacy policy', 'Terms of use'],
-  },
+    description: ['Privacy policy', 'Terms of use']
+  }
 ];
 class Footer extends React.Component {
-  render () {
-    const {classes} = this.props;
+  render() {
+    const { classes } = this.props;
     return (
-      <footer className={classNames (classes.layout, classes.footer)}>
+      <footer
+        className={classNames(classes.layout, classes.footer) + ' sub-footer'}
+      >
         <Grid container spacing={0} justify="space-evenly" wrap="wrap">
-          {footers.map (footer => (
+          {footers.map(footer => (
             <Grid item key={footer.title} className={classes.footerItem}>
               <Typography variant="h6" color="textPrimary" gutterBottom>
                 {footer.title}
               </Typography>
-              {footer.description.map (item => (
+              {footer.description.map(item => (
                 <Typography
                   key={item}
                   variant="subtitle1"
@@ -108,7 +110,7 @@ class Footer extends React.Component {
 }
 
 Footer.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 
-export default withStyles (styles) (Footer);
+export default withStyles(styles)(Footer);

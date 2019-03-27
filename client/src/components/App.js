@@ -10,10 +10,10 @@ import NoSsr from '@material-ui/core/NoSsr';
 class App extends Component {
   render() {
     return (
-      <div className="mainContent" style={{ paddingTop: '4em' }}>
-        <Router>
-          <Suspense fallback={<div>loading...</div>}>
-            <Navigation />
+      <Router>
+        <Suspense fallback={<div>loading...</div>}>
+          <Navigation />
+          <div className="mainContent" style={{ paddingTop: '4em' }}>
             <NoSsr>
               <Switch>
                 <ScrollToTop>
@@ -62,9 +62,9 @@ class App extends Component {
                 </ScrollToTop>
               </Switch>
             </NoSsr>
-          </Suspense>
-        </Router>
-      </div>
+          </div>
+        </Suspense>
+      </Router>
     );
   }
 }
