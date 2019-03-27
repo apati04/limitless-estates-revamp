@@ -7,13 +7,13 @@ import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import Card from '@material-ui/core/Card';
 import classNames from 'classnames';
-import CardActionArea from '@material-ui/core/CardActionArea';
+import { CardActionArea } from '@material-ui/core/';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardActions from '@material-ui/core/CardActions';
-
+import { CardHeader } from '@material-ui/core';
 import Icon from '@material-ui/core/Icon';
 import Divider from '@material-ui/core/Divider';
 import Truncate from 'react-truncate';
@@ -118,7 +118,7 @@ const styles = theme => ({
     marginLeft: theme.spacing.unit
   },
   cardGrid: {
-    border: '1px solid grey',
+    padding: '8px',
     [theme.breakpoints.up('840px')]: {
       width: 'calc(33.33333% -16px)',
       display: 'block'
@@ -217,70 +217,66 @@ class EpisodeGrid extends Component {
           className={classes.cardGrid}
         >
           <Card elevation={0} className={classes.card}>
-            <CardContent>
-              <CardMedia
-                className={classes.cardMedia}
-                image={`https://via.placeholder.com/300/0010ff?text=Ep. ${
-                  item.episode_number
-                }`}
-                title="Image title"
-              />
-              <div
-                className={classNames(classes.cardMedia, classes.gradient)}
-              />
+            <CardMedia
+              className={classes.cardMedia}
+              image={`https://via.placeholder.com/300/0010ff?text=Ep. ${
+                item.episode_number
+              }`}
+              title="Image title"
+            />
+            <div className={classNames(classes.cardMedia, classes.gradient)} />
 
-              <div className={classes.cardContent}>
-                <Typography
-                  align="left"
-                  variant="h5"
-                  component="div"
-                  gutterBottom
-                  className={classes.cardContentMargin}
+            <div className={classes.cardContent}>
+              <Typography
+                align="left"
+                variant="h5"
+                component="div"
+                gutterBottom
+                className={classes.cardContentMargin}
+              >
+                Episode {item.episode_number} with
+                <br />
+                {item.artist}
+              </Typography>
+
+              <Typography
+                style={{
+                  hyphens: 'manual',
+                  color: '#424242',
+                  lineHeight: '20px',
+                  marginTop: '4px',
+                  fontWeight: 400
+                }}
+                variant="body2"
+                paragraph
+                component="div"
+              >
+                <Truncate
+                  lines={4}
+                  trimWhitespace
+                  ellipsis={
+                    <span>...</span>
+                    // {/* <Typography
+                    //   component="span"
+                    //   paragraph
+                    //   className={classes.truncateText}
+                    // >
+                    //   {' '}
+                    //   {/* <NavLink className={classes.navLink}>
+                    //     Full Episode
+                    //   </NavLink> */}
+                    // </Typography> */}
+                  }
                 >
-                  Episode {item.episode_number} with
-                  <br />
-                  {item.artist}
-                </Typography>
+                  <span style={{ hyphens: 'auto' }}>{desc}</span>
+                </Truncate>
+              </Typography>
 
-                <Typography
-                  style={{
-                    hyphens: 'manual',
-                    color: '#424242',
-                    lineHeight: '20px',
-                    marginTop: '4px',
-                    fontWeight: 400
-                  }}
-                  variant="body2"
-                  paragraph
-                  component="div"
-                >
-                  <Truncate
-                    lines={4}
-                    trimWhitespace
-                    ellipsis={
-                      <span>...</span>
-                      // {/* <Typography
-                      //   component="span"
-                      //   paragraph
-                      //   className={classes.truncateText}
-                      // >
-                      //   {' '}
-                      //   {/* <NavLink className={classes.navLink}>
-                      //     Full Episode
-                      //   </NavLink> */}
-                      // </Typography> */}
-                    }
-                  >
-                    <span style={{ hyphens: 'auto' }}>{desc}</span>
-                  </Truncate>
-                </Typography>
-
-                <Typography align="left">
-                  <OpenInNewRounded className={classes.icons} />
-                  Full Episode
-                </Typography>
-              </div>
-            </CardContent>
+              <Typography align="left">
+                <OpenInNewRounded className={classes.icons} />
+                Full Episode
+              </Typography>
+            </div>
           </Card>
         </Grid>
       );
@@ -307,85 +303,84 @@ class EpisodeGrid extends Component {
           className={classes.cardGrid}
         >
           <Card elevation={0} className={classes.card}>
-            <CardContent>
-              <ButtonBase
-                focusRipple
-                key={item.id}
-                className={classNames(classes.cardMedia, classes.image)}
-                focusVisibleClassName={classes.focusVisible}
+            <ButtonBase
+              focusRipple
+              key={item.id}
+              className={classNames(classes.cardMedia, classes.image)}
+              focusVisibleClassName={classes.focusVisible}
+            >
+              <span
+                className={classes.imageSrc}
+                style={{
+                  backgroundImage: `url(${mic3Img})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  width: 'auto'
+                }}
+              />
+              <span className={classes.imageBackdrop} />
+              <span className={classes.imageButton}>
+                <Typography
+                  component="span"
+                  variant="subtitle1"
+                  color="inherit"
+                  className={classes.imageTitle}
+                >
+                  {item.artist}
+                  <span className={classes.imageMarked} />
+                </Typography>
+              </span>
+            </ButtonBase>
+
+            <div className={classes.cardContent}>
+              <Typography
+                align="left"
+                variant="h5"
+                component="div"
+                gutterBottom
+                className={classes.cardContentMargin}
               >
-                <span
-                  className={classes.imageSrc}
-                  style={{
-                    backgroundImage: `url(${mic3Img})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    width: 'auto'
-                  }}
-                />
-                <span className={classes.imageBackdrop} />
-                <span className={classes.imageButton}>
-                  <Typography
-                    component="span"
-                    variant="subtitle1"
-                    color="inherit"
-                    className={classes.imageTitle}
-                  >
-                    {item.artist}
-                    <span className={classes.imageMarked} />
-                  </Typography>
-                </span>
-              </ButtonBase>
-              <div className={classes.cardContent}>
-                <Typography
-                  align="left"
-                  variant="h5"
-                  component="div"
-                  gutterBottom
-                  className={classes.cardContentMargin}
-                >
-                  {item.artist}, Ep. {item.episode_number}
-                </Typography>
+                {item.artist}, Ep. {item.episode_number}
+              </Typography>
 
-                <Typography
-                  style={{
-                    hyphens: 'manual',
-                    color: '#424242',
-                    lineHeight: '20px',
-                    marginTop: '4px',
-                    fontWeight: 400
-                  }}
-                  variant="body2"
-                  paragraph
-                  component="div"
+              <Typography
+                style={{
+                  hyphens: 'manual',
+                  color: '#424242',
+                  lineHeight: '20px',
+                  marginTop: '4px',
+                  fontWeight: 400
+                }}
+                variant="body2"
+                paragraph
+                component="div"
+              >
+                <Truncate
+                  lines={4}
+                  trimWhitespace
+                  ellipsis={
+                    <span>...</span>
+                    // {/* <Typography
+                    //   component="span"
+                    //   paragraph
+                    //   className={classes.truncateText}
+                    // >
+                    //   {' '}
+                    //   {/* <NavLink className={classes.navLink}>
+                    //     Full Episode
+                    //   </NavLink> */}
+                    // </Typography> */}
+                  }
                 >
-                  <Truncate
-                    lines={4}
-                    trimWhitespace
-                    ellipsis={
-                      <span>...</span>
-                      // {/* <Typography
-                      //   component="span"
-                      //   paragraph
-                      //   className={classes.truncateText}
-                      // >
-                      //   {' '}
-                      //   {/* <NavLink className={classes.navLink}>
-                      //     Full Episode
-                      //   </NavLink> */}
-                      // </Typography> */}
-                    }
-                  >
-                    <span style={{ hyphens: 'auto' }}>{desc}</span>
-                  </Truncate>
-                </Typography>
+                  <span style={{ hyphens: 'auto' }}>{desc}</span>
+                </Truncate>
+              </Typography>
 
-                <Typography align="left">
-                  <OpenInNewRounded className={classes.icons} />
-                  Full Episode
-                </Typography>
-              </div>
-            </CardContent>
+              <Typography align="left">
+                <OpenInNewRounded className={classes.icons} />
+                Full Episode
+              </Typography>
+            </div>
           </Card>
         </Grid>
       );
