@@ -246,7 +246,6 @@ const theme = {
     },
     h5: {
       ...rawTheme.typography.h5,
-      fontFamily: 'Roboto Slab',
       fontSize: 24,
       color: '#424242',
       letterSpacing: '0.28px',

@@ -12,7 +12,7 @@ import placeholderImg from './placeholder.1.jpg';
 import api from './podcast_api';
 import Paper from '@material-ui/core/Paper';
 
-import EpisodeGrid from './EpisodeGrid';
+import EpisodeGrid from './Episodes/EpisodeGrid';
 // import axios from 'axios';
 // --------TEMP DATA
 import podcastEpisodes from './tempdata';
