@@ -249,7 +249,7 @@ class EpisodeGrid extends Component {
                 gutterBottom
                 className={classes.cardContentMargin}
               >
-                {item.artist}, Ep. {item.episode_number}
+                {item.title}
               </Typography>
 
               <Typography
