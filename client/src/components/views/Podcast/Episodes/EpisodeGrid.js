@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { compose } from 'redux';
+import { compose } from 'recompose';
 import { NavLink, withRouter } from 'react-router-dom';
 import withStyles from '@material-ui/core/styles/withStyles';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import classNames from 'classnames';
 import Typography from '@material-ui/core/Typography';
-import CardMedia from '@material-ui/core/CardMedia';
-import CardActions from '@material-ui/core/CardActions';
 import Truncate from 'react-truncate';
 import ReactHtmlParser from 'react-html-parser';
 import OpenInNewRounded from '@material-ui/icons/OpenInNewRounded';

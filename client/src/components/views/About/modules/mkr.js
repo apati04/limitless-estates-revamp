@@ -34,46 +34,7 @@ const conatinerFluid = {
 const container = {
   ...conatinerFluid,
   width: '100%',
-  margin: '0 auto',
-
-  '@media screen and (maxWidth: 1280px)': {
-    margin: '4rem auto 0',
-    overflow: 'hidden'
-  },
-  '@media screen and (min-width: 1901px)': {
-    maxWidth: '1280px'
-  },
-
-  '@media screen and (maxWidth: 320px)': {
-    maxWidth: '320px'
-  },
-
-  '@media screen and (maxWidth: 590px)': {
-    maxWidth: '590px'
-  },
-
-  '@media screen and (min-width: 591px) and (maxWidth: 792px)': {
-    maxWidth: '792px'
-  },
-
-  '@media screen and (min-width: 793px) and (maxWidth: 1150px)': {
-    maxWidth: '1150px'
-  },
-
-  '@media screen and (min-width: 1151px) and (maxWidth: 1280px)': {
-    maxWidth: '1280px'
-  },
-
-  '@media screen and (min-width: 1281px) and (maxWidth: 1440px)': {
-    maxWidth: '1280px'
-  },
-
-  '@media screen and (min-width: 1441px) and (maxWidth: 1900px)': {
-    maxWidth: '1280px'
-  },
-  '@media (min-width: 1901px)': {
-    maxWidth: '1280px'
-  }
+  margin: '0 auto'
 };
 
 const boxShadow = {

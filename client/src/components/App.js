@@ -5,8 +5,15 @@ import Navigation from './Navigation';
 import * as Views from './views/views';
 import ScrollToTop from '../util/ScrollToTop';
 import withRoot from '../withRoot';
+import withStyles from '@material-ui/core/styles/withStyles';
 import NoSsr from '@material-ui/core/NoSsr';
-
+const styles = theme => ({
+  layout: {
+    width: 'auto',
+    marginLeft: theme.spacing.unit * 3,
+    marginRight: theme.spacing.unit * 3
+  }
+});
 class App extends Component {
   render() {
     return (

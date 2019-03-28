@@ -55,53 +55,49 @@ const rawTheme = createMuiTheme({
       dark: green[700]
     }
   },
+  CustomButton: {
+    padding: '12px 30px',
+    margin: '.3125rem 1px',
+    lineHeight: '1.42857143'
+  },
+  CustomButtonSmall: {
+    padding: '0.40625rem 1.25rem',
+    fontSize: '0.6875rem',
+    lineHeight: '1.5',
+    borderRadius: '0.2rem'
+  },
+  CustomButtonLarge: {
+    padding: '1.125rem 2.25rem',
+    fontSize: '0.875rem',
+    letterSpacing: '0.5px',
+    lineHeight: '1.333333',
+    borderRadius: '0.2rem'
+  },
+  CustomGridItem: {
+    position: 'relative',
+    width: '100%',
+    minHeight: '1px',
+    paddingRight: '15px',
+    paddingLeft: '15px',
+    flexBasis: 'auto'
+  },
 
+  CustomGridContainer: {
+    marginRight: '-15px',
+    marginLeft: '-15px',
+    width: 'auto'
+  },
   overrides: {
     MuiButton: {
-      root: {
-        padding: '12px 30px',
-        margin: '.3125rem 1px',
-        lineHeight: '1.42857143'
-      },
-      sizeSmall: {
-        padding: '0.40625rem 1.25rem',
-        fontSize: '0.6875rem',
-        lineHeight: '1.5',
-        borderRadius: '0.2rem'
-      },
-      sizeLarge: {
-        padding: '1.125rem 2.25rem',
-        fontSize: '0.875rem',
-        letterSpacing: '0.5px',
-        lineHeight: '1.333333',
-        borderRadius: '0.2rem'
-      },
-
       extendedFab: {
         margin: 8
       }
     },
-    MuiGrid: {
-      container: {
-        marginRight: '-15px',
-        marginLeft: '-15px',
-        width: 'auto'
-      },
-      item: {
-        position: 'relative',
-        width: '100%',
-        minHeight: '1px',
-        paddingRight: '15px',
-        paddingLeft: '15px',
-        flexBasis: 'auto'
-      }
-    },
     MuiAppBar: {
       root: {
-        marginBottom: '-20px',
+        // marginBottom: '-20px',
         zIndex: '100',
         position: 'relative',
-
         '& header': {
           borderRadius: '0'
         }
