@@ -3,14 +3,8 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import withStyles from '@material-ui/core/styles/withStyles';
 import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
-import Parallax from '../Layouts/Parallax';
-import GridListTile from '@material-ui/core/GridListTile';
-import GridListTileBar from '@material-ui/core/GridListTileBar';
 import Typography from '@material-ui/core/Typography';
-import placeholderImg from './placeholder.1.jpg';
 import api from './podcast_api';
-import Paper from '@material-ui/core/Paper';
 
 import EpisodeGrid from './Episodes/EpisodeGrid';
 // import axios from 'axios';

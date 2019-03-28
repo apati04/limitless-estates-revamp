@@ -21,6 +21,10 @@ class App extends Component {
 
                   <Route exact path="/podcasts" component={Views.Podcast} />
                   <Route
+                    path="/podcasts/:epid"
+                    component={Views.PodcastEpisode}
+                  />
+                  <Route
                     path="/events/meetups/:id"
                     render={props => (
                       <Views.Events pathId={props.match.params.id} />

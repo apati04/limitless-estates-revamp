@@ -1,21 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
+import { compose } from 'redux';
+import { NavLink, withRouter } from 'react-router-dom';
 import withStyles from '@material-ui/core/styles/withStyles';
 import Grid from '@material-ui/core/Grid';
-import GridList from '@material-ui/core/GridList';
-import GridListTile from '@material-ui/core/GridListTile';
 import Card from '@material-ui/core/Card';
 import classNames from 'classnames';
-import { CardActionArea } from '@material-ui/core/';
-import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardActions from '@material-ui/core/CardActions';
-import { CardHeader } from '@material-ui/core';
-import Icon from '@material-ui/core/Icon';
-import Divider from '@material-ui/core/Divider';
 import Truncate from 'react-truncate';
 import ReactHtmlParser from 'react-html-parser';
 import OpenInNewRounded from '@material-ui/icons/OpenInNewRounded';
@@ -27,7 +20,7 @@ const styles = theme => ({
     position: 'relative',
     height: 200,
     [theme.breakpoints.down('xs')]: {
-      width: '100% !important', // Overrides inline-style
+      width: '100% !important',
       height: 100
     },
     '&:hover, &$focusVisible': {
@@ -185,7 +178,7 @@ const styles = theme => ({
     fontSize: '0.875rem',
     color: '#5f6368',
     verticalAlign: 'middle',
-    fontFamily: 'Roboto Slab',
+    fontFamily: 'Quattrocento',
     textDecorationLine: 'none'
   },
   gradient: {
@@ -194,98 +187,10 @@ const styles = theme => ({
 });
 
 class EpisodeGrid extends Component {
-  loadEpisodeList = () => {
-    const { classes, episodes } = this.props;
-
-    console.log();
-    return episodes.map((item, index) => {
-      let desc = ReactHtmlParser(item.description, {
-        transform: function(node, index) {
-          if (node.type === 'tag' && node.name === 'br') {
-            return null;
-          }
-        }
-      });
-      return (
-        <Grid
-          item
-          key={item.id}
-          xs={12}
-          sm={6}
-          md={4}
-          lg={4}
-          className={classes.cardGrid}
-        >
-          <Card elevation={0} className={classes.card}>
-            <CardMedia
-              className={classes.cardMedia}
-              image={`https://via.placeholder.com/300/0010ff?text=Ep. ${
-                item.episode_number
-              }`}
-              title="Image title"
-            />
-            <div className={classNames(classes.cardMedia, classes.gradient)} />
-
-            <div className={classes.cardContent}>
-              <Typography
-                align="left"
-                variant="h5"
-                component="div"
-                gutterBottom
-                className={classes.cardContentMargin}
-              >
-                Episode {item.episode_number} with
-                <br />
-                {item.artist}
-              </Typography>
-
-              <Typography
-                style={{
-                  hyphens: 'manual',
-                  color: '#424242',
-                  lineHeight: '20px',
-                  marginTop: '4px',
-                  fontWeight: 400
-                }}
-                variant="body2"
-                paragraph
-                component="div"
-              >
-                <Truncate
-                  lines={4}
-                  trimWhitespace
-                  ellipsis={
-                    <span>...</span>
-                    // {/* <Typography
-                    //   component="span"
-                    //   paragraph
-                    //   className={classes.truncateText}
-                    // >
-                    //   {' '}
-                    //   {/* <NavLink className={classes.navLink}>
-                    //     Full Episode
-                    //   </NavLink> */}
-                    // </Typography> */}
-                  }
-                >
-                  <span style={{ hyphens: 'auto' }}>{desc}</span>
-                </Truncate>
-              </Typography>
-
-              <Typography align="left">
-                <OpenInNewRounded className={classes.icons} />
-                Full Episode
-              </Typography>
-            </div>
-          </Card>
-        </Grid>
-      );
-    });
-  };
   loadEpisodes = () => {
-    const { classes, episodes } = this.props;
+    const { classes, episodes, location } = this.props;
     return episodes.map((item, index) => {
-      let desc = ReactHtmlParser(item.description, {
+      let desc = ReactHtmlParser(item.summary, {
         transform: function(node, index) {
           if (node.type === 'tag' && node.name === 'br') {
             return null;
@@ -303,35 +208,41 @@ class EpisodeGrid extends Component {
           className={classes.cardGrid}
         >
           <Card elevation={0} className={classes.card}>
-            <ButtonBase
-              focusRipple
-              key={item.id}
-              className={classNames(classes.cardMedia, classes.image)}
-              focusVisibleClassName={classes.focusVisible}
+            <NavLink
+              to={{
+                pathname: `${location.pathname}/${item.id}`,
+                state: { episode: item }
+              }}
             >
-              <span
-                className={classes.imageSrc}
-                style={{
-                  backgroundImage: `url(${mic3Img})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  width: 'auto'
-                }}
-              />
-              <span className={classes.imageBackdrop} />
-              <span className={classes.imageButton}>
-                <Typography
-                  component="span"
-                  variant="subtitle1"
-                  color="inherit"
-                  className={classes.imageTitle}
-                >
-                  {item.artist}
-                  <span className={classes.imageMarked} />
-                </Typography>
-              </span>
-            </ButtonBase>
-
+              <ButtonBase
+                focusRipple
+                key={item.id}
+                className={classNames(classes.cardMedia, classes.image)}
+                focusVisibleClassName={classes.focusVisible}
+              >
+                <span
+                  className={classes.imageSrc}
+                  style={{
+                    backgroundImage: `url(${mic3Img})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    width: 'auto'
+                  }}
+                />
+                <span className={classes.imageBackdrop} />
+                <span className={classes.imageButton}>
+                  <Typography
+                    component="span"
+                    variant="subtitle1"
+                    color="inherit"
+                    className={classes.imageTitle}
+                  >
+                    {item.artist}
+                    <span className={classes.imageMarked} />
+                  </Typography>
+                </span>
+              </ButtonBase>
+            </NavLink>
             <div className={classes.cardContent}>
               <Typography
                 align="left"
@@ -355,23 +266,7 @@ class EpisodeGrid extends Component {
                 paragraph
                 component="div"
               >
-                <Truncate
-                  lines={4}
-                  trimWhitespace
-                  ellipsis={
-                    <span>...</span>
-                    // {/* <Typography
-                    //   component="span"
-                    //   paragraph
-                    //   className={classes.truncateText}
-                    // >
-                    //   {' '}
-                    //   {/* <NavLink className={classes.navLink}>
-                    //     Full Episode
-                    //   </NavLink> */}
-                    // </Typography> */}
-                  }
-                >
+                <Truncate lines={4} trimWhitespace ellipsis={<span>..</span>}>
                   <span style={{ hyphens: 'auto' }}>{desc}</span>
                 </Truncate>
               </Typography>
@@ -387,8 +282,8 @@ class EpisodeGrid extends Component {
     });
   };
   render() {
-    const { classes, episodes } = this.props;
-    console.log('clas: ', classes);
+    const { classes } = this.props;
+    console.log(this.props);
     return (
       <div style={{ paddingTop: '64px' }} className={classes.root}>
         <div className={classes.marginTop}>
@@ -396,7 +291,7 @@ class EpisodeGrid extends Component {
             container
             spacing={40}
             justify="space-between"
-            alignItems="center"
+            alignItems="flex-start"
             wrap="wrap"
             className={classes.gridMargin}
           >
@@ -412,4 +307,7 @@ EpisodeGrid.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(EpisodeGrid);
+export default compose(
+  withRouter,
+  withStyles(styles)
+)(EpisodeGrid);

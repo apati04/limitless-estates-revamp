@@ -2,7 +2,7 @@ import Home from './Home/Home';
 
 import About from './About/About';
 import Contact from './Contact/Contact';
-
+import PodcastEpisode from './Podcast/Episodes/Episode';
 import Podcast from './Podcast/Podcast';
 import Events from './Events/Events';
 import Resources from './Resources/Resources';
@@ -20,5 +20,6 @@ export {
   Resources,
   InvestorForm,
   Kyle,
-  Lalita
+  Lalita,
+  PodcastEpisode
 };
