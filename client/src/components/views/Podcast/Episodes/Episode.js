@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 import withStyles from '@material-ui/core/styles/withStyles';
 import Grid from '@material-ui/core/Grid';
 import classNames from 'classnames';
@@ -10,6 +11,10 @@ import Button from '@material-ui/core/Button';
 import Share from '@material-ui/icons/Share';
 import Card from '@material-ui/core/Card';
 import Chip from '@material-ui/core/Chip';
+import Breadcrumbs from '@material-ui/lab/Breadcrumbs';
+import NavigateNextIcon from '@material-ui/icons/NavigateNext';
+import Paper from '@material-ui/core/Paper';
+import HomeIcon from '@material-ui/icons/Home';
 import Player from '../Player';
 const styles = theme => ({
   podcastCard: {
@@ -83,12 +88,53 @@ const styles = theme => ({
   },
   chip: {
     margin: theme.spacing.unit
+  },
+  icon: {
+    marginRight: theme.spacing.unit / 2,
+    width: 20,
+    height: 20,
+    verticalAlign: 'sub'
+  },
+  navLink: {
+    textDecorationLine: 'none',
+    color: 'rgba(0,0,0, 0.87)',
+    fontWeight: 400
+  },
+  root: {
+    padding: `${theme.spacing.unit}px 15px`,
+    background: '#f5f5f5',
+    margin: `0 0 ${theme.spacing.unit * 2}px 0`
+  },
+  player: {
+    margin: `0 0 ${theme.spacing.unit * 2}px 0px`,
+    position: 'relative'
   }
 });
 /**
  *
  */
 class Episode extends Component {
+  loadChips = () => {
+    const {
+      classes,
+      location: {
+        state: { episode }
+      }
+    } = this.props;
+    return episode.tags
+      .split(',')
+      .filter(
+        item =>
+          !item.includes('passiveincomethrough') &&
+          !item.includes('#listen') &&
+          !item.includes('#podcast') &&
+          !item.includes('#limitless-estates')
+      )
+      .map(item => (
+        <Chip key={item} label={item.trim()} className={classes.chip} />
+      ));
+  };
+
   render() {
     const {
       classes,
@@ -98,7 +144,11 @@ class Episode extends Component {
     } = this.props;
     const s1 = episode.audio_url.split('/');
     const s2 = s1[s1.length - 1].split('.')[0];
-    console.log(episode);
+    console.log(this.props.location);
+    const episodetitle = episode.title.split(':')[1].trim();
+    const newDate = new Date(episode.published_at).toDateString();
+    // const minutes = Math.floor(episode.duration / 60);
+    // const seconds = episode.duration - minutes * 60;
     return (
       <React.Fragment>
         <div className={classNames(classes.podcastGrid, classes.appContainer)}>
@@ -110,13 +160,42 @@ class Episode extends Component {
           >
             <Grid item xs={2} />
             <Grid item xs>
-              <Player playerUrl={s2} />
-              <div style={{ margin: '64px 0' }} />
+              <div style={{ margin: '8px' }} />
+
               <Card elevation={0}>
-                <Typography paragraph align="left" variant="h3">
-                  {episode.title}
+                <Paper className={classes.root} elevation={0}>
+                  <Breadcrumbs
+                    separator={<NavigateNextIcon fontSize="small" />}
+                    aria-label="Breadcrumb"
+                  >
+                    <NavLink className={classes.navLink} to="/podcasts">
+                      <Typography style={{ color: '#337ab7' }} variant="body2">
+                        <HomeIcon className={classes.icon} />
+                        All Episodes
+                      </Typography>
+                    </NavLink>
+                    <Typography color="textPrimary" variant="body2">
+                      {episodetitle}
+                    </Typography>
+                  </Breadcrumbs>
+                </Paper>
+                <div className={classes.player}>
+                  <Player playerUrl={s2} />
+                </div>
+
+                <Typography
+                  align="left"
+                  style={{ color: '#414549' }}
+                  gutterBottom
+                  variant="subtitle1"
+                >
+                  {newDate}
                 </Typography>
-                <Divider />
+
+                <Typography paragraph align="left" variant="h3">
+                  {episodetitle}
+                </Typography>
+
                 <Typography
                   align="left"
                   variant="subtitle1"
@@ -129,7 +208,7 @@ class Episode extends Component {
                   {ReactHtmlParser(episode.description)}
                 </div>
                 <Divider />
-                <Chip className={classes.chip} />
+                {/* <div style={{ margin: '16px 0' }}>{this.loadChips()}</div> */}
               </Card>
             </Grid>
             <Grid item xs={2}>

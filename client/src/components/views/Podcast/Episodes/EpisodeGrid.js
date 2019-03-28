@@ -188,6 +188,8 @@ class EpisodeGrid extends Component {
   loadEpisodes = () => {
     const { classes, episodes, location } = this.props;
     return episodes.map((item, index) => {
+      const minutes = Math.floor(item.duration / 60);
+      const seconds = item.duration - minutes * 60;
       let desc = ReactHtmlParser(item.summary, {
         transform: function(node, index) {
           if (node.type === 'tag' && node.name === 'br') {
@@ -207,9 +209,10 @@ class EpisodeGrid extends Component {
         >
           <Card elevation={0} className={classes.card}>
             <NavLink
+              style={{ textDecorationLine: 'none' }}
               to={{
                 pathname: `${location.pathname}/${item.id}`,
-                state: { episode: item }
+                state: { episode: item, originalPath: location.pathname }
               }}
             >
               <ButtonBase
@@ -235,45 +238,46 @@ class EpisodeGrid extends Component {
                     color="inherit"
                     className={classes.imageTitle}
                   >
-                    {item.artist}
+                    Episode {item.episode_number}
                     <span className={classes.imageMarked} />
                   </Typography>
                 </span>
               </ButtonBase>
+
+              <div className={classes.cardContent}>
+                <Typography
+                  align="left"
+                  variant="h5"
+                  component="div"
+                  gutterBottom
+                  className={classes.cardContentMargin}
+                >
+                  {item.title}
+                </Typography>
+
+                <Typography
+                  style={{
+                    hyphens: 'manual',
+                    color: '#424242',
+                    lineHeight: '20px',
+                    marginTop: '4px',
+                    fontWeight: 400
+                  }}
+                  variant="body2"
+                  paragraph
+                  component="div"
+                >
+                  <Truncate lines={4} trimWhitespace ellipsis={<span>..</span>}>
+                    <span style={{ hyphens: 'auto' }}>{desc}</span>
+                  </Truncate>
+                </Typography>
+
+                <Typography align="left">
+                  <OpenInNewRounded className={classes.icons} />
+                  Full Episode
+                </Typography>
+              </div>
             </NavLink>
-            <div className={classes.cardContent}>
-              <Typography
-                align="left"
-                variant="h5"
-                component="div"
-                gutterBottom
-                className={classes.cardContentMargin}
-              >
-                {item.title}
-              </Typography>
-
-              <Typography
-                style={{
-                  hyphens: 'manual',
-                  color: '#424242',
-                  lineHeight: '20px',
-                  marginTop: '4px',
-                  fontWeight: 400
-                }}
-                variant="body2"
-                paragraph
-                component="div"
-              >
-                <Truncate lines={4} trimWhitespace ellipsis={<span>..</span>}>
-                  <span style={{ hyphens: 'auto' }}>{desc}</span>
-                </Truncate>
-              </Typography>
-
-              <Typography align="left">
-                <OpenInNewRounded className={classes.icons} />
-                Full Episode
-              </Typography>
-            </div>
           </Card>
         </Grid>
       );
@@ -287,7 +291,7 @@ class EpisodeGrid extends Component {
         <div className={classes.marginTop}>
           <Grid
             container
-            spacing={40}
+            spacing={32}
             justify="space-between"
             alignItems="flex-start"
             wrap="wrap"
