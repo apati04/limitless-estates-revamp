@@ -26,11 +26,8 @@ class App extends Component {
                 <ScrollToTop>
                   <Route exact path="/" component={Views.Home} />
                   <div className="mainContent">
-                    <Route exact path="/podcasts" component={Views.Podcast} />
-                    <Route
-                      path="/podcasts/:epid"
-                      component={Views.PodcastEpisode}
-                    />
+                    <Route path="/podcasts" component={Views.Podcast} />
+
                     <Route
                       path="/events/meetups/:id"
                       render={props => (

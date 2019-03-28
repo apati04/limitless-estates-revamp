@@ -6,6 +6,7 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import classNames from 'classnames';
+import CardActionArea from '@material-ui/core/CardActionArea';
 import Typography from '@material-ui/core/Typography';
 import Truncate from 'react-truncate';
 import ReactHtmlParser from 'react-html-parser';
@@ -24,7 +25,7 @@ const styles = theme => ({
     '&:hover, &$focusVisible': {
       zIndex: 1,
       '& $imageBackdrop': {
-        opacity: 0.24
+        opacity: 0.4
       },
       '& $imageMarked': {
         opacity: 0
@@ -117,6 +118,7 @@ const styles = theme => ({
   },
   marginTop: {
     ...theme.container,
+    padding: 0,
     [theme.breakpoints.up('sm')]: {
       marginTop: theme.spacing.unit * 4
     }
@@ -132,7 +134,7 @@ const styles = theme => ({
   cardContent: {
     flex: 1,
     marginTop: theme.spacing.unit * 3,
-    padding: 0
+    padding: '0.5px'
   },
   cardActions: {
     justifyContent: 'space-between',
@@ -208,76 +210,82 @@ class EpisodeGrid extends Component {
           className={classes.cardGrid}
         >
           <Card elevation={0} className={classes.card}>
-            <NavLink
-              style={{ textDecorationLine: 'none' }}
-              to={{
-                pathname: `${location.pathname}/${item.id}`,
-                state: { episode: item, originalPath: location.pathname }
-              }}
-            >
-              <ButtonBase
-                focusRipple
-                key={item.id}
-                className={classNames(classes.cardMedia, classes.image)}
-                focusVisibleClassName={classes.focusVisible}
+            <CardActionArea>
+              <NavLink
+                style={{ textDecorationLine: 'none' }}
+                to={{
+                  pathname: `${location.pathname}/${item.id}`,
+                  state: { episode: item, originalPath: location.pathname }
+                }}
               >
-                <span
-                  className={classes.imageSrc}
-                  style={{
-                    backgroundImage: `url(${mic3Img})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    width: 'auto'
-                  }}
-                />
-                <span className={classes.imageBackdrop} />
-                <span className={classes.imageButton}>
+                <ButtonBase
+                  focusRipple
+                  key={item.id}
+                  className={classNames(classes.cardMedia, classes.image)}
+                  focusVisibleClassName={classes.focusVisible}
+                >
+                  <span
+                    className={classes.imageSrc}
+                    style={{
+                      backgroundImage: `url(${mic3Img})`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      width: 'auto'
+                    }}
+                  />
+                  <span className={classes.imageBackdrop} />
+                  <span className={classes.imageButton}>
+                    <Typography
+                      component="span"
+                      variant="h6"
+                      color="inherit"
+                      className={classes.imageTitle}
+                    >
+                      Episode {item.episode_number}
+                      <span className={classes.imageMarked} />
+                    </Typography>
+                  </span>
+                </ButtonBase>
+
+                <div className={classes.cardContent}>
                   <Typography
-                    component="span"
-                    variant="subtitle1"
-                    color="inherit"
-                    className={classes.imageTitle}
+                    align="left"
+                    variant="h5"
+                    component="div"
+                    gutterBottom
+                    className={classes.cardContentMargin}
                   >
-                    Episode {item.episode_number}
-                    <span className={classes.imageMarked} />
+                    {item.title}
                   </Typography>
-                </span>
-              </ButtonBase>
 
-              <div className={classes.cardContent}>
-                <Typography
-                  align="left"
-                  variant="h5"
-                  component="div"
-                  gutterBottom
-                  className={classes.cardContentMargin}
-                >
-                  {item.title}
-                </Typography>
+                  <Typography
+                    style={{
+                      hyphens: 'manual',
+                      color: '#424242',
+                      lineHeight: '20px',
+                      marginTop: '4px',
+                      fontWeight: 400
+                    }}
+                    variant="body2"
+                    paragraph
+                    component="div"
+                  >
+                    <Truncate
+                      lines={4}
+                      trimWhitespace
+                      ellipsis={<span>..</span>}
+                    >
+                      <span style={{ hyphens: 'auto' }}>{desc}</span>
+                    </Truncate>
+                  </Typography>
 
-                <Typography
-                  style={{
-                    hyphens: 'manual',
-                    color: '#424242',
-                    lineHeight: '20px',
-                    marginTop: '4px',
-                    fontWeight: 400
-                  }}
-                  variant="body2"
-                  paragraph
-                  component="div"
-                >
-                  <Truncate lines={4} trimWhitespace ellipsis={<span>..</span>}>
-                    <span style={{ hyphens: 'auto' }}>{desc}</span>
-                  </Truncate>
-                </Typography>
-
-                <Typography align="left">
-                  <OpenInNewRounded className={classes.icons} />
-                  Full Episode
-                </Typography>
-              </div>
-            </NavLink>
+                  <Typography align="left">
+                    <OpenInNewRounded className={classes.icons} />
+                    Full Episode
+                  </Typography>
+                </div>
+              </NavLink>
+            </CardActionArea>
           </Card>
         </Grid>
       );
@@ -291,11 +299,10 @@ class EpisodeGrid extends Component {
         <div className={classes.marginTop}>
           <Grid
             container
-            spacing={32}
+            spacing={16}
             justify="space-between"
             alignItems="flex-start"
             wrap="wrap"
-            className={classes.gridMargin}
           >
             {this.loadEpisodes()}
           </Grid>

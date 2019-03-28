@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { Route, Switch } from 'react-router-dom';
 import withStyles from '@material-ui/core/styles/withStyles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import api from './podcast_api';
-
+import Episode from './Episodes/Episode';
 import EpisodeGrid from './Episodes/EpisodeGrid';
 // import axios from 'axios';
 // --------TEMP DATA
@@ -15,7 +16,10 @@ const styles = theme => ({
   podcastCard: {
     ...theme.cardTitle
   },
-
+  gridContainerPadding: {
+    padding: theme.spacing.unit * 2,
+    backgroundColor: '#f7f7f7'
+  },
   appContainer: {
     ...theme.container,
     flexGrow: 1
@@ -25,9 +29,9 @@ const styles = theme => ({
   },
   podcastGrid: {
     marginTop: theme.spacing.unit * 8,
-    marginBottom: theme.spacing.unit * 16,
-    padding: `${theme.spacing.unit * 4}px ${theme.spacing.unit * 4}px 0 ${theme
-      .spacing.unit * 4}px`
+    marginBottom: theme.spacing.unit * 12,
+    padding: `${theme.spacing.unit * 3}px ${theme.spacing.unit *
+      6}px 0px ${theme.spacing.unit * 6}px`
   },
   mobileContainer: {
     [theme.breakpoints.down('sm')]: {
@@ -78,14 +82,15 @@ class Podcast extends Component {
     const { classes } = this.props;
     console.log(classes);
     return (
-      <div className={classNames(classes.podcastGrid, classes.appContainer)}>
-        <div>
+      <React.Fragment>
+        <div className={classNames(classes.podcastGrid, classes.appContainer)}>
           <Grid
             container
             justify="space-around"
             spacing={40}
             alignItems="flex-start"
             wrap="wrap"
+            className={classes.gridContainerPadding}
           >
             <Grid item xs={12} sm={12} md={4}>
               <div>
@@ -119,9 +124,17 @@ class Podcast extends Component {
             </Grid>
           </Grid>
         </div>
-
-        <EpisodeGrid episodes={this.state.episodes} />
-      </div>
+        <div>
+          <Switch>
+            <Route path="/podcasts/:epid" component={Episode} />
+            <Route
+              exact
+              path="/podcasts"
+              render={() => <EpisodeGrid episodes={this.state.episodes} />}
+            />
+          </Switch>
+        </div>
+      </React.Fragment>
     );
   }
 }

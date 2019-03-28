@@ -10,11 +10,15 @@ import ReactHtmlParser from 'react-html-parser';
 import Button from '@material-ui/core/Button';
 import Share from '@material-ui/icons/Share';
 import Card from '@material-ui/core/Card';
+import api from '../podcast_api';
 import Chip from '@material-ui/core/Chip';
 import Breadcrumbs from '@material-ui/lab/Breadcrumbs';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import Paper from '@material-ui/core/Paper';
 import HomeIcon from '@material-ui/icons/Home';
+import CardContent from '@material-ui/core/CardContent';
+import Avatar from '@material-ui/core/Avatar';
+import ToolTip from '@material-ui/core/Tooltip';
 import Player from '../Player';
 const styles = theme => ({
   podcastCard: {
@@ -108,6 +112,10 @@ const styles = theme => ({
   player: {
     margin: `0 0 ${theme.spacing.unit * 2}px 0px`,
     position: 'relative'
+  },
+  socialBar: {
+    display: 'flex',
+    justifyContent: 'center'
   }
 });
 /**
@@ -134,7 +142,19 @@ class Episode extends Component {
         <Chip key={item} label={item.trim()} className={classes.chip} />
       ));
   };
-
+  loadSocialBar = () => {
+    return api.media.map(item => {
+      return (
+        <div key={item.alt} style={{ marginRight: '8px' }}>
+          <ToolTip title={item.alt}>
+            <a href={item.podcastUrl}>
+              <img src={item.appLogo} alt="logo" title={item.alt} width="40" />
+            </a>
+          </ToolTip>
+        </div>
+      );
+    });
+  };
   render() {
     const {
       classes,
@@ -155,11 +175,11 @@ class Episode extends Component {
           <Grid
             container
             spacing={24}
-            justify="space-between"
+            justify="space-around"
+            alignItems="center"
             className={classes.alignGrid}
           >
-            <Grid item xs={2} />
-            <Grid item xs>
+            <Grid item xs={12} sm={12} md={12}>
               <div style={{ margin: '8px' }} />
 
               <Card elevation={0}>
@@ -192,13 +212,13 @@ class Episode extends Component {
                   {newDate}
                 </Typography>
 
-                <Typography paragraph align="left" variant="h3">
+                <Typography paragraph align="left" variant="h4">
                   {episodetitle}
                 </Typography>
 
                 <Typography
                   align="left"
-                  variant="subtitle1"
+                  variant="body2"
                   className={classes.subheader}
                 >
                   {episode.summary}
@@ -210,12 +230,6 @@ class Episode extends Component {
                 <Divider />
                 {/* <div style={{ margin: '16px 0' }}>{this.loadChips()}</div> */}
               </Card>
-            </Grid>
-            <Grid item xs={2}>
-              <Share />
-              <Button variant="contained" color="primary" size="large">
-                Click here
-              </Button>
             </Grid>
           </Grid>
         </div>
