@@ -22,8 +22,8 @@ function About(props) {
     <div className={classes.root}>
       <Switch>
         <Redirect from="/about" exact to="/about/meet-the-team" />
-        <Route path="/about/what-we-do" component={WhatWeDo} />
-        <Route path="/about/meet-the-team" component={MeetTheTeam} />
+        <Route exact path="/about/what-we-do" component={WhatWeDo} />
+        <Route exact path="/about/meet-the-team" component={MeetTheTeam} />
       </Switch>
     </div>
   );

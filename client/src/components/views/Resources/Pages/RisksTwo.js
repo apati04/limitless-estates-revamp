@@ -1,19 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import classNames from 'classnames';
+
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import Grid from '@material-ui/core/Grid';
 import CardContent from '@material-ui/core/CardContent';
-import CardHeader from '@material-ui/core/CardHeader';
 import Typography from '@material-ui/core/Typography';
-import BlogTitle from '../../Layouts/BlogTitle';
 import PageHeader from '../../Layouts/PageHeader';
 // --
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 import risk from '../api/risks_p2';
 
-const styles = (theme) => ({
+const styles = theme => ({
   root: {
     flexGrow: 1,
     background: theme.palette.background.paper,
@@ -40,12 +40,11 @@ const styles = (theme) => ({
     paddingBottom: '4px'
   },
   cardBodyGrid: {
-    margin: '16px 0',
-    ...theme.container
-    // [theme.breakpoints.down('sm')]: {
-    //   margin: '16px',
-    //   padding: 0
-    // }
+    padding: '40px',
+    [theme.breakpoints.down('sm')]: {
+      margin: 0,
+      padding: 0
+    }
   },
   subTitleText: {
     marginLeft: '2px'
@@ -58,29 +57,35 @@ function RisksOne(props) {
     return risk.map(({ title, body }, index) => {
       if (index === 0) {
         return (
-          <Card key={index} className={classes.cardStyle}>
-            <CardHeader
-              
-              title={<BlogTitle text='Risks When Investing in Real Estate' />}
-              subheader={<Typography className={classes.subTitleText}>Part 2 of 2</Typography>}
-            />
-            <CardContent>
-              <Typography align='left' className={classes.content} gutterBottom variant='h5'>
-                {body}
-              </Typography>
-            </CardContent>
-          </Card>
-        );
-      }
-      return (
-        <Card key={index} className={classes.cardStyle}>
-          <CardHeader title={<span className={classes.bodyContentHeader}>{title}</span>} />
-          <CardContent>
-            <Typography align='left' className={classes.content} gutterBottom variant='body1'>
+          <CardContent key={index}>
+            <Typography className={classes.subTitleText}>
+              Page 2 of 2
+            </Typography>
+            <Typography paragraph align="left" variant="h3" component="h1">
+              Risks When Investing in Real Estate
+            </Typography>
+
+            <Typography align="left" paragraph variant="h5">
               {body}
             </Typography>
           </CardContent>
-        </Card>
+        );
+      }
+      return (
+        <CardContent key={index}>
+          <Typography variant="h6" paragraph component="h2">
+            {title}
+          </Typography>
+
+          <Typography
+            align="left"
+            className={classes.content}
+            paragraph
+            variant="body1"
+          >
+            {body}
+          </Typography>
+        </CardContent>
       );
     });
   }
@@ -88,27 +93,30 @@ function RisksOne(props) {
   const imgSrc = 'https://i.imgur.com/LZDGUNH.jpg?1';
   return (
     <div className={classes.root}>
-      <PageHeader imgSrc={imgSrc} imgHeight='560px' position='center 80%' />
-      <Grid container justify='center' alignItems='center' wrap='wrap' className={classes.cardBodyGrid}>
-        <Grid item lg={9} md={10} xs={12}>
-          {loadPage()}
-        </Grid>
-        <Grid item lg={9} md={10} xs={12}>
-          <Card className={classes.cardStyle}>
-            <CardContent style={{ textAlign: 'left' }}>
-              <Button
-                variant='contained'
-                component={(props) => <Link to='/resources/investing-risks?page=1' {...props} />}
-                color='primary'
-                className={classes.button}
-              >
-                <Icon className={classes.rightIcon}>chevron_left</Icon>
-                Previous Page
-              </Button>
-            </CardContent>
-          </Card>
-        </Grid>
-      </Grid>
+      <PageHeader imgSrc={imgSrc} imgHeight="35em" position="center 80%" />
+      <div className={classNames('main-content', classes.appContainer)}>
+        <Card elevation={0}>
+          <Grid container justify="center" alignItems="center" wrap="wrap">
+            <Grid item xs={12} className={classes.cardBodyGrid}>
+              {loadPage()}
+
+              <CardContent style={{ textAlign: 'left' }}>
+                <Button
+                  variant="contained"
+                  component={props => (
+                    <Link to="/resources/investing-risks?page=1" {...props} />
+                  )}
+                  color="primary"
+                  className={classes.button}
+                >
+                  <Icon className={classes.rightIcon}>chevron_left</Icon>
+                  Previous Page
+                </Button>
+              </CardContent>
+            </Grid>
+          </Grid>
+        </Card>
+      </div>
     </div>
   );
 }

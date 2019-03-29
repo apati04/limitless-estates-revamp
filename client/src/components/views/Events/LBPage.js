@@ -74,8 +74,14 @@ class EventPage extends Component {
         {this.state.isComplete && !this.state.isFetching ? (
           <div className="fade-in">
             <Parallax filter image={placeholderImg}>
-              <div className={classes.container + ' main-content'}>
-                <Grid container justify="space-between">
+              <div className={classNames(classes.container, 'main-content')}>
+                <Grid
+                  container
+                  justify="flex-start"
+                  spacing={32}
+                  alignItems="center"
+                  className={classes.container}
+                >
                   <Grid item xs={12} sm={12} md={8}>
                     <Typography
                       variant="h1"

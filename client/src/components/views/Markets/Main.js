@@ -3,6 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import { withRouter } from 'react-router-dom';
 import CardHeader from '@material-ui/core/CardHeader';
+import classNames from 'classnames';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
@@ -48,7 +49,10 @@ function Main(props) {
   return (
     <section>
       <Parallax image={headerImageUrl} lightFilter medium />
-      <div className={classes.root}>
+      <div
+        style={{ marginTop: '-8rem' }}
+        className={classNames('main-content', classes.root)}
+      >
         <Grid container spacing={0} justify="space-between">
           <Grid item xs={12}>
             <Card>
@@ -69,7 +73,7 @@ function Main(props) {
                     subheader={<Divider />}
                   />
 
-                  <CardContent> {loadContent(mainContent)}</CardContent>
+                  <CardContent>{loadContent(mainContent)}</CardContent>
                 </Grid>
                 <Grid item xs={12} sm={12}>
                   <CardContent>

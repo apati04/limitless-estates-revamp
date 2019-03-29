@@ -74,8 +74,14 @@ class CerritosPage extends Component {
         {this.state.isComplete && !this.state.isFetching ? (
           <React.Fragment>
             <Parallax filter image={placeholderImg}>
-              <div className={classes.container}>
-                <Grid container>
+              <div className={classNames(classes.container, 'main-content')}>
+                <Grid
+                  container
+                  justify="flex-start"
+                  spacing={32}
+                  alignItems="center"
+                  className={classes.container}
+                >
                   <Grid item xs={12} sm={12} md={8}>
                     <Typography
                       variant="h1"
@@ -106,7 +112,8 @@ class CerritosPage extends Component {
               <div
                 className={classNames(
                   classes.container,
-                  classes.mobileContainer
+                  classes.mobileContainer,
+                  'main-content'
                 )}
               >
                 <AboutEvent />

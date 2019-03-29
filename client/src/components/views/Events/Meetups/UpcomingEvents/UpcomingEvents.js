@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import withStyles from '@material-ui/core/styles/withStyles';
 import Grid from '@material-ui/core/Grid';
-import productStyles from '../../../About/modules/landingPageSections/productStyles';
+
 import Moment from 'react-moment';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
@@ -60,9 +60,6 @@ const styles = theme => ({
     padding: '8px 14px'
   },
   eventName: {
-    // overflow: 'hidden',
-    // textOverflow: 'ellipsis',
-    // 'white-space': 'nowrap'
     lineHeight: 'normal'
   },
   eventDate: {},
@@ -233,9 +230,7 @@ class UpcomingEvents extends React.Component {
     return (
       <React.Fragment>
         <hr className="hr-text" data-content="Upcoming" />
-        <Typography>
-          <em>Brought to you by Meetup.com</em>
-        </Typography>
+
         <div className={classNames(classes.layout, classes.cardGrid)}>
           <Grid
             container

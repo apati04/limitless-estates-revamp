@@ -1,6 +1,5 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
-import CardContent from '@material-ui/core/CardContent';
 import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
@@ -43,7 +42,7 @@ const BlogContentOne = props => {
     });
   };
   const { classes } = props;
-  return <CardContent>{renderCardContent(props.text)}</CardContent>;
+  return <React.Fragment>{renderCardContent(props.text)}</React.Fragment>;
 };
 
 export default withStyles(styles)(BlogContentOne);

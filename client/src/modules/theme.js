@@ -260,7 +260,8 @@ const theme = {
     body1: {
       ...rawTheme.typography.body2,
       fontWeight: rawTheme.typography.fontWeightRegular,
-      fontSize: 16
+      fontSize: 16,
+      color: '#414549'
     },
     body2: {
       ...rawTheme.typography.body1,

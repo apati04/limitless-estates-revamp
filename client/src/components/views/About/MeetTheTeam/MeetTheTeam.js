@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
 import Grid from '@material-ui/core/Grid';
-
+import classNames from 'classnames';
 import blue from '@material-ui/core/colors/blue';
 // custom styles
 import TeamCard from '../../../../modules/TeamCard';
@@ -60,9 +60,9 @@ const MeetTheTeam = props => {
       <PageHeader
         imgSrc={headerimg}
         position="center center"
-        imgHeight="560px"
+        imgHeight="35em"
       />
-      <div className={classes.appContainer}>
+      <div className={classNames('main-content', classes.appContainer)}>
         <section className={classes.section}>
           <Typography variant="h4" className={classes.title} paragraph>
             Meet The Team
