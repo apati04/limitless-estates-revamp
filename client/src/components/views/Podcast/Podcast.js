@@ -10,18 +10,24 @@ import Episode from './Episodes/Episode';
 import EpisodeGrid from './Episodes/EpisodeGrid';
 import Tooltip from '@material-ui/core/Tooltip';
 
-// import axios from 'axios';
+import axios from 'axios';
 // --------TEMP DATA
-import podcastEpisodes from './tempdata';
+import podcastData from './tempdata';
 // __ tmpdata
 const styles = theme => ({
   podcastCard: {
     ...theme.cardTitle,
-    fontSize: '2.25rem'
+    fontSize: '2.25rem',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '1.725rem'
+    }
   },
   gridContainerPadding: {
-    padding: theme.spacing.unit * 2,
-    backgroundColor: '#f7f7f7'
+    padding: theme.spacing.unit * 3,
+    backgroundColor: '#f7f7f7',
+    [theme.breakpoints.down('sm')]: {
+      padding: theme.spacing.unit
+    }
   },
   appContainer: {
     ...theme.container,
@@ -77,8 +83,9 @@ const styles = theme => ({
 
 class Podcast extends Component {
   state = {
-    episodes: podcastEpisodes.data
+    episodes: podcastData.data
   };
+
   loadSocialBar = () => {
     return (
       <div>
@@ -91,7 +98,7 @@ class Podcast extends Component {
               <Tooltip
                 key={item.alt}
                 title={item.alt}
-                style={{ marginRight: '8px' }}
+                style={{ marginRight: '16px' }}
               >
                 <a href={item.podcastUrl}>
                   <img
@@ -109,9 +116,9 @@ class Podcast extends Component {
     );
   };
   componentDidMount() {
-    console.log('mount');
     // axios.get('/podcasts/podcast').then(result => {
-    //   this.setState({ episodes: result.data.data });
+    //   const [intro, ...rest] = result.data.data;
+    //   this.setState({ episodes: rest });
     // });
   }
   render() {
@@ -119,68 +126,76 @@ class Podcast extends Component {
     console.log(classes);
     return (
       <React.Fragment>
-        <div className={classNames(classes.podcastGrid, classes.appContainer)}>
-          <Grid
-            container
-            justify="space-around"
-            spacing={40}
-            alignItems="flex-start"
-            wrap="wrap"
-            className={classes.gridContainerPadding}
-          >
-            <Grid item xs={12} sm={12} md={4}>
-              <div>
-                <img
-                  src="https://i.imgur.com/TxnoBIK.jpg"
-                  className={classes.imageStyle}
-                  alt="podcast"
-                  title="podcast"
+        {this.state.episodes ? (
+          <React.Fragment>
+            <div
+              className={classNames(classes.podcastGrid, classes.appContainer)}
+            >
+              <Grid
+                container
+                justify="space-around"
+                spacing={40}
+                alignItems="flex-start"
+                wrap="wrap"
+                className={classes.gridContainerPadding}
+              >
+                <Grid item xs={12} sm={12} md={4}>
+                  <div>
+                    <img
+                      src="https://i.imgur.com/TxnoBIK.jpg"
+                      className={classes.imageStyle}
+                      alt="podcast"
+                      title="podcast"
+                    />
+                  </div>
+                </Grid>
+                <Grid item xs={12} sm={12} md={8}>
+                  <Typography
+                    align="left"
+                    variant="h3"
+                    component="h1"
+                    className={classes.podcastCard}
+                  >
+                    Passive Income Through Multifamily Real Estate Investing
+                  </Typography>
+
+                  <Typography
+                    align="left"
+                    variant="subtitle1"
+                    paragraph
+                    className={classes.podcastSubtitle}
+                  >
+                    {api.description}
+                  </Typography>
+
+                  <div
+                    style={{
+                      display: 'flex',
+                      justifyContent: 'flex-start',
+
+                      alignItems: 'center'
+                    }}
+                  >
+                    {this.loadSocialBar()}
+                  </div>
+                </Grid>
+              </Grid>
+            </div>
+
+            <div>
+              <Switch>
+                <Route path="/podcasts/:epid" component={Episode} />
+                <Route
+                  exact
+                  path="/podcasts"
+                  render={() => <EpisodeGrid episodes={this.state.episodes} />}
                 />
-              </div>
-            </Grid>
-            <Grid item xs={12} sm={12} md={8}>
-              <Typography
-                align="left"
-                variant="h3"
-                component="h1"
-                className={classes.podcastCard}
-              >
-                Passive Income Through Multifamily Real Estate Investing
-              </Typography>
-
-              <Typography
-                align="left"
-                variant="subtitle1"
-                paragraph
-                className={classes.podcastSubtitle}
-              >
-                {api.description}
-              </Typography>
-
-              <div
-                style={{
-                  display: 'flex',
-                  justifyContent: 'flex-start',
-
-                  alignItems: 'center'
-                }}
-              >
-                {this.loadSocialBar()}
-              </div>
-            </Grid>
-          </Grid>
-        </div>
-
-        <div>
-          <Switch>
-            <Route path="/podcasts/:epid" component={Episode} />
-            <Route
-              exact
-              path="/podcasts"
-              render={() => <EpisodeGrid episodes={this.state.episodes} />}
-            />
-          </Switch>
-        </div>
+              </Switch>
+            </div>
+          </React.Fragment>
+        ) : (
+          <div>Loading...</div>
+        )}
       </React.Fragment>
     );
   }

@@ -155,13 +155,10 @@ class Episode extends Component {
           <Grid
             container
             spacing={24}
-            justify="space-around"
-            alignItems="center"
+            justify="flex-start"
             className={classes.alignGrid}
           >
             <Grid item xs={12} sm={12} md={12}>
-              <div style={{ margin: '8px' }} />
-
               <Card elevation={0}>
                 <Paper className={classes.root} elevation={0}>
                   <Breadcrumbs

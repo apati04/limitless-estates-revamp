@@ -1,0 +1,151 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: 0 0;
+}
+body {
+  line-height: 1;
+}
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+#parseText p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  margin-bottom: 32px;
+  line-height: 34px;
+  color: #414549;
+}
+/* #root {
+        width: 100%;
+        margin: 0 auto;
+      } */
+#root {
+  min-height: 100vh;
+  overflow: hidden;
+  display: block;
+  position: relative;
+  padding-bottom: 297px;
+  margin-top: 0;
+}
+.mainContent {
+  overflow: hidden;
+  margin: 0 auto;
+}
+#mc_embed_signup {
+  background: #fff;
+  clear: left;
+  font: 14px Helvetica, Arial, sans-serif;
+  width: 100%;
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+.hr-text {
+  line-height: 1em;
+  position: relative;
+  outline: 0;
+  border: 0;
+  color: #3c4858;
+  text-align: center;
+  height: 1.7em;
+  opacity: 1;
+  font-family: 'Quattrocento';
+  font-size: 36px;
+}
+.hr-text:before {
+  content: '';
+  background: linear-gradient(to right, transparent, #3c4858, transparent);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 1px;
+}
+.hr-text:after {
+  content: attr(data-content);
+  position: relative;
+  display: inline-block;
+
+  padding: 0 0.5em;
+  line-height: 1.5em;
+  color: #3c4858;
+  background-color: #fff;
+}
+@media screen and (max-width: 1280px) {
+  .mainContent {
+    margin: 4rem auto 0;
+    overflow: hidden;
+  }
+}
+@media screen and (min-width: 1901px) {
+  .mainContent {
+    max-width: 1280px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .mainContent {
+    max-width: 320px;
+  }
+}
+
+@media screen and (max-width: 590px) {
+  .mainContent {
+    max-width: 590px;
+  }
+}
+
+@media screen and (min-width: 591px) and (max-width: 792px) {
+  .mainContent {
+    max-width: 792px;
+  }
+}
+
+@media screen and (min-width: 793px) and (max-width: 1150px) {
+  .mainContent {
+    max-width: 1150px;
+  }
+}
+
+@media screen and (min-width: 1151px) and (max-width: 1280px) {
+  .mainContent {
+    max-width: 1280px;
+  }
+}
+
+@media screen and (min-width: 1281px) and (max-width: 1440px) {
+  .mainContent {
+    max-width: 1280px;
+  }
+}
+
+@media screen and (min-width: 1441px) and (max-width: 1900px) {
+  .mainContent {
+    max-width: 1280px;
+  }
+}
+@media (min-width: 1901px) {
+  .mainContent {
+    max-width: 1280px;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}

@@ -8,11 +8,11 @@ import Card from '@material-ui/core/Card';
 import classNames from 'classnames';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 import Truncate from 'react-truncate';
 import ReactHtmlParser from 'react-html-parser';
 import OpenInNewRounded from '@material-ui/icons/OpenInNewRounded';
 import ButtonBase from '@material-ui/core/ButtonBase';
-import blue from '@material-ui/core/colors/blue';
 import mic3Img from '../mic3test.jpg';
 const styles = theme => ({
   image: {
@@ -82,7 +82,9 @@ const styles = theme => ({
   },
   root: {
     marginTop: theme.spacing.unit * 8,
-    display: 'block'
+    marginBottom: theme.spacing.unit * 20,
+    display: 'block',
+    paddingTop: '64px'
   },
   gridListTile: {
     padding: theme.spacing.unit,
@@ -153,12 +155,14 @@ const styles = theme => ({
     fontWeight: '300',
     fontSize: '1rem'
   },
+
   gridContent: {
     padding: '4px',
     [theme.breakpoints.down('md')]: {
       padding: 0
     }
   },
+  loadMore: {},
   icons: {
     marginRight: theme.spacing.unit + 1,
     verticalAlign: 'middle'
@@ -183,124 +187,159 @@ const styles = theme => ({
   },
   gradient: {
     backgroundImage: 'linear-gradient( 135deg, #3C8CE7 10%, #00EAFF 100%)'
+  },
+  buttonContainer: {
+    textAlign: 'center',
+    width: '100%'
   }
 });
 
 class EpisodeGrid extends Component {
+  state = {
+    items: [],
+    visible: 6,
+    error: false
+  };
+  componentDidMount() {
+    this.setState({ items: this.props.episodes });
+  }
+  loadMore = () => {
+    this.setState(prev => {
+      return { visible: prev.visible + 6 };
+    });
+  };
   loadEpisodes = () => {
     const { classes, episodes, location } = this.props;
-    return episodes.map((item, index) => {
-      const minutes = Math.floor(item.duration / 60);
-      const seconds = item.duration - minutes * 60;
-      let desc = ReactHtmlParser(item.summary, {
-        transform: function(node, index) {
-          if (node.type === 'tag' && node.name === 'br') {
-            return null;
-          }
-        }
-      });
-      return (
-        <Grid
-          item
-          key={item.id}
-          xs={12}
-          sm={6}
-          md={4}
-          lg={4}
-          className={classes.cardGrid}
+    return (
+      <React.Fragment>
+        {this.state.items.slice(0, this.state.visible).map((item, index) => {
+          let desc = ReactHtmlParser(item.summary, {
+            transform: function(node, index) {
+              if (node.type === 'tag' && node.name === 'br') {
+                return null;
+              }
+            }
+          });
+          return (
+            <Grid
+              item
+              key={item.id}
+              xs={12}
+              sm={6}
+              md={4}
+              lg={4}
+              className={classes.cardGrid + ' tile fade-in'}
+            >
+              <Card elevation={0} className={classes.card}>
+                <CardActionArea component="div">
+                  <NavLink
+                    style={{ textDecorationLine: 'none' }}
+                    to={{
+                      pathname: `${location.pathname}/${item.id}`,
+                      state: { episode: item, originalPath: location.pathname }
+                    }}
+                  >
+                    <ButtonBase
+                      focusRipple
+                      key={item.id}
+                      className={classNames(classes.cardMedia, classes.image)}
+                      focusVisibleClassName={classes.focusVisible}
+                    >
+                      <span
+                        className={classes.imageSrc}
+                        style={{
+                          backgroundImage: `url(${mic3Img})`,
+                          backgroundSize: 'cover',
+                          backgroundPosition: 'center',
+                          width: 'auto'
+                        }}
+                      />
+                      <span className={classes.imageBackdrop} />
+                      <span className={classes.imageButton}>
+                        <Typography
+                          component="span"
+                          variant="h6"
+                          color="inherit"
+                          className={classes.imageTitle}
+                        >
+                          Episode {item.episode_number}
+                          <span className={classes.imageMarked} />
+                        </Typography>
+                      </span>
+                    </ButtonBase>
+
+                    <div className={classes.cardContent}>
+                      <Typography
+                        align="left"
+                        variant="h5"
+                        component="div"
+                        gutterBottom
+                        className={classes.cardContentMargin}
+                      >
+                        {item.title}
+                      </Typography>
+
+                      <Typography
+                        style={{
+                          hyphens: 'manual',
+                          color: '#424242',
+                          lineHeight: '20px',
+                          marginTop: '4px',
+                          fontWeight: 400
+                        }}
+                        variant="body2"
+                        paragraph
+                        component="div"
+                      >
+                        <Truncate
+                          lines={4}
+                          trimWhitespace
+                          ellipsis={<span>..</span>}
+                        >
+                          <span style={{ hyphens: 'auto' }}>{desc}</span>
+                        </Truncate>
+                      </Typography>
+
+                      <Typography align="left">
+                        <OpenInNewRounded className={classes.icons} />
+                        Full Episode
+                      </Typography>
+                    </div>
+                  </NavLink>
+                </CardActionArea>
+              </Card>
+            </Grid>
+          );
+        })}
+        <div
+          style={{ textAlign: 'center' }}
+          className={classes.buttonContainer}
         >
-          <Card elevation={0} className={classes.card}>
-            <CardActionArea>
-              <NavLink
-                style={{ textDecorationLine: 'none' }}
-                to={{
-                  pathname: `${location.pathname}${item.id}`,
-                  state: { episode: item, originalPath: location.pathname }
-                }}
-              >
-                <ButtonBase
-                  focusRipple
-                  key={item.id}
-                  className={classNames(classes.cardMedia, classes.image)}
-                  focusVisibleClassName={classes.focusVisible}
-                >
-                  <span
-                    className={classes.imageSrc}
-                    style={{
-                      backgroundImage: `url(${mic3Img})`,
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center',
-                      width: 'auto'
-                    }}
-                  />
-                  <span className={classes.imageBackdrop} />
-                  <span className={classes.imageButton}>
-                    <Typography
-                      component="span"
-                      variant="h6"
-                      color="inherit"
-                      className={classes.imageTitle}
-                    >
-                      Episode {item.episode_number}
-                      <span className={classes.imageMarked} />
-                    </Typography>
-                  </span>
-                </ButtonBase>
-
-                <div className={classes.cardContent}>
-                  <Typography
-                    align="left"
-                    variant="h5"
-                    component="div"
-                    gutterBottom
-                    className={classes.cardContentMargin}
-                  >
-                    {item.title}
-                  </Typography>
-
-                  <Typography
-                    style={{
-                      hyphens: 'manual',
-                      color: '#424242',
-                      lineHeight: '20px',
-                      marginTop: '4px',
-                      fontWeight: 400
-                    }}
-                    variant="body2"
-                    paragraph
-                    component="div"
-                  >
-                    <Truncate
-                      lines={4}
-                      trimWhitespace
-                      ellipsis={<span>..</span>}
-                    >
-                      <span style={{ hyphens: 'auto' }}>{desc}</span>
-                    </Truncate>
-                  </Typography>
-
-                  <Typography align="left">
-                    <OpenInNewRounded className={classes.icons} />
-                    Full Episode
-                  </Typography>
-                </div>
-              </NavLink>
-            </CardActionArea>
-          </Card>
-        </Grid>
-      );
-    });
+          {this.state.visible < this.state.items.length && (
+            <Button
+              onClick={this.loadMore}
+              variant="outlined"
+              size="large"
+              color="secondary"
+              className={classes.loadMore}
+            >
+              Load More
+            </Button>
+          )}
+        </div>
+      </React.Fragment>
+    );
   };
   render() {
     const { classes } = this.props;
     console.log(this.props);
     return (
-      <div style={{ paddingTop: '64px' }} className={classes.root}>
+      <div style={{}} className={classes.root}>
         <div className={classes.marginTop}>
           <Grid
             container
             spacing={16}
-            justify="space-between"
+            justify="flex-start"
             alignItems="flex-start"
             wrap="wrap"
           >
