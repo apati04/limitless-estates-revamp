@@ -9,11 +9,11 @@ import api from './podcast_api';
 import Episode from './Episodes/Episode';
 import EpisodeGrid from './Episodes/EpisodeGrid';
 import Tooltip from '@material-ui/core/Tooltip';
-import Grow from '@material-ui/core/Grow';
+
 import Fade from '@material-ui/core/Grow';
 
-import axios from 'axios';
 // --------TEMP DATA
+// import axios from 'axios';
 import podcastData from './tempdata';
 // __ tmpdata
 const styles = theme => ({
