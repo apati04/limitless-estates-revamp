@@ -8,13 +8,16 @@ import Typography from '@material-ui/core/Typography';
 import api from './podcast_api';
 import Episode from './Episodes/Episode';
 import EpisodeGrid from './Episodes/EpisodeGrid';
+import Tooltip from '@material-ui/core/Tooltip';
+
 // import axios from 'axios';
 // --------TEMP DATA
 import podcastEpisodes from './tempdata';
 // __ tmpdata
 const styles = theme => ({
   podcastCard: {
-    ...theme.cardTitle
+    ...theme.cardTitle,
+    fontSize: '2.25rem'
   },
   gridContainerPadding: {
     padding: theme.spacing.unit * 2,
@@ -65,12 +68,45 @@ const styles = theme => ({
   },
   podcastSubtitle: {
     marginTop: theme.spacing.unit * 4
+  },
+  socialBar: {
+    display: 'flex',
+    justifyContent: 'flex-start'
   }
 });
 
 class Podcast extends Component {
   state = {
     episodes: podcastEpisodes.data
+  };
+  loadSocialBar = () => {
+    return (
+      <div>
+        <Typography gutterBottom variant="caption">
+          <em>Also available on:</em>
+        </Typography>
+        <div style={{ display: 'flex' }}>
+          {api.media.map(item => {
+            return (
+              <Tooltip
+                key={item.alt}
+                title={item.alt}
+                style={{ marginRight: '8px' }}
+              >
+                <a href={item.podcastUrl}>
+                  <img
+                    src={item.appLogo}
+                    alt="logo"
+                    title={item.alt}
+                    width="40"
+                  />
+                </a>
+              </Tooltip>
+            );
+          })}
+        </div>
+      </div>
+    );
   };
   componentDidMount() {
     console.log('mount');
@@ -105,25 +141,36 @@ class Podcast extends Component {
             <Grid item xs={12} sm={12} md={8}>
               <Typography
                 align="left"
-                variant="h2"
+                variant="h3"
                 component="h1"
                 className={classes.podcastCard}
               >
                 Passive Income Through Multifamily Real Estate Investing
               </Typography>
-              <Typography paragraph variant="body1" align="left">
-                <em>With your hosts Kyle and Lalita</em>
-              </Typography>
+
               <Typography
                 align="left"
                 variant="subtitle1"
+                paragraph
                 className={classes.podcastSubtitle}
               >
                 {api.description}
               </Typography>
+
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'flex-start',
+
+                  alignItems: 'center'
+                }}
+              >
+                {this.loadSocialBar()}
+              </div>
             </Grid>
           </Grid>
         </div>
+
         <div>
           <Switch>
             <Route path="/podcasts/:epid" component={Episode} />

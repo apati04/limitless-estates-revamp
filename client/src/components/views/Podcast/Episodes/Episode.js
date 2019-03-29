@@ -7,18 +7,14 @@ import classNames from 'classnames';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 import ReactHtmlParser from 'react-html-parser';
-import Button from '@material-ui/core/Button';
-import Share from '@material-ui/icons/Share';
+
 import Card from '@material-ui/core/Card';
-import api from '../podcast_api';
+
 import Chip from '@material-ui/core/Chip';
 import Breadcrumbs from '@material-ui/lab/Breadcrumbs';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import Paper from '@material-ui/core/Paper';
 import HomeIcon from '@material-ui/icons/Home';
-import CardContent from '@material-ui/core/CardContent';
-import Avatar from '@material-ui/core/Avatar';
-import ToolTip from '@material-ui/core/Tooltip';
 import Player from '../Player';
 const styles = theme => ({
   podcastCard: {
@@ -112,10 +108,6 @@ const styles = theme => ({
   player: {
     margin: `0 0 ${theme.spacing.unit * 2}px 0px`,
     position: 'relative'
-  },
-  socialBar: {
-    display: 'flex',
-    justifyContent: 'center'
   }
 });
 /**
@@ -142,19 +134,7 @@ class Episode extends Component {
         <Chip key={item} label={item.trim()} className={classes.chip} />
       ));
   };
-  loadSocialBar = () => {
-    return api.media.map(item => {
-      return (
-        <div key={item.alt} style={{ marginRight: '8px' }}>
-          <ToolTip title={item.alt}>
-            <a href={item.podcastUrl}>
-              <img src={item.appLogo} alt="logo" title={item.alt} width="40" />
-            </a>
-          </ToolTip>
-        </div>
-      );
-    });
-  };
+
   render() {
     const {
       classes,
@@ -199,9 +179,9 @@ class Episode extends Component {
                     </Typography>
                   </Breadcrumbs>
                 </Paper>
-                <div className={classes.player}>
+                <Card className={classes.player}>
                   <Player playerUrl={s2} />
-                </div>
+                </Card>
 
                 <Typography
                   align="left"

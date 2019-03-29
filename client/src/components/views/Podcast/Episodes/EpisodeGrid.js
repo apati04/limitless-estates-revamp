@@ -12,7 +12,7 @@ import Truncate from 'react-truncate';
 import ReactHtmlParser from 'react-html-parser';
 import OpenInNewRounded from '@material-ui/icons/OpenInNewRounded';
 import ButtonBase from '@material-ui/core/ButtonBase';
-
+import blue from '@material-ui/core/colors/blue';
 import mic3Img from '../mic3test.jpg';
 const styles = theme => ({
   image: {
@@ -63,7 +63,7 @@ const styles = theme => ({
     top: 0,
     bottom: 0,
     backgroundColor: theme.palette.common.black,
-    opacity: 0.44,
+    opacity: 0.6,
     transition: theme.transitions.create('opacity')
   },
   imageTitle: {
@@ -214,7 +214,7 @@ class EpisodeGrid extends Component {
               <NavLink
                 style={{ textDecorationLine: 'none' }}
                 to={{
-                  pathname: `${location.pathname}/${item.id}`,
+                  pathname: `${location.pathname}${item.id}`,
                   state: { episode: item, originalPath: location.pathname }
                 }}
               >
