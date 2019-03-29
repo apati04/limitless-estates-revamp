@@ -182,7 +182,7 @@ const styles = theme => ({
     fontSize: '0.875rem',
     color: '#5f6368',
     verticalAlign: 'middle',
-    fontFamily: 'Quattrocento',
+    fontFamily: '"Roboto Slab"',
     textDecorationLine: 'none'
   },
   gradient: {

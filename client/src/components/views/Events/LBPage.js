@@ -26,6 +26,8 @@ const styles = theme => ({
     color: 'white'
   },
   mobileContainer: {
+    marginLeft: 'auto',
+    marginRight: 'auto',
     [theme.breakpoints.down('sm')]: {
       margin: 0,
       padding: '0 8px',
@@ -70,10 +72,10 @@ class EventPage extends Component {
     return (
       <React.Fragment>
         {this.state.isComplete && !this.state.isFetching ? (
-          <React.Fragment>
+          <div className="fade-in">
             <Parallax filter image={placeholderImg}>
-              <div className={classes.container}>
-                <Grid container>
+              <div className={classes.container + ' main-content'}>
+                <Grid container justify="space-between">
                   <Grid item xs={12} sm={12} md={8}>
                     <Typography
                       variant="h1"
@@ -122,7 +124,8 @@ class EventPage extends Component {
               <div
                 className={classNames(
                   classes.container,
-                  classes.mobileContainer
+                  classes.mobileContainer,
+                  'main-content'
                 )}
               >
                 <AboutEvent />
@@ -171,7 +174,7 @@ class EventPage extends Component {
                 <EventMap meetupLocation={this.state.eventObject.venue} />
               </div>
             </div>
-          </React.Fragment>
+          </div>
         ) : (
           <div>Loading...</div>
         )}

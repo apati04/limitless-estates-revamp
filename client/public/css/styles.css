@@ -34,7 +34,7 @@ body {
   padding-bottom: 297px;
   margin-top: 0;
 }
-.mainContent {
+.main-content {
   overflow: hidden;
   margin: 0 auto;
 }
@@ -58,7 +58,7 @@ footer {
   text-align: center;
   height: 1.7em;
   opacity: 1;
-  font-family: 'Quattrocento';
+  font-family: '"Roboto Slab"';
   font-size: 36px;
 }
 .hr-text:before {
@@ -81,60 +81,60 @@ footer {
   background-color: #fff;
 }
 @media screen and (max-width: 1280px) {
-  .mainContent {
+  .main-content {
     margin: 4rem auto 0;
     overflow: hidden;
   }
 }
 @media screen and (min-width: 1901px) {
-  .mainContent {
+  .main-content {
     max-width: 1280px;
   }
 }
 
 @media screen and (max-width: 320px) {
-  .mainContent {
+  .main-content {
     max-width: 320px;
   }
 }
 
 @media screen and (max-width: 590px) {
-  .mainContent {
+  .main-content {
     max-width: 590px;
   }
 }
 
 @media screen and (min-width: 591px) and (max-width: 792px) {
-  .mainContent {
+  .main-content {
     max-width: 792px;
   }
 }
 
 @media screen and (min-width: 793px) and (max-width: 1150px) {
-  .mainContent {
+  .main-content {
     max-width: 1150px;
   }
 }
 
 @media screen and (min-width: 1151px) and (max-width: 1280px) {
-  .mainContent {
+  .main-content {
     max-width: 1280px;
   }
 }
 
 @media screen and (min-width: 1281px) and (max-width: 1440px) {
-  .mainContent {
+  .main-content {
     max-width: 1280px;
   }
 }
 
 @media screen and (min-width: 1441px) and (max-width: 1900px) {
-  .mainContent {
+  .main-content {
     max-width: 1280px;
   }
 }
 @media (min-width: 1901px) {
-  .mainContent {
+  .main-content {
     max-width: 1280px;
   }
 }
