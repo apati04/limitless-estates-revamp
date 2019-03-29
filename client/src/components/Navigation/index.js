@@ -4,13 +4,7 @@ import PrimaryNav from './PrimaryNav';
 import MobileTopNav from './Mobile/MobileTopNav';
 import Hidden from '@material-ui/core/Hidden';
 import { withStyles } from '@material-ui/core/styles';
-/**
- * xs, extra-small: 0px or larger
-  sm, small: 600px or larger
-  md, medium: 960px or larger
-  lg, large: 1280px or larger
-  xl, extra-large: 1920px or larger
- */
+
 const styles = theme => ({
   desktop: {
     [theme.breakpoints.down('sm')]: {
@@ -33,7 +27,6 @@ function NavMain(props) {
         <Hidden smDown>
           <PrimaryNav {...rest} fixed />
         </Hidden>
-
         <Hidden mdUp>
           <MobileTopNav />
         </Hidden>

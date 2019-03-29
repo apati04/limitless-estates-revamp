@@ -183,7 +183,8 @@ const styles = theme => ({
     color: '#5f6368',
     verticalAlign: 'middle',
     fontFamily: '"Roboto Slab"',
-    textDecorationLine: 'none'
+    textDecorationLine: 'none',
+    '-webkit-text-decoration': 'none'
   },
   gradient: {
     backgroundImage: 'linear-gradient( 135deg, #3C8CE7 10%, #00EAFF 100%)'
@@ -233,7 +234,7 @@ class EpisodeGrid extends Component {
               <Card elevation={0} className={classes.card}>
                 <CardActionArea component="div">
                   <NavLink
-                    style={{ textDecorationLine: 'none' }}
+                    className={classes.navLink}
                     to={{
                       pathname: `${location.pathname}/${item.id}`,
                       state: { episode: item, originalPath: location.pathname }

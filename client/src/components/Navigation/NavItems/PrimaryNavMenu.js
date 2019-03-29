@@ -22,9 +22,9 @@ const dropdownItems = {
       key={'marketskey'}
       title="markets"
       listItems={[
-        { title: 'PHOENIX, AZ', slug: '/markets/phoenix-arizona' },
-        { title: 'TUCSON, AZ', slug: '/markets/tucson-arizona' },
-        { title: 'COLUMBUS, OH', slug: '/markets/columbus-ohio' }
+        { title: 'Phoenix, AZ', slug: '/markets/phoenix-arizona' },
+        { title: 'Tucson, AZ', slug: '/markets/tucson-arizona' },
+        { title: 'columbus, OH', slug: '/markets/columbus-ohio' }
       ]}
     />
   ),
@@ -34,19 +34,19 @@ const dropdownItems = {
       title="resources"
       listItems={[
         {
-          title: 'WHY INVEST IN MULTIFAMILY',
+          title: 'Why Invest In Multifamily',
           slug: '/resources/why-invest-in-multifamily'
         },
         {
-          title: 'IMPACT INVESTING',
+          title: 'Impact Investing',
           slug: '/resources/impact-investing'
         },
         {
-          title: 'Investing risks',
+          title: 'Investing Risks',
           slug: '/resources/investing-risks?page=1'
         },
         {
-          title: 'SELF DIRECT 401K/IRA',
+          title: 'Self Direct 401k/Ira',
           slug: '/resources/self-direct-401k-ira'
         },
 
@@ -63,11 +63,13 @@ const dropdownItems = {
       title="events"
       listItems={[
         {
-          title: 'Multifamily Investors Meetup - long beach',
+          subheader: 'Long Beach, CA',
+          title: 'Multifamily Investors Meetup',
           slug: '/events/meetups/longbeach'
         },
         {
-          title: 'Multifamily Investors Roundtable - cerritos',
+          subheader: 'Cerritos, CA',
+          title: 'Multifamily Investors Roundtable',
           slug: '/events/meetups/cerritos'
         }
       ]}

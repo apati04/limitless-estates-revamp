@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import withStyles from '@material-ui/core/styles/withStyles';
 import Grid from '@material-ui/core/Grid';
 import classNames from 'classnames';
-import Divider from '@material-ui/core/Divider';
+
 import Typography from '@material-ui/core/Typography';
 import ReactHtmlParser from 'react-html-parser';
 
@@ -96,6 +96,7 @@ const styles = theme => ({
     verticalAlign: 'sub'
   },
   navLink: {
+    '-webkit-text-decoration-line': 'none',
     textDecorationLine: 'none',
     color: 'rgba(0,0,0, 0.87)',
     fontWeight: 400
@@ -204,7 +205,7 @@ class Episode extends Component {
                 <div style={{ marginBottom: '1rem' }} id="parseText">
                   {ReactHtmlParser(episode.description)}
                 </div>
-                {/*     <Divider />
+                {/*  TAGS   <Divider />
                 <div style={{ margin: '16px 0' }}>{this.loadChips()}</div> */}
               </Card>
             </Grid>

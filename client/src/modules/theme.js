@@ -132,7 +132,7 @@ const rawTheme = createMuiTheme({
     MuiCardContent: {
       root: {
         padding: '0.9375rem 1.875rem',
-        flex: '1 1 auto'
+        flexGrow: 1
       }
     },
     MuiCardActionArea: {
