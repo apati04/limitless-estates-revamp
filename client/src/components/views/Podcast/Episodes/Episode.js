@@ -204,8 +204,8 @@ class Episode extends Component {
                 <div style={{ marginBottom: '1rem' }} id="parseText">
                   {ReactHtmlParser(episode.description)}
                 </div>
-                <Divider />
-                {/* <div style={{ margin: '16px 0' }}>{this.loadChips()}</div> */}
+                {/*     <Divider />
+                <div style={{ margin: '16px 0' }}>{this.loadChips()}</div> */}
               </Card>
             </Grid>
           </Grid>
