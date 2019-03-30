@@ -15,6 +15,7 @@ const styles = theme => ({
   root: {
     flexGrow: 1,
     ...theme.container,
+    position: 'relative',
     [theme.breakpoints.down('sm')]: {
       padding: 0
     }
