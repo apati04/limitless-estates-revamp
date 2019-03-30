@@ -1,21 +1,33 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { TextField } from 'formik-material-ui';
 import { Field } from 'formik';
-import Button from '@material-ui/core/Button';
-const NavNext = props => <Link {...props} to="/investor/form/info" />;
-const BasicInformation = props => {
-	return (
-		<div>
-			<h1>asdasdf</h1>
-			<div>
-				<Field type="text" name="firstName" placeholder="First Name" component={TextField} />
-			</div>
-			<Button component={NavNext} variant="contained" color="primary">
-				Next
-			</Button>
-		</div>
-	);
-};
+import { TextField } from 'formik-material-ui';
 
-export default BasicInformation;
+class BasicPage extends Component {
+  render() {
+    return (
+      <div>
+        <div>
+          <label>First Name</label>
+          <Field
+            name="firstName"
+            component={TextField}
+            type="text"
+            placeholder="First Name"
+          />
+        </div>
+        <div>
+          <label>Last Name</label>
+          <Field
+            name="lastName"
+            component={TextField}
+            type="text"
+            placeholder="Last Name"
+          />
+        </div>
+      </div>
+    );
+  }
+}
+
+export default BasicPage;

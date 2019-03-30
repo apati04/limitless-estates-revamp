@@ -111,7 +111,7 @@ class Hero extends Component {
                 </Typography>
                 <div style={{ textAlign: 'left', marginTop: 'auto' }}>
                   <Button
-                    component={props => <Link {...props} to="/investor/form" />}
+                    component={props => <Link {...props} to="/Questionnaire" />}
                     variant="contained"
                     color="primary"
                     size="large"

@@ -6,7 +6,7 @@ import PodcastEpisode from './Podcast/Episodes/Episode';
 import Podcast from './Podcast/Podcast';
 import Events from './Events/Events';
 import Resources from './Resources/Resources';
-import InvestorForm from './Questionnaire/InvestorForm';
+import Questionnaire from './Questionnaire/Questionnaire';
 import Kyle from './About/Profile/Kyle';
 import Lalita from './About/Profile/Lalita';
 import Markets from './Markets/Markets';
@@ -18,7 +18,7 @@ export {
   Home,
   Markets,
   Resources,
-  InvestorForm,
+  Questionnaire,
   Kyle,
   Lalita,
   PodcastEpisode

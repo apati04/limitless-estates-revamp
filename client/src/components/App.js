@@ -39,8 +39,11 @@ class App extends Component {
                   />
                   <Route path="/about" component={Views.About} />
                   <Route path="/markets/:id" component={Views.Markets} />
-                  <Route path="/investor/form" component={Views.InvestorForm} />
 
+                  <Route
+                    path="/questionnaire"
+                    component={Views.Questionnaire}
+                  />
                   <Route
                     exact
                     path="/resources/:id"

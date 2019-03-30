@@ -57,9 +57,6 @@ const styles = theme => ({
   }
 });
 class ContactForm extends Component {
-  verifyCallback = recaptchaToken => {
-    console.log('recaptcha token ', recaptchaToken);
-  };
   render() {
     const { classes } = this.props;
     return (

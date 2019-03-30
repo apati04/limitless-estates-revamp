@@ -24,7 +24,7 @@ const dropdownItems = {
       listItems={[
         { title: 'Phoenix, AZ', slug: '/markets/phoenix-arizona' },
         { title: 'Tucson, AZ', slug: '/markets/tucson-arizona' },
-        { title: 'columbus, OH', slug: '/markets/columbus-ohio' }
+        { title: 'Columbus, OH', slug: '/markets/columbus-ohio' }
       ]}
     />
   ),
