@@ -20,8 +20,12 @@ import ContactMailIcon from '@material-ui/icons/ContactMailOutlined';
 const styles = theme => ({
   root: {
     width: '100%',
-    maxWidth: 360,
-    backgroundColor: theme.palette.background.paper
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    backgroundColor: theme.palette.background.paper,
+    [theme.breakpoints.down('sm')]: {
+      width: '96%'
+    }
   },
   fabSpacing: {
     marginRight: theme.spacing.unit * 2

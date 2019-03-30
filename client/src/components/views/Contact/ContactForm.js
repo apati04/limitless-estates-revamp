@@ -31,6 +31,10 @@ const styles = theme => ({
     padding: '2em',
     [theme.breakpoints.up('md')]: {
       width: '75%'
+    },
+    [theme.breakpoints.down(1200)]: {
+      width: '96%',
+      padding: '2em 1em'
     }
   },
   content: {

@@ -51,8 +51,16 @@ const styles = theme => ({
   },
   sideBarItem: {
     padding: '0 2em 1em 2em',
+    marginLeft: 'auto',
+    marginRight: 'auto',
     [theme.breakpoints.up('sm')]: {
       borderLeft: '1px solid rgba(0,0,0,0.12)'
+    },
+    [theme.breakpoints.down(1000)]: {
+      padding: 0
+    },
+    [theme.breakpoints.down(1200)]: {
+      padding: '0 1em 1em 1em'
     }
   },
   contentHeader: {
@@ -66,6 +74,10 @@ const styles = theme => ({
   custom: {
     height: '80em',
     overflow: 'auto'
+  },
+  sideBarContainer: {
+    paddingTop: '1em',
+    [theme.breakpoints.up('md')]: { paddingTop: '3em', paddingBottom: '1em' }
   }
 });
 
@@ -77,8 +89,12 @@ function Contact(props) {
       <HeroUnit>
         <div className={classNames(classes.appContainer, 'main-content')}>
           <Card>
-            <div style={{ margin: '2em' }} />
-            <Grid container justify="center" alignItems="stretch" wrap="wrap">
+            <Grid
+              container
+              justify="center"
+              alignItems="flex-start"
+              wrap="wrap"
+            >
               <Grid item xs={12} md={8}>
                 <div>
                   <CardContent>
@@ -88,7 +104,7 @@ function Contact(props) {
               </Grid>
 
               <Grid item xs={12} md={4}>
-                <div style={{ padding: '1em 0' }}>
+                <div className={classes.sideBarContainer}>
                   <CardContent className={classes.sideBarItem}>
                     <ContactInfo />
                   </CardContent>
