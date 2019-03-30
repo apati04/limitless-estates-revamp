@@ -25,6 +25,14 @@ const styles = theme => ({
     marginRight: 'auto',
     display: 'flex'
   },
+  formStyle: {
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    padding: '2em',
+    [theme.breakpoints.up('md')]: {
+      width: '75%'
+    }
+  },
   content: {
     display: 'flex',
     flexDirection: 'column'
@@ -87,7 +95,7 @@ class ContactForm extends Component {
           setFieldValue,
           isSubmitting
         }) => (
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className={classes.formStyle}>
             <CardHeader
               title={
                 <Typography align="center" variant="h2" gutterBottom>

@@ -38,7 +38,7 @@ function ContactSidebar(props) {
   return (
     <List className={classes.root}>
       <ListSubheader>
-        <Typography paragraph variant="body1">
+        <Typography paragraph variant="subtitle1">
           Please use the contact form to reach us. For general questions, visit
           our FAQs page.
         </Typography>

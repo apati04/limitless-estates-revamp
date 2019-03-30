@@ -216,6 +216,19 @@ const theme = {
       placeholder: grey[200]
     }
   },
+  overrides: {
+    MuiToolbar: {
+      ...rawTheme.MuiToolbar,
+      root: {
+        maxWidth: '1280px',
+        height: 64,
+        [rawTheme.breakpoints.up('md')]: {
+          marginLeft: 'auto',
+          marginRight: 'auto'
+        }
+      }
+    }
+  },
   typography: {
     ...rawTheme.typography,
     fontHeader,

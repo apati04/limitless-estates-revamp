@@ -277,7 +277,7 @@ class MobileTopNavbar extends Component {
     const { classes } = this.props;
     return (
       <div className={classes.appRoot}>
-        <AppBar position="absolute" style={{ background: 'transparent' }}>
+        <AppBar position="absolute">
           <Toolbar>
             <Grid container justify="space-between" alignItems="center">
               <Grid item xs={4}>

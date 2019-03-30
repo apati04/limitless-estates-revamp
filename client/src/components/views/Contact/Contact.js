@@ -12,20 +12,28 @@ import grey from '@material-ui/core/colors/grey';
 import ContactInfo from './ContactSidebar';
 import Parallax from '../Layouts/Parallax';
 import Button from '@material-ui/core/Button';
+import Hidden from '@material-ui/core/Hidden';
+
 const styles = theme => ({
   root: {
-    flexGrow: 1,
-    height: '90vh',
-    maxHeight: '1000px',
-    background: `url(https://i.imgur.com/MwsHMrC.jpg)center center no-repeat`,
+    background: 'url(https://i.imgur.com/MwsHMrC.jpg) center center no-repeat',
     backgroundSize: 'cover',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
+    position: 'relative',
+
+    [theme.breakpoints.down('xs')]: {
+      padding: 0
+    }
   },
   appContainer: {
     ...theme.container,
-    zIndex: 200
+    zIndex: 200,
+    [theme.breakpoints.down('xs')]: {
+      padding: '0 0 1em 0'
+    }
+    // [theme.breakpoints.down('md')]: {
+    //   position: 'relative',
+    //   height: '100%'
+    // }
   },
   cardHeader: {
     height: theme.spacing.unit * 40,
@@ -39,6 +47,12 @@ const styles = theme => ({
     [theme.breakpoints.down('sm')]: {
       margin: 0,
       padding: 0
+    }
+  },
+  sideBarItem: {
+    padding: '0 2em 1em 2em',
+    [theme.breakpoints.up('sm')]: {
+      borderLeft: '1px solid rgba(0,0,0,0.12)'
     }
   },
   contentHeader: {
@@ -62,34 +76,27 @@ function Contact(props) {
       <div className={classes.overlayEffect} />
       <HeroUnit>
         <div className={classNames(classes.appContainer, 'main-content')}>
-          <Grid
-            container
-            spacing={40}
-            justify="space-between"
-            alignItems="center"
-            wrap="wrap"
-          >
-            <Grid item xs />
-            <Grid item xs={12} md={6}>
-              <Card style={{ padding: '2em' }}>
-                <CardContent>
-                  <ContactForm />
-                </CardContent>
-              </Card>
-            </Grid>
+          <Card>
+            <div style={{ margin: '2em' }} />
+            <Grid container justify="center" alignItems="stretch" wrap="wrap">
+              <Grid item xs={12} md={8}>
+                <div>
+                  <CardContent>
+                    <ContactForm />
+                  </CardContent>
+                </div>
+              </Grid>
 
-            <Grid item xs={12} md={4}>
-              <Grid container justify="center" alignItems="center">
-                <Grid item xs={12}>
-                  <Card>
-                    <CardContent>
-                      <ContactInfo />
-                    </CardContent>
-                  </Card>
-                </Grid>
+              <Grid item xs={12} md={4}>
+                <div style={{ padding: '1em 0' }}>
+                  <CardContent className={classes.sideBarItem}>
+                    <ContactInfo />
+                  </CardContent>
+                </div>
               </Grid>
             </Grid>
-          </Grid>
+            <div style={{ margin: '2em' }} />
+          </Card>
         </div>
       </HeroUnit>
     </div>
