@@ -13,7 +13,7 @@ import ContactInfo from './ContactSidebar';
 import Parallax from '../Layouts/Parallax';
 import Button from '@material-ui/core/Button';
 import Hidden from '@material-ui/core/Hidden';
-
+import CallToAction from '../Home/CallToAction/CallToAction';
 const styles = theme => ({
   root: {
     background: 'url(https://i.imgur.com/MwsHMrC.jpg) center center no-repeat',
@@ -84,38 +84,43 @@ const styles = theme => ({
 function Contact(props) {
   const { classes } = props;
   return (
-    <div className={classes.root}>
-      <div className={classes.overlayEffect} />
-      <HeroUnit>
-        <div className={classNames(classes.appContainer, 'main-content')}>
-          <Card>
-            <Grid
-              container
-              justify="center"
-              alignItems="flex-start"
-              wrap="wrap"
-            >
-              <Grid item xs={12} md={8}>
-                <div>
-                  <CardContent>
-                    <ContactForm />
-                  </CardContent>
-                </div>
-              </Grid>
+    <React.Fragment>
+      <div className={classes.root}>
+        <div className={classes.overlayEffect} />
+        <HeroUnit>
+          <div className={classNames(classes.appContainer, 'main-content')}>
+            <Card style={{ borderRadius: '0.5em' }}>
+              <Grid
+                container
+                justify="center"
+                alignItems="flex-start"
+                wrap="wrap"
+              >
+                <Grid item xs={12} md={8}>
+                  <div>
+                    <CardContent>
+                      <ContactForm />
+                    </CardContent>
+                  </div>
+                </Grid>
 
-              <Grid item xs={12} md={4}>
-                <div className={classes.sideBarContainer}>
-                  <CardContent className={classes.sideBarItem}>
-                    <ContactInfo />
-                  </CardContent>
-                </div>
+                <Grid item xs={12} md={4}>
+                  <div className={classes.sideBarContainer}>
+                    <CardContent className={classes.sideBarItem}>
+                      <ContactInfo />
+                    </CardContent>
+                  </div>
+                </Grid>
               </Grid>
-            </Grid>
-            <div style={{ margin: '2em' }} />
-          </Card>
-        </div>
-      </HeroUnit>
-    </div>
+              <div style={{ margin: '2em' }} />
+            </Card>
+          </div>
+        </HeroUnit>
+      </div>
+      <div className={classNames(classes.appContainer, 'main-content')}>
+        <CallToAction />
+      </div>
+    </React.Fragment>
   );
 }
 export default withStyles(styles)(Contact);

@@ -3,7 +3,6 @@ import { Formik, Field } from 'formik';
 import PropTypes from 'prop-types';
 import Button from '../Button';
 import * as Yup from 'yup';
-import Recaptcha from 'react-recaptcha';
 import './style.css';
 import Typography from '../../Layouts/Typography';
 import { withRouter } from 'react-router-dom';
@@ -79,22 +78,6 @@ class SubscribeForm extends Component {
               id="nife"
             />
 
-            <div className=" py-3">
-              <Recaptcha
-                sitekey="6LcAD5UUAAAAAJ_fTPzRw2IDZhRZEKEcKdGyqd-r"
-                render="explicit"
-                theme="light"
-                verifyCallback={response => {
-                  setFieldValue('recaptcha', response);
-                }}
-                onloadCallback={() => {
-                  console.log('doneloading');
-                }}
-              />
-              {errors.recaptcha && touched.recaptcha && (
-                <p>{errors.recaptcha}</p>
-              )}
-            </div>
             <Button
               variant="contained"
               color="inherit"

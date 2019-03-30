@@ -20,15 +20,23 @@ const styles = theme => ({
   },
   button: {
     backgroundColor: blue['A400'],
-    width: '50%',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    display: 'flex'
+    width: '100%',
+    margin: '1em auto',
+    [theme.breakpoints.up('md')]: {
+      width: '50%'
+    },
+    paddingTop: '0.75em',
+    paddingBottom: '0.75em',
+
+    fontSize: '1.1rem',
+    display: 'flex',
+    justifyContent: 'center'
   },
   formStyle: {
     marginLeft: 'auto',
     marginRight: 'auto',
     padding: '2em',
+
     [theme.breakpoints.up('md')]: {
       width: '75%'
     },
@@ -37,15 +45,15 @@ const styles = theme => ({
       padding: '2em 1em'
     }
   },
+  rightIcon: {
+    marginLeft: theme.spacing.unit * 2
+  },
   content: {
     display: 'flex',
     flexDirection: 'column'
   },
   cardContent: {
     flexGrow: 1
-  },
-  rightIcon: {
-    marginLeft: theme.spacing.unit
   }
 });
 class ContactForm extends Component {
@@ -122,7 +130,7 @@ class ContactForm extends Component {
               fullWidth
               margin="normal"
             />
-
+            <div style={{ margin: '0.5em 0' }} />
             <Field
               name="email"
               component={TextField}
@@ -132,7 +140,7 @@ class ContactForm extends Component {
               fullWidth
               margin="normal"
             />
-
+            <div style={{ margin: '0.5em 0' }} />
             <Field
               name="subject"
               component={TextField}
@@ -142,7 +150,7 @@ class ContactForm extends Component {
               fullWidth
               margin="normal"
             />
-
+            <div style={{ margin: '0.5em 0' }} />
             <Field
               name="message"
               component={TextField}
@@ -154,6 +162,7 @@ class ContactForm extends Component {
               fullWidth
               margin="normal"
             />
+            <div style={{ margin: '0.5em 0' }} />
             <div style={{ marginTop: '2.25em' }}>
               <Button
                 variant="contained"
@@ -162,7 +171,7 @@ class ContactForm extends Component {
                 color="primary"
                 className={classes.button}
               >
-                <div>Send</div>
+                Send
                 <Icon className={classes.rightIcon}>send</Icon>
               </Button>
             </div>

@@ -9,12 +9,10 @@ import classNames from 'classnames';
 import CTAForm from './CTAForm';
 const styles = theme => ({
   preFooter: {
-    ...theme.preFooter,
     padding: '70px 0'
   },
 
   root: {
-    margin: `${theme.spacing.unit * 10}px 0`,
     display: 'flex',
     flexGrow: 1
   },
@@ -47,10 +45,8 @@ class CallToAction extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <LayoutBody
-        component="section"
-        width="large"
-        className={classNames(classes.preFooter, classes.root)}
+      <div
+        className={classNames('main-content', classes.preFooter, classes.root)}
       >
         <Grid container justify="flex-start" className={classes.appContainer}>
           <Grid item xs={12} md={6} className={classes.cardWrapper}>
@@ -66,7 +62,7 @@ class CallToAction extends Component {
             </Hidden>
           </Grid>
         </Grid>
-      </LayoutBody>
+      </div>
     );
   }
 }
