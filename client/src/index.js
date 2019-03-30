@@ -6,7 +6,7 @@ import HocTheme from './hoc/HocTheme';
 import * as serviceWorker from './serviceWorker';
 function AppProvider() {
   return (
-    <HocTheme title="Limitless Estates LLC">
+    <HocTheme title='Limitless Estates LLC'>
       <App />
     </HocTheme>
   );

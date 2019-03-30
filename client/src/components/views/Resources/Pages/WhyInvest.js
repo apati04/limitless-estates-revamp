@@ -49,7 +49,7 @@ function WhyInvestComponent(props) {
       <PageHeader
         imgSrc={headerimg}
         position="center center"
-        imgHeight="35em"
+        imgHeight="20em"
         overlayEffect
       />
       <div className={classNames('main-content', classes.appContainer)}>

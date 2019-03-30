@@ -10,7 +10,6 @@ import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import { withStyles } from '@material-ui/core/styles';
 import blue from '@material-ui/core/colors/blue';
-
 import ArrowDropDown from '@material-ui/icons/ArrowDropDown';
 
 const styles = theme => ({

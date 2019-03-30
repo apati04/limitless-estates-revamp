@@ -7,7 +7,6 @@ import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 import blue from '@material-ui/core/colors/blue';
 import * as Yup from 'yup';
-import Recaptcha from 'react-recaptcha';
 import Typography from '@material-ui/core/Typography';
 // import axios from 'axios';
 import { withRouter } from 'react-router-dom';
@@ -22,7 +21,9 @@ const styles = theme => ({
   button: {
     backgroundColor: blue['A400'],
     width: '50%',
-    margin: '0 auto'
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    display: 'flex'
   },
   content: {
     display: 'flex',
@@ -30,6 +31,9 @@ const styles = theme => ({
   },
   cardContent: {
     flexGrow: 1
+  },
+  rightIcon: {
+    marginLeft: theme.spacing.unit
   }
 });
 class ContactForm extends Component {
@@ -41,10 +45,8 @@ class ContactForm extends Component {
     return (
       <Formik
         initialValues={{
-          recaptcha: '',
-          firstname: '',
-          lastname: '',
-          company: '',
+          fullname: '',
+          subject: '',
           email: '',
           message: ''
         }}
@@ -68,9 +70,8 @@ class ContactForm extends Component {
            */
         }}
         validationSchema={Yup.object().shape({
-          // recaptcha: Yup.string().required(),
-          firstname: Yup.string().required('Required'),
-          lastname: Yup.string().required('Required'),
+          fullname: Yup.string().required('Required'),
+          subject: Yup.string().required('Required'),
           email: Yup.string()
             .email('Email is not valid')
             .required('Required'),
@@ -86,103 +87,62 @@ class ContactForm extends Component {
           setFieldValue,
           isSubmitting
         }) => (
-          <CardContent className={classes.cardContent}>
+          <form onSubmit={handleSubmit}>
             <CardHeader
               title={
-                <Typography variant="h2" gutterBottom>
+                <Typography align="center" variant="h2" gutterBottom>
                   Contact Us
                 </Typography>
               }
-              subheader={<Typography>We'd love you hear from you</Typography>}
+              subheader={
+                <Typography align="center">
+                  We'd love you hear from you
+                </Typography>
+              }
             />
-            <form onSubmit={handleSubmit}>
-              <Grid
-                container
-                spacing={24}
-                justify="center"
-                alignItems="stretch"
-              >
-                <Grid item xs={12} sm={6}>
-                  <Field
-                    name="firstname"
-                    component={TextField}
-                    id="firstname"
-                    type="text"
-                    label="First Name"
-                    fullWidth
-                    margin="dense"
-                    variant="outlined"
-                  />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <Field
-                    name="lastname"
-                    component={TextField}
-                    id="lastname"
-                    type="text"
-                    label="Last Name"
-                    fullWidth
-                    required
-                    margin="dense"
-                    variant="outlined"
-                  />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <Field
-                    name="email"
-                    component={TextField}
-                    type="email"
-                    label="Email Address"
-                    fullWidth
-                    id="company"
-                    margin="dense"
-                    variant="outlined"
-                  />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <Field
-                    name="company"
-                    component={TextField}
-                    type="text"
-                    label="Company Name"
-                    fullWidth
-                    id="company"
-                    margin="dense"
-                    variant="outlined"
-                  />
-                </Grid>
-                <Grid item xs={12}>
-                  <Field
-                    name="message"
-                    component={TextField}
-                    type="text"
-                    multiline
-                    variant="outlined"
-                    rows={3}
-                    label="Message to us"
-                    fullWidth
-                    id="message"
-                    margin="dense"
-                  />
-                </Grid>
-                <Grid item xs={12}>
-                  <Recaptcha
-                    sitekey="6LcAD5UUAAAAAJ_fTPzRw2IDZhRZEKEcKdGyqd-r"
-                    render="explicit"
-                    theme="light"
-                    verifyCallback={response => {
-                      setFieldValue('recaptcha', response);
-                    }}
-                    onloadCallback={() => {
-                      console.log('doneloading');
-                    }}
-                  />
-                  {errors.recaptcha && touched.recaptcha && (
-                    <p>{errors.recaptcha}</p>
-                  )}
-                </Grid>
-              </Grid>
 
+            <Field
+              name="fullname"
+              component={TextField}
+              id="fullname"
+              type="text"
+              label="Name"
+              fullWidth
+              margin="normal"
+            />
+
+            <Field
+              name="email"
+              component={TextField}
+              type="email"
+              label="Email"
+              id="subject"
+              fullWidth
+              margin="normal"
+            />
+
+            <Field
+              name="subject"
+              component={TextField}
+              type="text"
+              label="Subject"
+              id="subject"
+              fullWidth
+              margin="normal"
+            />
+
+            <Field
+              name="message"
+              component={TextField}
+              type="text"
+              multiline
+              rows={3}
+              label="Message"
+              id="message"
+              fullWidth
+              margin="normal"
+            />
+            <div style={{ marginTop: '2.25em' }}>
               <Button
                 variant="contained"
                 disabled={isSubmitting}
@@ -190,12 +150,11 @@ class ContactForm extends Component {
                 color="primary"
                 className={classes.button}
               >
-                Send
-                {/* This Button uses a Font Icon, see the installation instructions in the docs. */}
+                <div>Send</div>
                 <Icon className={classes.rightIcon}>send</Icon>
               </Button>
-            </form>
-          </CardContent>
+            </div>
+          </form>
         )}
       />
     );

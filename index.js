@@ -5,6 +5,7 @@ const path = require('path');
 const passport = require('passport');
 const podcastRoutes = require('./server/routes/podcastRoutes');
 const eventRoutes = require('./server/routes/eventRoutes');
+const apiRoutes = require('./server/routes/apiRoutes');
 const app = express();
 const PORT = process.env.PORT || 5000;
 app.use(helmet());
@@ -26,7 +27,7 @@ require('./server/services/passport');
 require('./server/routes/meetupRoutes')(app);
 app.use('/podcasts', podcastRoutes);
 app.use('/events', eventRoutes);
-
+app.use('/api', apiRoutes);
 app.use((error, req, res, next) => {
   console.log(error);
   const status = error.statusCode || 500;
