@@ -1,5 +1,5 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 const HomeLink = props => <NavLink to="/" {...props} />;
 const AboutLink = props => <NavLink to="/about" {...props} />;
 
@@ -27,7 +27,7 @@ const FaqLink = props => (
   <NavLink to="/resources/frequently-answered-questions" {...props} />
 );
 
-const QuestionnaireLink = props => <NavLink to="/investor/form" {...props} />;
+const QuestionnaireLink = props => <NavLink to="/questionnaire" {...props} />;
 const LongBeachLink = props => (
   <NavLink to="/events/meetups/longbeach" {...props} />
 );
@@ -52,5 +52,5 @@ export {
   CerritosLink,
   PodcastLink,
   HomeLink,
-  ContactLink,
+  ContactLink
 };

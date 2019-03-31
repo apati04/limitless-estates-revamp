@@ -1,27 +1,27 @@
-import { title } from "assets/jss/material-kit-react.jsx";
+import { title } from 'assets/jss/material-kit-react.jsx';
 
 const workStyle = {
   section: {
-    padding: "70px 0"
+    padding: '4.375rem 0'
   },
   title: {
     ...title,
-    marginBottom: "50px",
-    marginTop: "30px",
-    minHeight: "32px",
-    textDecoration: "none",
-    textAlign: "center"
+    marginBottom: '3.125rem',
+    marginTop: '1.875rem',
+    minHeight: '2rem',
+    textDecoration: 'none',
+    textAlign: 'center'
   },
   description: {
-    color: "#999",
-    textAlign: "center"
+    color: '#999',
+    textAlign: 'center'
   },
   textCenter: {
-    textAlign: "center"
+    textAlign: 'center'
   },
   textArea: {
-    marginRight: "15px",
-    marginLeft: "15px"
+    marginRight: '0.9375rem',
+    marginLeft: '0.9375rem'
   }
 };
 

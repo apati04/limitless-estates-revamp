@@ -25,7 +25,7 @@ const styles = theme => ({
     // }
   },
   footer: {
-    borderTop: `1px solid ${theme.palette.divider}`,
+    borderTop: `0.0625rem solid ${theme.palette.divider}`,
     padding: `${theme.spacing.unit * 4}px 0 ${theme.spacing.unit * 2}px 0`,
     backgroundColor: theme.palette.background.default
   },

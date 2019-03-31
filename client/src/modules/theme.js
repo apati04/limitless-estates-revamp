@@ -33,7 +33,7 @@ const rawTheme = createMuiTheme({
   palette: {
     primary: {
       light: '#35afea',
-      main: blue[500],
+      main: blue[600],
       dark: '#026ca0'
     },
     secondary: {
@@ -273,8 +273,8 @@ const theme = {
     body1: {
       ...rawTheme.typography.body2,
       fontWeight: rawTheme.typography.fontWeightRegular,
-      fontSize: 16,
-      color: '#414549'
+      fontSize: '1rem',
+      color: 'rgba(0,0,0,0.81)'
     },
     body2: {
       ...rawTheme.typography.body1,
