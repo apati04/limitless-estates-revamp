@@ -22,13 +22,7 @@ const index = props => {
     <div className={classes.root + ' main-content'}>
       <div style={{ height: '300px', background: '#e7e7e7' }} />
       <div className={classNames(classes.appContainer, 'main-content')}>
-        <Grid container spacing={32} justify="center" alignItems="center">
-          <Grid item xs={10} style={{ margin: '0 auto' }}>
-            <div style={{ margin: '0 auto', textAlign: 'center' }}>
-              <Questionnaire />
-            </div>
-          </Grid>
-        </Grid>
+        <Questionnaire />
       </div>
     </div>
   );

@@ -96,7 +96,12 @@ class Wizard extends React.Component {
     );
   }
 }
-
+const fLabel = {
+  Q15:
+    'Have you invested as a limited partner (LP) on a syndication deal in the past?',
+  Q16: 'In a short paragraph please provide us with your investing experience.',
+  Q17: 'What are your investment objectives?'
+};
 const Questionnaire = () => (
   <React.Fragment>
     <h1>Multistep / Form Wizard </h1>
@@ -109,12 +114,17 @@ const Questionnaire = () => (
         isAccredited: null,
         canVerifyFunds: null,
         riskToleranceLevel: null,
+        contactBy: '',
         Q1: '',
         Q2: '',
         Q3: '',
         Q4: '',
         Q5: '',
-        Q6: ''
+        Q6: '',
+        Q14: '',
+        Q15: '',
+        Q16: '',
+        Q17: ''
       }}
       onSubmit={(values, actions) => {
         sleep(300).then(() => {
@@ -124,128 +134,186 @@ const Questionnaire = () => (
       }}
     >
       <Wizard.Page>
-        <Field
-          name="Q5"
-          fullWidth
-          component={TextField}
-          type="text"
-          label="What liquidity needs do you have from the funds you may passively invest?"
-          validate={required}
-          variant="filled"
-        />
-
-        <Field
-          name="Q6"
-          fullWidth
-          component={TextField}
-          type="text"
-          variant="filled"
-          label="What is the minimum dollar amount you are willing to invest?"
-          validate={required}
-        />
-        <div>
-          <FormLabel component="legend">
-            Are you an accredited investor?
-          </FormLabel>
-          <FormHelperText>
-            (earned income that exceeded $200,000 (or $300,000 if married filing
-            jointly) for the past 2 years and will do so in this current year OR
-            have a net worth of $1M excluding your primary residence)
-          </FormHelperText>
-
-          <Field
-            component={RadioGroup}
-            id="isAccredited"
-            validate={required}
-            name="isAccredited"
-          >
-            <FormControlLabel
-              value="yes"
-              control={<Radio color="primary" />}
-              label="Yes"
-              labelPlacement="end"
+        <Grid
+          container
+          spacing={32}
+          alignItems="flex-start"
+          justify="space-between"
+        >
+          <Grid item xs={12}>
+            <Field
+              name="Q5"
+              fullWidth
+              component={TextField}
+              type="text"
+              label="What liquidity needs do you have from the funds you may passively invest?"
+              validate={required}
             />
-            <FormControlLabel
-              value="no"
-              control={<Radio color="primary" />}
-              label="No"
-              labelPlacement="end"
+            {/* --------------------------- */}
+          </Grid>
+
+          <Grid item xs={12}>
+            <Field
+              name="Q6"
+              fullWidth
+              component={TextField}
+              type="text"
+              label="What is the minimum dollar amount you are willing to invest?"
+              validate={required}
             />
-          </Field>
-          <div>
-            <ErrorMessage
+          </Grid>
+          {/* ---------------------- */}
+          <Grid item xs={12}>
+            <FormLabel component="legend">
+              Are you an accredited investor?
+            </FormLabel>
+            <FormHelperText>
+              (earned income that exceeded $200,000 (or $300,000 if married
+              filing jointly) for the past 2 years and will do so in this
+              current year OR have a net worth of $1M excluding your primary
+              residence)
+            </FormHelperText>
+
+            <Field
+              component={RadioGroup}
+              id="isAccredited"
+              validate={required}
               name="isAccredited"
-              component="div"
-              className="field-error"
-            />
-          </div>
-        </div>
-        <div>
-          <FormLabel component="legend">Can you show proof of funds</FormLabel>
-          <Field
-            component={RadioGroup}
-            id="canVerifyFunds"
-            name="canVerifyFunds"
-            validate={required}
-          >
-            <FormControlLabel
-              value="yes"
-              control={<Radio color="primary" />}
-              label="Yes"
-              labelPlacement="end"
-            />
-            <FormControlLabel
-              value="no"
-              control={<Radio color="primary" />}
-              label="No"
-              labelPlacement="end"
-            />
-          </Field>
-          <div>
-            <ErrorMessage
+              row
+            >
+              <FormControlLabel
+                value="no"
+                control={<Radio color="primary" />}
+                label="No"
+                labelPlacement="end"
+              />
+              <FormControlLabel
+                value="yes"
+                control={<Radio color="primary" />}
+                label="Yes"
+                labelPlacement="end"
+              />
+            </Field>
+            <div>
+              <ErrorMessage
+                name="isAccredited"
+                component="div"
+                className="field-error"
+                style={{ color: '#f44336' }}
+              />
+            </div>
+          </Grid>
+
+          <Grid item xs={12}>
+            <FormLabel component="legend">
+              Can you show proof of funds
+            </FormLabel>
+            <Field
+              component={RadioGroup}
+              id="canVerifyFunds"
               name="canVerifyFunds"
-              component="div"
-              className="field-error"
-            />
-          </div>
-        </div>
-        <div>
-          <FormLabel component="legend">
-            How would you rate your risk tolerance?
-          </FormLabel>
-          <Field
-            component={RadioGroup}
-            id="riskToleranceLevel"
-            name="riskToleranceLevel"
-            validate={required}
-          >
-            <FormControlLabel
-              value="low"
-              control={<Radio color="primary" />}
-              label="Low"
-              labelPlacement="end"
-            />
-            <FormControlLabel
-              value="medium"
-              control={<Radio color="primary" />}
-              label="Medium"
-              labelPlacement="end"
-            />
-            <FormControlLabel
-              value="high"
-              control={<Radio color="primary" />}
-              label="High"
-              labelPlacement="end"
-            />
-          </Field>
-          <div>
-            <ErrorMessage
+              validate={required}
+              row
+            >
+              <FormControlLabel
+                value="no"
+                control={<Radio color="primary" />}
+                label="No"
+              />
+              <FormControlLabel
+                value="yes"
+                control={<Radio color="primary" />}
+                label="Yes"
+              />
+            </Field>
+            <div>
+              <ErrorMessage
+                name="canVerifyFunds"
+                component="div"
+                className="field-error"
+                style={{ color: '#f44336' }}
+              />
+            </div>
+          </Grid>
+          {/* --------------------------- */}
+          <Grid item xs={12}>
+            <FormLabel component="legend">
+              How would you rate your risk tolerance?
+            </FormLabel>
+            <Field
+              component={RadioGroup}
+              id="riskToleranceLevel"
               name="riskToleranceLevel"
-              component="div"
-              className="field-error"
+              validate={required}
+              row
+            >
+              <FormControlLabel
+                value="high"
+                control={<Radio color="primary" />}
+                label="High"
+              />
+              <FormControlLabel
+                value="medium"
+                control={<Radio color="primary" />}
+                label="Medium"
+              />
+
+              <FormControlLabel
+                value="low"
+                control={<Radio color="primary" />}
+                label="Low"
+              />
+            </Field>
+            <div>
+              <ErrorMessage
+                name="riskToleranceLevel"
+                component="div"
+                className="field-error"
+                style={{ color: '#f44336' }}
+              />
+            </div>
+          </Grid>
+
+          <Grid item xs={12}>
+            <Field
+              name="Q14"
+              fullWidth
+              component={TextField}
+              type="text"
+              label="If you are based outside of the United States, have you invested in the US real estate market in the past?"
+              helperText="Please skip to next question if not applicable"
             />
-          </div>
-        </div>
+          </Grid>
+          <Grid item xs={12}>
+            <Field
+              name="Q15"
+              fullWidth
+              component={TextField}
+              type="text"
+              label={fLabel.Q15}
+              validate={required}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <Field
+              name="Q16"
+              fullWidth
+              component={TextField}
+              type="text"
+              label={fLabel.Q16}
+              validate={required}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <Field
+              name="Q17"
+              fullWidth
+              component={TextField}
+              type="text"
+              label={fLabel.Q17}
+            />
+          </Grid>
+        </Grid>
       </Wizard.Page>
       <Wizard.Page>
         <Field
