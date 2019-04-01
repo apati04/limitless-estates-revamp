@@ -10,6 +10,11 @@ import FormControl from '@material-ui/core/FormControl';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormLabel from '@material-ui/core/FormLabel';
 import FormGroup from '@material-ui/core/FormGroup';
+import Input from '@material-ui/core/Input';
+import InputLabel from '@material-ui/core/InputLabel';
+import NativeSelect from '@material-ui/core/NativeSelect';
+
+import { Typography } from '@material-ui/core';
 const required = value => (value ? undefined : 'Required');
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 class Wizard extends React.Component {
@@ -117,7 +122,7 @@ const Questionnaire = () => (
         riskToleranceLevel: null,
         contactBy: '',
         Q1: '',
-        Q2: '',
+        Q2valueAddProjectProjects: '',
         Q3: '',
         Q4: '',
         Q5: '',
@@ -140,96 +145,170 @@ const Questionnaire = () => (
       <Wizard.Page>
         <Grid
           container
-          spacing={32}
+          spacing={16}
           alignItems="flex-start"
-          justify="space-between"
+          justify="space-around"
         >
-          <FormGroup>
-            <FormLabel component="legend">Prefered Form of Contact</FormLabel>
-            <helperText>Check all that apply.</helperText>
-            <FormControlLabel
-              control={
-                <Field
-                  component={Checkbox}
-                  name="contactByPhone"
-                  color="primary"
-                />
-              }
-              label="Phone"
-            />
-            <FormControlLabel
-              control={
-                <Field
-                  component={Checkbox}
-                  name="contactByEmail"
-                  color="primary"
-                />
-              }
-              label="Email"
-            />
-            <FormControlLabel
-              control={
-                <Field
-                  component={Checkbox}
-                  name="contactByTextMessage"
-                  color="primary"
-                />
-              }
-              label="Text Message (SMS)"
-            />
-          </FormGroup>
           <Grid item xs={12}>
             <Field
               fullWidth
               name="fullname"
               component={TextField}
               type="text"
-              label="Name"
+              InputLabelProps={{
+                shrink: true
+              }}
+              variant="filled"
+              label="Your Name"
+              margin="dense"
               validate={required}
             />
-
+          </Grid>
+          <Grid item xs={12}>
             <Field
               fullWidth
               name="email"
               component={TextField}
               type="email"
-              label="Email"
+              label="Email Address"
+              InputLabelProps={{
+                shrink: true
+              }}
+              variant="filled"
               validate={required}
+              margin="dense"
             />
-            <Field
-              fullWidth
-              name="Q1"
-              component={TextField}
-              type="text"
-              label="Why are you interested in investing in Real Estate?"
-              validate={required}
-            />
+          </Grid>
 
-            <Field
-              fullWidth
-              name="Q2"
-              component={TextField}
-              type="text"
-              label="Do you want to invest in multifamily, value-add projects?"
-              validate={required}
-            />
-
-            <Field
-              fullWidth
-              name="Q3"
-              component={TextField}
-              type="text"
-              label="What are your return expectations?"
-              validate={required}
-            />
-            <Field
-              name="Q4"
-              fullWidth
-              component={TextField}
-              type="text"
-              label="What time horizon (3-10 years) would be most desirable for a passive investment?"
-              validate={required}
-            />
+          <Grid item xs={12}>
+            <FormLabel component="legend">Prefered Form of Contact</FormLabel>
+            <FormGroup row>
+              <FormControlLabel
+                control={
+                  <Field
+                    component={Checkbox}
+                    name="contactByPhone"
+                    color="primary"
+                  />
+                }
+                label="Phone"
+              />
+              <FormControlLabel
+                control={
+                  <Field
+                    component={Checkbox}
+                    name="contactByEmail"
+                    color="primary"
+                  />
+                }
+                label="Email"
+              />
+              <FormControlLabel
+                control={
+                  <Field
+                    component={Checkbox}
+                    name="contactByTextMessage"
+                    color="primary"
+                  />
+                }
+                label="Text Message (SMS)"
+              />
+            </FormGroup>
+            <FormHelperText>Check all that apply.</FormHelperText>
+          </Grid>
+          <Grid item xs={12}>
+            <div>
+              <Typography variant="body1" component="label">
+                Why are you interested in investing in Real Estate?
+              </Typography>
+              <Field
+                fullWidth
+                name="Q1"
+                component={TextField}
+                margin="dense"
+                type="text"
+                validate={required}
+                multiline
+                label="Answer"
+                InputLabelProps={{
+                  shrink: true
+                }}
+                variant="filled"
+              />
+            </div>
+            <Grid item xs={12}>
+              <div>
+                <Typography variant="body1" component="label">
+                  Do you want to invest in multifamily, value-add projects
+                </Typography>
+                <Field
+                  component={RadioGroup}
+                  validate={required}
+                  name="Q2valueAddProjectProjects"
+                  margin="dense"
+                  row
+                >
+                  <FormControlLabel
+                    value="no"
+                    control={<Radio color="primary" />}
+                    label="No"
+                    labelPlacement="end"
+                    margin="dense"
+                  />
+                  <FormControlLabel
+                    value="yes"
+                    control={<Radio color="primary" />}
+                    label="Yes"
+                    labelPlacement="end"
+                    margin="dense"
+                  />
+                </Field>
+              </div>
+            </Grid>
+            <Grid item xs={12}>
+              <Typography variant="body1" component="label">
+                What are your return expectations?
+              </Typography>
+              <Field
+                fullWidth
+                name="Q3"
+                component={TextField}
+                type="text"
+                margin="dense"
+                label="Answer"
+                variant="filled"
+                InputLabelProps={{ shrink: true }}
+                validate={required}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <Typography variant="body1" component="legend">
+                What time horizon (3-10 years) would be most desirable for a
+                passive investment?
+              </Typography>
+              <FormControl>
+                <InputLabel htmlFor="uncontrolled-native">Name</InputLabel>
+                <NativeSelect
+                  defaultValue={30}
+                  input={<Input name="name" id="uncontrolled-native" />}
+                >
+                  <option value="" />
+                  <option value={10}>Ten</option>
+                  <option value={20}>Twenty</option>
+                  <option value={30}>Thirty</option>
+                </NativeSelect>
+                <FormHelperText>Uncontrolled</FormHelperText>
+              </FormControl>
+              <Field
+                name="Q4"
+                fullWidth
+                component={TextField}
+                type="text"
+                label=""
+                validate={required}
+                margin="dense"
+              />
+            </Grid>
           </Grid>
         </Grid>
       </Wizard.Page>
@@ -246,8 +325,12 @@ const Questionnaire = () => (
               fullWidth
               component={TextField}
               type="text"
+              variant="outlined"
               label="What liquidity needs do you have from the funds you may passively invest?"
               validate={required}
+              margin="dense"
+              required
+              multiline
             />
             {/* --------------------------- */}
           </Grid>
@@ -260,6 +343,7 @@ const Questionnaire = () => (
               type="text"
               label="What is the minimum dollar amount you are willing to invest?"
               validate={required}
+              margin="dense"
             />
           </Grid>
           {/* ---------------------- */}
@@ -279,6 +363,7 @@ const Questionnaire = () => (
               id="isAccredited"
               validate={required}
               name="isAccredited"
+              margin="dense"
               row
             >
               <FormControlLabel
@@ -286,12 +371,14 @@ const Questionnaire = () => (
                 control={<Radio color="primary" />}
                 label="No"
                 labelPlacement="end"
+                margin="dense"
               />
               <FormControlLabel
                 value="yes"
                 control={<Radio color="primary" />}
                 label="Yes"
                 labelPlacement="end"
+                margin="dense"
               />
             </Field>
             <div>

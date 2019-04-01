@@ -88,8 +88,7 @@ class MenuListComposition extends React.Component {
               {...TransitionProps}
               id={menuListName}
               style={{
-                transformOrigin:
-                  placement === 'bottom' ? 'center top' : 'center bottom'
+                transformOrigin: 'center top'
               }}
             >
               <Paper>

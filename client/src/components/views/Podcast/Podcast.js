@@ -8,13 +8,14 @@ import Typography from '@material-ui/core/Typography';
 import api from './podcast_api';
 import Episode from './Episodes/Episode';
 import EpisodeGrid from './Episodes/EpisodeGrid';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import Tooltip from '@material-ui/core/Tooltip';
 
 import Fade from '@material-ui/core/Grow';
 
+import axios from 'axios';
 // --------TEMP DATA
-// import axios from 'axios';
-import podcastData from './tempdata';
+// import podcastData from './tempdata';
 // __ tmpdata
 const styles = theme => ({
   podcastCard: {
@@ -85,8 +86,9 @@ const styles = theme => ({
 
 class Podcast extends Component {
   state = {
-    episodes: podcastData.data,
-    checked: true
+    episodes: null,
+    checked: true,
+    fetching: null
   };
 
   loadSocialBar = () => {
@@ -119,20 +121,19 @@ class Podcast extends Component {
     );
   };
   componentDidMount() {
-    // axios.get('/podcasts/podcast').then(result => {
-    //   const [intro, ...rest] = result.data.data;
-    //   this.setState({ episodes: rest });
-    // });
+    axios.get('/podcasts/podcast').then(result => {
+      const [intro, ...rest] = result.data.data;
+      this.setState({ episodes: rest, fetching: false });
+    });
   }
 
   render() {
     const { classes } = this.props;
-    console.log(classes);
-    const { checked } = this.state;
+
     return (
-      <React.Fragment>
+      <div className="main-content">
         {this.state.episodes ? (
-          <Fade in style={{ transformOrigin: '0 0 0' }} timeout={500}>
+          <Fade in style={{ transformOrigin: '0 0 0' }} unmountOnExit>
             <div>
               <div
                 className={classNames(
@@ -205,9 +206,21 @@ class Podcast extends Component {
             </div>
           </Fade>
         ) : (
-          <div>Loading...</div>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              height: '90vh',
+              maxHeight: '1000px'
+            }}
+          >
+            <Fade in style={{ transformOrigin: '50 50 0' }} unmountOnExit>
+              <CircularProgress />
+            </Fade>
+          </div>
         )}
-      </React.Fragment>
+      </div>
     );
   }
 }
