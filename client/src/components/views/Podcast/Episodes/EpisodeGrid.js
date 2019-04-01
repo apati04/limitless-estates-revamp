@@ -335,7 +335,7 @@ class EpisodeGrid extends Component {
     const { classes } = this.props;
     console.log(this.props);
     return (
-      <div style={{}} className={classes.root}>
+      <div className={classes.root}>
         <div className={classes.marginTop}>
           <Grid
             container

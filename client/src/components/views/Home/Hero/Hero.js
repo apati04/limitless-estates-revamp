@@ -61,7 +61,7 @@ class Hero extends Component {
               spacing={24}
               justify="space-between"
               alignItems="flex-start"
-              className={classNames(classes.appContainer)}
+              className={classNames(classes.appContainer + ' main-content')}
               wrap="wrap"
             >
               <Grid item sm={12} lg={5}>

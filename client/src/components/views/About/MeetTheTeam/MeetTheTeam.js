@@ -6,7 +6,6 @@ import classNames from 'classnames';
 import blue from '@material-ui/core/colors/blue';
 // custom styles
 import TeamCard from '../../../../modules/TeamCard';
-
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 import PageHeader from '../../Layouts/PageHeader';
@@ -83,6 +82,7 @@ const MeetTheTeam = props => {
                   title={item.title}
                   profilePage={item.profilePage}
                   description={item.description}
+                  type={item.type}
                 />
               </Grid>
             ))}
@@ -105,10 +105,12 @@ const MeetTheTeam = props => {
               >
                 <TeamCard
                   photo={item.photo.url}
+                  profilePage={item.profilePage}
                   name={item.name}
                   website={item.website}
                   title={item.title}
                   description={item.description}
+                  advisor={true}
                 />
               </Grid>
             ))}

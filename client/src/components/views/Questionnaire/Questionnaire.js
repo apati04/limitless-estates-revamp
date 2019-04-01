@@ -1,6 +1,6 @@
 import React from 'react';
 import { Formik, Field, ErrorMessage } from 'formik';
-import { TextField, RadioGroup } from 'formik-material-ui';
+import { TextField, RadioGroup, Checkbox } from 'formik-material-ui';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button';
@@ -9,6 +9,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormLabel from '@material-ui/core/FormLabel';
+import FormGroup from '@material-ui/core/FormGroup';
 const required = value => (value ? undefined : 'Required');
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 class Wizard extends React.Component {
@@ -124,7 +125,10 @@ const Questionnaire = () => (
         Q14: '',
         Q15: '',
         Q16: '',
-        Q17: ''
+        Q17: '',
+        contactByTextMessage: '',
+        contactByPhone: '',
+        contactByEmail: ''
       }}
       onSubmit={(values, actions) => {
         sleep(300).then(() => {
@@ -133,6 +137,102 @@ const Questionnaire = () => (
         });
       }}
     >
+      <Wizard.Page>
+        <Grid
+          container
+          spacing={32}
+          alignItems="flex-start"
+          justify="space-between"
+        >
+          <FormGroup>
+            <FormLabel component="legend">Prefered Form of Contact</FormLabel>
+            <helperText>Check all that apply.</helperText>
+            <FormControlLabel
+              control={
+                <Field
+                  component={Checkbox}
+                  name="contactByPhone"
+                  color="primary"
+                />
+              }
+              label="Phone"
+            />
+            <FormControlLabel
+              control={
+                <Field
+                  component={Checkbox}
+                  name="contactByEmail"
+                  color="primary"
+                />
+              }
+              label="Email"
+            />
+            <FormControlLabel
+              control={
+                <Field
+                  component={Checkbox}
+                  name="contactByTextMessage"
+                  color="primary"
+                />
+              }
+              label="Text Message (SMS)"
+            />
+          </FormGroup>
+          <Grid item xs={12}>
+            <Field
+              fullWidth
+              name="fullname"
+              component={TextField}
+              type="text"
+              label="Name"
+              validate={required}
+            />
+
+            <Field
+              fullWidth
+              name="email"
+              component={TextField}
+              type="email"
+              label="Email"
+              validate={required}
+            />
+            <Field
+              fullWidth
+              name="Q1"
+              component={TextField}
+              type="text"
+              label="Why are you interested in investing in Real Estate?"
+              validate={required}
+            />
+
+            <Field
+              fullWidth
+              name="Q2"
+              component={TextField}
+              type="text"
+              label="Do you want to invest in multifamily, value-add projects?"
+              validate={required}
+            />
+
+            <Field
+              fullWidth
+              name="Q3"
+              component={TextField}
+              type="text"
+              label="What are your return expectations?"
+              validate={required}
+            />
+            <Field
+              name="Q4"
+              fullWidth
+              component={TextField}
+              type="text"
+              label="What time horizon (3-10 years) would be most desirable for a passive investment?"
+              validate={required}
+            />
+          </Grid>
+        </Grid>
+      </Wizard.Page>
       <Wizard.Page>
         <Grid
           container
@@ -314,62 +414,6 @@ const Questionnaire = () => (
             />
           </Grid>
         </Grid>
-      </Wizard.Page>
-      <Wizard.Page>
-        <Field
-          fullWidth
-          name="fullname"
-          component={TextField}
-          type="text"
-          label="Name"
-          validate={required}
-        />
-
-        <Field
-          fullWidth
-          name="email"
-          component={TextField}
-          type="email"
-          label="Email"
-          validate={required}
-        />
-      </Wizard.Page>
-      <Wizard.Page>
-        <Field
-          fullWidth
-          name="Q1"
-          component={TextField}
-          type="text"
-          label="Why are you interested in investing in Real Estate?"
-          validate={required}
-        />
-
-        <Field
-          fullWidth
-          name="Q2"
-          component={TextField}
-          type="text"
-          label="Do you want to invest in multifamily, value-add projects?"
-          validate={required}
-        />
-
-        <Field
-          fullWidth
-          name="Q3"
-          component={TextField}
-          type="text"
-          label="What are your return expectations?"
-          validate={required}
-        />
-
-        <Field
-          name="Q4"
-          fullWidth
-          component={TextField}
-          type="text"
-          label="What time horizon (3-10 years) would be most desirable for a passive investment?"
-          validate={required}
-        />
       </Wizard.Page>
       {/* <Wizard.Page
           validate={values => {

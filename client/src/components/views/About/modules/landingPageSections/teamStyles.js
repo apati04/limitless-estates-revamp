@@ -24,7 +24,7 @@ const teamStyle = {
     fontWeight: 400
   },
   description: {
-    color: 'rgba(88,88,88,0.88)'
+    color: 'rgba(48,48,48,0.88)'
   },
   justifyCenter: {
     justifyContent: 'center !important'

@@ -6,7 +6,8 @@ import MuiExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import MuiExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Typography from '@material-ui/core/Typography';
-
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
 const ExpansionPanel = withStyles({
   root: {
     border: '1px solid rgba(0,0,0,.125)',
@@ -69,19 +70,18 @@ class SectionList extends React.Component {
     return itemList.map(({ title, body }, index) => {
       let panel = 'panel' + index;
       return (
-        <ExpansionPanel
+        <Card
           key={panel}
           square
           expanded={expanded === panel}
           onChange={this.handleChange(panel)}
         >
-          <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+          <CardContent>
             <Typography variant="h6">{title}</Typography>
-          </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
+
             <Typography component="div">{body}</Typography>
-          </ExpansionPanelDetails>
-        </ExpansionPanel>
+          </CardContent>
+        </Card>
       );
     });
   }

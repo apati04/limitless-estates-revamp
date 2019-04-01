@@ -9,7 +9,7 @@ import IconButton from '@material-ui/core/IconButton';
 import { Link } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-
+import Truncate from 'react-truncate';
 import blue from '@material-ui/core/colors/blue';
 
 const styles = theme => ({
@@ -55,7 +55,8 @@ const TeamCard = props => {
   const imageClasses = classNames(
     classes.imgRaised,
     classes.imgRoundedCircle,
-    classes.imgFluid
+    classes.imgFluid,
+    { width: '10rem' }
   );
   let imgLink;
   let linkText;
@@ -82,6 +83,11 @@ const TeamCard = props => {
       <img src={props.photo} alt={props.name} className={imageClasses} />
     );
   }
+  let truncate;
+  const handleTruncate = () => {
+    truncate = true;
+    return;
+  };
   return (
     <Card className={classNames(classes.card, classes.cardPlain)}>
       <Grid item xs={12} sm={12} md={6} className={classes.itemGrid}>
@@ -98,9 +104,30 @@ const TeamCard = props => {
         <small className={classes.smallTitle}>{props.title}</small>
       </Typography>
       <CardContent className={classes.muiCardBody}>
-        <Typography className={classes.description} gutterBottom>
-          {props.description}..{linkText}
+        <Typography
+          align="center"
+          variant="body2"
+          className={classes.description}
+          gutterBottom
+        >
+          <Truncate
+            lines={5}
+            trimWhitespace
+            ellipsis={
+              !props.advisor && (
+                <span>
+                  <Link to={props.profilePage}> Continue Reading</Link> ..
+                </span>
+              )
+            }
+            onTruncate={handleTruncate}
+          >
+            <React.Fragment>
+              <span style={{ hyphens: 'manual' }}>{props.description}</span>
+            </React.Fragment>
+          </Truncate>
         </Typography>
+        {!truncate && linkText}
       </CardContent>
       <CardActions>
         <Grid container justify="center">

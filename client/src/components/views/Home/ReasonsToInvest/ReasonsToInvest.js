@@ -95,11 +95,16 @@ const Section3 = props => {
             </Typography>
           </Grid>
         </Grid>
-        <Grid container justify="flex-end" alignItems="center" spacing={16}>
-          <Grid item xs={12} md={6}>
+        <Grid
+          container
+          justify="space-between"
+          alignItems="center"
+          spacing={16}
+        >
+          <Grid item xs={12}>
             <ExpansionList itemList={api} />
           </Grid>
-          <Grid item md={6} xs={12}>
+          {/* <Grid item md={6} xs={12}>
             <div style={{ textAlign: 'center' }}>
               <Hidden smDown>
                 <Avatar
@@ -119,7 +124,7 @@ const Section3 = props => {
                 Introduction to Multifamily Investing
               </Button>
             </div>
-          </Grid>
+          </Grid> */}
         </Grid>
       </div>
     </section>
