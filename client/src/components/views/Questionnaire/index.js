@@ -5,13 +5,15 @@ import Questionnaire from './Questionnaire';
 import Grid from '@material-ui/core/Grid';
 import classNames from 'classnames';
 import Typography from '@material-ui/core/Typography';
-
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
 const styles = theme => ({
   root: {
     flexGrow: 1
   },
   appContainer: {
-    ...theme.container
+    ...theme.container,
+    margin: `${theme.spacing.unit * 4}px ${theme.spacing.unit}px`
   }
 });
 
@@ -21,8 +23,16 @@ const index = props => {
   return (
     <div className={classes.root + ' main-content'}>
       <div style={{ height: '300px', background: '#e7e7e7' }} />
-      <div className={classNames(classes.appContainer, 'main-content')}>
-        <Questionnaire />
+      <div className={classNames(classes.appContainer)}>
+        <Grid container justify="space-around" alignItems="center">
+          <Grid item xs={12}>
+            <Card>
+              <CardContent>
+                <Questionnaire />
+              </CardContent>
+            </Card>
+          </Grid>
+        </Grid>
       </div>
     </div>
   );

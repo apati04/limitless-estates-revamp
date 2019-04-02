@@ -67,6 +67,7 @@ footer {
   color: #3c4858;
   background-color: #fff;
 }
+
 @media screen and (max-width: 80rem) {
   .main-content {
     margin: 4rem auto 0;

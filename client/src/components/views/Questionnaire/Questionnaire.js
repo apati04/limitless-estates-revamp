@@ -1,135 +1,34 @@
 import React from 'react';
-import { Formik, Field, ErrorMessage } from 'formik';
-import { TextField, RadioGroup, Checkbox } from 'formik-material-ui';
+import { Field } from 'formik';
+import { RadioGroup, Checkbox, TextField } from 'formik-material-ui';
 import Grid from '@material-ui/core/Grid';
-import Card from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button';
 import classNames from 'classnames';
 import Radio from '@material-ui/core/Radio';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
+
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormLabel from '@material-ui/core/FormLabel';
 import FormGroup from '@material-ui/core/FormGroup';
-import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
+
 import withStyles from '@material-ui/core/styles/withStyles';
-import Select from '@material-ui/core/Select';
-import NumberFormat from 'react-number-format';
+import Wizard from './Wizard';
+import Icon from '@material-ui/core/Icon';
 import { Typography } from '@material-ui/core';
 const required = value => (value ? undefined : 'Required');
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 const styles = theme => ({
-  formControl: { margin: theme.spacing.unit }
+  formControl: {},
+  customFormLabel: { color: 'rgba(0,0,0,0.54)' },
+  error: { color: 'red' },
+  radioStyle: {
+    padding: '12px'
+  },
+  root: {
+    backgroundColor: 'rgba(0,0,0,0.06)'
+  }
 });
-function NumberFormatCustom(props) {
-  const { inputRef, onChange, ...other } = props;
-  console.log('other: ', other);
-  return (
-    <NumberFormat
-      {...other}
-      getInputRef={inputRef}
-      // onValueChange={(...values) => {
-      //   console.log('value,change: ', values);
-      //   onChange({
-      //     target: {
-      //       value: values.value
-      //     }
-      //   });
-      // }}
-      name="Q8_TimeHorizonToInvest"
-      id="Q8_TimeHorizonToInvest"
-      thousandSeparator
-      prefix="$"
-    />
-  );
-}
-class Wizard extends React.Component {
-  static Page = ({ children }) => children;
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      page: 0,
-      values: props.initialValues
-    };
-  }
-
-  next = values =>
-    this.setState(state => ({
-      page: Math.min(state.page + 1, this.props.children.length - 1),
-      values
-    }));
-
-  previous = () =>
-    this.setState(state => ({
-      page: Math.max(state.page - 1, 0)
-    }));
-
-  validate = values => {
-    const activePage = React.Children.toArray(this.props.children)[
-      this.state.page
-    ];
-    return activePage.props.validate ? activePage.props.validate(values) : {};
-  };
-
-  handleSubmit = (values, bag) => {
-    const { children, onSubmit } = this.props;
-    const { page } = this.state;
-    const isLastPage = page === React.Children.count(children) - 1;
-    if (isLastPage) {
-      return onSubmit(values, bag);
-    } else {
-      bag.setTouched({});
-      bag.setSubmitting(false);
-      this.next(values);
-    }
-  };
-
-  render() {
-    const { children } = this.props;
-    const { page, values } = this.state;
-    const activePage = React.Children.toArray(children)[page];
-    const isLastPage = page === React.Children.count(children) - 1;
-    return (
-      <Formik
-        initialValues={values}
-        enableReinitialize={false}
-        validate={this.validate}
-        onSubmit={this.handleSubmit}
-        render={({ values, handleSubmit, isSubmitting, handleReset }) => (
-          <form onSubmit={handleSubmit}>
-            {activePage}
-
-            {page > 0 && (
-              <Button
-                variant="contained"
-                type="button"
-                color="primary"
-                onClick={this.previous}
-              >
-                « Previous
-              </Button>
-            )}
-            <div style={{ margin: '0 1rem' }}>
-              {!isLastPage && (
-                <Button variant="contained" color="primary" type="submit">
-                  Next »
-                </Button>
-              )}
-              {isLastPage && (
-                <Button type="submit" disabled={isSubmitting}>
-                  Submit
-                </Button>
-              )}
-            </div>
-          </form>
-        )}
-      />
-    );
-  }
-}
 const fLabel = {
   Q15:
     'Have you invested as a limited partner (LP) on a syndication deal in the past?',
@@ -138,7 +37,7 @@ const fLabel = {
 };
 const Questionnaire = props => {
   const { classes } = props;
-  console.log('preops; ', props);
+  console.log('requires: ', props);
   return (
     <React.Fragment>
       <h1>Multistep / Form Wizard </h1>
@@ -173,98 +72,200 @@ const Questionnaire = props => {
         }}
       >
         <Wizard.Page>
-          <Grid
-            container
-            spacing={16}
-            alignItems="flex-start"
-            justify="space-around"
-          >
+          <Grid container justify="center" alignItems="center" spacing={24}>
             <Grid item xs={12}>
               <Field
                 fullWidth
                 name="Q1_fullname"
+                id="Q1_fullname"
+                variant="filled"
                 component={TextField}
                 type="text"
-                className={classes.formControl}
-                label="Your Name"
+                margin="dense"
                 validate={required}
+                label="Your Name"
+                className={classes.formControl}
               />
             </Grid>
+
             <Grid item xs={12}>
               <Field
                 fullWidth
                 name="Q2_email"
+                id="Q2_email"
                 component={TextField}
                 type="email"
                 className={classes.formControl}
-                label="Email Address"
+                label="Your Email"
+                variant="filled"
+                margin="dense"
+                validate={required}
+              />
+            </Grid>
+
+            <Grid item xs={12}>
+              <Field
+                fullWidth
+                variant="filled"
+                name="Q3_phoneNumber"
+                id="Q3_phoneNumber"
+                component={TextField}
+                className={classNames(classes.formControl, classes.phoneNumber)}
+                type="text"
+                margin="dense"
+                label="Phone Number"
+                validate={required}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <div className={classes.formControl}>
+                <Typography
+                  variant="body1"
+                  className={classes.customFormLabel}
+                  component="legend"
+                >
+                  How should we contact you?
+                </Typography>
+
+                <FormGroup
+                  row
+                  style={{ paddingLeft: '0.20rem', paddingRight: '0.20rem' }}
+                  className={classes.formControl}
+                >
+                  <FormControlLabel
+                    control={
+                      <Field
+                        component={Checkbox}
+                        name="Q4_contactByPhone"
+                        color="primary"
+                        id="Q4_contactByPhone"
+                      />
+                    }
+                    margin="dense"
+                    label="Phone"
+                    variant="filled"
+                  />
+                  <FormControlLabel
+                    control={
+                      <Field
+                        component={Checkbox}
+                        name="Q4_contactByEmail"
+                        color="primary"
+                        id="Q4_contactByEmail"
+                      />
+                    }
+                    margin="dense"
+                    label="Email"
+                  />
+                  <FormControlLabel
+                    control={
+                      <Field
+                        component={Checkbox}
+                        name="Q4_contactByTextMessage"
+                        color="primary"
+                        id="Q4_contactByTextMessage"
+                      />
+                    }
+                    margin="dense"
+                    label="Text Message (SMS)"
+                  />
+                </FormGroup>
+              </div>
+            </Grid>
+
+            <Grid item xs={12}>
+              <Field
+                className={classes.formControl}
+                fullWidth
+                name="Q5_WhyInterestedRealEstate"
+                id="Q5_WhyInterestedRealEstate"
+                component={TextField}
+                type="text"
+                validate={required}
+                multiline
+                variant="filled"
+                label="Why are you interested in investing in Real Estate?"
+              />
+            </Grid>
+
+            <Grid item xs={12}>
+              <Field
+                fullWidth
+                name="Q7_ReturnExpectations"
+                id="Q7_ReturnExpectations"
+                component={TextField}
+                className={classes.formControl}
+                type="text"
+                variant="filled"
+                label="What are your return expectations?"
                 validate={required}
               />
             </Grid>
             <Grid item xs={12}>
               <Field
-                fullWidth
-                name="Q3_phoneNumber"
                 component={TextField}
-                className={classNames(
-                  classNames.formControl,
-                  classes.phoneNumber
-                )}
-                type="number"
-                label="Phone Number"
+                fullWidth
+                validate={required}
+                type="text"
+                variant="filled"
+                name="Q8_TimeHorizonToInvest"
+                id="Q8_TimeHorizonToInvest"
+                label="What time horizon (3-10 years) would be most desirable for a
+                passive investment?"
+                className={classes.formControl}
+              />
+            </Grid>
+          </Grid>
+        </Wizard.Page>
+        <Wizard.Page>
+          <Grid
+            container
+            spacing={32}
+            alignItems="flex-start"
+            justify="space-between"
+          >
+            <Grid item xs={12}>
+              <Field
+                name="Q9_LiquidityNeeds"
+                id="Q9_LiquidityNeeds"
+                fullWidth
+                component={TextField}
+                type="text"
+                variant="outlined"
+                label="What liquidity needs do you have from the funds you may passively invest?"
+                validate={required}
+                required
+                multiline
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <Field
+                name="Q10_MinimumDollarAmount"
+                fullWidth
+                id="Q10_MinimumDollarAmount"
+                component={TextField}
+                type="text"
+                label="What is the minimum dollar amount you are willing to invest?"
                 validate={required}
               />
             </Grid>
-
-            <Grid item xs={12}>
-              <FormLabel component="legend">Prefered Form of Contact</FormLabel>
-              <FormGroup row>
-                <FormControlLabel
-                  control={
-                    <Field
-                      component={Checkbox}
-                      name="Q4_contactByPhone"
-                      color="primary"
-                      id="Q4_contactByPhone"
-                    />
-                  }
-                  label="Phone"
-                />
-                <FormControlLabel
-                  control={
-                    <Field
-                      component={Checkbox}
-                      name="Q4_contactByEmail"
-                      color="primary"
-                      id="Q4_contactByEmail"
-                    />
-                  }
-                  label="Email"
-                />
-                <FormControlLabel
-                  control={
-                    <Field
-                      component={Checkbox}
-                      name="Q4_contactByTextMessage"
-                      color="primary"
-                      id="Q4_contactByTextMessage"
-                    />
-                  }
-                  label="Text Message (SMS)"
-                />
-              </FormGroup>
-              <FormHelperText>Check all that apply.</FormHelperText>
-            </Grid>
-
             <Grid item xs={12}>
               <div>
-                <Typography variant="body1" component="label">
+                <FormLabel className={classNames(classes.formControl)}>
                   Do you want to invest in multifamily, value-add projects?
-                </Typography>
+                </FormLabel>
+
                 <Field
                   component={RadioGroup}
+                  margin="dense"
+                  className={classNames(
+                    classes.radioStyle,
+                    classes.formControl
+                  )}
                   validate={required}
-                  name="Q2_InterestInValueAddProjects"
+                  variant="filled"
+                  name="Q6_InvestInValueAddProjects"
+                  id="Q6_InvestInValueAddProjects"
                   row
                 >
                   <FormControlLabel
@@ -283,67 +284,6 @@ const Questionnaire = props => {
               </div>
             </Grid>
             <Grid item xs={12}>
-              <Typography variant="body1" component="label">
-                What are your return expectations?
-              </Typography>
-              <Field
-                fullWidth
-                name="Q3"
-                component={TextField}
-                type="text"
-                label="Answer"
-                validate={required}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <Typography variant="body1" component="legend" />
-              <Field
-                component={TextField}
-                fullWidth
-                className={classes.formControl}
-                type="text"
-                name="Q8_TimeHorizonToInvest"
-                id="Q8_TimeHorizonToInvest"
-                label="What time horizon (3-10 years) would be most desirable for a
-                passive investment?"
-              />
-            </Grid>
-          </Grid>
-        </Wizard.Page>
-        <Wizard.Page>
-          <Grid
-            container
-            spacing={32}
-            alignItems="flex-start"
-            justify="space-between"
-          >
-            <Grid item xs={12}>
-              <Field
-                name="Q5"
-                fullWidth
-                component={TextField}
-                type="text"
-                variant="outlined"
-                label="What liquidity needs do you have from the funds you may passively invest?"
-                validate={required}
-                required
-                multiline
-              />
-              {/* --------------------------- */}
-            </Grid>
-
-            <Grid item xs={12}>
-              <Field
-                name="Q6"
-                fullWidth
-                component={TextField}
-                type="text"
-                label="What is the minimum dollar amount you are willing to invest?"
-                validate={required}
-              />
-            </Grid>
-            {/* ---------------------- */}
-            <Grid item xs={12}>
               <FormLabel component="legend">
                 Are you an accredited investor?
               </FormLabel>
@@ -356,9 +296,9 @@ const Questionnaire = props => {
 
               <Field
                 component={RadioGroup}
-                id="isAccredited"
+                id="Q11_isAccredited"
                 validate={required}
-                name="isAccredited"
+                name="Q11_isAccredited"
                 row
               >
                 <FormControlLabel
@@ -374,24 +314,15 @@ const Questionnaire = props => {
                   labelPlacement="end"
                 />
               </Field>
-              <div>
-                <ErrorMessage
-                  name="isAccredited"
-                  component="div"
-                  className="field-error"
-                  style={{ color: '#f44336' }}
-                />
-              </div>
             </Grid>
-
             <Grid item xs={12}>
               <FormLabel component="legend">
                 Can you show proof of funds
               </FormLabel>
               <Field
                 component={RadioGroup}
-                id="canVerifyFunds"
-                name="canVerifyFunds"
+                id="Q12_canVerifyFunds"
+                name="Q12_canVerifyFunds"
                 validate={required}
                 row
               >
@@ -406,58 +337,44 @@ const Questionnaire = props => {
                   label="Yes"
                 />
               </Field>
-              <div>
-                <ErrorMessage
-                  name="canVerifyFunds"
-                  component="div"
-                  className="field-error"
-                  style={{ color: '#f44336' }}
-                />
-              </div>
             </Grid>
-            {/* --------------------------- */}
             <Grid item xs={12}>
-              <FormLabel component="legend">
-                How would you rate your risk tolerance?
-              </FormLabel>
-              <Field
-                component={RadioGroup}
-                id="riskToleranceLevel"
-                name="riskToleranceLevel"
-                validate={required}
-                row
-              >
-                <FormControlLabel
-                  value="high"
-                  control={<Radio color="primary" />}
-                  label="High"
-                />
-                <FormControlLabel
-                  value="medium"
-                  control={<Radio color="primary" />}
-                  label="Medium"
-                />
-
-                <FormControlLabel
-                  value="low"
-                  control={<Radio color="primary" />}
-                  label="Low"
-                />
-              </Field>
               <div>
-                <ErrorMessage
-                  name="riskToleranceLevel"
-                  component="div"
-                  className="field-error"
-                  style={{ color: '#f44336' }}
-                />
+                <FormLabel component="legend">
+                  How would you rate your risk tolerance?
+                </FormLabel>
+                <Field
+                  component={RadioGroup}
+                  id="Q13_riskToleranceLevel"
+                  name="Q13_riskToleranceLevel"
+                  validate={required}
+                  row
+                >
+                  <FormControlLabel
+                    value="high"
+                    control={<Radio color="primary" />}
+                    label="High"
+                  />
+                  <FormControlLabel
+                    value="medium"
+                    control={<Radio color="primary" />}
+                    label="Medium"
+                  />
+
+                  <FormControlLabel
+                    value="low"
+                    control={<Radio color="primary" />}
+                    label="Low"
+                  />
+                </Field>
               </div>
             </Grid>
 
             <Grid item xs={12}>
               <Field
-                name="Q14"
+                name="Q14_BasedOutsideofUS"
                 fullWidth
+                id="Q14_BasedOutsideofUS"
                 component={TextField}
                 type="text"
                 label="If you are based outside of the United States, have you invested in the US real estate market in the past?"
@@ -466,7 +383,8 @@ const Questionnaire = props => {
             </Grid>
             <Grid item xs={12}>
               <Field
-                name="Q15"
+                name="Q15_isLimitedPartner"
+                id="Q15_isLimitedPartner"
                 fullWidth
                 component={TextField}
                 type="text"
@@ -476,37 +394,40 @@ const Questionnaire = props => {
             </Grid>
             <Grid item xs={12}>
               <Field
-                name="Q16"
+                name="Q16_InvestingExperience"
+                id="Q16_InvestingExperience"
                 fullWidth
                 component={TextField}
                 type="text"
                 label={fLabel.Q16}
                 validate={required}
+                className={classes.formControl}
               />
             </Grid>
             <Grid item xs={12}>
               <Field
-                name="Q17"
+                name="Q17_InvestmentObjectives"
+                id="Q17_InvestmentObjectives"
                 fullWidth
                 component={TextField}
                 type="text"
                 label={fLabel.Q17}
+                validate={required}
+                className={classes.formControl}
               />
             </Grid>
             <Grid item xs={12}>
-              <div>
-                <Typography variant="body1" component="label">
-                  Why are you interested in investing in Real Estate?
-                </Typography>
-                <Field
-                  fullWidth
-                  name="Q1"
-                  component={TextField}
-                  type="text"
-                  multiline
-                  label="Answer"
-                />
-              </div>
+              <Field
+                name="Q18_ExtraInformation"
+                id="Q18_ExtraInformation"
+                fullWidth
+                component={TextField}
+                type="text"
+                className={classes.formControl}
+                variant="filled"
+                label="Anything else"
+                validate={required}
+              />
             </Grid>
           </Grid>
         </Wizard.Page>
