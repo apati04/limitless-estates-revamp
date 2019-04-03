@@ -48,7 +48,8 @@ const styles = theme => ({
     }
   },
   appContainer: {
-    ...theme.container
+    ...theme.container,
+    backgroundColor: 'rgba(250,250,250,0.96)'
   }
 });
 const MeetTheTeam = props => {

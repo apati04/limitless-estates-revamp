@@ -23,9 +23,6 @@ const styles = theme => ({
   error: { color: 'red' },
   radioStyle: {
     padding: '12px'
-  },
-  root: {
-    backgroundColor: 'rgba(0,0,0,0.06)'
   }
 });
 
@@ -40,6 +37,7 @@ const Questionnaire = props => {
   console.log('requires: ', props);
   return (
     <React.Fragment>
+      <h1>back compoennt</h1>
       <h1>Multistep / Form Wizard </h1>
       <Wizard
         initialValues={{
@@ -129,7 +127,10 @@ const Questionnaire = props => {
 
                 <FormGroup
                   row
-                  style={{ paddingLeft: '0.20rem', paddingRight: '0.20rem' }}
+                  style={{
+                    paddingLeft: '0.20rem',
+                    paddingRight: '0.20rem'
+                  }}
                   className={classes.formControl}
                 >
                   <FormControlLabel

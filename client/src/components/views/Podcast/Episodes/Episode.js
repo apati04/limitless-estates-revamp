@@ -152,7 +152,11 @@ class Episode extends Component {
     // const seconds = episode.duration - minutes * 60;
     return (
       <React.Fragment>
-        <div className={classNames(classes.podcastGrid, classes.appContainer)}>
+        <div
+          className={classNames(classes.podcastGrid, classes.appContainer, {
+            background: 'rgba(250,250,250,0.87)'
+          })}
+        >
           <Grid
             container
             spacing={24}

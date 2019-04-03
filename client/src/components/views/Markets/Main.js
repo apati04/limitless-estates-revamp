@@ -56,7 +56,11 @@ function Main(props) {
       >
         <Grid container spacing={0} justify="space-between">
           <Grid item xs={12}>
-            <Card>
+            <Card
+              style={{
+                backgroundColor: 'rgba(250,250,250,1)'
+              }}
+            >
               <Grid
                 container
                 alignItems="flex-start"

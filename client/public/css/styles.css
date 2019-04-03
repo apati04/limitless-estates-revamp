@@ -3,7 +3,7 @@ html {
 }
 
 #parseText p {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 1.125rem;
   margin-bottom: 2rem;
   line-height: 2.125rem;
@@ -45,7 +45,7 @@ footer {
   text-align: center;
   height: 1.7em;
   opacity: 1;
-  font-family: '"Roboto Slab"';
+  font-family: 'Roboto Slab', sans-serif;
   font-size: 2.25rem;
 }
 .hr-text:before {

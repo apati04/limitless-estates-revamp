@@ -4,11 +4,11 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import { Formik } from 'formik';
 import Icon from '@material-ui/core/Icon';
 import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import Grid from '@material-ui/core/Grid';
+import Step from '@material-ui/core/Step';
+import Stepper from '@material-ui/core/Stepper';
+import StepLabel from '@material-ui/core/StepLabel';
 const styles = theme => ({
-  root: {
-    flexGrow: 1
-  },
   button: {
     width: '100%',
     margin: '1em',
@@ -24,6 +24,69 @@ const styles = theme => ({
   },
   rightIcon: {
     marginLeft: theme.spacing.unit * 2
+  },
+  root: {
+    flexGrow: 1,
+    backgroundColor: theme.palette.primary['A100'],
+    overflow: 'hidden',
+
+    marginTop: 10,
+    padding: 20,
+    paddingBottom: 200
+  },
+  grid: {
+    margin: `0 ${theme.spacing.unit * 2}px`
+  },
+  smallContainer: {
+    width: '60%'
+  },
+  bigContainer: {
+    width: '80%'
+  },
+  stepContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center'
+  },
+  stepGrid: {
+    width: '80%'
+  },
+  backButton: {
+    marginRight: theme.spacing.unit
+  },
+  outlinedButtom: {
+    textTransform: 'uppercase',
+    margin: theme.spacing.unit
+  },
+  stepper: {
+    backgroundColor: 'transparent'
+  },
+  paper: {
+    padding: theme.spacing.unit * 3,
+    textAlign: 'left',
+    color: theme.palette.text.secondary
+  },
+  topInfo: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 42
+  },
+  formControl: {
+    width: '100%'
+  },
+  selectEmpty: {
+    marginTop: theme.spacing.unit * 2
+  },
+  borderColumn: {
+    borderBottom: `1px solid ${theme.palette.grey['100']}`,
+    paddingBottom: 24,
+    marginBottom: 24
+  },
+  flexBar: {
+    marginTop: 32,
+    display: 'flex',
+    justifyContent: 'center'
   }
 });
 
@@ -70,63 +133,103 @@ class Wizard extends Component {
   };
 
   render() {
+    const steps = ['page 1', 'page 2', 'page 3'];
     const { children, classes } = this.props;
     const { page, values } = this.state;
     const activePage = React.Children.toArray(children)[page];
     const isLastPage = page === React.Children.count(children) - 1;
     return (
-      <React.Fragment>
-        <CssBaseline />
-        <Formik
-          initialValues={values}
-          enableReinitialize={false}
-          validate={this.validate}
-          onSubmit={this.handleSubmit}
-          render={({ values, handleSubmit, isSubmitting, handleReset }) => (
-            <form
-              onSubmit={handleSubmit}
-              style={{ display: 'flex', flexWrap: 'wrap' }}
-            >
-              {activePage}
-              <div
-                style={{
-                  marginLeft: 'auto',
-                  marginTop: '0.75rem',
-                  marginBottom: '0.75rem',
-                  padding: '0.75rem'
-                }}
-              >
-                {page > 0 && (
-                  <Button
-                    variant="contained"
-                    type="button"
-                    color="primary"
-                    onClick={this.previous}
+      <div className={classes.root}>
+        <Grid container justify="center">
+          <Grid
+            spacing={24}
+            alignItems="center"
+            justify="center"
+            container
+            className={classes.grid}
+          >
+            <Grid item xs={12}>
+              <div className={classes.stepContainer}>
+                <div className={classes.bigContainer}>
+                  <Stepper
+                    classes={{ root: classes.stepper }}
+                    activeStep={page}
+                    alternativeLabel
                   >
-                    « Previous
-                  </Button>
-                )}
+                    {steps.map(label => {
+                      return (
+                        <Step key={label}>
+                          <StepLabel>{label}</StepLabel>
+                        </Step>
+                      );
+                    })}
+                  </Stepper>
+                </div>
+                <Formik
+                  initialValues={values}
+                  enableReinitialize={false}
+                  validate={this.validate}
+                  onSubmit={this.handleSubmit}
+                  render={({
+                    values,
+                    handleSubmit,
+                    isSubmitting,
+                    handleReset
+                  }) => (
+                    <form
+                      onSubmit={handleSubmit}
+                      style={{ display: 'flex', flexWrap: 'wrap' }}
+                    >
+                      {activePage}
+                      <div
+                        style={{
+                          marginLeft: 'auto',
+                          marginTop: '0.75rem',
+                          marginBottom: '0.75rem',
+                          padding: '0.75rem'
+                        }}
+                      >
+                        {page > 0 && (
+                          <Button
+                            variant="contained"
+                            type="button"
+                            color="primary"
+                            onClick={this.previous}
+                          >
+                            « Previous
+                          </Button>
+                        )}
 
-                {!isLastPage && (
-                  <Button variant="contained" color="primary" type="submit">
-                    Next Page{' '}
-                    <Icon className={classes.rightIcon}>arrow_forward</Icon>
-                  </Button>
-                )}
-                {isLastPage && (
-                  <Button
-                    type="submit"
-                    variant="contained"
-                    disabled={isSubmitting}
-                  >
-                    Submit
-                  </Button>
-                )}
+                        {!isLastPage && (
+                          <Button
+                            variant="contained"
+                            color="primary"
+                            type="submit"
+                          >
+                            Next Page{' '}
+                            <Icon className={classes.rightIcon}>
+                              arrow_forward
+                            </Icon>
+                          </Button>
+                        )}
+                        {isLastPage && (
+                          <Button
+                            type="submit"
+                            variant="contained"
+                            disabled={isSubmitting}
+                          >
+                            Submit
+                          </Button>
+                        )}
+                      </div>
+                    </form>
+                  )}
+                />
               </div>
-            </form>
-          )}
-        />
-      </React.Fragment>
+            </Grid>
+          </Grid>
+        </Grid>
+      </div>
     );
   }
 }
