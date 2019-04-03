@@ -2,7 +2,9 @@ import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 const styles = theme => ({
   heroUnit: {
-    position: 'relative'
+    position: 'relative',
+    height: '80vh',
+    maxHeight: '1000px'
   },
   heroContent: {
     margin: '0 auto',
@@ -24,7 +26,7 @@ function HeroUnit(props) {
 }
 export default withStyles(styles)(HeroUnit);
 /**
- *         
+ *
  * @heroButtons
  * <div className={classes.heroButtons}>
           <Grid container spacing={16} justify="center">

@@ -6,6 +6,7 @@ import blue from '@material-ui/core/colors/blue';
 import cardStyles from '../components/views/About/modules/landingPageSections/cardStyles';
 import landingStyles from '../components/views/About/modules/landingPage';
 import teamStyles from '../components/views/About/modules/landingPageSections/teamStyles';
+import indigo from '@material-ui/core/colors/indigo';
 import wavesWhite from '../components/waves-white.svg';
 import productStyles from '../components/views/About/modules/landingPageSections/productStyles';
 import * as matStyles from '../components/views/About/modules/mkr';
@@ -32,14 +33,14 @@ const rawTheme = createMuiTheme({
   },
   palette: {
     primary: {
-      light: '#35afea',
-      main: blue[600],
-      dark: '#026ca0'
+      light: indigo[400],
+      main: blue[900],
+      dark: indigo['A400']
     },
     secondary: {
-      light: '#68b36b',
+      light: green[400],
       main: green[600],
-      dark: '#2e7031'
+      dark: green['A700']
     },
     warning: {
       main: '#ffc071',

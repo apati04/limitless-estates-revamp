@@ -9,7 +9,7 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Divider from '@material-ui/core/Divider';
 import ReactPlayer from 'react-player';
-
+import red from '@material-ui/core/colors/red';
 const styles = theme => ({
   overlayEffect: {
     position: 'absolute',
@@ -32,9 +32,9 @@ const styles = theme => ({
     marginBottom: '8px'
   },
   divider: {
-    background: 'red',
+    background: red['A700'],
     height: '4px',
-    margin: '24px 0',
+    margin: '2rem auto',
     width: '20%'
   }
 });
@@ -59,24 +59,24 @@ class Hero extends Component {
             <Grid
               container
               spacing={24}
-              justify="space-between"
-              alignItems="flex-start"
+              justify="center"
+              alignItems="stretch"
               className={classNames(classes.appContainer + ' main-content')}
               wrap="wrap"
             >
-              <Grid item sm={12} lg={5}>
+              <Grid item sm={12}>
                 <Typography
-                  align="left"
-                  variant="h2"
+                  align="center"
+                  variant="h1"
                   paragraph
                   className={classes.heroTitle}
                 >
-                  ! Limitless Estates!
+                  Start your journey to financial freedom
                 </Typography>
 
                 <Divider className={classes.divider} />
                 <Typography
-                  align="left"
+                  align="center"
                   paragraph
                   component="h1"
                   variant="h5"
@@ -88,7 +88,7 @@ class Hero extends Component {
                   the same.
                 </Typography>
                 <Typography
-                  align="left"
+                  align="center"
                   paragraph
                   component="h1"
                   variant="h5"
@@ -111,7 +111,9 @@ class Hero extends Component {
                 </Typography>
                 <div style={{ textAlign: 'left', marginTop: 'auto' }}>
                   <Button
-                    component={props => <Link {...props} to="/questionnaire" />}
+                    component={props => (
+                      <Link {...props} to="/investor/questionnaire" />
+                    )}
                     variant="contained"
                     color="primary"
                     size="large"
@@ -122,7 +124,7 @@ class Hero extends Component {
                 </div>
               </Grid>
 
-              <Grid item sm={12} lg={7}>
+              <Grid item sm={12}>
                 <ReactPlayer url="https://apax714.wistia.com/medias/pueh6irs0z" />
                 {/* <Limitless
                   wistiaSrc="https://fast.wistia.com/embed/medias/pueh6irs0z/swatch"

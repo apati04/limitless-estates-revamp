@@ -88,7 +88,8 @@ class Podcast extends Component {
   state = {
     episodes: null,
     checked: true,
-    fetching: null
+    fetching: null,
+    intro: null
   };
 
   loadSocialBar = () => {
@@ -123,7 +124,7 @@ class Podcast extends Component {
   componentDidMount() {
     axios.get('/podcasts/podcast').then(result => {
       const [intro, ...rest] = result.data.data;
-      this.setState({ episodes: rest, fetching: false });
+      this.setState({ intro, episodes: rest, fetching: false });
     });
   }
 
