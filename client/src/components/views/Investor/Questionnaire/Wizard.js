@@ -4,6 +4,7 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import { Formik } from 'formik';
 import Icon from '@material-ui/core/Icon';
 import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
 const styles = theme => ({
   root: {
     flexGrow: 1
@@ -74,55 +75,58 @@ class Wizard extends Component {
     const activePage = React.Children.toArray(children)[page];
     const isLastPage = page === React.Children.count(children) - 1;
     return (
-      <Formik
-        initialValues={values}
-        enableReinitialize={false}
-        validate={this.validate}
-        onSubmit={this.handleSubmit}
-        render={({ values, handleSubmit, isSubmitting, handleReset }) => (
-          <form
-            onSubmit={handleSubmit}
-            style={{ display: 'flex', flexWrap: 'wrap' }}
-          >
-            {activePage}
-            <div
-              style={{
-                marginLeft: 'auto',
-                marginTop: '0.75rem',
-                marginBottom: '0.75rem',
-                padding: '0.75rem'
-              }}
+      <React.Fragment>
+        <CssBaseline />
+        <Formik
+          initialValues={values}
+          enableReinitialize={false}
+          validate={this.validate}
+          onSubmit={this.handleSubmit}
+          render={({ values, handleSubmit, isSubmitting, handleReset }) => (
+            <form
+              onSubmit={handleSubmit}
+              style={{ display: 'flex', flexWrap: 'wrap' }}
             >
-              {page > 0 && (
-                <Button
-                  variant="contained"
-                  type="button"
-                  color="primary"
-                  onClick={this.previous}
-                >
-                  « Previous
-                </Button>
-              )}
+              {activePage}
+              <div
+                style={{
+                  marginLeft: 'auto',
+                  marginTop: '0.75rem',
+                  marginBottom: '0.75rem',
+                  padding: '0.75rem'
+                }}
+              >
+                {page > 0 && (
+                  <Button
+                    variant="contained"
+                    type="button"
+                    color="primary"
+                    onClick={this.previous}
+                  >
+                    « Previous
+                  </Button>
+                )}
 
-              {!isLastPage && (
-                <Button variant="contained" color="primary" type="submit">
-                  Next Page{' '}
-                  <Icon className={classes.rightIcon}>arrow_forward</Icon>
-                </Button>
-              )}
-              {isLastPage && (
-                <Button
-                  type="submit"
-                  variant="contained"
-                  disabled={isSubmitting}
-                >
-                  Submit
-                </Button>
-              )}
-            </div>
-          </form>
-        )}
-      />
+                {!isLastPage && (
+                  <Button variant="contained" color="primary" type="submit">
+                    Next Page{' '}
+                    <Icon className={classes.rightIcon}>arrow_forward</Icon>
+                  </Button>
+                )}
+                {isLastPage && (
+                  <Button
+                    type="submit"
+                    variant="contained"
+                    disabled={isSubmitting}
+                  >
+                    Submit
+                  </Button>
+                )}
+              </div>
+            </form>
+          )}
+        />
+      </React.Fragment>
     );
   }
 }

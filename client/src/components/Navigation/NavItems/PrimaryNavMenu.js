@@ -31,7 +31,7 @@ const dropdownItems = {
   Resources: (
     <DropdownItem
       key={'resourceskey'}
-      title="resources"
+      title="Discover"
       listItems={[
         {
           title: 'Why Invest In Multifamily',

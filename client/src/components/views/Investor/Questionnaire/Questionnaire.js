@@ -18,7 +18,7 @@ import { Typography } from '@material-ui/core';
 const required = value => (value ? undefined : 'Required');
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 const styles = theme => ({
-  formControl: {},
+  formControl: { width: '100%' },
   customFormLabel: { color: 'rgba(0,0,0,0.54)' },
   error: { color: 'red' },
   radioStyle: {
@@ -33,7 +33,7 @@ const fLabel = {
   Q15:
     'Have you invested as a limited partner (LP) on a syndication deal in the past?',
   Q16: 'In a short paragraph please provide us with your investing experience.',
-  Q17: 'What are your investment objectives?'
+  Q17: 'What are your current investment objectives?'
 };
 const Questionnaire = props => {
   const { classes } = props;
@@ -72,13 +72,13 @@ const Questionnaire = props => {
         }}
       >
         <Wizard.Page>
-          <Grid container justify="center" alignItems="center" spacing={24}>
+          <Grid container justify="center" alignItems="center" spacing={32}>
             <Grid item xs={12}>
               <Field
                 fullWidth
                 name="Q1_fullname"
                 id="Q1_fullname"
-                variant="filled"
+                variant="standard"
                 component={TextField}
                 type="text"
                 margin="dense"
@@ -97,7 +97,7 @@ const Questionnaire = props => {
                 type="email"
                 className={classes.formControl}
                 label="Your Email"
-                variant="filled"
+                variant="standard"
                 margin="dense"
                 validate={required}
               />
@@ -106,7 +106,7 @@ const Questionnaire = props => {
             <Grid item xs={12}>
               <Field
                 fullWidth
-                variant="filled"
+                variant="standard"
                 name="Q3_phoneNumber"
                 id="Q3_phoneNumber"
                 component={TextField}
@@ -143,7 +143,7 @@ const Questionnaire = props => {
                     }
                     margin="dense"
                     label="Phone"
-                    variant="filled"
+                    variant="standard"
                   />
                   <FormControlLabel
                     control={
@@ -183,7 +183,7 @@ const Questionnaire = props => {
                 type="text"
                 validate={required}
                 multiline
-                variant="filled"
+                variant="standard"
                 label="Why are you interested in investing in Real Estate?"
               />
             </Grid>
@@ -196,7 +196,7 @@ const Questionnaire = props => {
                 component={TextField}
                 className={classes.formControl}
                 type="text"
-                variant="filled"
+                variant="standard"
                 label="What are your return expectations?"
                 validate={required}
               />
@@ -207,7 +207,7 @@ const Questionnaire = props => {
                 fullWidth
                 validate={required}
                 type="text"
-                variant="filled"
+                variant="standard"
                 name="Q8_TimeHorizonToInvest"
                 id="Q8_TimeHorizonToInvest"
                 label="What time horizon (3-10 years) would be most desirable for a
@@ -218,37 +218,7 @@ const Questionnaire = props => {
           </Grid>
         </Wizard.Page>
         <Wizard.Page>
-          <Grid
-            container
-            spacing={32}
-            alignItems="flex-start"
-            justify="space-between"
-          >
-            <Grid item xs={12}>
-              <Field
-                name="Q9_LiquidityNeeds"
-                id="Q9_LiquidityNeeds"
-                fullWidth
-                component={TextField}
-                type="text"
-                variant="outlined"
-                label="What liquidity needs do you have from the funds you may passively invest?"
-                validate={required}
-                required
-                multiline
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <Field
-                name="Q10_MinimumDollarAmount"
-                fullWidth
-                id="Q10_MinimumDollarAmount"
-                component={TextField}
-                type="text"
-                label="What is the minimum dollar amount you are willing to invest?"
-                validate={required}
-              />
-            </Grid>
+          <Grid container spacing={32} alignItems="center" justify="center">
             <Grid item xs={12}>
               <div>
                 <FormLabel className={classNames(classes.formControl)}>
@@ -263,7 +233,7 @@ const Questionnaire = props => {
                     classes.formControl
                   )}
                   validate={required}
-                  variant="filled"
+                  variant="standard"
                   name="Q6_InvestInValueAddProjects"
                   id="Q6_InvestInValueAddProjects"
                   row
@@ -288,10 +258,9 @@ const Questionnaire = props => {
                 Are you an accredited investor?
               </FormLabel>
               <FormHelperText>
-                (earned income that exceeded $200,000 (or $300,000 if married
-                filing jointly) for the past 2 years and will do so in this
-                current year OR have a net worth of $1M excluding your primary
-                residence)
+                {
+                  '(earned income that exceeded $200,000 (or $300,000 if married filing jointly) for the past 2 years and will do so in this current year OR have a net worth of $1M excluding your primary residence)'
+                }
               </FormHelperText>
 
               <Field
@@ -369,7 +338,35 @@ const Questionnaire = props => {
                 </Field>
               </div>
             </Grid>
-
+            <Grid item xs={12}>
+              <Field
+                name="Q9_LiquidityNeeds"
+                id="Q9_LiquidityNeeds"
+                fullWidth
+                component={TextField}
+                type="text"
+                variant="outlined"
+                label="What liquidity needs do you have from the funds you may passively invest?"
+                validate={required}
+                required
+                multiline
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <Field
+                name="Q10_MinimumDollarAmount"
+                fullWidth
+                id="Q10_MinimumDollarAmount"
+                component={TextField}
+                type="text"
+                label="What is the minimum dollar amount you are willing to invest?"
+                validate={required}
+              />
+            </Grid>
+          </Grid>
+        </Wizard.Page>
+        <Wizard.Page>
+          <Grid container spacing={32} alignItems="center" justify="center">
             <Grid item xs={12}>
               <Field
                 name="Q14_BasedOutsideofUS"
@@ -424,54 +421,13 @@ const Questionnaire = props => {
                 component={TextField}
                 type="text"
                 className={classes.formControl}
-                variant="filled"
+                variant="standard"
                 label="Anything else"
                 validate={required}
               />
             </Grid>
           </Grid>
         </Wizard.Page>
-        {/* <Wizard.Page
-            validate={values => {
-              const errors = {};
-              if (!values.email) {
-                errors.email = 'Required';
-              }
-              if (!values.favoriteColor) {
-                errors.favoriteColor = 'Required';
-              }
-              return errors;
-            }}
-          >
-            <div>
-              <label>Email</label>
-              <Field
-                name="email"
-                component="input"
-                type="email"
-                placeholder="Email"
-              />
-              <ErrorMessage
-                name="email"
-                component="div"
-                className="field-error"
-              />
-            </div>
-            <div>
-              <label>Favorite Color</label>
-              <Field name="favoriteColor" component="select">
-                <option value="">Select a Color</option>
-                <option value="#ff0000">❤️ Red</option>
-                <option value="#00ff00">💚 Green</option>
-                <option value="#0000ff">💙 Blue</option>
-              </Field>
-              <ErrorMessage
-                name="favoriteColor"
-                component="div"
-                className="field-error"
-              />
-            </div>
-          </Wizard.Page> */}
       </Wizard>
     </React.Fragment>
   );

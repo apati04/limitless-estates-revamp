@@ -156,7 +156,7 @@ class MobileTopNavbar extends Component {
           button
           onClick={this.handleListClick('resources')}
         >
-          <ListItemText primary="Resources" />
+          <ListItemText primary="Discover" />
           {this.state.resources ? <ExpandLess /> : <ExpandMore />}
         </ListItem>
         <Divider light />
@@ -300,7 +300,7 @@ class MobileTopNavbar extends Component {
               onClick={this.toggleDrawer('left', false)}
               onKeyDown={this.toggleDrawer('left', false)}
             >
-             
+
             </div> */}
                   {this.sidebarItems()}
                 </Drawer>

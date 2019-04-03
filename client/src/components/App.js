@@ -39,9 +39,9 @@ class App extends Component {
                   />
                   <Route path="/about" component={Views.About} />
                   <Route path="/markets/:id" component={Views.Markets} />
-
+                  <Route exact path="/investor" component={Views.Investor} />
                   <Route
-                    path="/questionnaire"
+                    path="/investor/questionnaire"
                     component={Views.Questionnaire}
                   />
                   <Route

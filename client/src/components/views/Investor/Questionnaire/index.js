@@ -22,11 +22,11 @@ const index = props => {
 
   return (
     <div className={classes.root + ' main-content'}>
-      <div style={{ height: '300px', background: '#e7e7e7' }} />
+      <div style={{ height: '100px', background: '#e7e7e7' }} />
       <div className={classNames(classes.appContainer)}>
         <Grid container justify="space-around" alignItems="center">
-          <Grid item xs={12}>
-            <Card>
+          <Grid item xs={12} md={8}>
+            <Card style={{ padding: '1.5rem' }}>
               <CardContent>
                 <Questionnaire />
               </CardContent>

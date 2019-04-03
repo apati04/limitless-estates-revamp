@@ -60,7 +60,7 @@ class SectionList extends React.Component {
   handleChange(panel) {
     return (event, expanded) => {
       this.setState({
-        expanded: expanded ? panel : false
+        expanded: expanded ? panel : undefined
       });
     };
   }
@@ -70,17 +70,16 @@ class SectionList extends React.Component {
     return itemList.map(({ title, body }, index) => {
       let panel = 'panel' + index;
       return (
-        <Card
-          key={panel}
-          square
-          expanded={expanded === panel}
-          onChange={this.handleChange(panel)}
-        >
-          <CardContent>
-            <Typography variant="h6">{title}</Typography>
+        <Card key={panel} square onChange={this.handleChange(panel)}>
+          <ExpansionPanel expanded>
+            <ExpansionPanelSummary>
+              <CardContent>
+                <Typography variant="h6">{title}</Typography>
 
-            <Typography component="div">{body}</Typography>
-          </CardContent>
+                <Typography component="div">{body}</Typography>
+              </CardContent>
+            </ExpansionPanelSummary>
+          </ExpansionPanel>
         </Card>
       );
     });

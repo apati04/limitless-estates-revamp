@@ -11,6 +11,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
+import grey from '@material-ui/core/colors/grey';
 
 import Icon from '@material-ui/core/Icon';
 const styles = theme => ({
@@ -57,12 +58,15 @@ const styles = theme => ({
   cardActions: {
     justifyContent: 'space-between',
     margin: `0 ${theme.spacing.unit}px`,
-    padding: '8px 14px'
+    padding: '8px 0px 8px 16px'
   },
   eventName: {
     lineHeight: 'normal'
   },
-  eventDate: {},
+  eventDate: {
+    backgroundColor: grey[200],
+    margin: '0.25rem'
+  },
   eventDetailText: {
     color: 'rgba(0,0,0,0.87)',
     fontWeight: '300',
@@ -88,6 +92,11 @@ class UpcomingEvents extends React.Component {
       return (
         <Grid item key={event.id} xs={12} sm={6} md={6} lg={4}>
           <Card elevation={5} className={classes.card}>
+            <CardMedia
+              className={classes.cardMedia}
+              image={event.featured_photo.photo_link}
+              title="Image title"
+            />
             <CardContent className={classes.cardContent}>
               <Grid
                 container
@@ -148,11 +157,6 @@ class UpcomingEvents extends React.Component {
                 </Grid>
               </Grid>
             </CardContent>
-            <CardMedia
-              className={classes.cardMedia}
-              image={event.featured_photo.photo_link}
-              title="Image title"
-            />
 
             <CardContent
               className={classNames(
@@ -203,7 +207,7 @@ class UpcomingEvents extends React.Component {
                   variant="caption"
                   className={classes.eventDetailText}
                 >
-                  {event.yes_rsvp_count}
+                  {event.yes_rsvp_count} Going
                 </Typography>
               </div>
               <div>
@@ -211,13 +215,15 @@ class UpcomingEvents extends React.Component {
                   component="a"
                   href={event.link}
                   size="small"
-                  color="primary"
+                  color="secondary"
+                  variant="contained"
+                  style={{ padding: '0.5rem 1.25rem' }}
                 >
-                  View
+                  Join now on Meetup.com
                 </Button>
-                <Button size="small" variant="contained" color="secondary">
+                {/* <Button size="small" variant="contained" color="secondary">
                   Join
-                </Button>
+                </Button> */}
               </div>
             </CardActions>
           </Card>

@@ -10,6 +10,7 @@ import Divider from '@material-ui/core/Divider';
 import BlogType1 from '../../Layouts/BlogType1';
 import api from '../api/why_invest';
 import grey from '@material-ui/core/colors/grey';
+import Banner from '../../../Banner/Banner';
 const styles = theme => ({
   root: {
     flexGrow: 1,
@@ -55,7 +56,7 @@ function WhyInvestComponent(props) {
       <div className={classNames('main-content', classes.appContainer)}>
         <Card elevation={0}>
           <Grid container justify="center" alignItems="center" wrap="wrap">
-            <Grid item xs={12} className={classes.cardBodyGrid}>
+            <Grid item xs={8} className={classes.cardBodyGrid}>
               <CardContent>
                 <Typography paragraph align="left" variant="h4">
                   {title}
@@ -63,6 +64,12 @@ function WhyInvestComponent(props) {
                 <Divider style={{ marginBottom: '1.875rem' }} />
                 <BlogType1 text={textBody} />
               </CardContent>
+            </Grid>
+            <Grid item xs={4} className={classes.cardBodyGrid}>
+              <Banner
+                primaryText="Are you an accredited invester? Become a partner with us and find out our latest passive investment opportunities"
+                buttonText="Schedule a Call"
+              />
             </Grid>
           </Grid>
         </Card>
