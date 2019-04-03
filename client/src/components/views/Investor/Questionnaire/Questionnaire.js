@@ -1,12 +1,17 @@
 import React from 'react';
 import { Field } from 'formik';
-import { RadioGroup, Checkbox, TextField } from 'formik-material-ui';
+import {
+  RadioGroup,
+  Checkbox,
+  TextField,
+  fieldToTextField
+} from 'formik-material-ui';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import classNames from 'classnames';
 import Radio from '@material-ui/core/Radio';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-
+import MaskedInput from 'react-text-mask';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormLabel from '@material-ui/core/FormLabel';
 import FormGroup from '@material-ui/core/FormGroup';
@@ -26,6 +31,22 @@ const styles = theme => ({
   }
 });
 
+const regex = [
+  '(',
+  /[1-9]/,
+  /\d/,
+  /\d/,
+  ')',
+  ' ',
+  /\d/,
+  /\d/,
+  /\d/,
+  '-',
+  /\d/,
+  /\d/,
+  /\d/,
+  /\d/
+];
 const fLabel = {
   Q15:
     'Have you invested as a limited partner (LP) on a syndication deal in the past?',
@@ -103,17 +124,40 @@ const Questionnaire = props => {
 
             <Grid item xs={12}>
               <Field
+                render={props => {
+                  console.log('props: ', props);
+                  return (
+                    <MaskedInput
+                      mask={regex}
+                      className="form-control"
+                      id="1"
+                      type="text"
+                      placeholderChar={'\u2000'}
+                      placeholder="(###) ###-####"
+                      showMask
+                      onChange={event => {
+                        const { value } = event.target;
+                        console.log(props.field);
+                        props.form.setFieldValue(props.field.name, value);
+                      }}
+                      {...props}
+                    />
+                  );
+                }}
+                name="Q3_phoneNumber"
+              />
+              {/* <Field
                 fullWidth
                 variant="standard"
                 name="Q3_phoneNumber"
                 id="Q3_phoneNumber"
-                component={TextField}
+                component={PhoneNumber}
                 className={classNames(classes.formControl, classes.phoneNumber)}
                 type="text"
                 margin="dense"
                 label="Phone Number"
                 validate={required}
-              />
+              /> */}
             </Grid>
             <Grid item xs={12}>
               <div className={classes.formControl}>
