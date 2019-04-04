@@ -13,7 +13,10 @@ const styles = theme => ({
   },
   appContainer: {
     ...theme.container,
-    margin: `${theme.spacing.unit * 4}px ${theme.spacing.unit}px`
+    margin: `${theme.spacing.unit * 4}px ${theme.spacing.unit}px`,
+    [theme.breakpoints.down('sm')]: {
+      padding: 0
+    }
   }
 });
 
@@ -24,15 +27,7 @@ const index = props => {
     <div className={classes.root + ' main-content'}>
       <div style={{ height: '100px', background: '#e7e7e7' }} />
       <div className={classNames(classes.appContainer)}>
-        <Grid container justify="space-around" alignItems="center">
-          <Grid item xs={12} md={8}>
-            <Card style={{ padding: '1.5rem' }}>
-              <CardContent>
-                <Questionnaire />
-              </CardContent>
-            </Card>
-          </Grid>
-        </Grid>
+        <Questionnaire />
       </div>
     </div>
   );

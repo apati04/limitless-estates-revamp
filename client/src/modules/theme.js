@@ -56,6 +56,10 @@ const rawTheme = createMuiTheme({
       dark: green[700]
     }
   },
+  ButtonMain: {
+    margin: '0.5rem',
+    width: 152
+  },
   CustomButton: {
     padding: '12px 30px',
     margin: '.3125rem 1px',

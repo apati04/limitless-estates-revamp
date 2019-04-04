@@ -2,6 +2,12 @@ const express = require('express');
 
 const router = express.Router();
 
+router.post('/investorformsubmit', (req, res) => {
+  const { values } = req.body;
+  console.log(values);
+  res.end();
+});
+
 router.post('/mailchimp/contactus', async (req, res) => {
   const { firstname, lastname, email, message } = req.body;
   const data = {

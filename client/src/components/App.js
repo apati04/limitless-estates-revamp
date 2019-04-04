@@ -13,12 +13,14 @@ class App extends Component {
       <Router>
         <Suspense fallback={<div>loading...</div>}>
           <Navigation />
-          <div style={{ paddingTop: '4em' }}>
+          <div
+            style={{ paddingTop: '4em', marginBottom: '7rem' }}
+            className="app-main"
+          >
             <NoSsr>
               <Switch>
                 <ScrollToTop>
                   <Route exact path="/" component={Views.Home} />
-
                   <Route path="/podcasts" component={Views.Podcast} />
 
                   <Route

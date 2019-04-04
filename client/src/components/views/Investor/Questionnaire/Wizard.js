@@ -11,26 +11,18 @@ import StepLabel from '@material-ui/core/StepLabel';
 import MaskedInput from 'react-text-mask';
 const styles = theme => ({
   button: {
-    width: '100%',
-    margin: '1em',
-    [theme.breakpoints.up('md')]: {
-      width: '50%'
-    },
-    paddingTop: '0.75em',
-    paddingBottom: '0.75em',
-
-    fontSize: '1.1rem',
-    display: 'flex',
-    justifyContent: 'center'
+    padding: `${theme.spacing.unit}px ${theme.spacing.unit * 3}px`
   },
   rightIcon: {
-    marginLeft: theme.spacing.unit * 2
+    marginLeft: theme.spacing.unit / 2
   },
   root: {
     flexGrow: 1,
     backgroundColor: theme.palette.primary['A100'],
     overflow: 'hidden',
-
+    [theme.breakpoints.down('sm')]: {
+      padding: 0
+    },
     marginTop: 10,
     padding: 20,
     paddingBottom: 200
@@ -140,51 +132,45 @@ class Wizard extends Component {
     const activePage = React.Children.toArray(children)[page];
     const isLastPage = page === React.Children.count(children) - 1;
     return (
-      <div className={classes.root}>
-        <Grid container justify="center">
-          <Grid
-            spacing={24}
-            alignItems="center"
-            justify="center"
-            container
-            className={classes.grid}
-          >
-            <Grid item xs={12}>
-              <div className={classes.stepContainer}>
-                <div className={classes.bigContainer}>
-                  <Stepper
-                    classes={{ root: classes.stepper }}
-                    activeStep={page}
-                    alternativeLabel
-                  >
-                    {steps.map(label => {
-                      return (
-                        <Step key={label}>
-                          <StepLabel>{label}</StepLabel>
-                        </Step>
-                      );
-                    })}
-                  </Stepper>
-                </div>
-                <Formik
-                  initialValues={values}
-                  enableReinitialize={false}
-                  validate={this.validate}
-                  onSubmit={this.handleSubmit}
-                  render={({
-                    values,
-                    handleSubmit,
-                    isSubmitting,
-                    handleReset
-                  }) => (
-                    <form
-                      onSubmit={handleSubmit}
-                      style={{ display: 'flex', flexWrap: 'wrap' }}
-                    >
+      <Formik
+        initialValues={values}
+        enableReinitialize={false}
+        validate={this.validate}
+        onSubmit={this.handleSubmit}
+        render={({ values, handleSubmit, isSubmitting, handleReset }) => (
+          <form onSubmit={handleSubmit}>
+            <div className={classes.root}>
+              <Grid container justify="center">
+                <Grid
+                  spacing={24}
+                  alignItems="center"
+                  justify="center"
+                  container
+                  className={classes.grid}
+                >
+                  <Grid item xs={12}>
+                    <div className={classes.stepContainer}>
+                      <div className={classes.bigContainer}>
+                        <Stepper
+                          classes={{ root: classes.stepper }}
+                          activeStep={page}
+                          alternativeLabel
+                        >
+                          {steps.map(label => {
+                            return (
+                              <Step key={label}>
+                                <StepLabel>{label}</StepLabel>
+                              </Step>
+                            );
+                          })}
+                        </Stepper>
+                      </div>
+
                       {activePage}
                       <div
                         style={{
                           marginLeft: 'auto',
+                          marginRight: 'auto',
                           marginTop: '0.75rem',
                           marginBottom: '0.75rem',
                           padding: '0.75rem'
@@ -192,10 +178,11 @@ class Wizard extends Component {
                       >
                         {page > 0 && (
                           <Button
-                            variant="contained"
+                            variant="text"
                             type="button"
-                            color="primary"
+                            color="default"
                             onClick={this.previous}
+                            style={{ marginRight: '1rem' }}
                           >
                             « Previous
                           </Button>
@@ -206,10 +193,11 @@ class Wizard extends Component {
                             variant="contained"
                             color="primary"
                             type="submit"
+                            className={classes.button}
                           >
-                            Next Page{' '}
+                            Next
                             <Icon className={classes.rightIcon}>
-                              arrow_forward
+                              chevron_right
                             </Icon>
                           </Button>
                         )}
@@ -217,20 +205,22 @@ class Wizard extends Component {
                           <Button
                             type="submit"
                             variant="contained"
+                            color="secondary"
+                            className={classes.button}
                             disabled={isSubmitting}
                           >
                             Submit
                           </Button>
                         )}
                       </div>
-                    </form>
-                  )}
-                />
-              </div>
-            </Grid>
-          </Grid>
-        </Grid>
-      </div>
+                    </div>
+                  </Grid>
+                </Grid>
+              </Grid>
+            </div>
+          </form>
+        )}
+      />
     );
   }
 }

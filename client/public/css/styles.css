@@ -67,7 +67,9 @@ footer {
   color: #3c4858;
   background-color: #fff;
 }
-
+#Q3_phoneNumber {
+  outline: none;
+}
 @media screen and (max-width: 80rem) {
   .main-content {
     margin: 4rem auto 0;
@@ -89,6 +91,9 @@ footer {
 @media screen and (max-width: 36.875rem) {
   .main-content {
     max-width: 36.875rem;
+  }
+  .app-main {
+    padding-top: 0;
   }
 }
 
