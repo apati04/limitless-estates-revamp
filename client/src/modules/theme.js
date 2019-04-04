@@ -34,8 +34,8 @@ const rawTheme = createMuiTheme({
   palette: {
     primary: {
       light: indigo[400],
-      main: blue[900],
-      dark: indigo['A400']
+      main: indigo[800],
+      dark: indigo[900]
     },
     secondary: {
       light: green[400],
@@ -273,7 +273,9 @@ const theme = {
     },
     subtitle1: {
       ...rawTheme.typography.subtitle1,
-      fontSize: 18
+      fontSize: 18,
+      color: 'rgba(0,0,0,0.86)',
+      letterSpacing: '0.0456rem'
     },
     body1: {
       ...rawTheme.typography.body2,

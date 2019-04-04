@@ -13,8 +13,7 @@ class App extends Component {
       <Router>
         <Suspense fallback={<div>loading...</div>}>
           <Navigation />
-
-          <div style={{ marginBottom: '7rem' }} className="app-main">
+          <div style={{ paddingTop: '4rem' }} className="app-main">
             <NoSsr>
               <Switch>
                 <ScrollToTop>

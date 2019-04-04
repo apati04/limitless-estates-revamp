@@ -31,7 +31,7 @@ const styles = theme => ({
   cardWrapper: {
     zIndex: 1
   },
-  appContainer: theme.container
+  appContainer: { ...theme.container }
 });
 class CallToAction extends Component {
   state = { open: false };

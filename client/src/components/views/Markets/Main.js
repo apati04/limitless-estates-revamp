@@ -103,5 +103,4 @@ function Main(props) {
   );
 }
 
-const LocationWithRouter = withRouter(Main);
-export default withStyles(styles)(LocationWithRouter);
+export default withRouter(withStyles(styles)(Main));

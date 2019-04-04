@@ -30,7 +30,6 @@ class SubscribeForm extends Component {
     return (
       <Formik
         initialValues={{
-          recaptcha: '',
           email: ''
         }}
         onSubmit={async values => {
@@ -100,4 +99,4 @@ SubscribeForm.propTypes = {
   subHeader: PropTypes.string.isRequired,
   buttonText: PropTypes.string.isRequired
 };
-export default withStyles(styles)(withRouter(SubscribeForm));
+export default withRouter(withStyles(styles)(SubscribeForm));

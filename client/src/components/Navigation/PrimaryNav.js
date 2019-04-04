@@ -51,11 +51,11 @@ class PrimaryNav extends Component {
     }
   }
   render() {
-    const { classes, color, absolute, fixed } = this.props;
+    const { classes, color, fixed } = this.props;
     const appBarClasses = classNames({
       [classes.appBar]: true,
       [classes[color]]: color,
-      [classes.absolute]: absolute,
+      [classes.absolute]: true,
       [classes.fixed]: fixed
     });
 
