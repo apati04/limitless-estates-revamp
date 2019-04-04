@@ -5,18 +5,16 @@ import Navigation from './Navigation';
 import * as Views from './views/views';
 import ScrollToTop from '../util/ScrollToTop';
 import withRoot from '../withRoot';
-
 import NoSsr from '@material-ui/core/NoSsr';
+
 class App extends Component {
   render() {
     return (
       <Router>
         <Suspense fallback={<div>loading...</div>}>
           <Navigation />
-          <div
-            style={{ paddingTop: '4em', marginBottom: '7rem' }}
-            className="app-main"
-          >
+
+          <div style={{ marginBottom: '7rem' }} className="app-main">
             <NoSsr>
               <Switch>
                 <ScrollToTop>

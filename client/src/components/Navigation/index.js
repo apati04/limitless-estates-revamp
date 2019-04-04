@@ -25,7 +25,7 @@ function NavMain(props) {
     <Fragment>
       <BrowserView>
         <Hidden smDown>
-          <PrimaryNav {...rest} fixed />
+          <PrimaryNav {...rest} />
         </Hidden>
         <Hidden mdUp>
           <MobileTopNav />

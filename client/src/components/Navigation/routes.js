@@ -27,7 +27,9 @@ const FaqLink = props => (
   <NavLink to="/resources/frequently-answered-questions" {...props} />
 );
 
-const QuestionnaireLink = props => <NavLink to="/questionnaire" {...props} />;
+const QuestionnaireLink = props => (
+  <NavLink to="/investor/questionnaire" {...props} />
+);
 const LongBeachLink = props => (
   <NavLink to="/events/meetups/longbeach" {...props} />
 );

@@ -49,7 +49,9 @@ function Main(props) {
 
   return (
     <section>
-      <Parallax image={headerImageUrl} lightFilter medium />
+      <div style={{ marginTop: '-1rem' }}>
+        <Parallax image={headerImageUrl} lightFilter medium />
+      </div>
       <div
         style={{ marginTop: '-8rem' }}
         className={classNames('main-content', classes.root)}

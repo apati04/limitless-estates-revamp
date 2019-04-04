@@ -19,14 +19,18 @@ const styles = theme => ({
     background: 'url(https://i.imgur.com/MwsHMrC.jpg) center center no-repeat',
     backgroundSize: 'cover',
     position: 'relative',
-
+    paddingBottom: 80,
     [theme.breakpoints.down('xs')]: {
       padding: 0
     }
   },
+  callToAction: {
+    position: 'absolute'
+  },
   appContainer: {
     ...theme.container,
-    zIndex: 200,
+    padding: 20,
+
     [theme.breakpoints.down('xs')]: {
       padding: '0 0 1em 0'
     }
@@ -78,6 +82,13 @@ const styles = theme => ({
   sideBarContainer: {
     paddingTop: '1em',
     [theme.breakpoints.up('md')]: { paddingTop: '3em', paddingBottom: '1em' }
+  },
+  cardClass: {
+    borderRadius: '0.5em',
+    [theme.breakpoints.down('xs')]: {
+      borderRadius: 0,
+      boxShadow: 'unset'
+    }
   }
 });
 
@@ -89,7 +100,7 @@ function Contact(props) {
         <div className={classes.overlayEffect} />
         <HeroUnit>
           <div className={classNames(classes.appContainer, 'main-content')}>
-            <Card style={{ borderRadius: '0.5em' }}>
+            <Card className={classes.cardClass}>
               <Grid
                 container
                 justify="center"
@@ -117,9 +128,14 @@ function Contact(props) {
           </div>
         </HeroUnit>
       </div>
-      <div className={classNames(classes.appContainer, 'main-content')}>
+      {/* <div
+        className={classNames(
+          classes.appContainer,
+          'main-content'
+        )}
+      >
         <CallToAction />
-      </div>
+      </div> */}
     </React.Fragment>
   );
 }

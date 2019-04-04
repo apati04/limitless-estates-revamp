@@ -72,6 +72,7 @@ const styles = theme => ({
   imageStyles: {
     maxWidth: '100%',
     height: 'auto',
+
     width: '10em'
   }
 });
@@ -279,8 +280,8 @@ class MobileTopNavbar extends Component {
       <div className={classes.appRoot}>
         <AppBar position="absolute">
           <Toolbar>
-            <Grid container justify="space-between" alignItems="center">
-              <Grid item xs={4}>
+            <Grid container justify="center" alignItems="center">
+              <Grid item xs container alignItems="center">
                 <IconButton
                   className={classes.icon}
                   color="inherit"
@@ -304,8 +305,6 @@ class MobileTopNavbar extends Component {
             </div> */}
                   {this.sidebarItems()}
                 </Drawer>
-              </Grid>
-              <Grid item xs={8}>
                 <Link to="/">
                   <img
                     alt="logo"

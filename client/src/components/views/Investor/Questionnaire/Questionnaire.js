@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import { Field, ErrorMessage } from 'formik';
 import { RadioGroup, Checkbox, TextField } from 'formik-material-ui';
 import Grid from '@material-ui/core/Grid';
@@ -136,19 +137,28 @@ const Questionnaire = props => {
           Q18_ExtraInformation: ''
         }}
         onSubmit={(values, actions) => {
+          let formValues = values;
+          if (values.Q14_BasedOutsideofUS === '') {
+            formValues.Q14_BasedOutsideofUS = 'N/A';
+          }
           axios
-            .post('/api/investorformsubmit', { values })
+            .post('/api/investorformsubmit', {
+              values: formValues,
+              type: 'Investor Questionnaire'
+            })
             .then(({ data }) => {
-              if (data.message === 'success') {
+              if (data.status === 'success') {
                 actions.setSubmitting(false);
                 actions.resetForm();
-                console.log(actions);
-                return;
+                props.history.push('/');
               } else {
                 throw Error('something happened');
               }
             })
-            .catch(err => console.log(err));
+            .catch(err => {
+              console.log(err);
+              props.history.push('/error');
+            });
         }}
       >
         <Wizard.Page>
@@ -605,4 +615,4 @@ const Questionnaire = props => {
   );
 };
 
-export default withStyles(styles)(Questionnaire);
+export default withRouter(withStyles(styles)(Questionnaire));

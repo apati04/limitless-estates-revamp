@@ -1,13 +1,58 @@
 const express = require('express');
-
+const axios = require('axios');
 const router = express.Router();
 
 router.post('/investorformsubmit', (req, res) => {
-  const { values } = req.body;
+  const { values, type } = req.body;
   console.log(values);
-  res.end();
-});
+  const {
+    Q4_contactByTextMessage: textMessage,
+    Q4_contactByPhone: phone,
+    Q4_contactByEmail: email,
+    ...rest
+  } = values;
+  let Q4_contact = [];
+  if (textMessage) {
+    Q4_contact.push('Text Message');
+  }
+  if (email) {
+    Q4_contact.push('Email');
+  }
+  if (phone) {
+    Q4_contact.push('Phone');
+  }
 
+  axios
+    .post('https://hooks.zapier.com/hooks/catch/4733528/74yfp7/', {
+      ...rest,
+      Q4_contact,
+      type
+    })
+    .then(({ data }) => {
+      if (data.status === 'success') {
+        return res.status(201).send({ status: data.status });
+      } else {
+        return res.status(300).send({ status: 'webhook not successful', data });
+      }
+    })
+    .catch(err => res.status(500).send({ error: err }));
+});
+router.post('/contactformsubmit', (req, res) => {
+  const { values, type } = req.body;
+  axios
+    .post('https://hooks.zapier.com/hooks/catch/4733528/74ybl2/', {
+      ...values,
+      type
+    })
+    .then(({ data }) => {
+      if (data.status === 'success') {
+        return res.status(201).send({ status: data.status });
+      } else {
+        return res.status(300).send({ status: 'webhook not successful', data });
+      }
+    })
+    .catch(err => res.status(500).send({ error: err }));
+});
 router.post('/mailchimp/contactus', async (req, res) => {
   const { firstname, lastname, email, message } = req.body;
   const data = {

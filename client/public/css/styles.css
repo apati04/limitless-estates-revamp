@@ -15,14 +15,14 @@ html {
       } */
 #root {
   min-height: 100vh;
-  overflow: hidden;
+  height: 100%;
+  overflow: -webkit-paged-x;
   display: block;
   position: relative;
   padding-bottom: 18.5625rem;
   margin-top: 0;
 }
 .main-content {
-  overflow: hidden;
   margin: 0 auto;
 }
 #mc_embed_signup {
@@ -73,7 +73,6 @@ footer {
 @media screen and (max-width: 80rem) {
   .main-content {
     margin: 4rem auto 0;
-    overflow: hidden;
   }
 }
 @media screen and (min-width: 118.8125rem) {

@@ -8,7 +8,7 @@ import Icon from '@material-ui/core/Icon';
 import blue from '@material-ui/core/colors/blue';
 import * as Yup from 'yup';
 import Typography from '@material-ui/core/Typography';
-// import axios from 'axios';
+import axios from 'axios';
 import { withRouter } from 'react-router-dom';
 import { TextField } from 'formik-material-ui';
 import { withStyles } from '@material-ui/core/styles';
@@ -70,12 +70,21 @@ class ContactForm extends Component {
         validateOnChange={false}
         validateOnBlur={false}
         onSubmit={async (values, { resetForm, setSubmitting }) => {
-          console.log('values: ', values);
-          resetForm();
-          setSubmitting(false);
-          // const onReq = await axios.post('/dev/contactreq', {
-          //   token: values.recaptcha
-          // });
+          const onReq = await axios.post('/api/contactformsubmit', {
+            values,
+            type: 'Contact Form'
+          });
+          if (onReq.data.status === 'success') {
+            setSubmitting(false);
+            resetForm();
+            this.props.history.push('/');
+          } else {
+            console.log('error', onReq);
+            setSubmitting(false);
+            resetForm();
+            this.props.history.push('/error');
+          }
+
           // if (onReq.data.response.success) {
           //   return this.props.history.push('/info/contact');
           // }
@@ -179,4 +188,4 @@ class ContactForm extends Component {
   }
 }
 
-export default withStyles(styles)(withRouter(ContactForm));
+export default withRouter(withStyles(styles)(ContactForm));
