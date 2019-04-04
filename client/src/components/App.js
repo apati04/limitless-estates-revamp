@@ -6,7 +6,7 @@ import * as Views from './views/views';
 import ScrollToTop from '../util/ScrollToTop';
 import withRoot from '../withRoot';
 import NoSsr from '@material-ui/core/NoSsr';
-
+import Thankyou from './views/FormPages/Thankyou';
 class App extends Component {
   render() {
     return (
@@ -18,7 +18,8 @@ class App extends Component {
             <NoSsr>
               <Switch>
                 <ScrollToTop>
-                  <Route exact path="/" component={Views.Home} />
+                  <Route exact path="/" component={Thankyou} />
+                  {/* <Route exact path="/" component={Views.Home} /> */}
                   <Route path="/podcasts" component={Views.Podcast} />
 
                   <Route

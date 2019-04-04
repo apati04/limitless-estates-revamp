@@ -55,7 +55,7 @@ class CallToAction extends Component {
           <Grid item xs={12} md={6} className={classes.imagesWrapper}>
             <Hidden smDown>
               <img
-                src="/images/investors-pdf.jpg"
+                src="https://i.imgur.com/IXYzVeW.jpg"
                 className={classes.image}
                 alt="investors-guide-cover"
               />
