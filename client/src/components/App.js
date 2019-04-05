@@ -7,6 +7,7 @@ import ScrollToTop from '../util/ScrollToTop';
 import withRoot from '../withRoot';
 import NoSsr from '@material-ui/core/NoSsr';
 import Thankyou from './views/FormPages/Thankyou';
+import Footer from './Navigation/Footer/Footer';
 class App extends Component {
   render() {
     return (
@@ -56,11 +57,17 @@ class App extends Component {
                       );
                     }}
                   />
+                  <Route
+                    path="/disclaimer"
+                    exact
+                    component={Views.Disclaimer}
+                  />
                   <Route exact path="/contact-us" component={Views.Contact} />
                 </ScrollToTop>
               </Switch>
             </NoSsr>
           </div>
+          <Footer />
         </Suspense>
       </Router>
     );

@@ -283,8 +283,7 @@ const theme = {
     subtitle1: {
       ...rawTheme.typography.subtitle1,
       fontSize: 18,
-      color: 'rgba(0,0,0,0.86)',
-      letterSpacing: '0.0456rem'
+      color: 'rgba(0,0,0,0.87)'
     },
     body1: {
       ...rawTheme.typography.body2,

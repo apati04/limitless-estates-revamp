@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import withStyles from '@material-ui/core/styles/withStyles';
@@ -35,18 +37,18 @@ const styles = theme => ({
     background: '#0077B5'
   },
   layout: {
-    ...theme.container
-    // width: 'auto',
-    // marginLeft: theme.spacing.unit * 3,
-    // marginRight: theme.spacing.unit * 3,
-    // [theme.breakpoints.up(900 + theme.spacing.unit * 3 * 2)]: {
-    //   width: '100%',
-    //   marginLeft: 'auto',
-    //   marginRight: 'auto'
-    // }
+    ...theme.container,
+    marginLeft: theme.spacing.unit * 3,
+    marginRight: theme.spacing.unit * 3,
+    [theme.breakpoints.up(900 + theme.spacing.unit * 3 * 2)]: {
+      width: '100%',
+      marginLeft: 'auto',
+      marginRight: 'auto'
+    }
   },
   avatar: {
-    margin: 10
+    margin: 10,
+    padding: 20
   },
   footer: {
     borderTop: `0.0625rem solid ${theme.palette.divider}`,
@@ -72,7 +74,13 @@ class Footer extends React.Component {
       <footer
         className={classNames(classes.layout, classes.footer) + ' sub-footer'}
       >
-        <Grid container spacing={0} justify="space-evenly" wrap="wrap">
+        <Grid
+          container
+          spacing={0}
+          alignItems="flex-start"
+          justify="space-evenly"
+          wrap="wrap"
+        >
           {footers.map((footer, index) => (
             <Grid
               item
@@ -84,6 +92,8 @@ class Footer extends React.Component {
                   <img
                     src={footer.src}
                     alt="footer logo"
+                    style={{ marginTop: '-0.5rem' }}
+                    height="64px"
                     title="limitless estates footer logo"
                   />
                 </div>
@@ -93,13 +103,15 @@ class Footer extends React.Component {
                 </Typography>
               )}
               {footer.description.map(item => (
-                <Typography
-                  key={item}
-                  variant="subtitle1"
-                  color="textSecondary"
+                <Link
+                  key={item.id}
+                  to={item.link}
+                  style={{ textDecoration: 'none' }}
                 >
-                  {item}
-                </Typography>
+                  <Typography variant="subtitle1" color="textSecondary">
+                    {item.id}
+                  </Typography>
+                </Link>
               ))}
             </Grid>
           ))}
@@ -124,7 +136,7 @@ class Footer extends React.Component {
                 <Fab
                   variant="extended"
                   size="medium"
-                  style={{ background: '#00e676' }}
+                  style={{ background: '#00e676', boxShadow: 'unset' }}
                   aria-label="Add"
                   className={classes.margin}
                   component="a"
@@ -141,10 +153,17 @@ class Footer extends React.Component {
         <Typography
           color="textSecondary"
           align="center"
+          gutterBottom
           className={classes.credit}
         >
-          Limitless Estates
-          {': '}
+          © 2018 Copyright Limitless Estates, LLC
+        </Typography>
+      </footer>
+    );
+  }
+}
+/**
+ *    {': '}
           {'Built with '}
           <span role="img" aria-label="Love">
             ❤️
@@ -152,12 +171,7 @@ class Footer extends React.Component {
           {' by the '}
           <Button color="inherit">Aitech</Button>
           {' team.'}
-        </Typography>
-      </footer>
-    );
-  }
-}
-
+ */
 Footer.propTypes = {
   classes: PropTypes.object.isRequired
 };

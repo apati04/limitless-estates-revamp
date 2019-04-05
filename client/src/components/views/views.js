@@ -11,7 +11,9 @@ import Kyle from './About/Profile/Kyle';
 import Lalita from './About/Profile/Lalita';
 import Markets from './Markets/Markets';
 import Investor from './Investor/Investor';
+import Disclaimer from './Legal/Disclaimer';
 export {
+  Disclaimer,
   About,
   Contact,
   Events,
