@@ -5,15 +5,34 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import footers from './footerFields';
 import CallIcon from '@material-ui/icons/Call';
+import Avatar from '@material-ui/core/Avatar';
 import Fab from '@material-ui/core/Fab';
+import Tooltip from '@material-ui/core/Tooltip';
+
+import footers from './footerFields';
+import socialMedia from './socialFields';
 const styles = theme => ({
   credit: {
     marginTop: theme.spacing.unit * 4
   },
   root: {
     flexGrow: 1
+  },
+  youtube: {
+    background: '#ff0000',
+    color: '#fff',
+    textDecoration: 'none'
+  },
+  facebook: {
+    textDecoration: 'none',
+    color: '#fff',
+    background: '#3b5998'
+  },
+  linkedIn: {
+    textDecoration: 'none',
+    color: '#fff',
+    background: '#0077B5'
   },
   layout: {
     ...theme.container
@@ -25,6 +44,9 @@ const styles = theme => ({
     //   marginLeft: 'auto',
     //   marginRight: 'auto'
     // }
+  },
+  avatar: {
+    margin: 10
   },
   footer: {
     borderTop: `0.0625rem solid ${theme.palette.divider}`,
@@ -81,16 +103,37 @@ class Footer extends React.Component {
               ))}
             </Grid>
           ))}
+
           <Grid item className={classes.footerItem}>
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+              {socialMedia.map(({ title, href, icon, label }, index) => (
+                <Tooltip key={label} title={title}>
+                  <Avatar
+                    component="a"
+                    href={href}
+                    aria-label={label}
+                    className={classNames(classes.avatar, classes[`${label}`])}
+                  >
+                    <i className={icon} />
+                  </Avatar>
+                </Tooltip>
+              ))}
+            </div>
             <div>
-              <Fab
-                component="a"
-                href="https://ehypauluugknktzawdwva-free.10to8.com/"
-                style={{ whiteSpace: 'nowrap', fontSize: '14px' }}
-              >
-                <CallIcon className={classes.margin} />
-                Schedule a Call
-              </Fab>
+              <Tooltip title="Schedule a call on 10 to 8">
+                <Fab
+                  variant="extended"
+                  size="medium"
+                  style={{ background: '#00e676' }}
+                  aria-label="Add"
+                  className={classes.margin}
+                  component="a"
+                  href="https://ehypauluugknktzawdwva-free.10to8.com/"
+                >
+                  <CallIcon className={classes.extendedIcon} />
+                  Schedule a Call
+                </Fab>
+              </Tooltip>
             </div>
           </Grid>
         </Grid>

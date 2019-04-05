@@ -38,9 +38,9 @@ const rawTheme = createMuiTheme({
       dark: '#212c6f'
     },
     secondary: {
-      light: '#f73378',
-      main: pink['A400'],
-      dark: '#ab003c'
+      light: '#33d375',
+      main: '#00c853',
+      dark: '#008c3a'
     },
     warning: {
       main: '#ffc071',

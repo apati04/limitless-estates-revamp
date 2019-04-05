@@ -25,8 +25,11 @@ export default [
   {
     title: 'Legal',
     description: ['Privacy policy', 'Terms of use']
-  },
-  {
+  }
+];
+
+/**
+ *   {
     title: 'Company Information',
     description: [
       'About Us',
@@ -37,4 +40,4 @@ export default [
       'Contact Us'
     ]
   }
-];
+ */
