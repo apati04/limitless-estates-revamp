@@ -99,6 +99,12 @@ const rawTheme = createMuiTheme({
     MuiButton: {
       extendedFab: {
         margin: 8
+      },
+      text: {
+        fontWeight: 500
+      },
+      contained: {
+        fontWeight: 500
       }
     },
     MuiAppBar: {

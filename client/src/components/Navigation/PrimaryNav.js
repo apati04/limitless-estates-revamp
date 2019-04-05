@@ -63,7 +63,8 @@ class PrimaryNav extends Component {
       <AppBar
         style={{
           borderRadius: 0,
-          paddingTop: '8px'
+          padding: 0,
+          margin: 0
         }}
         className={appBarClasses}
       >

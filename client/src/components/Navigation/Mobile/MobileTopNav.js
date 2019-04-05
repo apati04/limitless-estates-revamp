@@ -157,7 +157,7 @@ class MobileTopNavbar extends Component {
           button
           onClick={this.handleListClick('resources')}
         >
-          <ListItemText primary="Discover" />
+          <ListItemText primary="Resources" />
           {this.state.resources ? <ExpandLess /> : <ExpandMore />}
         </ListItem>
         <Divider light />

@@ -31,7 +31,7 @@ const dropdownItems = {
   Resources: (
     <DropdownItem
       key={'resourceskey'}
-      title="Discover"
+      title="Resources"
       listItems={[
         {
           title: 'Why Invest In Multifamily',
@@ -88,13 +88,22 @@ const refactorUrl = {
 
 const styles = theme => ({
   imageStyles: {
-    height: '4rem',
+    height: '3rem',
     paddingBottom: '6px',
     width: 'auto',
     display: 'block'
   },
   container: {
     ...theme.container
+  },
+  root: {
+    fontSize: '0.875rem',
+    letterSpacing: '.39998px',
+    lineHeight: '24.5px',
+    fontWeight: '500',
+    paddingLeft: '1rem',
+    paddingRight: '0.875rem',
+    textAlign: 'center'
   }
 });
 const PrimaryNavMenu = props => {

@@ -15,6 +15,14 @@ import ArrowDropDown from '@material-ui/icons/ArrowDropDown';
 const styles = theme => ({
   paper: {
     marginRight: theme.spacing.unit * 2
+  },
+  button: {
+    fontSize: '0.875rem',
+    letterSpacing: '.39998px',
+    lineHeight: '24.5px',
+    fontWeight: '500',
+    paddingLeft: '1rem',
+    textAlign: 'center'
   }
 });
 
@@ -64,6 +72,8 @@ class MenuListComposition extends React.Component {
         <Button
           size="small"
           color="inherit"
+          disableRipple
+          disableFocusRipple
           buttonRef={node => {
             this.anchorEl = node;
           }}

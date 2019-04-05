@@ -25,8 +25,12 @@ const styles = theme => ({
   },
   margin: {
     margin: theme.spacing.unit,
-    fontSize: '1rem',
-    padding: `${theme.spacing.unit}px ${theme.spacing.unit * 4}px`
+    fontSize: '0.875rem',
+    letterSpacing: '.39998px',
+    lineHeight: '24.5px',
+    fontWeight: '500',
+    paddingLeft: '1.875rem',
+    paddingRight: '1.875rem'
   },
   appContainer: { ...theme.container },
   heroTitle: {

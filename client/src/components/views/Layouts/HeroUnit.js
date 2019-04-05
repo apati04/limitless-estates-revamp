@@ -3,7 +3,6 @@ import { withStyles } from '@material-ui/core/styles';
 const styles = theme => ({
   heroUnit: {
     position: 'relative',
-    height: '80vh',
     maxHeight: '1000px'
   },
   heroContent: {
@@ -25,21 +24,3 @@ function HeroUnit(props) {
   );
 }
 export default withStyles(styles)(HeroUnit);
-/**
- *
- * @heroButtons
- * <div className={classes.heroButtons}>
-          <Grid container spacing={16} justify="center">
-            <Grid item>
-              <Button variant="contained" color="primary">
-                Main call to action
-              </Button>
-            </Grid>
-            <Grid item>
-              <Button variant="outlined" color="primary">
-                Secondary action
-              </Button>
-            </Grid>
-          </Grid>
-        </div>
- */
