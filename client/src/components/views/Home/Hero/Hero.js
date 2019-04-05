@@ -9,18 +9,29 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Divider from '@material-ui/core/Divider';
 import ReactPlayer from 'react-player';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import Limitless from './wistia';
 import red from '@material-ui/core/colors/red';
 const styles = theme => ({
   overlayEffect: {
     position: 'absolute',
-    backgroundColor: 'rgba(0, 0, 0, 0.56)',
     top: 0,
     left: 0,
     width: '100%',
-    height: '100%'
+    height: '100%',
+    background: '#7d7e7d',
+    background: '-moz-linear-gradient(top, #7d7e7d 0%, #0e0e0e 100%)',
+    background: '-webkit-linear-gradient(top, #7d7e7d 0%,#0e0e0e 100%)',
+    background:
+      'linear-gradient(to bottom, rgba(0,0,0,0.43) 0%, rgba(0,0,0,0.87) 100%)'
   },
   heroText: {
-    color: 'white',
+    color: 'rgba(255,255,255,0.97)',
+    fontSize: '1.5rem',
     fontWeight: 300
   },
   margin: {
@@ -34,14 +45,21 @@ const styles = theme => ({
   },
   appContainer: { ...theme.container },
   heroTitle: {
-    color: 'white',
-    marginBottom: '8px'
+    color: 'rgba(255,255,255,0.97)'
   },
   divider: {
     background: red['A700'],
-    height: '4px',
-    margin: '2rem auto',
+    height: '3px',
+    margin: '2rem auto 2rem 0',
     width: '20%'
+  },
+  card: {
+    maxWidth: 345,
+    paddingRight: 0,
+    marginLeft: 'auto'
+  },
+  media: {
+    objectFit: 'cover'
   }
 });
 /**
@@ -56,10 +74,9 @@ class Hero extends Component {
         <div
           style={{
             padding: '0',
-            // backgroundImage:
-            //   'linear-gradient( 135deg, #6B73FF 10%, #000DFF 100%)',
-            background:
-              'url(https://i.imgur.com/oxwtIbj.jpg) center center no-repeat',
+            background: 'cyan',
+            // background:
+            //   'url(https://i.imgur.com/oxwtIbj.jpg) center bottom no-repeat',
             backgroundSize: 'cover',
             position: 'relative'
           }}
@@ -68,27 +85,85 @@ class Hero extends Component {
           <HeroUnit>
             <Grid
               container
-              spacing={24}
-              justify="center"
+              spacing={40}
+              justify="space-between"
               alignItems="stretch"
               className={classNames(classes.appContainer + ' main-content')}
               wrap="wrap"
             >
-              <Grid item sm={12}>
+              <Grid item xs={12} sm={8}>
                 <Typography
-                  align="center"
-                  variant="h1"
-                  paragraph
+                  align="left"
+                  variant="h3"
+                  component="h1"
                   className={classes.heroTitle}
                 >
-                  Start your journey to financial freedom
+                  Welcome to Limitless Estates
                 </Typography>
+              </Grid>
+              <Grid item xs={12} sm={8}>
+                <div style={{ width: '100%' }}>
+                  <Limitless
+                    wistiaSrc="https://fast.wistia.com/embed/medias/pueh6irs0z/swatch"
+                    wistiaClass="wistia_embed wistia_async_pueh6irs0z videoFoam=true"
+                  />
+                </div>
+              </Grid>
+              <Grid item xs={12} sm={4}>
+                <Card className={classes.card}>
+                  <CardMedia
+                    component="img"
+                    alt="Investors Guide"
+                    className={classes.media}
+                    src="https://i.imgur.com/IXYzVeW.jpg"
+                    title="Investors Guide"
+                  />
+                  <CardContent>
+                    <Typography
+                      align="center"
+                      gutterBottom
+                      variant="h5"
+                      component="h2"
+                    >
+                      Passive Investors Guide
+                    </Typography>
+                    <Typography align="center" variant="body1" component="p">
+                      Sign up for our newsletter and receive the PDF of our
+                      Passive Investors Guide.
+                    </Typography>
+                  </CardContent>
 
-                <Divider className={classes.divider} />
+                  <CardActions>
+                    <Button
+                      fullWidth
+                      size="large"
+                      color="primary"
+                      style={{
+                        textTransform: 'capitalize',
+                        marginTop: '1.25rem'
+                      }}
+                    >
+                      Get your free PDF download
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+
+              <Grid item xs={12} sm={8}>
                 <Typography
-                  align="center"
-                  paragraph
+                  align="left"
+                  gutterBottom
+                  variant="h4"
                   component="h1"
+                  style={{ textTransform: 'capitalize', fontFamily: 'Roboto' }}
+                  className={classes.heroTitle}
+                >
+                  What are we all about?
+                </Typography>
+                <Typography
+                  align="left"
+                  paragraph
+                  component="h2"
                   variant="h5"
                   className={classes.heroText}
                 >
@@ -98,9 +173,9 @@ class Hero extends Component {
                   the same.
                 </Typography>
                 <Typography
-                  align="center"
+                  align="left"
                   paragraph
-                  component="h1"
+                  component="h2"
                   variant="h5"
                   className={classes.heroText}
                 >
@@ -119,27 +194,18 @@ class Hero extends Component {
                   </NavLink>{' '}
                   while achieving double digit returns for our investors.
                 </Typography>
-                <div style={{ textAlign: 'left', marginTop: 'auto' }}>
-                  <Button
-                    component={props => (
-                      <Link {...props} to="/investor/questionnaire" />
-                    )}
-                    variant="contained"
-                    color="primary"
-                    size="large"
-                    className={classes.margin}
-                  >
+                <Typography
+                  align="left"
+                  paragraph
+                  component="h2"
+                  variant="h5"
+                  className={classes.heroText}
+                >
+                  Are you interested in investing with us? Fill out our{' '}
+                  <Link to="/investor/questionnaire">
                     Investor Questionnaire
-                  </Button>
-                </div>
-              </Grid>
-
-              <Grid item sm={12}>
-                <ReactPlayer url="https://apax714.wistia.com/medias/pueh6irs0z" />
-                {/* <Limitless
-                  wistiaSrc="https://fast.wistia.com/embed/medias/pueh6irs0z/swatch"
-                  wistiaClass="wistia_embed wistia_async_pueh6irs0z videoFoam=true"
-                /> */}
+                  </Link>
+                </Typography>
               </Grid>
             </Grid>
           </HeroUnit>

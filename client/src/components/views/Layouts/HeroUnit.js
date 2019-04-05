@@ -7,7 +7,7 @@ const styles = theme => ({
   },
   heroContent: {
     margin: '0 auto',
-    padding: `${theme.spacing.unit * 8}px ${theme.spacing.unit * 6}px`,
+    padding: `${theme.spacing.unit * 4}px ${theme.spacing.unit * 6}px`,
     [theme.breakpoints.down('sm')]: {
       padding: `${theme.spacing.unit * 8}px 0`
     }
