@@ -207,7 +207,6 @@ const Questionnaire = props => {
                   <div className={classes.formControl}>
                     <Field
                       render={props => {
-                        console.log('props: ', props);
                         return (
                           <div>
                             <Typography
@@ -368,269 +367,302 @@ const Questionnaire = props => {
         </Wizard.Page>
 
         <Wizard.Page>
-          <Grid container spacing={32} alignItems="center" justify="center">
-            <Grid item xs={12} style={{ paddingBottom: 0 }}>
-              <div className={classes.formControl}>
-                <FormLabel component="legend">
-                  Do you want to invest in multifamily, value-add projects?
-                </FormLabel>
+          <Grid
+            container
+            spacing={32}
+            alignItems="center"
+            justify="center"
+            className={classes.pageGrid}
+          >
+            <Grid item xs={12} className={classes.pageGrid}>
+              <Card className={classes.card}>
+                <CardContent className={classes.cardContent}>
+                  <Grid item xs={12} style={{ paddingBottom: 0 }}>
+                    <div className={classes.formControl}>
+                      <FormLabel component="legend">
+                        Do you want to invest in multifamily, value-add
+                        projects?
+                      </FormLabel>
 
-                <Field
-                  component={RadioGroup}
-                  validate={required}
-                  name="Q6_InvestInValueAddProjects"
-                  id="Q6_InvestInValueAddProjects"
-                  row
-                >
-                  <FormControlLabel
-                    value="no"
-                    control={<Radio color="primary" />}
-                    label="No"
-                    labelPlacement="end"
-                  />
-                  <FormControlLabel
-                    value="yes"
-                    control={<Radio color="primary" />}
-                    label="Yes"
-                    labelPlacement="end"
-                  />
-                </Field>
-                <div>
-                  <ErrorMessage
-                    name="Q6_InvestInValueAddProjects"
-                    component="p"
-                    className={classes.errorMessage}
-                  />
-                </div>
-              </div>
-            </Grid>
-            <Grid item xs={12} style={{ paddingTop: 0, paddingBottom: 0 }}>
-              <div className={classes.formControl}>
-                <FormLabel component="legend">
-                  Are you an accredited investor?
-                </FormLabel>
-                <FormHelperText>
-                  {
-                    'earned income that exceeded $200,000 (or $300,000 if married filing jointly) for the past 2 years and will do so in this current year OR have a net worth of $1M excluding your primary residence'
-                  }
-                </FormHelperText>
-                <Field
-                  component={RadioGroup}
-                  id="Q11_isAccredited"
-                  validate={required}
-                  name="Q11_isAccredited"
-                  row
-                >
-                  <FormControlLabel
-                    value="no"
-                    control={<Radio color="primary" />}
-                    label="No"
-                    labelPlacement="end"
-                  />
-                  <FormControlLabel
-                    value="yes"
-                    control={<Radio color="primary" />}
-                    label="Yes"
-                    labelPlacement="end"
-                  />
-                </Field>
-                <ErrorMessage
-                  name="Q11_isAccredited"
-                  component="p"
-                  className={classes.errorMessage}
-                />
-              </div>
-            </Grid>
-            <Grid item xs={12}>
-              <div className={classes.formControl}>
-                <FormLabel component="legend">
-                  Can you show proof of funds?
-                </FormLabel>
-                <Field
-                  component={RadioGroup}
-                  id="Q12_canVerifyFunds"
-                  name="Q12_canVerifyFunds"
-                  validate={required}
-                  row
-                >
-                  <FormControlLabel
-                    value="no"
-                    control={<Radio color="primary" />}
-                    label="No"
-                  />
-                  <FormControlLabel
-                    value="yes"
-                    control={<Radio color="primary" />}
-                    label="Yes"
-                  />
-                </Field>
+                      <Field
+                        component={RadioGroup}
+                        validate={required}
+                        name="Q6_InvestInValueAddProjects"
+                        id="Q6_InvestInValueAddProjects"
+                        row
+                      >
+                        <FormControlLabel
+                          value="no"
+                          control={<Radio color="primary" />}
+                          label="No"
+                          labelPlacement="end"
+                        />
+                        <FormControlLabel
+                          value="yes"
+                          control={<Radio color="primary" />}
+                          label="Yes"
+                          labelPlacement="end"
+                        />
+                      </Field>
+                      <div>
+                        <ErrorMessage
+                          name="Q6_InvestInValueAddProjects"
+                          component="p"
+                          className={classes.errorMessage}
+                        />
+                      </div>
+                    </div>
+                  </Grid>
+                  <Grid
+                    item
+                    xs={12}
+                    style={{ paddingTop: 0, paddingBottom: 0 }}
+                  >
+                    <div className={classes.formControl}>
+                      <FormLabel component="legend">
+                        Are you an accredited investor?
+                      </FormLabel>
+                      <FormHelperText>
+                        {
+                          'earned income that exceeded $200,000 (or $300,000 if married filing jointly) for the past 2 years and will do so in this current year OR have a net worth of $1M excluding your primary residence'
+                        }
+                      </FormHelperText>
+                      <Field
+                        component={RadioGroup}
+                        id="Q11_isAccredited"
+                        validate={required}
+                        name="Q11_isAccredited"
+                        row
+                      >
+                        <FormControlLabel
+                          value="no"
+                          control={<Radio color="primary" />}
+                          label="No"
+                          labelPlacement="end"
+                        />
+                        <FormControlLabel
+                          value="yes"
+                          control={<Radio color="primary" />}
+                          label="Yes"
+                          labelPlacement="end"
+                        />
+                      </Field>
+                      <ErrorMessage
+                        name="Q11_isAccredited"
+                        component="p"
+                        className={classes.errorMessage}
+                      />
+                    </div>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <div className={classes.formControl}>
+                      <FormLabel component="legend">
+                        Can you show proof of funds?
+                      </FormLabel>
+                      <Field
+                        component={RadioGroup}
+                        id="Q12_canVerifyFunds"
+                        name="Q12_canVerifyFunds"
+                        validate={required}
+                        row
+                      >
+                        <FormControlLabel
+                          value="no"
+                          control={<Radio color="primary" />}
+                          label="No"
+                        />
+                        <FormControlLabel
+                          value="yes"
+                          control={<Radio color="primary" />}
+                          label="Yes"
+                        />
+                      </Field>
 
-                <ErrorMessage
-                  name="Q12_canVerifyFunds"
-                  component="p"
-                  className={classes.errorMessage}
-                />
-              </div>
-            </Grid>
-            <Grid item xs={12} style={{ paddingTop: 0, paddingBottom: 0 }}>
-              <div className={classes.formControl}>
-                <FormLabel component="legend">
-                  How would you rate your risk tolerance?
-                </FormLabel>
-                <Field
-                  component={RadioGroup}
-                  id="Q13_riskToleranceLevel"
-                  name="Q13_riskToleranceLevel"
-                  validate={required}
-                  row
-                >
-                  <FormControlLabel
-                    value="low"
-                    control={<Radio color="primary" />}
-                    label="Low"
-                  />
-                  <FormControlLabel
-                    value="medium"
-                    control={<Radio color="primary" />}
-                    label="Medium"
-                  />
-                  <FormControlLabel
-                    value="high"
-                    control={<Radio color="primary" />}
-                    label="High"
-                  />
-                </Field>
-                <ErrorMessage
-                  name="Q13_riskToleranceLevel"
-                  component="p"
-                  className={classes.errorMessage}
-                />
-              </div>
-            </Grid>
-            <Grid item xs={12}>
-              <Field
-                name="Q9_LiquidityNeeds"
-                id="Q9_LiquidityNeeds"
-                fullWidth
-                InputLabelProps={{
-                  shrink: false
-                }}
-                margin="normal"
-                className={classes.formControl}
-                component={TextField}
-                type="text"
-                label="What liquidity needs do you have from the funds you may passively invest?"
-                validate={required}
-                multiline
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <Field
-                name="Q10_MinimumDollarAmount"
-                fullWidth
-                id="Q10_MinimumDollarAmount"
-                component={TextField}
-                type="text"
-                label="What is the minimum dollar amount you are willing to invest?"
-                InputLabelProps={{
-                  shrink: false
-                }}
-                margin="normal"
-                className={classes.formControl}
-                validate={required}
-              />
+                      <ErrorMessage
+                        name="Q12_canVerifyFunds"
+                        component="p"
+                        className={classes.errorMessage}
+                      />
+                    </div>
+                  </Grid>
+                  <Grid
+                    item
+                    xs={12}
+                    style={{ paddingTop: 0, paddingBottom: 0 }}
+                  >
+                    <div className={classes.formControl}>
+                      <FormLabel component="legend">
+                        How would you rate your risk tolerance?
+                      </FormLabel>
+                      <Field
+                        component={RadioGroup}
+                        id="Q13_riskToleranceLevel"
+                        name="Q13_riskToleranceLevel"
+                        validate={required}
+                        row
+                      >
+                        <FormControlLabel
+                          value="low"
+                          control={<Radio color="primary" />}
+                          label="Low"
+                        />
+                        <FormControlLabel
+                          value="medium"
+                          control={<Radio color="primary" />}
+                          label="Medium"
+                        />
+                        <FormControlLabel
+                          value="high"
+                          control={<Radio color="primary" />}
+                          label="High"
+                        />
+                      </Field>
+                      <ErrorMessage
+                        name="Q13_riskToleranceLevel"
+                        component="p"
+                        className={classes.errorMessage}
+                      />
+                    </div>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Field
+                      name="Q9_LiquidityNeeds"
+                      id="Q9_LiquidityNeeds"
+                      fullWidth
+                      InputLabelProps={{
+                        shrink: false
+                      }}
+                      margin="normal"
+                      className={classes.formControl}
+                      component={TextField}
+                      type="text"
+                      label="What liquidity needs do you have from the funds you may passively invest?"
+                      validate={required}
+                      multiline
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Field
+                      name="Q10_MinimumDollarAmount"
+                      fullWidth
+                      id="Q10_MinimumDollarAmount"
+                      component={TextField}
+                      type="text"
+                      label="What is the minimum dollar amount you are willing to invest?"
+                      InputLabelProps={{
+                        shrink: false
+                      }}
+                      margin="normal"
+                      className={classes.formControl}
+                      validate={required}
+                    />
+                  </Grid>
+                </CardContent>
+              </Card>
             </Grid>
           </Grid>
         </Wizard.Page>
         <Wizard.Page>
-          <Grid container spacing={32} alignItems="center" justify="center">
-            <Grid item xs={12}>
-              <Field
-                name="Q14_BasedOutsideofUS"
-                fullWidth
-                id="Q14_BasedOutsideofUS"
-                component={TextField}
-                InputLabelProps={{
-                  shrink: false
-                }}
-                type="text"
-                margin="normal"
-                label="If you are based outside of the U.S, have you invested in the US
+          <Grid
+            container
+            spacing={32}
+            alignItems="center"
+            justify="center"
+            className={classes.pageGrid}
+          >
+            <Grid item xs={12} className={classes.pageGrid}>
+              <Card className={classes.card}>
+                <CardContent className={classes.cardContent}>
+                  <Grid item xs={12}>
+                    <Field
+                      name="Q14_BasedOutsideofUS"
+                      fullWidth
+                      id="Q14_BasedOutsideofUS"
+                      component={TextField}
+                      InputLabelProps={{
+                        shrink: false
+                      }}
+                      type="text"
+                      margin="normal"
+                      label="If you are based outside of the U.S, have you invested in the US
                 real estate market in the past?"
-                helperText="Please skip to next question if not applicable"
-                className={classNames(
-                  classes.extraPadding,
-                  classes.formControl
-                )}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <Field
-                name="Q15_isLimitedPartner"
-                id="Q15_isLimitedPartner"
-                fullWidth
-                multiline
-                component={TextField}
-                type="text"
-                label={fLabel.Q15}
-                validate={required}
-                InputLabelProps={{
-                  shrink: false
-                }}
-                margin="normal"
-                className={classNames(
-                  classes.extraPadding,
-                  classes.formControl
-                )}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <Field
-                name="Q16_InvestingExperience"
-                id="Q16_InvestingExperience"
-                fullWidth
-                component={TextField}
-                type="text"
-                label={fLabel.Q16}
-                validate={required}
-                InputLabelProps={{
-                  shrink: false
-                }}
-                multiline
-                className={classNames(classes.formControl)}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <Field
-                name="Q17_InvestmentObjectives"
-                id="Q17_InvestmentObjectives"
-                fullWidth
-                component={TextField}
-                type="text"
-                label={fLabel.Q17}
-                validate={required}
-                InputLabelProps={{
-                  shrink: false
-                }}
-                multiline
-                margin="normal"
-                className={classNames(classes.formControl)}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <Field
-                name="Q18_ExtraInformation"
-                id="Q18_ExtraInformation"
-                fullWidth
-                component={TextField}
-                type="text"
-                className={classNames(classes.formControl)}
-                label="Is there anything else you would like to add?"
-                multiline
-                InputLabelProps={{
-                  shrink: false
-                }}
-              />
+                      helperText="Please skip to next question if not applicable"
+                      className={classNames(
+                        classes.extraPadding,
+                        classes.formControl
+                      )}
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Field
+                      name="Q15_isLimitedPartner"
+                      id="Q15_isLimitedPartner"
+                      fullWidth
+                      multiline
+                      component={TextField}
+                      type="text"
+                      label={fLabel.Q15}
+                      validate={required}
+                      InputLabelProps={{
+                        shrink: false
+                      }}
+                      margin="normal"
+                      className={classNames(
+                        classes.extraPadding,
+                        classes.formControl
+                      )}
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Field
+                      name="Q16_InvestingExperience"
+                      id="Q16_InvestingExperience"
+                      fullWidth
+                      component={TextField}
+                      type="text"
+                      label={fLabel.Q16}
+                      validate={required}
+                      InputLabelProps={{
+                        shrink: false
+                      }}
+                      multiline
+                      className={classNames(classes.formControl)}
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Field
+                      name="Q17_InvestmentObjectives"
+                      id="Q17_InvestmentObjectives"
+                      fullWidth
+                      component={TextField}
+                      type="text"
+                      label={fLabel.Q17}
+                      validate={required}
+                      InputLabelProps={{
+                        shrink: false
+                      }}
+                      multiline
+                      margin="normal"
+                      className={classNames(classes.formControl)}
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Field
+                      name="Q18_ExtraInformation"
+                      id="Q18_ExtraInformation"
+                      fullWidth
+                      component={TextField}
+                      type="text"
+                      className={classNames(classes.formControl)}
+                      label="Is there anything else you would like to add?"
+                      multiline
+                      InputLabelProps={{
+                        shrink: false
+                      }}
+                    />
+                  </Grid>
+                </CardContent>
+              </Card>
             </Grid>
           </Grid>
         </Wizard.Page>
