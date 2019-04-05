@@ -5,7 +5,9 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-
+import footers from './footerFields';
+import CallIcon from '@material-ui/icons/Call';
+import Fab from '@material-ui/core/Fab';
 const styles = theme => ({
   credit: {
     marginTop: theme.spacing.unit * 4
@@ -32,37 +34,15 @@ const styles = theme => ({
   hideFooter: {
     position: 'absolute',
     top: -100
+  },
+  margin: {
+    margin: theme.spacing.unit
+  },
+  extendedIcon: {
+    marginRight: theme.spacing.unit
   }
 });
-const footers = [
-  {
-    title: 'Company',
-    description: ['Team', 'History', 'Contact us', 'Locations']
-  },
-  {
-    title: 'Features',
-    description: [
-      'Cool stuff',
-      'Random feature',
-      'Team feature',
-      'Developer stuff',
-      'Another one'
-    ]
-  },
-  {
-    title: 'Resources',
-    description: [
-      'Resource',
-      'Resource name',
-      'Another resource',
-      'Final resource'
-    ]
-  },
-  {
-    title: 'Legal',
-    description: ['Privacy policy', 'Terms of use']
-  }
-];
+
 class Footer extends React.Component {
   render() {
     const { classes } = this.props;
@@ -71,11 +51,25 @@ class Footer extends React.Component {
         className={classNames(classes.layout, classes.footer) + ' sub-footer'}
       >
         <Grid container spacing={0} justify="space-evenly" wrap="wrap">
-          {footers.map(footer => (
-            <Grid item key={footer.title} className={classes.footerItem}>
-              <Typography variant="h6" color="textPrimary" gutterBottom>
-                {footer.title}
-              </Typography>
+          {footers.map((footer, index) => (
+            <Grid
+              item
+              key={footer.title || index}
+              className={classes.footerItem}
+            >
+              {footer.src ? (
+                <div style={{ padding: '0 .5rem' }}>
+                  <img
+                    src={footer.src}
+                    alt="footer logo"
+                    title="limitless estates footer logo"
+                  />
+                </div>
+              ) : (
+                <Typography variant="h6" color="textPrimary" gutterBottom>
+                  {footer.title}
+                </Typography>
+              )}
               {footer.description.map(item => (
                 <Typography
                   key={item}
@@ -87,6 +81,18 @@ class Footer extends React.Component {
               ))}
             </Grid>
           ))}
+          <Grid item className={classes.footerItem}>
+            <div>
+              <Fab
+                component="a"
+                href="https://ehypauluugknktzawdwva-free.10to8.com/"
+                style={{ whiteSpace: 'nowrap', fontSize: '14px' }}
+              >
+                <CallIcon className={classes.margin} />
+                Schedule a Call
+              </Fab>
+            </div>
+          </Grid>
         </Grid>
 
         <Typography
