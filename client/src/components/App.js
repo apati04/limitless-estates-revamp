@@ -17,8 +17,8 @@ class App extends Component {
             <NoSsr>
               <Switch>
                 <ScrollToTop>
-                  <Route exact path="/" component={Thankyou} />
-                  {/* <Route exact path="/" component={Views.Home} /> */}
+                  {/* <Route exact path="/" component={Thankyou} /> */}
+                  <Route exact path="/" component={Views.Home} />
                   <Route path="/podcasts" component={Views.Podcast} />
 
                   <Route

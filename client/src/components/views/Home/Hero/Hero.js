@@ -40,7 +40,9 @@ const styles = theme => ({
     width: '20%'
   }
 });
-
+/**
+ *
+ */
 class Hero extends Component {
   render() {
     const { classes } = this.props;
@@ -50,6 +52,8 @@ class Hero extends Component {
         <div
           style={{
             padding: '0',
+            // backgroundImage:
+            //   'linear-gradient( 135deg, #6B73FF 10%, #000DFF 100%)',
             background:
               'url(https://i.imgur.com/oxwtIbj.jpg) center center no-repeat',
             backgroundSize: 'cover',

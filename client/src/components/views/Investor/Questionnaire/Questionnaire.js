@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { Field, ErrorMessage } from 'formik';
 import { RadioGroup, Checkbox, TextField } from 'formik-material-ui';
 import Grid from '@material-ui/core/Grid';
-
+import InputAdornment from '@material-ui/core/InputAdornment';
 import classNames from 'classnames';
 import Radio from '@material-ui/core/Radio';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -339,6 +339,7 @@ const Questionnaire = props => {
                     className={classes.formControl}
                     type="text"
                     variant="standard"
+                    multiline
                     label="What are your return expectations?"
                     validate={required}
                     margin="normal"
@@ -358,6 +359,7 @@ const Questionnaire = props => {
                     label="What time horizon (3-10 years) would be most desirable for a passive investment?"
                     className={classes.formControl}
                     margin="normal"
+                    multiline
                   />
                 </CardContent>
               </Card>
@@ -393,6 +395,13 @@ const Questionnaire = props => {
                     labelPlacement="end"
                   />
                 </Field>
+                <div>
+                  <ErrorMessage
+                    name="Q6_InvestInValueAddProjects"
+                    component="p"
+                    className={classes.errorMessage}
+                  />
+                </div>
               </div>
             </Grid>
             <Grid item xs={12} style={{ paddingTop: 0, paddingBottom: 0 }}>
@@ -405,7 +414,6 @@ const Questionnaire = props => {
                     'earned income that exceeded $200,000 (or $300,000 if married filing jointly) for the past 2 years and will do so in this current year OR have a net worth of $1M excluding your primary residence'
                   }
                 </FormHelperText>
-
                 <Field
                   component={RadioGroup}
                   id="Q11_isAccredited"
@@ -426,6 +434,11 @@ const Questionnaire = props => {
                     labelPlacement="end"
                   />
                 </Field>
+                <ErrorMessage
+                  name="Q11_isAccredited"
+                  component="p"
+                  className={classes.errorMessage}
+                />
               </div>
             </Grid>
             <Grid item xs={12}>
@@ -451,6 +464,12 @@ const Questionnaire = props => {
                     label="Yes"
                   />
                 </Field>
+
+                <ErrorMessage
+                  name="Q12_canVerifyFunds"
+                  component="p"
+                  className={classes.errorMessage}
+                />
               </div>
             </Grid>
             <Grid item xs={12} style={{ paddingTop: 0, paddingBottom: 0 }}>
@@ -481,6 +500,11 @@ const Questionnaire = props => {
                     label="High"
                   />
                 </Field>
+                <ErrorMessage
+                  name="Q13_riskToleranceLevel"
+                  component="p"
+                  className={classes.errorMessage}
+                />
               </div>
             </Grid>
             <Grid item xs={12}>
@@ -497,7 +521,6 @@ const Questionnaire = props => {
                 type="text"
                 label="What liquidity needs do you have from the funds you may passively invest?"
                 validate={required}
-                required
                 multiline
               />
             </Grid>
@@ -509,6 +532,7 @@ const Questionnaire = props => {
                 component={TextField}
                 type="text"
                 label="What is the minimum dollar amount you are willing to invest?"
+                placeholder="$"
                 InputLabelProps={{
                   shrink: false
                 }}

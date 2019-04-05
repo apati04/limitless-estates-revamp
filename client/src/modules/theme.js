@@ -2,11 +2,11 @@ import { createMuiTheme } from '@material-ui/core/styles';
 import green from '@material-ui/core/colors/green';
 import grey from '@material-ui/core/colors/grey';
 import red from '@material-ui/core/colors/red';
-import blue from '@material-ui/core/colors/blue';
+import pink from '@material-ui/core/colors/pink';
 import cardStyles from '../components/views/About/modules/landingPageSections/cardStyles';
 import landingStyles from '../components/views/About/modules/landingPage';
 import teamStyles from '../components/views/About/modules/landingPageSections/teamStyles';
-import indigo from '@material-ui/core/colors/indigo';
+import blue from '@material-ui/core/colors/blue';
 import wavesWhite from '../components/waves-white.svg';
 import productStyles from '../components/views/About/modules/landingPageSections/productStyles';
 import * as matStyles from '../components/views/About/modules/mkr';
@@ -33,14 +33,14 @@ const rawTheme = createMuiTheme({
   },
   palette: {
     primary: {
-      light: indigo[400],
-      main: indigo[800],
-      dark: indigo[900]
+      light: '#5965b2',
+      main: '#303f9f',
+      dark: '#212c6f'
     },
     secondary: {
-      light: green[400],
-      main: green[600],
-      dark: green['A700']
+      light: '#f73378',
+      main: pink['A400'],
+      dark: '#ab003c'
     },
     warning: {
       main: '#ffc071',
@@ -55,6 +55,9 @@ const rawTheme = createMuiTheme({
       xLight: green[50],
       dark: green[700]
     }
+  },
+  gradient: {
+    backgroundImage: 'linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%)'
   },
   ButtonMain: {
     margin: '0.5rem',

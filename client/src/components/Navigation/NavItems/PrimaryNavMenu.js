@@ -88,10 +88,10 @@ const refactorUrl = {
 
 const styles = theme => ({
   imageStyles: {
-    height: 'auto',
-    marginBottom: '6px',
-    width: '10em',
-    display: 'inline-block'
+    height: '4rem',
+    paddingBottom: '6px',
+    width: 'auto',
+    display: 'block'
   },
   container: {
     ...theme.container
@@ -123,20 +123,20 @@ const PrimaryNavMenu = props => {
     <div style={{ width: '100%' }} className={classes.container}>
       <Grid
         container
-        spacing={40}
+        spacing={0}
         justify="space-between"
         wrap="nowrap"
         alignItems="center"
       >
-        <Grid item xs={4}>
+        <Grid item xs>
           <img
             alt="logo"
-            src="https://i.imgur.com/IlUnKOe.png"
+            src="https://i.imgur.com/wwmjzeX.png"
             className={classes.imageStyles}
           />
         </Grid>
-        <Grid item xs>
-          <Grid container justify="flex-end">
+        <Grid item xs={8}>
+          <Grid container justify="flex-end" wrap="nowrap">
             {renderNavItems()}
           </Grid>
         </Grid>

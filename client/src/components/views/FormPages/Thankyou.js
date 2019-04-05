@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import withStyles from '@material-ui/core/styles/withStyles';
+import withTheme from '@material-ui/core/styles/withTheme';
+import { Link } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Card';
@@ -15,21 +17,23 @@ const styles = theme => ({
     ...theme.container
   },
   newsLetter: {
-    margin: '1.25rem',
+    margin: '1.25rem 0',
     backgroundColor: lightBlue[200],
     padding: '2rem',
     borderRadius: 0
   },
   root: {
     flexGrow: 1,
-    backgroundImage: 'linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%)',
+    ...theme.gradient,
     backgroundSize: 'cover',
     padding: `${theme.spacing.unit * 10}px 0 ${theme.spacing.unit * 40}px 0`
   },
   header: {
-    fontSize: '2.25rem',
-    fontWeight: 'bold',
-    lineHeight: '1.1'
+    [theme.breakpoints.up('sm')]: {
+      fontSize: '2.25rem',
+      fontWeight: 'bold',
+      lineHeight: '1.1'
+    }
   },
   paper: {
     ...theme.mixins.gutters(),
@@ -38,9 +42,10 @@ const styles = theme => ({
   },
   gridContainer: {
     ...theme.CustomGridContainer,
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up('md')]: {
       padding: '4rem'
-    }
+    },
+    padding: 0
   },
   imageStyles: {
     width: '100%'
@@ -60,26 +65,43 @@ const styles = theme => ({
   button: {
     borderRadius: 0,
     width: '100%',
-    marginLeft: '0.5rem',
+    [theme.breakpoints.up('md')]: {
+      marginLeft: '0.5rem'
+    },
     marginTop: '0.25rem',
     backgroundColor: 'rgba(40,40,42,1)',
     padding: `${theme.spacing.unit * 1.5}px ${theme.spacing.unit * 3}px`
+  },
+  mobile: {
+    color: 'red'
   }
 });
 
 class Thankyou extends Component {
-  state = { width: '' };
-  componentDidMount() {
-    this.setState({ width: window.innerWidth });
+  constructor() {
+    super();
+    this.state = {
+      width: window.innerWidth
+    };
+    this.updateDimensions = this.updateDimensions.bind(this);
   }
+  componentDidMount() {
+    window.addEventListener('resize', this.updateDimensions);
+  }
+  updateDimensions() {
+    this.setState({
+      height: window.innerHeight,
+      width: window.innerWidth
+    });
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateDimensions.bind(this));
+  }
+
   render() {
-    const { classes } = this.props;
-    const { width } = this.state;
-    console.log(this.state.width);
-    let elevation = 0;
-    if (width < 960) {
-      elevation = 1;
-    }
+    const { classes, theme } = this.props;
+
+    console.log(theme.breakpoints.up('sm'));
     return (
       <div className={classes.root}>
         <div className={classNames(classes.appContainer, 'main-content')}>
@@ -87,38 +109,41 @@ class Thankyou extends Component {
             container
             justify="center"
             alignItems="center"
-            spacing={32}
             className={classes.gridContainer}
           >
-            <Grid item xs={12} sm={8}>
-              <Typography gutterBottom variant="h5" className={classes.header}>
+            <Grid item xs={12} md={8}>
+              <Typography
+                gutterBottom
+                variant="h5"
+                className={classNames(classes.header, {
+                  [classes.mobile]: this.state.width < 960
+                })}
+              >
                 Thank You!
               </Typography>
+
               <Typography paragraph variant="body1" component="p">
                 One of our members will get get back to you soon! In the
                 meantime...
               </Typography>
-
+              <div style={{ margin: '2rem 0' }} />
               <Typography
                 variant="h5"
-                className={classes.header}
+                className={classNames(classes.header)}
                 gutterBottom
                 component="h1"
               >
                 Stay updated in multifamily news, every month
               </Typography>
-              <Typography component="p">
+              <Typography paragraph component="p">
                 Every month we send out something advice from blah blah blah.
                 Don't know where to start in multifamily real estate investing?
                 Do you have 5 minutes every week to improve your skill? Subcribe
                 below. Or connect with us on Facebook, LinkedIn, Google+
               </Typography>
-
+              <div style={{ margin: '2rem 0' }} />
               <Grid item xs={12}>
-                <Paper
-                  elevation={elevation}
-                  className={classNames(classes.newsLetter)}
-                >
+                <Paper elevation={2} className={classNames(classes.newsLetter)}>
                   <Formik
                     initialValues={{
                       email: ''
@@ -166,7 +191,7 @@ class Thankyou extends Component {
                               </strong>
                             </Typography>
                           </Grid>
-                          <Grid item xs={8}>
+                          <Grid item xs={12} md={8}>
                             <Field
                               component={TextField}
                               className={classes.textField}
@@ -179,7 +204,7 @@ class Thankyou extends Component {
                               variant="outlined"
                             />
                           </Grid>
-                          <Grid item xs={4}>
+                          <Grid item xs={12} md={4}>
                             <Button
                               variant="contained"
                               color="primary"
@@ -196,6 +221,22 @@ class Thankyou extends Component {
                   />
                 </Paper>
               </Grid>
+              <div style={{ margin: '4rem 0' }} />
+              <Grid item xs={12}>
+                <div style={{ textAlign: 'center' }}>
+                  <Button
+                    component={props => <Link {...props} to="/" />}
+                    variant="text"
+                    color="primary"
+                    style={{
+                      textDecoration: 'underline',
+                      textUnderlinePosition: 'under'
+                    }}
+                  >
+                    Back To Home
+                  </Button>
+                </div>
+              </Grid>
             </Grid>
           </Grid>
         </div>
@@ -208,4 +249,4 @@ Thankyou.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(Thankyou);
+export default withTheme()(withStyles(styles)(Thankyou));
