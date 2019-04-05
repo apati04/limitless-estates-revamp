@@ -94,12 +94,13 @@ class Wizard extends Component {
     };
   }
 
-  next = values =>
+  next = values => {
     this.setState(state => ({
       page: Math.min(state.page + 1, this.props.children.length - 1),
       values
     }));
-
+    window.scrollTo(0, 190);
+  };
   previous = () =>
     this.setState(state => ({
       page: Math.max(state.page - 1, 0)

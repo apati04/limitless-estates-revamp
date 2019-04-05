@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { Field, ErrorMessage } from 'formik';
 import { RadioGroup, Checkbox, TextField } from 'formik-material-ui';
 import Grid from '@material-ui/core/Grid';
-import InputAdornment from '@material-ui/core/InputAdornment';
+
 import classNames from 'classnames';
 import Radio from '@material-ui/core/Radio';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -532,7 +532,6 @@ const Questionnaire = props => {
                 component={TextField}
                 type="text"
                 label="What is the minimum dollar amount you are willing to invest?"
-                placeholder="$"
                 InputLabelProps={{
                   shrink: false
                 }}
@@ -570,6 +569,7 @@ const Questionnaire = props => {
                 name="Q15_isLimitedPartner"
                 id="Q15_isLimitedPartner"
                 fullWidth
+                multiline
                 component={TextField}
                 type="text"
                 label={fLabel.Q15}

@@ -26,7 +26,7 @@ const index = props => {
   return (
     <div className={classes.root + ' main-content'}>
       <div style={{ height: '100px', background: '#e7e7e7' }} />
-      <div className={classNames(classes.appContainer)}>
+      <div className={classNames(classes.appContainer)} id="start">
         <Questionnaire />
       </div>
     </div>
