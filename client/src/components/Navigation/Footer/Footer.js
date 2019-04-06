@@ -108,7 +108,7 @@ class Footer extends React.Component {
                   to={item.link}
                   style={{ textDecoration: 'none' }}
                 >
-                  <Typography variant="subtitle1" color="textSecondary">
+                  <Typography variant="caption" color="textSecondary">
                     {item.id}
                   </Typography>
                 </Link>

@@ -43,14 +43,11 @@ const Section02 = props => {
             iconSize={3 + 'rem'}
           />
         </Grid>
-        <Grid item xs={12} sm={4}>
+        <Grid item>
           <IconTemplate
             icon="fas fa-trophy"
-            title="Investment Options"
+            title="Create Win Win Win Scenarios"
             iconSize={3 + 'rem'}
-            description="Be in control of your retirement account and maximize your returns by using a Self-Directed IRA account to invest in real estate. You can get started in 4 simple steps."
-            link="/self-directed-ira"
-            linkText="Begin today!"
           />
         </Grid>
       </Grid>

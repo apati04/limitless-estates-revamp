@@ -182,7 +182,7 @@ const rawTheme = createMuiTheme({
   },
   typography: {
     useNextVariants: true,
-    fontFamily: '"Roboto", sans-serif',
+    fontFamily: '"Heebo", sans-serif',
     fontSize: 14,
     fontWeightLight: 300,
     fontWeightRegular: 400,

@@ -64,7 +64,7 @@ const styles = theme => ({
   heroMain: {
     // background: 'cyan',
     [theme.breakpoints.up('sm')]: {
-      padding: '8rem'
+      padding: '6rem 0'
     },
     background: 'url(https://i.imgur.com/oxwtIbj.jpg) center bottom no-repeat',
     backgroundSize: 'cover',
@@ -84,13 +84,13 @@ class Hero extends Component {
         <HeroUnit>
           <Grid
             container
-            justify="space-evenly"
-            spacing={32}
-            alignItems="center"
+            justify="space-between"
+            spacing={24}
+            alignItems="flex-start"
             className={classNames(classes.appContainer + ' main-content')}
             wrap="wrap"
           >
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12}>
               <Typography
                 align="left"
                 paragraph
@@ -100,6 +100,8 @@ class Hero extends Component {
               >
                 Welcome to Limitless Estates
               </Typography>
+            </Grid>
+            <Grid item xs={12} sm={6}>
               <Typography
                 align="left"
                 paragraph

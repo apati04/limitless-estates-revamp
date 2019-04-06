@@ -86,7 +86,7 @@ const Section01 = props => {
         >
           <Grid item xs={12}>
             <Typography align="center" variant="h2" paragraph>
-              Invest with your 401k / IRA
+              How to start investing
             </Typography>
 
             <Divider variant="middle" className={classes.divider} />
@@ -101,19 +101,12 @@ const Section01 = props => {
           style={{ margin: '1rem 0' }}
         >
           <Grid item xs={12} sm={6}>
-            <Typography align="left" paragraph variant="h4">
-              Self-Directed Ira
-            </Typography>
             <Typography align="left" paragraph component="p" variant="body1">
-              Did you know you can invest with your IRA in 4 easy steps? Watch
-              the video to find out more!
+              Don't know where to start? Investing with your 401k/IRA is one of
+              the many options you can use to invest in Real Estate. All it
+              takes is 4 easy to follow steps find out more!
             </Typography>
-            <Modal buttonText="Play Video" />
-            <Typography align="left" paragraph component="p" variant="body1">
-              If you find this information helpful and want to see how you can
-              get started click the link below to connect with our preferred
-              partners and setup your self-directed IRA
-            </Typography>
+
             <div className={classes.buttonDiv}>
               <Button
                 variant="contained"

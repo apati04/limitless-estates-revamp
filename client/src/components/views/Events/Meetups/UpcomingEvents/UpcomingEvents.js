@@ -91,7 +91,7 @@ class UpcomingEvents extends React.Component {
 
       return (
         <Grid item key={event.id} xs={12} sm={6} md={6} lg={4}>
-          <Card elevation={5} className={classes.card}>
+          <Card elevation={1} className={classes.card}>
             <CardMedia
               className={classes.cardMedia}
               image={event.featured_photo.photo_link}
