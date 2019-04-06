@@ -60,6 +60,15 @@ const styles = theme => ({
   },
   media: {
     objectFit: 'cover'
+  },
+  heroMain: {
+    // background: 'cyan',
+    [theme.breakpoints.up('sm')]: {
+      padding: '8rem'
+    },
+    background: 'url(https://i.imgur.com/oxwtIbj.jpg) center bottom no-repeat',
+    backgroundSize: 'cover',
+    position: 'relative'
   }
 });
 /**
@@ -70,131 +79,62 @@ class Hero extends Component {
     const { classes } = this.props;
     console.log('props: ', this.props);
     return (
-      <React.Fragment>
-        <div
-          style={{
-            padding: '0',
-            background: 'cyan',
-            // background:
-            //   'url(https://i.imgur.com/oxwtIbj.jpg) center bottom no-repeat',
-            backgroundSize: 'cover',
-            position: 'relative'
-          }}
-        >
-          <div className={classes.overlayEffect} />
-          <HeroUnit>
-            <Grid
-              container
-              spacing={40}
-              justify="space-between"
-              alignItems="stretch"
-              className={classNames(classes.appContainer + ' main-content')}
-              wrap="wrap"
-            >
-              <Grid item xs={12} sm={8}>
-                <Typography
-                  align="left"
-                  variant="h3"
-                  component="h1"
-                  className={classes.heroTitle}
-                >
-                  Welcome to Limitless Estates
-                </Typography>
-              </Grid>
-              <Grid item xs={12} sm={8}>
-                <div style={{ width: '100%' }}>
-                  <Limitless
-                    wistiaSrc="https://fast.wistia.com/embed/medias/pueh6irs0z/swatch"
-                    wistiaClass="wistia_embed wistia_async_pueh6irs0z videoFoam=true"
-                  />
-                </div>
-              </Grid>
-              <Grid item xs={12} sm={4}>
-                <Card className={classes.card}>
-                  <CardMedia
-                    component="img"
-                    alt="Investors Guide"
-                    className={classes.media}
-                    src="https://i.imgur.com/IXYzVeW.jpg"
-                    title="Investors Guide"
-                  />
-                  <CardContent>
-                    <Typography
-                      align="center"
-                      gutterBottom
-                      variant="h5"
-                      component="h2"
-                    >
-                      Passive Investors Guide
-                    </Typography>
-                    <Typography align="center" variant="body1" component="p">
-                      Sign up for our newsletter and receive the PDF of our
-                      Passive Investors Guide.
-                    </Typography>
-                  </CardContent>
-
-                  <CardActions>
-                    <Button
-                      fullWidth
-                      size="large"
-                      color="primary"
-                      style={{
-                        textTransform: 'capitalize',
-                        marginTop: '1.25rem'
-                      }}
-                    >
-                      Get your free PDF download
-                    </Button>
-                  </CardActions>
-                </Card>
-              </Grid>
-
-              <Grid item xs={12} sm={8}>
-                <Typography
-                  align="left"
-                  gutterBottom
-                  variant="h4"
-                  component="h1"
-                  style={{ textTransform: 'capitalize', fontFamily: 'Roboto' }}
-                  className={classes.heroTitle}
-                >
-                  What are we all about?
-                </Typography>
-                <Typography
-                  align="left"
-                  paragraph
-                  component="h2"
-                  variant="h5"
-                  className={classes.heroText}
-                >
-                  Our vision at Limitless Estates is to provide A-class living
-                  to lower income housing by putting our residents first and
-                  instilling a sense of community while inspiring others to do
-                  the same.
-                </Typography>
-                <Typography
-                  align="left"
-                  paragraph
-                  component="h2"
-                  variant="h5"
-                  className={classes.heroText}
-                >
-                  Our mission is to positively impact the lives of the people in
-                  our local neighborhoods through{' '}
-                  <NavLink id="impact-link" to="/resources/impactinvesting">
-                    <span
-                      style={{
-                        fontWeight: 'bold',
-                        color: '#00c851!important',
-                        fontStyle: 'italic'
-                      }}
-                    >
-                      impact investing
-                    </span>
-                  </NavLink>{' '}
-                  while achieving double digit returns for our investors.
-                </Typography>
-                <Typography
+      <div className={classes.heroMain}>
+        <div className={classes.overlayEffect} />
+        <HeroUnit>
+          <Grid
+            container
+            justify="space-evenly"
+            spacing={32}
+            alignItems="center"
+            className={classNames(classes.appContainer + ' main-content')}
+            wrap="wrap"
+          >
+            <Grid item xs={12} sm={6}>
+              <Typography
+                align="left"
+                paragraph
+                variant="h3"
+                component="h1"
+                className={classes.heroTitle}
+              >
+                Welcome to Limitless Estates
+              </Typography>
+              <Typography
+                align="left"
+                paragraph
+                component="h2"
+                variant="h5"
+                className={classes.heroText}
+              >
+                Our vision at Limitless Estates is to provide A-class living to
+                lower income housing by putting our residents first and
+                instilling a sense of community while inspiring others to do the
+                same.
+              </Typography>
+              <Typography
+                align="left"
+                paragraph
+                component="h2"
+                variant="h5"
+                className={classes.heroText}
+              >
+                Our mission is to positively impact the lives of the people in
+                our local neighborhoods through{' '}
+                <NavLink id="impact-link" to="/resources/impactinvesting">
+                  <span
+                    style={{
+                      fontWeight: 'bold',
+                      color: '#00c851!important',
+                      fontStyle: 'italic'
+                    }}
+                  >
+                    impact investing
+                  </span>
+                </NavLink>{' '}
+                while achieving double digit returns for our investors.
+              </Typography>
+              {/* <Typography
                   align="left"
                   paragraph
                   component="h2"
@@ -205,12 +145,19 @@ class Hero extends Component {
                   <Link to="/investor/questionnaire">
                     Investor Questionnaire
                   </Link>
-                </Typography>
-              </Grid>
+                </Typography> */}
             </Grid>
-          </HeroUnit>
-        </div>
-      </React.Fragment>
+            <Grid item xs={12} sm={6}>
+              <div style={{ width: '100%' }}>
+                <Limitless
+                  wistiaSrc="https://fast.wistia.com/embed/medias/pueh6irs0z/swatch"
+                  wistiaClass="wistia_embed wistia_async_pueh6irs0z videoFoam=true"
+                />
+              </div>
+            </Grid>
+          </Grid>
+        </HeroUnit>
+      </div>
     );
   }
 }

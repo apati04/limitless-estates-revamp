@@ -13,14 +13,12 @@ function Home(props) {
     <React.Fragment>
       <Hero />
       <IconSection />
-      <div className="main-content">
-        <SelfDirectIra />
-        <ReasonsToInvest />
-        <CTASection />
-        <Section05 />
-        <Section06 />
-        <CallToAction />
-      </div>
+      <SelfDirectIra />
+      <ReasonsToInvest />
+      <CTASection />
+      <Section05 />
+      <Section06 />
+      <CallToAction />
     </React.Fragment>
   );
 }

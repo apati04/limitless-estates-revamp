@@ -9,10 +9,11 @@ import Limitless from '../Hero/wistia';
 import Card from '@material-ui/core/Card';
 import grey from '@material-ui/core/colors/grey';
 import CardContent from '@material-ui/core/CardContent';
-const styles = (theme) => ({
+import Modal from './Modal';
+const styles = theme => ({
   root: {
     flexGrow: 1,
-    padding: theme.spacing.unit * 6,
+    padding: `${theme.spacing.unit * 10}px 0`,
     position: 'relative',
     [theme.breakpoints.down('sm')]: {
       padding: `${theme.spacing.unit * 4}px 4px`
@@ -50,7 +51,7 @@ const styles = (theme) => ({
     }
   },
   heroTitle: {
-    marginBottom: '8px'
+    marginBottom: '4rem'
   },
   divider: {
     background: 'red',
@@ -62,7 +63,7 @@ const styles = (theme) => ({
     backgroundColor: grey[50]
   },
   buttonDiv: {
-    textAlign: 'right',
+    textAlign: 'left',
     [theme.breakpoints.down('sm')]: {
       textAlign: 'center',
       display: 'block',
@@ -70,55 +71,60 @@ const styles = (theme) => ({
     }
   }
 });
-const Section01 = (props) => {
+const Section01 = props => {
   const { classes } = props;
   return (
-    <section className={classes.root}>
+    <section className={classes.root + ' main-content'}>
       {/* <div className={classes.overlayEffect} /> */}
       <div className={classes.headerContainer}>
-        <div style={{ marginBottom: '20px' }}>
-          <Grid container justify='center' alignItems='center'  wrap='wrap'>
-            <Grid item xs={12} >
-              <Typography align='center' variant='h2' paragraph className={classes.heroTitle}>
-                Invest with your 401k / IRA
-              </Typography>
-            </Grid>
-          </Grid>
-          <Divider variant='middle' className={classes.divider} />
-        </div>
-        <Grid container justify='center' spacing={16} alignItems='center' >
+        <Grid
+          container
+          spacing={32}
+          justify="center"
+          alignItems="center"
+          wrap="wrap"
+        >
           <Grid item xs={12}>
-            <Limitless
-              wistiaSrc='https://fast.wistia.com/embed/medias/mtdamm7u8i/swatch'
-              wistiaClass='wistia_embed wistia_async_mtdamm7u8i videoFoam=true'
-            />
+            <Typography align="center" variant="h2" paragraph>
+              Invest with your 401k / IRA
+            </Typography>
+
+            <Divider variant="middle" className={classes.divider} />
           </Grid>
         </Grid>
-        <Grid container justify='center' spacing={16} alignItems='center' >
-          <Grid item xs={12}>
-            <Card elevation={3} className={classes.cardStyle}>
-              <CardContent>
-                <Typography align='left' paragraph component='h1' variant='h5' className={classes.heroText}>
-                  Did you know you can invest with your 401k/IRA? Watch the video to find out more.
-                </Typography>
-                <Typography
-                  align='left'
-                  paragraph
-                  component='h1'
-                  variant='h5'
-                  className={classes.heroText}
-                  style={{ marginBottom: '20px' }}
-                >
-                  If you find this information helpful and want to see how you can get started click the link below to
-                  connect with our preferred partners and setup your self-directed IRA
-                </Typography>
-                <div className={classes.buttonDiv}>
-                  <Button variant='contained' color='primary' size='large' className={classes.margin}>
-                    Preferred Partners
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
+
+        <Grid
+          container
+          justify="center"
+          spacing={32}
+          alignItems="center"
+          style={{ margin: '1rem 0' }}
+        >
+          <Grid item xs={12} sm={6}>
+            <Typography align="left" paragraph variant="h4">
+              Self-Directed Ira
+            </Typography>
+            <Typography align="left" paragraph component="p" variant="body1">
+              Did you know you can invest with your IRA in 4 easy steps? Watch
+              the video to find out more!
+            </Typography>
+            <Modal buttonText="Play Video" />
+            <Typography align="left" paragraph component="p" variant="body1">
+              If you find this information helpful and want to see how you can
+              get started click the link below to connect with our preferred
+              partners and setup your self-directed IRA
+            </Typography>
+            <div className={classes.buttonDiv}>
+              <Button
+                variant="contained"
+                color="primary"
+                size="large"
+                className={classes.margin}
+              >
+                Preferred Partners
+              </Button>
+            </div>
+            <div />
           </Grid>
         </Grid>
       </div>

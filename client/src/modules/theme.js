@@ -38,8 +38,8 @@ const rawTheme = createMuiTheme({
       dark: '#212c6f'
     },
     secondary: {
-      light: '#33d375',
-      main: '#00c853',
+      light: '#f73378',
+      main: '#ab003c',
       dark: '#008c3a'
     },
     warning: {
@@ -273,7 +273,7 @@ const theme = {
       color: '#424242',
       letterSpacing: '0.28px',
       lineHeight: '32px',
-      fontWeight: rawTheme.typography.fontWeightRegular
+      fontWeight: rawTheme.typography.fontWeightLight
     },
     h6: {
       ...rawTheme.typography.h6,
@@ -283,7 +283,8 @@ const theme = {
     subtitle1: {
       ...rawTheme.typography.subtitle1,
       fontSize: 18,
-      color: 'rgba(0,0,0,0.87)'
+      color: 'rgba(0,0,0,0.87)',
+      fontWeight: rawTheme.typography.fontWeightLight
     },
     body1: {
       ...rawTheme.typography.body2,
