@@ -96,7 +96,7 @@ function HeaderLinks({ ...props }) {
             href="https://www.youtube.com/channel/UCAKq4gSBG8aknnC4iVrI6fg"
             className={classes.navLink}
           >
-            <i className={classes.socialIcons + ' fab fa-youtube'} />
+            <i className={classes.socialIcons + ' fab fa-youtube-square'} />
           </Button>
         </Tooltip>
       </ListItem>
