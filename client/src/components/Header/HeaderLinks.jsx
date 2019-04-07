@@ -19,17 +19,20 @@ import {
   DateRange,
   Group,
   Home,
-  Build
+  Build,
+  Explore
 } from '@material-ui/icons';
 
 // core components
 import CustomDropdown from 'components/CustomDropdown/CustomDropdown.jsx';
 import Button from 'components/CustomButtons/Button.jsx';
+import Hidden from '@material-ui/core/Hidden';
 
 import headerLinksStyle from 'assets/jss/material-kit-react/components/headerLinksStyle.jsx';
 
 function HeaderLinks({ ...props }) {
   const { classes } = props;
+  console.log(props);
   return (
     <List className={classes.list}>
       <ListItem className={classes.listItem}>
@@ -78,12 +81,12 @@ function HeaderLinks({ ...props }) {
       <ListItem className={classes.listItem}>
         <CustomDropdown
           noLiPadding
-          buttonText="Resources"
+          buttonText="Learn"
           buttonProps={{
             className: classes.navLink,
             color: 'transparent'
           }}
-          buttonIcon={Build}
+          buttonIcon={Explore}
           dropdownList={[
             <Link
               to="/resources/why-invest-in-multifamily"
@@ -121,7 +124,7 @@ function HeaderLinks({ ...props }) {
       <ListItem className={classes.listItem}>
         <CustomDropdown
           noLiPadding
-          buttonText="Events"
+          buttonText={<Hidden mdUp>Events</Hidden>}
           dropdownHeader="Meetups"
           buttonProps={{
             className: classes.navLink,
@@ -146,23 +149,39 @@ function HeaderLinks({ ...props }) {
       </ListItem>
 
       <ListItem className={classes.listItem}>
-        <Button
-          component={props => <Link {...props} to="/podcasts" />}
-          color="transparent"
-          className={classes.navLink}
+        <Tooltip
+          id="tooltip-podcast"
+          title="Listen to our podcast"
+          placement="bottom"
+          classes={{ tooltip: classes.tooltip }}
         >
-          <Headset className={classes.icons} /> Podcast
-        </Button>
+          <Button
+            component={props => <Link {...props} to="/podcasts" />}
+            color="transparent"
+            className={classes.navLink}
+          >
+            <Headset className={classes.icons} />
+            <Hidden mdUp>Podcast</Hidden>
+          </Button>
+        </Tooltip>
       </ListItem>
 
       <ListItem className={classes.listItem}>
-        <Button
-          component={props => <Link {...props} to="/contact-us" />}
-          color="transparent"
-          className={classes.navLink}
+        <Tooltip
+          id="tooltip-contact"
+          title="Contact Us"
+          placement="bottom"
+          classes={{ tooltip: classes.tooltip }}
         >
-          <Mail className={classes.icons} /> Contact
-        </Button>
+          <Button
+            component={props => <Link {...props} to="/contact-us" />}
+            color="transparent"
+            className={classes.navLink}
+          >
+            <Mail className={classes.icons} />
+            <Hidden mdUp>Contact Us</Hidden>
+          </Button>
+        </Tooltip>
       </ListItem>
     </List>
   );

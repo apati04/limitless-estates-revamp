@@ -77,14 +77,17 @@ class Header extends React.Component {
       [classes.absolute]: absolute,
       [classes.fixed]: fixed
     });
-
+    let logo;
+    if (brand) {
+      logo = 'https://i.imgur.com/wwmjzeX.png';
+    }
     const brandComponent = (
       <Button className={classes.title}>
         <img
-          src={colorChange ? 'https://i.imgur.com/GMjqvDd.png' : brand}
+          src={colorChange ? 'https://i.imgur.com/GMjqvDd.png' : logo}
           alt="logo"
           title="limitless-estates"
-          height="36px"
+          height="40"
         />
       </Button>
     );

@@ -1,31 +1,33 @@
 import React, { Component } from 'react';
 import { createBrowserHistory } from 'history';
-import { Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import 'assets/scss/material-kit-react.scss?v=1.4.0';
 // import * as Views from 'views/views';
-// import ScrollToTop from 'util/ScrollToTop';
-// import withRoot from 'withRoot';
+import ScrollToTop from 'util/ScrollToTop';
+import withRoot from 'withRoot';
 
 // import Thankyou from './views/FormPages/Thankyou';
 import LandingPage from 'views/LandingPage/LandingPage';
+import ProfilePage from 'views/ProfilePage/ProfilePage.jsx';
+
 let hist = createBrowserHistory();
 class App extends Component {
   render() {
     return (
-      <Router history={hist}>
-        <Switch>
-
+      <Router>
+        <ScrollToTop>
+          <Switch>
             {/* <Route exact path="/" component={Thankyou} /> */}
             <Route exact path="/" component={LandingPage} />
-          
-
-        </Switch>
+            <Route path="/profile/:id" component={ProfilePage} />
+          </Switch>
+        </ScrollToTop>
       </Router>
     );
   }
 }
-// asdfasdf
+
 export default App;
 //    <Route path="/podcasts" component={Views.Podcast} />
 // <Route

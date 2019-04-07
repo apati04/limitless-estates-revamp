@@ -23,7 +23,7 @@ const teamStyle = {
     color: "#6c757d"
   },
   description: {
-    color: "#999"
+    color: "#424242"
   },
   justifyCenter: {
     justifyContent: "center !important"
@@ -37,7 +37,7 @@ const teamStyle = {
     height: "100%",
     lineHeight: "41px",
     fontSize: "20px",
-    color: "#999"
+    color: "#424242"
   },
   margin5: {
     margin: "5px"

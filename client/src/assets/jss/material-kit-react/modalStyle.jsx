@@ -15,7 +15,7 @@ const modalStyle = {
     lineHeight: "1.42857143"
   },
   modalCloseButton: {
-    color: "#999999",
+    color: "#424242",
     marginTop: "-12px",
     WebkitAppearance: "none",
     padding: "0",
