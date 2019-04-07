@@ -10,6 +10,8 @@ import CardBody from 'components/Card/CardBody';
 import CardFooter from 'components/Card/CardFooter';
 import team from '../api/team';
 import Truncate from 'react-truncate';
+import landingPageStyle from 'assets/jss/material-kit-react/views/landingPage';
+
 const styles = theme => ({
   root: {
     flexGrow: 1
@@ -72,4 +74,4 @@ Staff.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(Staff);
+export default Staff;

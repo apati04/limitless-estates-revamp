@@ -48,7 +48,7 @@ class LandingPage extends React.Component {
           }}
           {...rest}
         />
-        <Parallax filter image={'https://i.imgur.com/oxwtIbj.jpg'}>
+        <Parallax lightFilter image={'/images/meet-the-team.jpg'}>
           <div className={classes.container}>
             <GridContainer>
               <GridItem xs={12} sm={12} md={6}>
