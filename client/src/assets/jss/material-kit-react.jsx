@@ -64,7 +64,7 @@ const card = {
 };
 
 const defaultFont = {
-  fontFamily: '"Muli", "Helvetica", "Arial", sans-serif',
+  fontFamily: '"Heebo", "Helvetica", "Arial", sans-serif',
   fontWeight: '300',
   lineHeight: '1.5em'
 };

@@ -52,7 +52,7 @@ const styles = theme => ({
     borderRight: 'none',
     width: '100%',
     padding: '0.1875rem 0rem 0.4375rem',
-    fontFamily: '"Roboto"',
+    fontFamily: '"Heebo"',
     fontSize: '1rem',
     color: 'currentColor',
     borderBottom: '1px solid rgba(0,0,0,0.42)'
