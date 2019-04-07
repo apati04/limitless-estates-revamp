@@ -3,14 +3,14 @@ import { createBrowserHistory } from 'history';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import 'assets/scss/material-kit-react.scss?v=1.4.0';
-// import * as Views from 'views/views';
 import ScrollToTop from 'util/ScrollToTop';
 import withRoot from 'withRoot';
 
 // import Thankyou from './views/FormPages/Thankyou';
 import LandingPage from 'views/LandingPage/LandingPage';
-import ProfilePage from 'views/ProfilePage/ProfilePage.jsx';
-
+import ProfilePage from 'views/ProfilePage/ProfilePage';
+import About from 'views/About/About';
+import Markets from 'views/Markets/Markets';
 let hist = createBrowserHistory();
 class App extends Component {
   render() {
@@ -21,6 +21,8 @@ class App extends Component {
             {/* <Route exact path="/" component={Thankyou} /> */}
             <Route exact path="/" component={LandingPage} />
             <Route path="/profile/:id" component={ProfilePage} />
+            <Route path="/markets/:id" component={Markets} />
+            <Route path="/about" component={About} />
           </Switch>
         </ScrollToTop>
       </Router>
@@ -40,7 +42,7 @@ export default App;
 //   path="/profile/lalita-patipaksiri"
 //   component={Views.Lalita}
 // />
-// <Route path="/about" component={Views.About} />
+//
 // <Route path="/markets/:id" component={Views.Markets} />
 // <Route exact path="/investor" component={Views.Investor} />
 // <Route

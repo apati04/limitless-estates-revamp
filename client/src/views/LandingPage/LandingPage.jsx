@@ -19,11 +19,19 @@ import landingPageStyle from 'assets/jss/material-kit-react/views/landingPage';
 
 // Sections for this page
 import ProductSection from './Sections/ProductSection';
-import TeamSection from './Sections/TeamSection';
 import WorkSection from './Sections/WorkSection';
 
 const dashboardRoutes = [];
-
+const styles = theme => ({
+  ...landingPageStyle,
+  mainRaised: {
+    ...landingPageStyle.mainRaised,
+    [theme.breakpoints.down('sm')]: {
+      marginLeft: 0,
+      marginRight: 0
+    }
+  }
+});
 class LandingPage extends React.Component {
   render() {
     const { classes, ...rest } = this.props;
@@ -71,7 +79,7 @@ class LandingPage extends React.Component {
         <div className={classNames(classes.main, classes.mainRaised)}>
           <div className={classes.container}>
             <ProductSection />
-            <TeamSection />
+
             <WorkSection />
           </div>
         </div>
@@ -81,4 +89,4 @@ class LandingPage extends React.Component {
   }
 }
 
-export default withStyles(landingPageStyle)(LandingPage);
+export default withStyles(styles)(LandingPage);

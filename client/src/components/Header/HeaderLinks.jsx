@@ -177,8 +177,7 @@ function HeaderLinks({ ...props }) {
             color="transparent"
             className={classes.navLink}
           >
-            <Mail className={classes.icons} />
-            <Hidden mdUp>Contact Us</Hidden>
+            <Mail className={classes.icons} /> Contact
           </Button>
         </Tooltip>
       </ListItem>

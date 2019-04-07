@@ -3,6 +3,23 @@ import ReactDOM from 'react-dom';
 import App from './App';
 // import HocTheme from './hoc/HocTheme';
 import * as serviceWorker from './serviceWorker';
+import { createMuiTheme } from '@material-ui/core/styles';
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import CssBaseline from '@material-ui/core/CssBaseline';
+const theme = createMuiTheme({
+  typography: {
+    useNextVariants: true,
+    fontSize: '24px'
+  }
+});
+function MyApp() {
+  return (
+    <MuiThemeProvider theme={theme}>
+      <CssBaseline />
+      <App />
+    </MuiThemeProvider>
+  );
+}
 // function AppProvider() {
 //   return (
 //     <HocTheme title='Limitless Estates LLC'>

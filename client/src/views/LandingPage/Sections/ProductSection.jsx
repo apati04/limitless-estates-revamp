@@ -1,7 +1,7 @@
 import React from 'react';
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles';
-
+import classNames from 'classnames';
 // @material-ui/icons
 import Chat from '@material-ui/icons/Chat';
 import VerifiedUser from '@material-ui/icons/VerifiedUser';
@@ -11,7 +11,9 @@ import GridContainer from 'components/Grid/GridContainer';
 import GridItem from 'components/Grid/GridItem';
 import InfoArea from 'components/InfoArea/InfoArea';
 import productStyle from 'assets/jss/material-kit-react/views/landingPageSections/productStyle';
-
+const styles = theme => ({
+  ...productStyle
+});
 class ProductSection extends React.Component {
   render() {
     const { classes } = this.props;
@@ -19,7 +21,7 @@ class ProductSection extends React.Component {
       <div className={classes.section}>
         <GridContainer justify="center">
           <GridItem xs={12} sm={12} md={8}>
-            <h2 className={classes.title}>Let's talk product</h2>
+            <h2 className={classNames(classes.title)}>Let's talk product</h2>
             <h5 className={classes.description}>
               This is the paragraph where you can write more details about your
               product. Keep you user engaged by providing meaningful
@@ -65,4 +67,4 @@ class ProductSection extends React.Component {
   }
 }
 
-export default withStyles(productStyle)(ProductSection);
+export default withStyles(styles)(ProductSection);

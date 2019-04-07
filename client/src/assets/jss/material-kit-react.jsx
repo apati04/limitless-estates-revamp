@@ -64,12 +64,12 @@ const card = {
 };
 
 const defaultFont = {
-  fontFamily: '"Heebo", "Helvetica", "Arial", sans-serif',
+  fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
   fontWeight: '300',
   lineHeight: '1.5em'
 };
 
-const primaryColor = '#9c27b0';
+const primaryColor = '#0288d1';
 const warningColor = '#ff9800';
 const dangerColor = '#f44336';
 const successColor = '#4caf50';

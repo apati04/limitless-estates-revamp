@@ -33,7 +33,12 @@ import work5 from 'assets/img/examples/clem-onojegaw.jpg';
 
 import profilePageStyle from 'assets/jss/material-kit-react/views/profilePage.jsx';
 import lalita from './Profile/lalita';
-import CustomTabs from 'components/CustomTabs/CustomTabs.jsx';
+const styles = theme => ({
+  ...profilePageStyle,
+  mainRaised: {
+    ...profilePageStyle.mainRaised
+  }
+});
 class ProfilePageContainer extends React.Component {
   render() {
     const { classes } = this.props;
@@ -61,22 +66,28 @@ class ProfilePageContainer extends React.Component {
                     </div>
                     <div className={classes.name}>
                       <h3 className={classes.title}>{this.props.name}</h3>
-                      <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                      <h6>{this.props.role}</h6>
-                      <Button
-                        component={props => <Link {...props} to="/" />}
-                        justIcon
-                        link
-                        className={classes.margin5}
+                      <div
+                        style={{
+                          display: 'flex',
+                          justifyContent: 'center',
+                          alignItems: 'center'
+                        }}
                       >
-                        <i className={'fab fa-linkedin'} />
-                      </Button>
-                      <Button justIcon link className={classes.margin5}>
-                        <i className={'fab fa-youtube'} />
-                      </Button>
-                      <Button justIcon link className={classes.margin5}>
-                        <i className={'fab fa-facebook'} />
-                      </Button>
+                        <h6>{this.props.role}</h6>
+                        <Button
+                          component={props => <Link {...props} to="/" />}
+                          justIcon
+                          link
+                          className={classes.margin5}
+                        >
+                          <i className={'fab fa-linkedin'} />
+                        </Button>
+                        <Button justIcon link className={classes.margin5}>
+                          <i className={'fab fa-youtube'} />
+                        </Button>
+                        <Button justIcon link className={classes.margin5}>
+                          <i className={'fab fa-facebook'} />
+                        </Button>
                       </div>
                     </div>
                   </div>
@@ -87,11 +98,10 @@ class ProfilePageContainer extends React.Component {
               </div>
               <GridContainer justify="center" alignItems="center">
                 <GridItem xs={12} sm={12} md={8} className={classes.navWrapper}>
-                  <CustomTabs
-                    plainTabs
-                    headerColor="danger"
+                  <NavPills
+                    color="rose"
                     tabs={this.props.profileTabs.map(tab => ({
-                      tabName: tab.tabName,
+                      tabButton: tab.tabName,
                       tabContent: tab.tabContent
                     }))}
                   />
@@ -105,4 +115,4 @@ class ProfilePageContainer extends React.Component {
   }
 }
 
-export default withRouter(withStyles(profilePageStyle)(ProfilePageContainer));
+export default withRouter(withStyles(styles)(ProfilePageContainer));
