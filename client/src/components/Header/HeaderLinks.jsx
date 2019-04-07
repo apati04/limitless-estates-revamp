@@ -8,9 +8,19 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import Tooltip from '@material-ui/core/Tooltip';
-
+import Avatar from '@material-ui/core/Avatar';
 // @material-ui/icons
-import { Apps, CloudDownload, HeadsetMic } from '@material-ui/icons';
+import {
+  Apps,
+  Headset,
+  LibraryBooks,
+  Timeline,
+  Mail,
+  DateRange,
+  Group,
+  Home,
+  Build
+} from '@material-ui/icons';
 
 // core components
 import CustomDropdown from 'components/CustomDropdown/CustomDropdown.jsx';
@@ -23,6 +33,24 @@ function HeaderLinks({ ...props }) {
   return (
     <List className={classes.list}>
       <ListItem className={classes.listItem}>
+        <Button
+          component={props => <Link {...props} to="/" />}
+          color="transparent"
+          className={classes.navLink}
+        >
+          <Home className={classes.icons} /> Home
+        </Button>
+      </ListItem>
+      <ListItem className={classes.listItem}>
+        <Button
+          component={props => <Link {...props} to="/about" />}
+          color="transparent"
+          className={classes.navLink}
+        >
+          <Group className={classes.icons} /> About
+        </Button>
+      </ListItem>
+      <ListItem className={classes.listItem}>
         <CustomDropdown
           noLiPadding
           buttonText="Markets"
@@ -30,75 +58,111 @@ function HeaderLinks({ ...props }) {
             className: classes.navLink,
             color: 'transparent'
           }}
-          buttonIcon={Apps}
+          buttonIcon={Timeline}
           dropdownList={[
-            <Link to="/" className={classes.dropdownLink}>
-              All components
-            </Link>,
             <Link to="/markets/tucson-arizona" className={classes.dropdownLink}>
-              Tucson
+              Tucson, Arizona
+            </Link>,
+            <Link
+              to="/markets/phoenix-arizona"
+              className={classes.dropdownLink}
+            >
+              Phoenix, Arizona
+            </Link>,
+            <Link to="/markets/columbus-ohio" className={classes.dropdownLink}>
+              Columbus, Ohio
             </Link>
           ]}
         />
       </ListItem>
+      <ListItem className={classes.listItem}>
+        <CustomDropdown
+          noLiPadding
+          buttonText="Resources"
+          buttonProps={{
+            className: classes.navLink,
+            color: 'transparent'
+          }}
+          buttonIcon={Build}
+          dropdownList={[
+            <Link
+              to="/resources/why-invest-in-multifamily"
+              className={classes.dropdownLink}
+            >
+              Why Invest in Multifamily
+            </Link>,
+            <Link
+              to="/resources/impact-investing"
+              className={classes.dropdownLink}
+            >
+              What is Impact Investing
+            </Link>,
+            <Link
+              to="/resources/self-directed-ira"
+              className={classes.dropdownLink}
+            >
+              Self-Directed IRA
+            </Link>,
+            <Link
+              to="/resources/investing-risks?page=1"
+              className={classes.dropdownLink}
+            >
+              Investing Risks
+            </Link>,
+            <Link
+              to="/resources/frequently-answered-questions"
+              className={classes.dropdownLink}
+            >
+              Frequently Answered Questions
+            </Link>
+          ]}
+        />
+      </ListItem>
+      <ListItem className={classes.listItem}>
+        <CustomDropdown
+          noLiPadding
+          buttonText="Events"
+          dropdownHeader="Meetups"
+          buttonProps={{
+            className: classes.navLink,
+            color: 'transparent'
+          }}
+          buttonIcon={DateRange}
+          dropdownList={[
+            <Link
+              to="/events/meetups/longbeach"
+              className={classes.dropdownLink}
+            >
+              Out of State Apartment Investing Mastermind Long Beach Chapter
+            </Link>,
+            <Link
+              to="/events/meetups/cerritos"
+              className={classes.dropdownLink}
+            >
+              Cerritos Multifamily Investors Roundtable
+            </Link>
+          ]}
+        />
+      </ListItem>
+
       <ListItem className={classes.listItem}>
         <Button
           component={props => <Link {...props} to="/podcasts" />}
           color="transparent"
           className={classes.navLink}
         >
-          <HeadsetMic className={classes.icons} /> Podcast
+          <Headset className={classes.icons} /> Podcast
         </Button>
       </ListItem>
+
       <ListItem className={classes.listItem}>
-        <Tooltip
-          id="instagram-linkedIn"
-          title="LinkedIn"
-          placement={window.innerWidth > 959 ? 'top' : 'left'}
-          classes={{ tooltip: classes.tooltip }}
+        <Button
+          component={props => <Link {...props} to="/contact-us" />}
+          color="transparent"
+          className={classes.navLink}
         >
-          <Button
-            href="https://www.linkedin.com/in/kyle-mitchell-56765b50"
-            target="_blank"
-            color="transparent"
-            className={classes.navLink}
-          >
-            <i className={classes.socialIcons + ' fab fa-linked-in'} />
-          </Button>
-        </Tooltip>
-      </ListItem>
-      <ListItem className={classes.listItem}>
-        <Tooltip
-          id="instagramfacebook"
-          title="Follow us on facebook"
-          placement={window.innerWidth > 959 ? 'top' : 'left'}
-          classes={{ tooltip: classes.tooltip }}
-        >
-          <Button
-            color="transparent"
-            href="https://www.facebook.com/groups/2295439830526220/"
-            target="_blank"
-            className={classes.navLink}
-          >
-            <i className={classes.socialIcons + ' fab fa-facebook'} />
-          </Button>
-        </Tooltip>
-      </ListItem>
-      <ListItem className={classes.listItem}>
-        <Tooltip
-          id="instagram-youtube"
-          title="Follow us on youtube"
-          placement={window.innerWidth > 959 ? 'top' : 'left'}
-          classes={{ tooltip: classes.tooltip }}
-        >
-          <Button
-            color="transparent"
-            href="https://www.youtube.com/channel/UCAKq4gSBG8aknnC4iVrI6fg"
-            className={classes.navLink}
-          >
-            <i className={classes.socialIcons + ' fab fa-youtube-square'} />
-          </Button>
-        </Tooltip>
+          <Mail className={classes.icons} /> Contact
+        </Button>
       </ListItem>
     </List>
   );

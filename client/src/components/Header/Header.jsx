@@ -68,8 +68,7 @@ class Header extends React.Component {
       leftLinks,
       brand,
       fixed,
-      absolute,
-      secondaryBrand
+      absolute
     } = this.props;
     const { colorChange } = this.state;
     const appBarClasses = classNames({
@@ -81,7 +80,12 @@ class Header extends React.Component {
 
     const brandComponent = (
       <Button className={classes.title}>
-        {colorChange ? secondaryBrand : brand}
+        <img
+          src={colorChange ? 'https://i.imgur.com/GMjqvDd.png' : brand}
+          alt="logo"
+          title="limitless-estates"
+          height="36px"
+        />
       </Button>
     );
     return (

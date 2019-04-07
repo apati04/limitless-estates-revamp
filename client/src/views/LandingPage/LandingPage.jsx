@@ -32,27 +32,12 @@ class LandingPage extends React.Component {
         <Header
           color="transparent"
           routes={dashboardRoutes}
-          secondaryBrand={
-            <img
-              src="https://i.imgur.com/GMjqvDd.png"
-              alt="limitless-estates logo with text"
-              title="limitless estates logo with text"
-              height="40px"
-            />
-          }
-          brand={
-            <img
-              src="https://i.imgur.com/wwmjzeX.png"
-              alt="limitless-estates logo"
-              title="limitless-estateslogo"
-              height="40px"
-            />
-          }
+          brand="https://i.imgur.com/wwmjzeX.png"
           rightLinks={<HeaderLinks />}
           fixed
           changeColorOnScroll={{
-            height: 400,
-            color: 'blue'
+            height: 360,
+            color: 'white'
           }}
           {...rest}
         />
@@ -60,7 +45,9 @@ class LandingPage extends React.Component {
           <div className={classes.container}>
             <GridContainer>
               <GridItem xs={12} sm={12} md={6}>
-                <h1 className={classes.title}>Limitless </h1>
+                <h1 className={classes.title}>
+                  Take Control of Your Investments
+                </h1>
                 <h4>
                   Our mission is to positively impact the lives of the people in
                   our local neighborhoods through impact investing while
