@@ -3,13 +3,13 @@ import green from '@material-ui/core/colors/green';
 import grey from '@material-ui/core/colors/grey';
 import red from '@material-ui/core/colors/red';
 import pink from '@material-ui/core/colors/pink';
-import cardStyles from '../components/views/About/modules/landingPageSections/cardStyles';
-import landingStyles from '../components/views/About/modules/landingPage';
-import teamStyles from '../components/views/About/modules/landingPageSections/teamStyles';
+import cardStyles from '../views/About/modules/landingPageSections/cardStyles';
+import landingStyles from '../views/About/modules/landingPage';
+import teamStyles from '../views/About/modules/landingPageSections/teamStyles';
 import blue from '@material-ui/core/colors/blue';
 import wavesWhite from '../components/waves-white.svg';
-import productStyles from '../components/views/About/modules/landingPageSections/productStyles';
-import * as matStyles from '../components/views/About/modules/mkr';
+import productStyles from '../views/About/modules/landingPageSections/productStyles';
+import * as matStyles from '../views/About/modules/mkr';
 
 const rawTheme = createMuiTheme({
   cardStyles,
