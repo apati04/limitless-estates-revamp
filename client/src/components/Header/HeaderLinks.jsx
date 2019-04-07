@@ -160,8 +160,7 @@ function HeaderLinks({ ...props }) {
             color="transparent"
             className={classes.navLink}
           >
-            <Headset className={classes.icons} />
-            <Hidden mdUp>Podcast</Hidden>
+            <Headset className={classes.icons} /> Podcast
           </Button>
         </Tooltip>
       </ListItem>
