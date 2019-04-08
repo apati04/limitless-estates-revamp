@@ -82,7 +82,7 @@ class Resources extends React.Component {
           }}
           {...rest}
         />
-        <Parallax filter image={img3}>
+        <Parallax filter image={'https://i.imgur.com/0g7OiIc.jpg'}>
           <div className={classes.container}>
             <GridContainer>
               <GridItem xs={12} sm={12} md={12}>
