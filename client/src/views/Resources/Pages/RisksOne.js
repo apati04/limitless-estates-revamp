@@ -7,7 +7,7 @@ import Grid from '@material-ui/core/Grid';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import PageHeader from '../../Layouts/PageHeader';
-import Button from 'components/CustomButtons/Button.js';
+import Button from 'components/CustomButtons/Button';
 import Icon from '@material-ui/core/Icon';
 import risk from '../api/risks_p1';
 

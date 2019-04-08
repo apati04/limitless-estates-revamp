@@ -9,7 +9,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 
 import CardMedia from '@material-ui/core/CardMedia';
-import Button from 'components/CustomButtons/Button.js';
+import Button from 'components/CustomButtons/Button';
 import cards from '../api/self_direct';
 const styles = theme => ({
   root: {

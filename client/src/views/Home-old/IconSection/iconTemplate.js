@@ -13,7 +13,6 @@ const styles = {
     margin: '0.25rem',
     padding: '1.875rem',
     border: '1px solid rgba(0,0,0,0.24)',
-
     borderRadius: '0.375rem'
   }
 };

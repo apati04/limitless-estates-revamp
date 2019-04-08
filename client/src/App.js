@@ -11,6 +11,7 @@ import LandingPage from 'views/LandingPage/LandingPage';
 import ProfilePage from 'views/ProfilePage/ProfilePage';
 import About from 'views/About/About';
 import Markets from 'views/Markets/Markets';
+import Resources from 'views/Resources/Resources';
 let hist = createBrowserHistory();
 class App extends Component {
   render() {
@@ -22,7 +23,8 @@ class App extends Component {
             <Route exact path="/" component={LandingPage} />
             <Route path="/profile/:id" component={ProfilePage} />
             <Route path="/markets/:id" component={Markets} />
-            <Route path="/about" component={About} />
+            <Route exact path="/about" component={About} />
+            <Route path="/resources/:id" component={Resources} />
           </Switch>
         </ScrollToTop>
       </Router>

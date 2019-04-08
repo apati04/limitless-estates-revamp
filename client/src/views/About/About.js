@@ -1,18 +1,14 @@
 import React from 'react';
 // nodejs library that concatenates classes
 import classNames from 'classnames';
-
 import { withStyles } from '@material-ui/core/styles';
 import MainTeam from './Sections/MainTeam';
-
-// @material-ui/icons
 
 // core components
 import Header from 'components/Header/Header';
 import Footer from 'components/Footer/Footer';
 import GridContainer from 'components/Grid/GridContainer';
 import GridItem from 'components/Grid/GridItem';
-import Button from 'components/CustomButtons/Button';
 import HeaderLinks from 'components/Header/HeaderLinks';
 import Parallax from 'components/Parallax/Parallax';
 
