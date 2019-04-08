@@ -74,7 +74,7 @@ class ProfilePageContainer extends React.Component {
                         }}
                       >
                         <h6>{this.props.role}</h6>
-                        <Button
+                        {/* <Button
                           component={props => <Link {...props} to="/" />}
                           justIcon
                           link
@@ -87,7 +87,7 @@ class ProfilePageContainer extends React.Component {
                         </Button>
                         <Button justIcon link className={classes.margin5}>
                           <i className={'fab fa-facebook'} />
-                        </Button>
+                        </Button> */}
                       </div>
                     </div>
                   </div>

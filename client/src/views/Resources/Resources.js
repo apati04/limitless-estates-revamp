@@ -61,12 +61,7 @@ class Resources extends React.Component {
 
   render() {
     const { classes, match, ...rest } = this.props;
-    let img1 =
-        'https://images.unsplash.com/photo-1419454073861-6e5bccea68ae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80',
-      img3 =
-        'https://images.unsplash.com/photo-1460317442991-0ec209397118?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80';
-    let img2 =
-      'https://images.unsplash.com/photo-1516501312919-d0cb0b7b60b8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1466&q=80';
+
     let title = match.params.id.split('-').join(' ');
     return (
       <div>
