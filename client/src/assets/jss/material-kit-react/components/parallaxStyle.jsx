@@ -12,9 +12,10 @@ const parallaxStyle = {
     display: 'flex',
     alignItems: 'center'
   },
+
   lightFilter: {
     '&:before': {
-      background: 'rgba(0, 0, 0, 0.3)'
+      background: 'rgba(0, 0, 0, 0.36)'
     },
     '&:after,&:before': {
       position: 'absolute',

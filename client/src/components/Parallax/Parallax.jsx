@@ -38,6 +38,7 @@ class Parallax extends React.Component {
     const {
       classes,
       filter,
+      blur,
       lightFilter,
       className,
       children,
@@ -48,6 +49,7 @@ class Parallax extends React.Component {
     const parallaxClasses = classNames({
       [classes.parallax]: true,
       [classes.filter]: filter,
+      [classes.blur]: blur,
       [classes.lightFilter]: lightFilter,
       [classes.small]: small,
       [className]: className !== undefined
@@ -72,6 +74,7 @@ Parallax.propTypes = {
   classes: PropTypes.object.isRequired,
   className: PropTypes.string,
   filter: PropTypes.bool,
+  blue: PropTypes.bool,
   lightFilter: PropTypes.bool,
   children: PropTypes.node,
   style: PropTypes.string,

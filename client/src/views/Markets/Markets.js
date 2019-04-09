@@ -7,7 +7,7 @@ import Header from 'components/Header/Header';
 import Footer from 'components/Footer/Footer';
 import GridContainer from 'components/Grid/GridContainer';
 import GridItem from 'components/Grid/GridItem';
-import Button from 'components/CustomButtons/Button';
+
 import HeaderLinks from 'components/Header/HeaderLinks';
 import Parallax from 'components/Parallax/Parallax';
 

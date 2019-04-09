@@ -1,6 +1,4 @@
 import React from 'react';
-import Primary from 'components/Typography/Primary';
-import Info from 'components/Typography/Info';
 
 export default function loadContent(content) {
   return content.map((item, index) => {
@@ -11,6 +9,6 @@ export default function loadContent(content) {
       });
       return <ul key={index}>{listGroup}</ul>;
     }
-    return <Info key={index}>{item.p.value}</Info>;
+    return item.p.value;
   });
 }

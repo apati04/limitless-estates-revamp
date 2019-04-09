@@ -12,7 +12,9 @@ import ProfilePage from 'views/ProfilePage/ProfilePage';
 import About from 'views/About/About';
 import Markets from 'views/Markets/Markets';
 import Resources from 'views/Resources/Resources';
-let hist = createBrowserHistory();
+import Disclaimer from 'views/Legal/Disclaimer';
+import Contact from 'views/Contact/Contact';
+import Events from 'views/Events/Events';
 class App extends Component {
   render() {
     return (
@@ -25,6 +27,9 @@ class App extends Component {
             <Route path="/markets/:id" component={Markets} />
             <Route exact path="/about" component={About} />
             <Route path="/resources/:id" component={Resources} />
+            <Route path="/events/meetups/:id" component={Events} />
+            <Route exact path="/disclaimer" exact component={Disclaimer} />
+            <Route exact path="/contact-us" component={Contact} />
           </Switch>
         </ScrollToTop>
       </Router>
@@ -34,10 +39,7 @@ class App extends Component {
 
 export default App;
 //    <Route path="/podcasts" component={Views.Podcast} />
-// <Route
-//   path="/events/meetups/:id"
-//   render={props => <Views.Events pathId={props.match.params.id} />}
-// />
+//
 // <Route exact path="/profile/kyle-mitchell" component={Views.Kyle} />
 // <Route
 //   exact
@@ -63,5 +65,4 @@ export default App;
 //     );
 //   }}
 // />
-// <Route path="/disclaimer" exact component={Views.Disclaimer} />
-// <Route exact path="/contact-us" component={Views.Contact} />
+//

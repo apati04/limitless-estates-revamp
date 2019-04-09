@@ -26,7 +26,12 @@ function Main(props) {
             {marketTitle.title.value}
           </Typography>
           />
-          {loadContent(mainContent)}
+          <Typography
+            variant="body1"
+            style={{ textAlign: 'left', fontSize: '1rem' }}
+          >
+            {loadContent(mainContent)}
+          </Typography>
         </GridItem>
         <GridItem xs={12} sm={12}>
           <GoogleMap

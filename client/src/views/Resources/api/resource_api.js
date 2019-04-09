@@ -7,6 +7,8 @@ export default [
     image:
       'https://images.unsplash.com/photo-1460317442991-0ec209397118?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
     title: 'Why Invest in Multifamily?',
+    snippet:
+      'Have you heard stats such as “80% of millionaires attribute their wealth to real estate”? Or heard stories of living the good life off passive cash flow from rental property? Read below to find out more',
     slug: 'why-invest-in-multifamily',
     pages: [
       {
@@ -40,8 +42,10 @@ export default [
   {
     totalPages: 1,
     type: 'resource',
-    image: 'https://i.imgur.com/c4fYNoN.jpg',
-    slug: 'what-is-impact-investing',
+    image: 'https://i.imgur.com/jnCFMkv.jpg',
+    snippet:
+      'Impact Investing is simply investing with a purpose. Often called a “double bottom line” investment, impact investing enables investors to put their money to good use in meaningful, intelligent ventures that provide both a financial AND a social return on their investment.',
+    slug: 'impact-investing',
     title: 'What is Impact Investing?',
     pages: [
       'Impact Investing is simply investing with a purpose. Often called a “double bottom line” investment, impact investing enables investors to put their money to good use in meaningful, intelligent ventures that provide both a financial AND a social return on their investment. This sector of investing has never been more important than it is now.  The good news is that those who believe in the value and purpose of impact investing can still obtain solid, financial returns in the process.',
@@ -55,7 +59,7 @@ export default [
   {
     type: 'resource',
     image: 'https://i.imgur.com/LZDGUNH.jpg?1',
-    slug: 'investing-risks?page=1',
+    slug: 'investing-risks',
     title: 'Risks with investing in Real Estate',
     pages: [
       {
@@ -188,7 +192,7 @@ export default [
   },
   {
     type: 'resource',
-    image: 'https://i.imgur.com/QCooroG.jpg',
+    image: 'https://i.imgur.com/c4fYNoN.jpg',
     title: 'Self Directed Ira',
     slug: 'self-directed-ira',
     tags: 'selfdirectedira',
@@ -230,7 +234,7 @@ export default [
   {
     type: 'resource',
     slug: 'frequently-asked-questions',
-    title: 'Frequently Answered Questions',
+    title: 'Frequently Asked Questions',
     image: 'https://i.imgur.com/4zCa4Ld.jpg',
     tags: 'faq',
     pages: [
