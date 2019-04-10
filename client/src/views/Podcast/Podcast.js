@@ -3,20 +3,30 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Route, Switch } from 'react-router-dom';
 import withStyles from '@material-ui/core/styles/withStyles';
-import Grid from '@material-ui/core/Grid';
+import GridContainer from 'components/Grid/GridContainer.jsx';
+import GridItem from 'components/Grid/GridItem.jsx';
 import Typography from '@material-ui/core/Typography';
 import api from './podcast_api';
 import Episode from './Episodes/Episode';
 import EpisodeGrid from './Episodes/EpisodeGrid';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Tooltip from '@material-ui/core/Tooltip';
+import Card from 'components/Card/Card';
+import CardBody from 'components/Card/CardBody';
+import Header from 'components/Header/Header';
+import Footer from 'components/Footer/Footer';
+
+import HeaderLinks from 'components/Header/HeaderLinks';
 
 import Fade from '@material-ui/core/Grow';
 
 import axios from 'axios';
+import landingPageStyle from 'assets/jss/material-kit-react/views/landingPage';
+import productStyle from 'assets/jss/material-kit-react/views/landingPageSections/productStyle';
 // --------TEMP DATA
 // import podcastData from './tempdata';
 // __ tmpdata
+const dashboardRoutes = [];
 const styles = theme => ({
   podcastCard: {
     ...theme.cardTitle,
@@ -27,7 +37,6 @@ const styles = theme => ({
   },
   gridContainerPadding: {
     padding: theme.spacing.unit * 3,
-    backgroundColor: '#f7f7f7',
     [theme.breakpoints.down('sm')]: {
       padding: theme.spacing.unit
     }
@@ -81,7 +90,9 @@ const styles = theme => ({
   socialBar: {
     display: 'flex',
     justifyContent: 'flex-start'
-  }
+  },
+  ...landingPageStyle,
+  ...productStyle
 });
 
 class Podcast extends Component {
@@ -129,70 +140,86 @@ class Podcast extends Component {
   }
 
   render() {
-    const { classes } = this.props;
+    const { classes, ...rest } = this.props;
 
     return (
-      <div className="main-content">
-        {this.state.episodes ? (
-          <Fade in style={{ transformOrigin: '0 0 0' }} unmountOnExit>
-            <div>
+      <div>
+        <Header
+          color="primary"
+          routes={dashboardRoutes}
+          brand="true"
+          rightLinks={<HeaderLinks />}
+          fixed
+          changeColorOnScroll={{
+            height: 400,
+            color: 'white'
+          }}
+          {...rest}
+        />
+        <div className={classes.section}>
+          {this.state.episodes ? (
+            <Fade in style={{ transformOrigin: '0 0 0' }} unmountOnExit>
               <div
-                className={classNames(
-                  classes.podcastGrid,
-                  classes.appContainer
-                )}
+                className={classNames(classes.podcastGrid, classes.container)}
               >
-                <Grid
-                  container
-                  justify="space-around"
-                  spacing={40}
-                  alignItems="flex-start"
-                  wrap="wrap"
-                  className={classes.gridContainerPadding}
-                >
-                  <Grid item xs={12} sm={12} md={4}>
-                    <div>
-                      <img
-                        src="https://i.imgur.com/TxnoBIK.jpg"
-                        className={classes.imageStyle}
-                        alt="podcast"
-                        title="podcast"
-                      />
-                    </div>
-                  </Grid>
-                  <Grid item xs={12} sm={12} md={8}>
-                    <Typography
-                      align="left"
-                      variant="h3"
-                      component="h1"
-                      className={classes.podcastCard}
+                <div style={{ marginBottom: '128px' }}>
+                  <Card className={classes.card}>
+                    <CardBody
+                      className={classes.cardBody}
+                      style={{ padding: '2rem' }}
                     >
-                      Passive Income Through Multifamily Real Estate Investing
-                    </Typography>
+                      <GridContainer
+                        justify="space-around"
+                        spacing={32}
+                        alignItems="flex-start"
+                        wrap="wrap"
+                      >
+                        <GridItem xs={12} sm={12} md={4}>
+                          <div>
+                            <img
+                              src="https://i.imgur.com/TxnoBIK.jpg"
+                              className={classes.imageStyle}
+                              alt="podcast"
+                              title="podcast"
+                            />
+                          </div>
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={8}>
+                          <Typography
+                            align="left"
+                            variant="h3"
+                            component="h1"
+                            className={classes.podcastCard}
+                          >
+                            Passive Income Through Multifamily Real Estate
+                            Investing
+                          </Typography>
 
-                    <Typography
-                      align="left"
-                      variant="subtitle1"
-                      paragraph
-                      className={classes.podcastSubtitle}
-                    >
-                      {api.description}
-                    </Typography>
+                          <Typography
+                            align="left"
+                            variant="subtitle1"
+                            paragraph
+                            className={classes.podcastSubtitle}
+                          >
+                            {api.description}
+                          </Typography>
 
-                    <div
-                      style={{
-                        display: 'flex',
-                        justifyContent: 'flex-start',
+                          <div
+                            style={{
+                              display: 'flex',
+                              justifyContent: 'flex-start',
 
-                        alignItems: 'center'
-                      }}
-                    >
-                      {this.loadSocialBar()}
-                    </div>
-                  </Grid>
-                </Grid>
-              </div>
-              <div>
+                              alignItems: 'center'
+                            }}
+                          >
+                            {this.loadSocialBar()}
+                          </div>
+                        </GridItem>
+                      </GridContainer>
+                    </CardBody>
+                  </Card>
+                </div>
+
                 <Switch>
                   <Route path="/podcasts/:epid" component={Episode} />
                   <Route
@@ -204,23 +231,24 @@ class Podcast extends Component {
                   />
                 </Switch>
               </div>
-            </div>
-          </Fade>
-        ) : (
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              height: '90vh',
-              maxHeight: '1000px'
-            }}
-          >
-            <Fade in style={{ transformOrigin: '50 50 0' }} unmountOnExit>
-              <CircularProgress />
             </Fade>
-          </div>
-        )}
+          ) : (
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: '90vh',
+                maxHeight: '1000px'
+              }}
+            >
+              <Fade in style={{ transformOrigin: '50 50 0' }} unmountOnExit>
+                <CircularProgress />
+              </Fade>
+            </div>
+          )}
+        </div>
+        <Footer />
       </div>
     );
   }

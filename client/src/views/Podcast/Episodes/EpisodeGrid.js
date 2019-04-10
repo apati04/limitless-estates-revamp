@@ -3,18 +3,33 @@ import PropTypes from 'prop-types';
 import { compose } from 'recompose';
 import { NavLink, withRouter } from 'react-router-dom';
 import withStyles from '@material-ui/core/styles/withStyles';
-import Grid from '@material-ui/core/Grid';
-import Card from '@material-ui/core/Card';
+import GridItem from 'components/Grid/GridItem';
+import Card from 'components/Card/Card';
+import CardBody from 'components/Card/CardBody';
+import CardFooter from 'components/Card/CardFooter';
+
+import Header from 'components/Header/Header';
+import Footer from 'components/Footer/Footer';
+
+import HeaderLinks from 'components/Header/HeaderLinks';
+import ButtonBase from '@material-ui/core/ButtonBase';
 import classNames from 'classnames';
 import CardActionArea from '@material-ui/core/CardActionArea';
+import GridContainer from 'components/Grid/GridContainer';
 import Typography from '@material-ui/core/Typography';
-import Button from 'components/CustomButtons/Button.js';
+import Button from 'components/CustomButtons/Button';
 import Truncate from 'react-truncate';
 import ReactHtmlParser from 'react-html-parser';
 import OpenInNewRounded from '@material-ui/icons/OpenInNewRounded';
-import ButtonBase from 'components/CustomButtons/Button.jsBase';
 import mic3Img from '../mic3test.jpg';
+import landingPageStyle from 'assets/jss/material-kit-react/views/landingPage';
+import productStyle from 'assets/jss/material-kit-react/views/landingPageSections/productStyle';
+import imagesStyles from 'assets/jss/material-kit-react/imagesStyles';
+import blue from '@material-ui/core/colors/blue';
 const styles = theme => ({
+  ...landingPageStyle,
+  ...productStyle,
+  ...imagesStyles,
   image: {
     position: 'relative',
     height: 200,
@@ -48,6 +63,8 @@ const styles = theme => ({
     color: theme.palette.common.white
   },
   imageSrc: {
+    ...imagesStyles,
+
     position: 'absolute',
     left: 0,
     right: 0,
@@ -80,12 +97,6 @@ const styles = theme => ({
     left: 'calc(50% - 9px)',
     transition: theme.transitions.create('opacity')
   },
-  root: {
-    marginTop: theme.spacing.unit * 8,
-    marginBottom: theme.spacing.unit * 20,
-    display: 'block',
-    paddingTop: '64px'
-  },
   gridListTile: {
     padding: theme.spacing.unit,
     margin: 0
@@ -111,13 +122,13 @@ const styles = theme => ({
   rightIcon: {
     marginLeft: theme.spacing.unit
   },
-  cardGrid: {
-    padding: '8px',
-    [theme.breakpoints.up('840px')]: {
-      width: 'calc(33.33333% -16px)',
-      display: 'block'
-    }
-  },
+  // cardGrid: {
+
+  //   [theme.breakpoints.up('840px')]: {
+  //     width: 'calc(33.33333% -16px)',
+  //     display: 'block'
+  //   }
+  // },
   marginTop: {
     ...theme.container,
     padding: 0,
@@ -130,13 +141,10 @@ const styles = theme => ({
     flexDirection: 'column'
   },
   cardMedia: {
+    margin: 0,
+    boxShadow: 'unset',
     paddingTop: '66.66667%',
     width: '100%'
-  },
-  cardContent: {
-    flex: 1,
-    marginTop: theme.spacing.unit * 3,
-    padding: '0.5px'
   },
   cardActions: {
     justifyContent: 'space-between',
@@ -179,12 +187,12 @@ const styles = theme => ({
     // alignItems: 'center'
   },
   navLink: {
-    fontSize: '0.875rem',
     color: '#5f6368',
-    verticalAlign: 'middle',
-    fontFamily: '"Roboto Slab"',
     textDecorationLine: 'none',
-    '-webkit-text-decoration': 'none'
+    '-webkit-text-decoration': 'none',
+    '&:hover': {
+      color: blue[800] + '!important'
+    }
   },
   gradient: {
     backgroundImage: 'linear-gradient( 135deg, #3C8CE7 10%, #00EAFF 100%)'
@@ -221,9 +229,9 @@ class EpisodeGrid extends Component {
               }
             }
           });
+          console.log('item', item);
           return (
-            <Grid
-              item
+            <GridItem
               key={item.id}
               xs={12}
               sm={6}
@@ -232,84 +240,77 @@ class EpisodeGrid extends Component {
               className={classes.cardGrid + ' tile fade-in'}
             >
               <Card elevation={0} className={classes.card}>
-                <CardActionArea component="div">
-                  <NavLink
-                    className={classes.navLink}
-                    to={{
-                      pathname: `${location.pathname}/${item.id}`,
-                      state: { episode: item, originalPath: location.pathname }
-                    }}
+                <NavLink
+                  className={classes.navLink}
+                  to={{
+                    pathname: `${location.pathname}/${item.id}`,
+                    state: {
+                      episode: item,
+                      originalPath: location.pathname
+                    }
+                  }}
+                >
+                  <Button
+                    focusRipple
+                    key={item.id}
+                    className={classNames(classes.cardMedia, classes.image)}
+                    focusVisibleClassName={classes.focusVisible}
                   >
-                    <ButtonBase
-                      focusRipple
-                      key={item.id}
-                      className={classNames(classes.cardMedia, classes.image)}
-                      focusVisibleClassName={classes.focusVisible}
+                    <div
+                      className={classes.imageSrc}
+                      style={{
+                        backgroundImage: `url(${mic3Img})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        width: 'auto',
+                        borderRadiusTop: '29px'
+                      }}
+                    />
+                    <span className={classes.imageBackdrop} />
+                    <span className={classes.imageButton}>
+                      <Typography
+                        component="span"
+                        variant="h6"
+                        color="inherit"
+                        className={classes.imageTitle}
+                      >
+                        Episode {item.episode_number}
+                        <span className={classes.imageMarked} />
+                      </Typography>
+                    </span>
+                  </Button>
+
+                  <CardBody>
+                    <h4
+                      style={{ textAlign: 'left' }}
+                      className={classes.cardTitle}
                     >
-                      <span
-                        className={classes.imageSrc}
+                      {item.title.split(': ')[1].trim() || item.title}
+                    </h4>
+                    <div style={{ textAlign: 'left', hyphens: 'auto' }}>
+                      <Truncate
+                        lines={3}
+                        trimWhitespace
+                        ellipsis="..."
                         style={{
-                          backgroundImage: `url(${mic3Img})`,
-                          backgroundSize: 'cover',
-                          backgroundPosition: 'center',
-                          width: 'auto'
+                          textAlign: 'left',
+                          width: '100%',
+                          hyphens: 'auto'
                         }}
-                      />
-                      <span className={classes.imageBackdrop} />
-                      <span className={classes.imageButton}>
-                        <Typography
-                          component="span"
-                          variant="h6"
-                          color="inherit"
-                          className={classes.imageTitle}
-                        >
-                          Episode {item.episode_number}
-                          <span className={classes.imageMarked} />
-                        </Typography>
-                      </span>
-                    </ButtonBase>
-
-                    <div className={classes.cardContent}>
-                      <Typography
-                        align="left"
-                        variant="h5"
-                        component="div"
-                        gutterBottom
-                        className={classes.cardContentMargin}
                       >
-                        {item.title}
-                      </Typography>
-
-                      <Typography
-                        style={{
-                          hyphens: 'manual',
-                          color: '#424242',
-                          lineHeight: '20px',
-                          marginTop: '4px',
-                          fontWeight: 400
-                        }}
-                        variant="body2"
-                        paragraph
-                        component="div"
-                      >
-                        <Truncate
-                          lines={4}
-                          trimWhitespace
-                          ellipsis={<span>..</span>}
-                        >
-                          <span style={{ hyphens: 'auto' }}>{desc}</span>
-                        </Truncate>
-                      </Typography>
-
-                      <Typography align="left">
-                        <OpenInNewRounded className={classes.icons} />
-                        Full Episode
-                      </Typography>
+                        {desc}
+                      </Truncate>
                     </div>
-                  </NavLink>
-                </CardActionArea>
+                  </CardBody>
+                  <CardFooter className={classes.cardFooter}>
+                    <p>
+                      <OpenInNewRounded className={classes.icons} />
+                      Full Episode
+                    </p>
+                  </CardFooter>
+                </NavLink>
               </Card>
-            </Grid>
+            </GridItem>
           );
         })}
         <div
@@ -319,9 +320,8 @@ class EpisodeGrid extends Component {
           {this.state.visible < this.state.items.length && (
             <Button
               onClick={this.loadMore}
-              variant="outlined"
-              size="large"
-              color="secondary"
+              size="lg"
+              color="success"
               className={classes.loadMore}
             >
               Load More
@@ -335,18 +335,15 @@ class EpisodeGrid extends Component {
     const { classes } = this.props;
     console.log(this.props);
     return (
-      <div className={classes.root}>
-        <div className={classes.marginTop}>
-          <Grid
-            container
-            spacing={16}
-            justify="flex-start"
-            alignItems="flex-start"
-            wrap="wrap"
-          >
-            {this.loadEpisodes()}
-          </Grid>
-        </div>
+      <div className={classNames(classes.container)}>
+        <GridContainer
+          justify="space-between"
+          spacing={0}
+          alignItems="flex-start"
+          wrap="wrap"
+        >
+          {this.loadEpisodes()}
+        </GridContainer>
       </div>
     );
   }

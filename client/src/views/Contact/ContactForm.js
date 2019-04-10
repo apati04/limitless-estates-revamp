@@ -22,7 +22,7 @@ class ContactForm extends Component {
           email: '',
           message: ''
         }}
-        validateOnChange={false}
+                validateOnChange={false}
         validateOnBlur={false}
         onSubmit={async (values, { resetForm, setSubmitting }) => {
           const onReq = await axios.post('/api/contactformsubmit', {

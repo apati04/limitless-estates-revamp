@@ -2,13 +2,16 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import withStyles from '@material-ui/core/styles/withStyles';
-import Grid from '@material-ui/core/Grid';
+
 import classNames from 'classnames';
+import GridContainer from 'components/Grid/GridContainer';
+import GridItem from 'components/Grid/GridItem';
 
 import Typography from '@material-ui/core/Typography';
 import ReactHtmlParser from 'react-html-parser';
 
-import Card from '@material-ui/core/Card';
+import Card from 'components/Card/Card';
+import CardBody from 'components/Card/CardBody';
 
 import Chip from '@material-ui/core/Chip';
 import Breadcrumbs from '@material-ui/lab/Breadcrumbs';
@@ -152,20 +155,15 @@ class Episode extends Component {
     // const seconds = episode.duration - minutes * 60;
     return (
       <React.Fragment>
-        <div
-          className={classNames(classes.podcastGrid, classes.appContainer, {
-            background: 'rgba(250,250,250,0.87)'
-          })}
-        >
-          <Grid
-            container
+        <div>
+          <GridContainer
             spacing={24}
             justify="flex-start"
             className={classes.alignGrid}
           >
-            <Grid item xs={12} sm={12} md={12}>
+            <GridItem xs={12} sm={12} md={12}>
               <Card elevation={0}>
-                <Paper className={classes.root} elevation={0}>
+                <CardBody>
                   <Breadcrumbs
                     separator={<NavigateNextIcon fontSize="small" />}
                     aria-label="Breadcrumb"
@@ -180,40 +178,39 @@ class Episode extends Component {
                       {episodetitle}
                     </Typography>
                   </Breadcrumbs>
-                </Paper>
-                <Card className={classes.player}>
+                  <div style={{ margin: ' 1rem 0' }} />
                   <Player playerUrl={s2} />
-                </Card>
 
-                <Typography
-                  align="left"
-                  style={{ color: '#414549' }}
-                  gutterBottom
-                  variant="subtitle1"
-                >
-                  {newDate}
-                </Typography>
+                  <Typography
+                    align="left"
+                    style={{ color: '#414549' }}
+                    gutterBottom
+                    variant="subtitle1"
+                  >
+                    {newDate}
+                  </Typography>
 
-                <Typography paragraph align="left" variant="h4">
-                  {episodetitle}
-                </Typography>
+                  <Typography paragraph align="left" variant="h4">
+                    {episodetitle}
+                  </Typography>
 
-                <Typography
-                  align="left"
-                  variant="body2"
-                  className={classes.subheader}
-                >
-                  {episode.summary}
-                </Typography>
+                  <Typography
+                    align="left"
+                    variant="body2"
+                    className={classes.subheader}
+                  >
+                    {episode.summary}
+                  </Typography>
 
-                <div style={{ marginBottom: '1rem' }} id="parseText">
-                  {ReactHtmlParser(episode.description)}
-                </div>
-                {/*  TAGS   <Divider />
+                  <div style={{ marginBottom: '1rem' }} id="parseText">
+                    {ReactHtmlParser(episode.description)}
+                  </div>
+                  {/*  TAGS   <Divider />
                 <div style={{ margin: '16px 0' }}>{this.loadChips()}</div> */}
+                </CardBody>
               </Card>
-            </Grid>
-          </Grid>
+            </GridItem>
+          </GridContainer>
         </div>
       </React.Fragment>
     );
