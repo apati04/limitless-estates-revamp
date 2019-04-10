@@ -74,7 +74,7 @@ const defaultFont = {
 // rgba(0, 85, 170,1)
 //  // rgba(27, 59, 111,0.2);
 // },
-const primaryColor = 'rgba(33, 41, 92,,1)';
+const primaryColor = 'rgba(33, 41, 92,1)';
 const warningColor = '#ff9800';
 const dangerColor = '#f44336';
 const successColor = '#4caf50';
@@ -129,7 +129,7 @@ const infoCardHeader = {
 };
 const primaryCardHeader = {
   color: '#fff',
-  background: 'linear-gradient(60deg, #ab47bc, #8e24aa)',
+  background: 'linear-gradient(60deg, #000046, #1cb5e0)',
   ...primaryBoxShadow
 };
 const roseCardHeader = {
