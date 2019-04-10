@@ -17,6 +17,8 @@ import Fab from '@material-ui/core/Fab';
 import blue from '@material-ui/core/colors/blue';
 import red from '@material-ui/core/colors/red';
 import ContactMailIcon from '@material-ui/icons/ContactMailOutlined';
+
+import InfoArea from 'components/InfoArea/InfoArea';
 const styles = theme => ({
   root: {
     width: '100%',

@@ -2,8 +2,15 @@ import React, { Component } from 'react';
 import { Formik, Field } from 'formik';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
-import Grid from '@material-ui/core/Grid';
-import Button from 'components/CustomButtons/Button.js';
+import Header from 'components/Header/Header';
+import Footer from 'components/Footer/Footer';
+import GridContainer from 'components/Grid/GridContainer';
+import GridItem from 'components/Grid/GridItem';
+
+import HeaderLinks from 'components/Header/HeaderLinks';
+import Parallax from 'components/Parallax/Parallax';
+import Button from 'components/CustomButtons/Button';
+
 import Icon from '@material-ui/core/Icon';
 import blue from '@material-ui/core/colors/blue';
 import * as Yup from 'yup';

@@ -173,7 +173,7 @@ function HeaderLinks({ ...props }) {
           classes={{ tooltip: classes.tooltip }}
         >
           <Button
-            component={props => <Link {...props} to="/contact-us" />}
+            component={props => <Link {...props} to="/contact" />}
             color="transparent"
             className={classes.navLink}
           >

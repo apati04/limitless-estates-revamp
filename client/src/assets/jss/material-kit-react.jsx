@@ -68,8 +68,13 @@ const defaultFont = {
   fontWeight: '300',
   lineHeight: '1.5em'
 };
-
-const primaryColor = '#0288d1';
+// k: {
+//   background: '#0277bd'
+//   //
+// rgba(0, 85, 170,1)
+//  // rgba(27, 59, 111,0.2);
+// },
+const primaryColor = 'rgba(33, 41, 92,,1)';
 const warningColor = '#ff9800';
 const dangerColor = '#f44336';
 const successColor = '#4caf50';
@@ -79,7 +84,7 @@ const grayColor = '#424242';
 
 const primaryBoxShadow = {
   boxShadow:
-    '0 12px 20px -10px rgba(156, 39, 176, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(156, 39, 176, 0.2)'
+    '0 12px 20px -10px rgba(33, 41, 92, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(33, 41, 92, 0.2)'
 };
 const infoBoxShadow = {
   boxShadow:

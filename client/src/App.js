@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { createBrowserHistory } from 'history';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import 'assets/scss/material-kit-react.scss?v=1.4.0';
@@ -28,8 +27,8 @@ class App extends Component {
             <Route exact path="/about" component={About} />
             <Route path="/resources/:id" component={Resources} />
             <Route path="/events/meetups/:id" component={Events} />
-            <Route exact path="/disclaimer" exact component={Disclaimer} />
-            <Route exact path="/contact-us" component={Contact} />
+            <Route exact path="/disclaimer" component={Disclaimer} />
+            <Route exact path="/contact" component={Contact} />
           </Switch>
         </ScrollToTop>
       </Router>

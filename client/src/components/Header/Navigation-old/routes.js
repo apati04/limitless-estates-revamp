@@ -37,7 +37,7 @@ const CerritosLink = props => (
   <NavLink to="/events/meetups/cerritos" {...props} />
 );
 const PodcastLink = props => <NavLink to="/podcasts" {...props} />;
-const ContactLink = props => <NavLink to="/contact-us" {...props} />;
+const ContactLink = props => <NavLink to="/contact" {...props} />;
 
 export {
   AboutLink,

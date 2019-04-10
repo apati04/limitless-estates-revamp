@@ -13,7 +13,6 @@
     "formik": "^1.5.1",
     "formik-material-ui": "0.0.16",
     "google-map-react": "^1.1.2",
-    "history": "^4.9.0",
     "lightbox-react": "^0.3.7",
     "material-ui-flat-pagination": "^3.2.0",
     "moment": "^2.24.0",
