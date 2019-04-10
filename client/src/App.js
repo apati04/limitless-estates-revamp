@@ -15,6 +15,8 @@ import Disclaimer from 'views/Legal/Disclaimer';
 import Contact from 'views/Contact/Contact';
 import Events from 'views/Events/Events';
 import Podcast from 'views/Podcast/Podcast';
+import Episode from 'views/Podcast/Episodes/Episode';
+import ResourceOverview from 'views/Resources/Sections/ResourceOverview';
 class App extends Component {
   render() {
     return (
@@ -25,9 +27,11 @@ class App extends Component {
             <Route exact path="/" component={LandingPage} />
             <Route path="/profile/:id" component={ProfilePage} />
             <Route path="/podcasts" component={Podcast} />
+
             <Route path="/markets/:id" component={Markets} />
             <Route exact path="/about" component={About} />
-            <Route path="/resources/:id" component={Resources} />
+            <Route exact path="/resources" component={ResourceOverview} />
+            <Route exact path="/resources/:id" component={Resources} />
             <Route path="/events/meetups/:id" component={Events} />
             <Route exact path="/disclaimer" component={Disclaimer} />
             <Route exact path="/contact" component={Contact} />

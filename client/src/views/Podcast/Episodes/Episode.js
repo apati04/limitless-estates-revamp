@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import withStyles from '@material-ui/core/styles/withStyles';
 
-import classNames from 'classnames';
 import GridContainer from 'components/Grid/GridContainer';
 import GridItem from 'components/Grid/GridItem';
 
@@ -16,7 +15,7 @@ import CardBody from 'components/Card/CardBody';
 import Chip from '@material-ui/core/Chip';
 import Breadcrumbs from '@material-ui/lab/Breadcrumbs';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
-import Paper from '@material-ui/core/Paper';
+
 import HomeIcon from '@material-ui/icons/Home';
 import Player from '../Player';
 const styles = theme => ({
@@ -143,7 +142,7 @@ class Episode extends Component {
     const {
       classes,
       location: {
-        state: { episode }
+        state: { episode, ...parentStyle }
       }
     } = this.props;
     const s1 = episode.audio_url.split('/');
@@ -155,7 +154,7 @@ class Episode extends Component {
     // const seconds = episode.duration - minutes * 60;
     return (
       <React.Fragment>
-        <div>
+        <div className={parentStyle.section}>
           <GridContainer
             spacing={24}
             justify="flex-start"

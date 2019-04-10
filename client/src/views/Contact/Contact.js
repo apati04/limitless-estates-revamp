@@ -12,6 +12,7 @@ import Card from 'components/Card/Card.jsx';
 
 import loginPageStyle from 'assets/jss/material-kit-react/views/loginPage.jsx';
 import ContactForm from './ContactForm';
+
 const image =
   'https://s3-us-west-1.amazonaws.com/rem-bucket-9818/limitless-revamp/images/house-872066_1920-min.jpg';
 

@@ -11,6 +11,13 @@ import { withRouter } from 'react-router-dom';
 import { TextField } from 'formik-material-ui';
 import { withStyles } from '@material-ui/core/styles';
 
+const styles = theme => ({
+  ...loginPageStyle,
+  cardDiv: {
+    paddingLeft: '1.25rem',
+    paddingRight: '1.25rem'
+  }
+});
 class ContactForm extends Component {
   render() {
     const { classes } = this.props;
@@ -22,7 +29,7 @@ class ContactForm extends Component {
           email: '',
           message: ''
         }}
-                validateOnChange={false}
+        validateOnChange={false}
         validateOnBlur={false}
         onSubmit={async (values, { resetForm, setSubmitting }) => {
           const onReq = await axios.post('/api/contactformsubmit', {
@@ -68,64 +75,69 @@ class ContactForm extends Component {
           setFieldValue,
           isSubmitting
         }) => (
-          <form onSubmit={handleSubmit} className={classes.form}>
-            <CardHeader color="primary" className={classes.cardHeader}>
-              <h3>Send us a Message</h3>
-            </CardHeader>
-            <p className={classes.divider}>
-              A member from the limitless team will get back to you as soon as
-              possible
-            </p>
-            <CardBody>
-              <Field
-                name="fullname"
-                component={TextField}
-                id="fullname"
-                type="text"
-                label="Name"
-                fullWidth
-                margin="normal"
-              />
-              <Field
-                name="email"
-                component={TextField}
-                type="email"
-                label="Email"
-                id="subject"
-                fullWidth
-                margin="normal"
-              />
-              <Field
-                name="subject"
-                component={TextField}
-                type="text"
-                label="Subject"
-                id="subject"
-                fullWidth
-                margin="normal"
-              />
-              <Field
-                name="message"
-                component={TextField}
-                type="text"
-                multiline
-                rows={3}
-                label="Message"
-                id="message"
-                fullWidth
-                margin="normal"
-              />
-            </CardBody>
-            <CardFooter className={classes.cardFooter}>
-              <Button simple color="primary" size="lg">
-                Send Message
-              </Button>
-            </CardFooter>
-          </form>
+          <div className={classes.cardDiv}>
+            <form onSubmit={handleSubmit} className={classes.form}>
+              <CardHeader color="primary" className={classes.cardHeader}>
+                <h3>Send us a Message</h3>
+              </CardHeader>
+              <p
+                style={{ paddingLeft: '1rem', paddingRight: '1rem' }}
+                className={classes.divider}
+              >
+                A member from the limitless team will get back to you as soon as
+                possible
+              </p>
+              <CardBody>
+                <Field
+                  name="fullname"
+                  component={TextField}
+                  id="fullname"
+                  type="text"
+                  label="Name"
+                  fullWidth
+                  margin="normal"
+                />
+                <Field
+                  name="email"
+                  component={TextField}
+                  type="email"
+                  label="Email"
+                  id="subject"
+                  fullWidth
+                  margin="normal"
+                />
+                <Field
+                  name="subject"
+                  component={TextField}
+                  type="text"
+                  label="Subject"
+                  id="subject"
+                  fullWidth
+                  margin="normal"
+                />
+                <Field
+                  name="message"
+                  component={TextField}
+                  type="text"
+                  multiline
+                  rows={3}
+                  label="Message"
+                  id="message"
+                  fullWidth
+                  margin="normal"
+                />
+              </CardBody>
+              <CardFooter className={classes.cardFooter}>
+                <Button round color="primary" size="lg">
+                  Send Message
+                </Button>
+              </CardFooter>
+            </form>
+          </div>
         )}
       />
     );
   }
 }
 
-export default withRouter(withStyles(loginPageStyle)(ContactForm));
+export default withRouter(withStyles(styles)(ContactForm));

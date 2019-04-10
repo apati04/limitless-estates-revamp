@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 import classNames from 'classnames';
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles';
-import Overview from './Sections/Overview';
+import Overview from './Sections/ResourceOverview';
 // @material-ui/icons
 import queryString from 'query-string';
 import Quote from 'components/Typography/Quote';
@@ -16,12 +16,13 @@ import GridItem from 'components/Grid/GridItem';
 import Button from 'components/CustomButtons/Button';
 import HeaderLinks from 'components/Header/HeaderLinks';
 import Parallax from 'components/Parallax/Parallax';
-
+import WhyInvest from './Sections/WhyInvest';
 import landingPageStyle from 'assets/jss/material-kit-react/views/landingPage';
 import api from './api/resource_api';
 const dashboardRoutes = [];
 const styles = theme => ({
   ...landingPageStyle,
+
   mainRaised: {
     ...landingPageStyle.mainRaised,
     [theme.breakpoints.down('sm')]: {
@@ -31,7 +32,7 @@ const styles = theme => ({
   }
 });
 class Resources extends React.Component {
-  loadPage = e => {
+  loadPage = currentPage => {
     const {
       match: {
         params: { id }
@@ -39,6 +40,9 @@ class Resources extends React.Component {
       location
     } = this.props;
     console.log('id', id, location);
+    if (currentPage.slug === 'why-invest-in-multifamily') {
+      return <WhyInvest pageDetail={currentPage} />;
+    }
     // switch (id) {
     //   case 'why-invest-in-multifamily':
     //     return <WhyInvest />;
@@ -78,35 +82,21 @@ class Resources extends React.Component {
               rightLinks={<HeaderLinks />}
               fixed
               changeColorOnScroll={{
-                height: 400,
+                height: 200,
                 color: 'white'
               }}
               {...rest}
             />
-            <Parallax filter image={currentRoute.image}>
-              <div className={classes.container}>
-                <GridContainer>
-                  <GridItem xs={12} sm={12} md={8}>
-                    <h1
-                      style={{ textTransform: 'capitalize' }}
-                      className={classes.title}
-                    >
-                      {currentRoute.title}
-                    </h1>
-                    <h4>{currentRoute.snippet || ''}</h4>
-                  </GridItem>
-                </GridContainer>
-              </div>
-            </Parallax>
+            <Parallax filter small image={currentRoute.image} />
             <div className={classNames(classes.main, classes.mainRaised)}>
               <div className={classes.container}>
-                <div />
+                {this.loadPage(currentRoute)}
               </div>
             </div>
             <Footer />
           </div>
         ) : (
-          <Overview data={api} />
+          <div />
         )}
       </React.Fragment>
     );

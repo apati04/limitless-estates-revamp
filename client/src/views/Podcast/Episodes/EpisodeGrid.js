@@ -221,7 +221,7 @@ class EpisodeGrid extends Component {
     const { classes, episodes, location } = this.props;
     return (
       <React.Fragment>
-        {this.state.items.slice(0, this.state.visible).map((item, index) => {
+        {this.props.episodes.slice(0, this.state.visible).map((item, index) => {
           let desc = ReactHtmlParser(item.summary, {
             transform: function(node, index) {
               if (node.type === 'tag' && node.name === 'br') {
@@ -243,9 +243,10 @@ class EpisodeGrid extends Component {
                 <NavLink
                   className={classes.navLink}
                   to={{
-                    pathname: `${location.pathname}/${item.id}`,
+                    pathname: `/podcasts/${item.id}`,
                     state: {
                       episode: item,
+                      parentStyles: this.props.parentStyles,
                       originalPath: location.pathname
                     }
                   }}
@@ -338,7 +339,6 @@ class EpisodeGrid extends Component {
       <div className={classNames(classes.container)}>
         <GridContainer
           justify="space-between"
-          spacing={0}
           alignItems="flex-start"
           wrap="wrap"
         >

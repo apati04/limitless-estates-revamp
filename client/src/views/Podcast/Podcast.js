@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import { Route, Switch } from 'react-router-dom';
+
+import { Route, Switch, withRouter } from 'react-router-dom';
 import withStyles from '@material-ui/core/styles/withStyles';
 import GridContainer from 'components/Grid/GridContainer.jsx';
 import GridItem from 'components/Grid/GridItem.jsx';
@@ -47,12 +47,6 @@ const styles = theme => ({
   },
   fontStyles: {
     color: 'white'
-  },
-  podcastGrid: {
-    marginTop: theme.spacing.unit * 8,
-    marginBottom: theme.spacing.unit * 12,
-    padding: `${theme.spacing.unit * 3}px ${theme.spacing.unit *
-      6}px 0px ${theme.spacing.unit * 6}px`
   },
   mobileContainer: {
     [theme.breakpoints.down('sm')]: {
@@ -141,7 +135,6 @@ class Podcast extends Component {
 
   render() {
     const { classes, ...rest } = this.props;
-
     return (
       <div>
         <Header
@@ -160,66 +153,64 @@ class Podcast extends Component {
           {this.state.episodes ? (
             <Fade in style={{ transformOrigin: '0 0 0' }} unmountOnExit>
               <div
-                className={classNames(classes.podcastGrid, classes.container)}
+                style={{ marginBottom: '5rem' }}
+                className={classes.container}
               >
-                <div style={{ marginBottom: '128px' }}>
-                  <Card className={classes.card}>
-                    <CardBody
-                      className={classes.cardBody}
-                      style={{ padding: '2rem' }}
+                <Card className={classes.card}>
+                  <CardBody
+                    className={classes.cardBody}
+                    style={{ padding: '2rem' }}
+                  >
+                    <GridContainer
+                      justify="space-around"
+                      spacing={32}
+                      alignItems="flex-start"
+                      wrap="wrap"
                     >
-                      <GridContainer
-                        justify="space-around"
-                        spacing={32}
-                        alignItems="flex-start"
-                        wrap="wrap"
-                      >
-                        <GridItem xs={12} sm={12} md={4}>
-                          <div>
-                            <img
-                              src="https://i.imgur.com/TxnoBIK.jpg"
-                              className={classes.imageStyle}
-                              alt="podcast"
-                              title="podcast"
-                            />
-                          </div>
-                        </GridItem>
-                        <GridItem xs={12} sm={12} md={8}>
-                          <Typography
-                            align="left"
-                            variant="h3"
-                            component="h1"
-                            className={classes.podcastCard}
-                          >
-                            Passive Income Through Multifamily Real Estate
-                            Investing
-                          </Typography>
+                      <GridItem xs={12} sm={12} md={4}>
+                        <div>
+                          <img
+                            src="https://i.imgur.com/TxnoBIK.jpg"
+                            className={classes.imageStyle}
+                            alt="podcast"
+                            title="podcast"
+                          />
+                        </div>
+                      </GridItem>
+                      <GridItem xs={12} sm={12} md={8}>
+                        <Typography
+                          align="left"
+                          variant="h3"
+                          component="h1"
+                          className={classes.podcastCard}
+                        >
+                          Passive Income Through Multifamily Real Estate
+                          Investing
+                        </Typography>
 
-                          <Typography
-                            align="left"
-                            variant="subtitle1"
-                            paragraph
-                            className={classes.podcastSubtitle}
-                          >
-                            {api.description}
-                          </Typography>
+                        <Typography
+                          align="left"
+                          variant="subtitle1"
+                          paragraph
+                          className={classes.podcastSubtitle}
+                        >
+                          {api.description}
+                        </Typography>
 
-                          <div
-                            style={{
-                              display: 'flex',
-                              justifyContent: 'flex-start',
+                        <div
+                          style={{
+                            display: 'flex',
+                            justifyContent: 'flex-start',
 
-                              alignItems: 'center'
-                            }}
-                          >
-                            {this.loadSocialBar()}
-                          </div>
-                        </GridItem>
-                      </GridContainer>
-                    </CardBody>
-                  </Card>
-                </div>
-
+                            alignItems: 'center'
+                          }}
+                        >
+                          {this.loadSocialBar()}
+                        </div>
+                      </GridItem>
+                    </GridContainer>
+                  </CardBody>
+                </Card>
                 <Switch>
                   <Route path="/podcasts/:epid" component={Episode} />
                   <Route
@@ -258,4 +249,4 @@ Podcast.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(Podcast);
+export default withRouter(withStyles(styles)(Podcast));

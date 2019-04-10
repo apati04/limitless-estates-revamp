@@ -125,61 +125,45 @@ function HeaderLinks({ ...props }) {
         <CustomDropdown
           noLiPadding
           buttonText="Events"
-          dropdownHeader="Meetups.com"
+          dropdownHeader="Hosted on Meetup.com"
           buttonProps={{
             className: classes.navLink,
             color: 'transparent'
           }}
           buttonIcon={DateRange}
           dropdownList={[
-            <Link
-              to="/events/meetups/longbeach"
+            <a
+              href="https://www.meetup.com/Out-of-State-Multifamily-Apartment-Investors-Meetup/events/"
               className={classes.dropdownLink}
             >
               Out of State Apartment Investing Mastermind Long Beach Chapter
-            </Link>,
-            <Link
-              to="/events/meetups/cerritos"
+            </a>,
+            <a
+              href="https://www.meetup.com/Cerritos-Multifamily-Investors-Roundtable/events/"
               className={classes.dropdownLink}
             >
               Cerritos Multifamily Investors Roundtable
-            </Link>
+            </a>
           ]}
         />
       </ListItem>
-
       <ListItem className={classes.listItem}>
-        <Tooltip
-          id="tooltip-podcast"
-          title="Listen to our podcast"
-          placement="bottom"
-          classes={{ tooltip: classes.tooltip }}
+        <Button
+          component={props => <Link {...props} to="/podcasts" />}
+          color="transparent"
+          className={classes.navLink}
         >
-          <Button
-            component={props => <Link {...props} to="/podcasts" />}
-            color="transparent"
-            className={classes.navLink}
-          >
-            <Headset className={classes.icons} /> Podcast
-          </Button>
-        </Tooltip>
+          <Headset className={classes.icons} /> Podcast
+        </Button>
       </ListItem>
-
       <ListItem className={classes.listItem}>
-        <Tooltip
-          id="tooltip-contact"
-          title="Contact Us"
-          placement="bottom"
-          classes={{ tooltip: classes.tooltip }}
+        <Button
+          component={props => <Link {...props} to="/contact" />}
+          color="transparent"
+          className={classes.navLink}
         >
-          <Button
-            component={props => <Link {...props} to="/contact" />}
-            color="transparent"
-            className={classes.navLink}
-          >
-            <Mail className={classes.icons} /> Contact
-          </Button>
-        </Tooltip>
+          <Mail className={classes.icons} /> Contact
+        </Button>
       </ListItem>
     </List>
   );

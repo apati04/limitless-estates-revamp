@@ -70,9 +70,9 @@ const defaultFont = {
 };
 // k: {
 //   background: '#0277bd'
-//   //
+//   // rgba(33, 41, 92,1)
 // rgba(0, 85, 170,1)
-//  // rgba(27, 59, 111,0.2);
+//  // rgba(27, 59, 111,1);
 // },
 const primaryColor = 'rgba(33, 41, 92,1)';
 const warningColor = '#ff9800';

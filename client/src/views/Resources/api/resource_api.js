@@ -11,32 +11,27 @@ export default [
       'Have you heard stats such as “80% of millionaires attribute their wealth to real estate”? Or heard stories of living the good life off passive cash flow from rental property? Read below to find out more',
     slug: 'why-invest-in-multifamily',
     pages: [
-      {
-        page: 1,
-        body: [
-          'Have you heard stats such as “80% of millionaires attribute their wealth to real estate”? Or heard stories of living the good life off passive cash flow from rental property? Combine this with the recent years of unpredictable, disappointing stock markets, and you get masses of people realizing they have no control over many of their investments and therefore their life savings. Tired of blindly following the crowd of 401K stuffers, many have started looking at why so many wealthy people own real estate.',
-          'When it comes to real estate investments, we focus in multifamily apartment complexes because of the control it provides in determining the investments results. Some of the most powerful factors in real estate are control, debt (leverage), and taxes. For the average investor, leverage is commonly used in real estate, but not in stocks or private lending. In addition, the IRS and owners of investment rental property might as well be best friends because the IRS has made so many rules to benefit us!',
-          'In multifamily (5+ units) or other commercial investment real estate, the value of the property is based on the income the property produces. This is exactly why the wealthy focus on commercial property such as multifamily apartment complexes. Being that you control the income and expenses in a property, you also control the value. What this means is if you have a way to increase income either by raising rents, billing residents back for utilities, or adding any other source of ancillary income to the operations of the property, you will also add value. Also, if you decrease expenses by renegotiating operating expense costs, billing residents back for utilities, reducing turnovers and vacancy, putting in energy efficient light bulbs and plumbing fixtures, or ANY other way to cut operating expenses, you increase the value of your property.',
-          [
-            <span key="speciallist1">
-              An article for more tips on ways to increase rents (some may not
-              apply to all of our investments) that our team will implement to
-              drive the value of our properties{' '}
-            </span>,
-            <span key="speciallist2">
-              <strong>can be found </strong>
-            </span>,
-            <a
-              key="linkitem3"
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.biggerpockets.com/renewsblog/13-ways-increase-rent-add-rental-property/"
-            >
-              here
-            </a>
-          ]
-        ]
-      }
+      'Have you heard stats such as “80% of millionaires attribute their wealth to real estate”? Or heard stories of living the good life off passive cash flow from rental property? Combine this with the recent years of unpredictable, disappointing stock markets, and you get masses of people realizing they have no control over many of their investments and therefore their life savings. Tired of blindly following the crowd of 401K stuffers, many have started looking at why so many wealthy people own real estate.',
+      'When it comes to real estate investments, we focus in multifamily apartment complexes because of the control it provides in determining the investments results. Some of the most powerful factors in real estate are control, debt (leverage), and taxes. For the average investor, leverage is commonly used in real estate, but not in stocks or private lending. In addition, the IRS and owners of investment rental property might as well be best friends because the IRS has made so many rules to benefit us!',
+      'In multifamily (5+ units) or other commercial investment real estate, the value of the property is based on the income the property produces. This is exactly why the wealthy focus on commercial property such as multifamily apartment complexes. Being that you control the income and expenses in a property, you also control the value. What this means is if you have a way to increase income either by raising rents, billing residents back for utilities, or adding any other source of ancillary income to the operations of the property, you will also add value. Also, if you decrease expenses by renegotiating operating expense costs, billing residents back for utilities, reducing turnovers and vacancy, putting in energy efficient light bulbs and plumbing fixtures, or ANY other way to cut operating expenses, you increase the value of your property.',
+      [
+        <span key="speciallist1">
+          An article for more tips on ways to increase rents (some may not apply
+          to all of our investments) that our team will implement to drive the
+          value of our properties{' '}
+        </span>,
+        <span key="speciallist2">
+          <strong>can be found </strong>
+        </span>,
+        <a
+          key="linkitem3"
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.biggerpockets.com/renewsblog/13-ways-increase-rent-add-rental-property/"
+        >
+          here
+        </a>
+      ]
     ]
   },
   {
@@ -54,7 +49,7 @@ export default [
       'Impact investing assets under management (AUM), estimated by GIIN to be close to $80 billion today, is expected to grow substantially by as much as $15 billion annually as more institutional investors rush into the sector to meet the demand of their more philanthropic-minded clients.',
       'Often deemed “Doing well by doing good,” Impact Investing is expected to accelerate as tech savvy, socially-focused Millennials, who are more committed to repairing the world than previous generations, become wealthier and a significant force in the investing population. According to the Deloitte report Catalysts for Change, 75 million Millennials are positioned to become the wealthiest generation ever, surpassing the 80 million Baby Boomers. In fact, over the next 40 years, an estimated US$ 41 trillion will be transferred from Baby Boomers to their heirs, resulting in a very powerful Millennial population. This wealth transfer is likely to catapult Impact Investing into a leading asset class in the coming years.'
     ],
-    tag: 'whyinvest'
+    tag: 'impactinvesting'
   },
   {
     type: 'resource',
@@ -198,35 +193,26 @@ export default [
     tags: 'selfdirectedira',
     pages: [
       {
-        page: 1,
-        body: [
-          {
-            id: 'nuView',
-            company: 'NuView Trust Company',
-            name: 'Tyler Hood',
-            phone: '(407) 434-0200 ext 1353',
-            address: [
-              '280 S Ronald Reagan Blvd, Suite 200',
-              'Longwood, FL 32750'
-            ],
-            logo: 'https://i.imgur.com/iWlJS7e.jpg?1',
-            email: 'thood@nuviewira.com',
-            website: 'https://www.nuviewtrust.com',
-            misc:
-              'https://www.nuviewtrust.com/individual-investors/real-estate/'
-          },
-          {
-            id: 'uDirect',
-            company: 'uDirect IRA Services, LLC',
-            phone: '(866) 447-6598',
-            email: 'info@uDirectIRA.com',
-            name: 'Jeff Dixon',
-            address: ['8 Corporate Park Ste 210', 'Irvine, CA 92606'],
-            website: 'https://www.udirectira.com',
-            logo: 'https://i.imgur.com/3RlWeLH.jpg',
-            misc: 'https://udirectira.com/library/real-estate-ira/'
-          }
-        ]
+        id: 'nuView',
+        company: 'NuView Trust Company',
+        name: 'Tyler Hood',
+        phone: '(407) 434-0200 ext 1353',
+        address: ['280 S Ronald Reagan Blvd, Suite 200', 'Longwood, FL 32750'],
+        logo: 'https://i.imgur.com/iWlJS7e.jpg?1',
+        email: 'thood@nuviewira.com',
+        website: 'https://www.nuviewtrust.com',
+        misc: 'https://www.nuviewtrust.com/individual-investors/real-estate/'
+      },
+      {
+        id: 'uDirect',
+        company: 'uDirect IRA Services, LLC',
+        phone: '(866) 447-6598',
+        email: 'info@uDirectIRA.com',
+        name: 'Jeff Dixon',
+        address: ['8 Corporate Park Ste 210', 'Irvine, CA 92606'],
+        website: 'https://www.udirectira.com',
+        logo: 'https://i.imgur.com/3RlWeLH.jpg',
+        misc: 'https://udirectira.com/library/real-estate-ira/'
       }
     ],
     totalPages: 1
@@ -239,92 +225,86 @@ export default [
     tags: 'faq',
     pages: [
       {
-        page: 1,
-        body: [
-          {
-            title: 'Why should I invest in multifamily properties?',
-            description:
-              'In our experience purchasing and transforming neglected multifamily properties, we know that good homes make good investments. By embracing the principle of “impact investing,” we are able to invest in multi-family real estate that not only deliver strong financial returns, but also have a positive social impact on families and communities across the nation.'
-          },
-          {
-            title: 'Can I lose more than I invest?',
-            description:
-              'No, your total loss cannot exceed the amount you invest.'
-          },
-          {
-            title: 'Do tenants benefit?',
-            description:
-              'We think so. We try to create safe, thriving communities where tenants will not only stay, but also refer their friends and relatives. It’s good for business, but also good for people.'
-          },
-          {
-            title: 'Will I receive updates?',
-            description:
-              'Yes, you can expect to receive periodic updates about the property, its financial condition, and other matters. We will provide updates via email.'
-          },
-          {
-            title: 'What is the life of the investment?',
-            description:
-              'We will typically aim to hold our properties for approximately five years (although certain properties may be held for longer or shorter periods depending on the characteristics of each property and prevailing market conditions), at which point we intend to seek a “liquidity event,” such as a sale or refinancing of the property. However, there is no guarantee that we will be able to successfully pursue a liquidity event with respect to any of our properties. Market conditions may delay or even prevent the Manager from pursuing liquidity events. If we do not or cannot liquidate our real estate portfolio, or if we experience delays due to market conditions, this could delay Investors’ ability to receive a return of their investment indefinitely and may even result in losses, notwithstanding the provisions of the LLC Agreement.'
-          },
-          {
-            title: 'Will I receive a stock certificate?',
-            description:
-              'No, you will not receive a paper certificate. Your ownership will be recorded electronically.'
-          },
-          {
-            title: 'Can I invest through my IRA?',
-            description:
-              'Yes, through a self-directed IRA. If you don’t have a self-directed IRA, you can open one at www.udirectira.com or www.nuviewtrust.com. *Note that there can be tax issues investing through an IRA, so make sure you consult with your own tax advisor before investing.'
-          },
-          {
-            title: 'Is there an investment minimum?',
-            description:
-              'Yes, however that number can very deal by deal. Typically the minimum amount you can invest will be between $25,000-$50,000.'
-          },
-          {
-            title: 'Is there a maximum investment amount for one deal?',
-            description:
-              'As stated above, each share is $25,000 - $50,000 but theoretically if you wanted to buy all shares available for a particular property, you are more than welcome to.'
-          },
-          {
-            title: 'Who can invest?',
-            description:
-              'Anyone 18 or older can invest, although you must be an accredited or sophisticated investor. For more information visit www.sec.gov'
-          },
-          {
-            title: 'How often will I receive distributions?',
-            description:
-              'We plan to make distributions quarterly, if we have profits to distribute.'
-          },
-          {
-            title: 'How will distributions be made?',
-            description:
-              'We will make distributions by depositing money directly into your bank account as so-called ACH transfers.'
-          },
-          {
-            title: 'How much control will I have over the investment?',
-            description:
-              'As an Investor, you will not have a right to vote or otherwise participate in managing the investment, except on very limited matters. Instead, the Manager will make all decisions, including investment decisions. Investors will have the right to remove the Manager only in very limited circumstances.'
-          },
+        title: 'Why should I invest in multifamily properties?',
+        description:
+          'In our experience purchasing and transforming neglected multifamily properties, we know that good homes make good investments. By embracing the principle of “impact investing,” we are able to invest in multi-family real estate that not only deliver strong financial returns, but also have a positive social impact on families and communities across the nation.'
+      },
+      {
+        title: 'Can I lose more than I invest?',
+        description: 'No, your total loss cannot exceed the amount you invest.'
+      },
+      {
+        title: 'Do tenants benefit?',
+        description:
+          'We think so. We try to create safe, thriving communities where tenants will not only stay, but also refer their friends and relatives. It’s good for business, but also good for people.'
+      },
+      {
+        title: 'Will I receive updates?',
+        description:
+          'Yes, you can expect to receive periodic updates about the property, its financial condition, and other matters. We will provide updates via email.'
+      },
+      {
+        title: 'What is the life of the investment?',
+        description:
+          'We will typically aim to hold our properties for approximately five years (although certain properties may be held for longer or shorter periods depending on the characteristics of each property and prevailing market conditions), at which point we intend to seek a “liquidity event,” such as a sale or refinancing of the property. However, there is no guarantee that we will be able to successfully pursue a liquidity event with respect to any of our properties. Market conditions may delay or even prevent the Manager from pursuing liquidity events. If we do not or cannot liquidate our real estate portfolio, or if we experience delays due to market conditions, this could delay Investors’ ability to receive a return of their investment indefinitely and may even result in losses, notwithstanding the provisions of the LLC Agreement.'
+      },
+      {
+        title: 'Will I receive a stock certificate?',
+        description:
+          'No, you will not receive a paper certificate. Your ownership will be recorded electronically.'
+      },
+      {
+        title: 'Can I invest through my IRA?',
+        description:
+          'Yes, through a self-directed IRA. If you don’t have a self-directed IRA, you can open one at www.udirectira.com or www.nuviewtrust.com. *Note that there can be tax issues investing through an IRA, so make sure you consult with your own tax advisor before investing.'
+      },
+      {
+        title: 'Is there an investment minimum?',
+        description:
+          'Yes, however that number can very deal by deal. Typically the minimum amount you can invest will be between $25,000-$50,000.'
+      },
+      {
+        title: 'Is there a maximum investment amount for one deal?',
+        description:
+          'As stated above, each share is $25,000 - $50,000 but theoretically if you wanted to buy all shares available for a particular property, you are more than welcome to.'
+      },
+      {
+        title: 'Who can invest?',
+        description:
+          'Anyone 18 or older can invest, although you must be an accredited or sophisticated investor. For more information visit www.sec.gov'
+      },
+      {
+        title: 'How often will I receive distributions?',
+        description:
+          'We plan to make distributions quarterly, if we have profits to distribute.'
+      },
+      {
+        title: 'How will distributions be made?',
+        description:
+          'We will make distributions by depositing money directly into your bank account as so-called ACH transfers.'
+      },
+      {
+        title: 'How much control will I have over the investment?',
+        description:
+          'As an Investor, you will not have a right to vote or otherwise participate in managing the investment, except on very limited matters. Instead, the Manager will make all decisions, including investment decisions. Investors will have the right to remove the Manager only in very limited circumstances.'
+      },
 
-          {
-            title: 'Can I only invest in one deal at a time?',
-            description:
-              'No. You are more than welcome to invest in as many deals as we have available.'
-          },
-          {
-            title: 'Are the returns guaranteed on the business packet?',
-            description:
-              'No. Guaranteeing a return on an investment is actually against the law. We underwrite our deals conservatively in order to try and be sure that our deals perform to expectations. With that said, we have done and continue to do research to ensure we know what is going on in the area where we are investing. We know that if our deals do not perform for our investors, our business will not succeed. We put our investors and the residents first.'
-          },
+      {
+        title: 'Can I only invest in one deal at a time?',
+        description:
+          'No. You are more than welcome to invest in as many deals as we have available.'
+      },
+      {
+        title: 'Are the returns guaranteed on the business packet?',
+        description:
+          'No. Guaranteeing a return on an investment is actually against the law. We underwrite our deals conservatively in order to try and be sure that our deals perform to expectations. With that said, we have done and continue to do research to ensure we know what is going on in the area where we are investing. We know that if our deals do not perform for our investors, our business will not succeed. We put our investors and the residents first.'
+      },
 
-          {
-            title:
-              'What would make me invest with Limitless Estates LLC over other companies?',
-            description:
-              "We are not looking for any investor out there. We want to partner with investors interested in making a difference in the communities we invest in and make a good return as well. We believe that making a positive difference in the communities we invest in will impact the bottom line more than if we only look at the numbers. We don't only want good business deals, we want to help build communities up."
-          }
-        ]
+      {
+        title:
+          'What would make me invest with Limitless Estates LLC over other companies?',
+        description:
+          "We are not looking for any investor out there. We want to partner with investors interested in making a difference in the communities we invest in and make a good return as well. We believe that making a positive difference in the communities we invest in will impact the bottom line more than if we only look at the numbers. We don't only want good business deals, we want to help build communities up."
       }
     ],
     totalPages: 1
