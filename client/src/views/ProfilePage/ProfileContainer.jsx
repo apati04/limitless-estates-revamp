@@ -35,9 +35,7 @@ import profilePageStyle from 'assets/jss/material-kit-react/views/profilePage.js
 import lalita from './Profile/lalita';
 const styles = theme => ({
   ...profilePageStyle,
-  mainRaised: {
-    ...profilePageStyle.mainRaised
-  }
+
 });
 class ProfilePageContainer extends React.Component {
   render() {
@@ -47,6 +45,10 @@ class ProfilePageContainer extends React.Component {
       classes.imgRoundedCircle,
       classes.imgFluid
     );
+    let color = "info";
+    if(this.props.name.includes("Lalita")) {
+      color = "rose"
+    }
     const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
     return (
       <React.Fragment>
@@ -99,7 +101,8 @@ class ProfilePageContainer extends React.Component {
               <GridContainer justify="center" alignItems="center">
                 <GridItem xs={12} sm={12} md={8} className={classes.navWrapper}>
                   <NavPills
-                    color="rose"
+                    color={color}
+alignCenter
                     tabs={this.props.profileTabs.map(tab => ({
                       tabButton: tab.tabName,
                       tabContent: tab.tabContent
