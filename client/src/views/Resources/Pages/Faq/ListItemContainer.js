@@ -6,13 +6,14 @@ import MuiExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MuiExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
-
+import productStyle from 'assets/jss/material-kit-react/views/landingPageSections/productStyle';
 const styles = theme => ({
   root: { width: '100%', marginBottom: '0.25em' },
   heading: {
     fontSize: theme.typography.pxToRem(15),
     fontWeight: theme.typography.fontWeightReguar
   },
+  ...productStyle,
   panel: {
     [theme.breakpoints.up('sm')]: {
       boxShadow: 'none'
@@ -36,7 +37,7 @@ const ExpansionPanel = withStyles({
 })(MuiExpansionPanel);
 const ExpansionPanelSummary = withStyles({
   root: {
-    backgroundColor: '#fbfbfb',
+    backgroundColor: 'rgb(252,252,252)',
     borderBottom: '1px solid rgba(0,0,0,.125)',
 
     marginBottom: -1,
@@ -63,7 +64,14 @@ const ExpansionPanelDetails = withStyles(theme => ({
 }))(MuiExpansionPanelDetails);
 class ListItemContainer extends React.Component {
   render() {
-    const { classes, title, body, idx, panelChange, expanded } = this.props;
+    const {
+      title,
+      description,
+      idx,
+      panelChange,
+      expanded,
+      classes
+    } = this.props;
     const panelNumber = 'panel' + idx;
     return (
       <ExpansionPanel
@@ -71,18 +79,17 @@ class ListItemContainer extends React.Component {
         onChange={panelChange(panelNumber)}
       >
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography
-            align="left"
-            variant="body1"
-            style={{ fontSize: '1.125rem' }}
+          <h4
+            style={{ marginTop: '8px', marginBottom: 0 }}
+            className={classes.title}
           >
             {title}
-          </Typography>
+          </h4>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
-          <Typography align="left" variant="body1">
-            {body}
-          </Typography>
+          <p style={{ textAlign: 'left' }} className={classes.description}>
+            {description}
+          </p>
         </ExpansionPanelDetails>
       </ExpansionPanel>
     );

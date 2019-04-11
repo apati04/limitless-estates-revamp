@@ -22,7 +22,7 @@ class App extends Component {
         <ScrollToTop>
           <Switch>
             {/* <Route exact path="/" component={Thankyou} /> */}
-            <Route exact path="/" component={LandingPage} />
+
             <Route path="/profile/:id" component={ProfilePage} />
             <Route path="/podcasts" component={Podcast} />
 
@@ -33,6 +33,7 @@ class App extends Component {
             {/* <Route path="/events/meetups/:id" component={Events} /> */}
             <Route exact path="/disclaimer" component={Disclaimer} />
             <Route exact path="/contact" component={Contact} />
+            <Route exact path="/" component={LandingPage} />
           </Switch>
         </ScrollToTop>
       </Router>

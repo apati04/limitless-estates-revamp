@@ -1,12 +1,23 @@
 import React, { Component } from 'react';
-import Grid from '@material-ui/core/Grid';
-import PageHeader from '../../../Layouts/PageHeader';
+import classNames from 'classnames';
 import ListItemContainer from './ListItemContainer';
-import Typography from '@material-ui/core/Typography';
+
 import api from './apiFaq';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-const styles = {
+
+import productStyle from 'assets/jss/material-kit-react/views/landingPageSections/productStyle';
+import withStyles from '@material-ui/core/styles/withStyles';
+import landingPageStyle from 'assets/jss/material-kit-react/views/landingPage';
+const styles = theme => ({
+  ...landingPageStyle,
+  ...productStyle,
+  faq: {
+    padding: 0,
+    [theme.breakpoints.up('sm')]: {
+      ...landingPageStyle.container,
+      paddingTop: '4rem',
+      paddingBottom: '4rem'
+    }
+  },
   appContainer: {
     margin: '0 auto',
     marginLeft: 'auto',
@@ -15,7 +26,7 @@ const styles = {
     paddingRight: '15px',
     width: '100%'
   }
-};
+});
 class Faq extends Component {
   state = {
     data: null,
@@ -33,10 +44,7 @@ class Faq extends Component {
     });
   }
   loadList = () => {
-    if (this.state.data === null) {
-      return <div>loading.</div>;
-    }
-    return this.state.data.map((item, index) => {
+    return api.map((item, index) => {
       return (
         <ListItemContainer
           key={index}
@@ -49,47 +57,9 @@ class Faq extends Component {
     });
   };
   render() {
-    const { theme } = this.props;
-    console.log(theme);
-    return (
-      <div>
-        <div
-          style={{
-            height: '20em',
-            backgroundColor: 'rgba(0,0,0,0.5)',
-            marginBottom: '4em'
-          }}
-        />
-
-        <div style={styles.appContainer} className="main-content">
-          <Card
-            square
-            style={{
-              position: 'absolute',
-              top: '18em',
-              width: '50%',
-              left: '12rem',
-              backgroundColor: '#fbfbfb',
-              padding: '1rem 0.5rem'
-            }}
-          >
-            <CardContent>
-              <Typography variant="h2" component="h1">
-                Frequently Asked Questions
-              </Typography>
-            </CardContent>
-          </Card>
-          <Grid container spacing={32} justify="center" alignItems="center">
-            <Grid item xs={12} sm={10}>
-              <div style={{ margin: '2rem 0' }} />
-
-              {this.loadList()}
-            </Grid>
-          </Grid>
-        </div>
-      </div>
-    );
+    const { classes } = this.props;
+    return <div className={classNames(classes.faq)}>{this.loadList()}</div>;
   }
 }
 
-export default Faq;
+export default withStyles(styles)(Faq);
