@@ -8,11 +8,6 @@ import Card from 'components/Card/Card';
 import CardBody from 'components/Card/CardBody';
 import CardFooter from 'components/Card/CardFooter';
 
-import Header from 'components/Header/Header';
-import Footer from 'components/Footer/Footer';
-
-import HeaderLinks from 'components/Header/HeaderLinks';
-import ButtonBase from '@material-ui/core/ButtonBase';
 import classNames from 'classnames';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import GridContainer from 'components/Grid/GridContainer';
@@ -25,7 +20,8 @@ import mic3Img from '../mic3test.jpg';
 import landingPageStyle from 'assets/jss/material-kit-react/views/landingPage';
 import productStyle from 'assets/jss/material-kit-react/views/landingPageSections/productStyle';
 import imagesStyles from 'assets/jss/material-kit-react/imagesStyles';
-import blue from '@material-ui/core/colors/blue';
+import grey from '@material-ui/core/colors/grey';
+import episodeLogo from './ep.svg';
 const styles = theme => ({
   ...landingPageStyle,
   ...productStyle,
@@ -80,7 +76,7 @@ const styles = theme => ({
     top: 0,
     bottom: 0,
     backgroundColor: theme.palette.common.black,
-    opacity: 0.6,
+    opacity: 0.4,
     transition: theme.transitions.create('opacity')
   },
   imageTitle: {
@@ -191,7 +187,7 @@ const styles = theme => ({
     textDecorationLine: 'none',
     '-webkit-text-decoration': 'none',
     '&:hover': {
-      color: blue[800] + '!important'
+      color: grey[800] + '!important'
     }
   },
   gradient: {
@@ -240,76 +236,78 @@ class EpisodeGrid extends Component {
               className={classes.cardGrid + ' tile fade-in'}
             >
               <Card elevation={0} className={classes.card}>
-                <NavLink
-                  className={classes.navLink}
-                  to={{
-                    pathname: `/podcasts/${item.id}`,
-                    state: {
-                      episode: item,
-                      parentStyles: this.props.parentStyles,
-                      originalPath: location.pathname
-                    }
-                  }}
-                >
-                  <Button
-                    focusRipple
-                    key={item.id}
-                    className={classNames(classes.cardMedia, classes.image)}
-                    focusVisibleClassName={classes.focusVisible}
+                <CardActionArea component="div">
+                  <NavLink
+                    className={classes.navLink}
+                    to={{
+                      pathname: `/podcasts/${item.id}`,
+                      state: {
+                        episode: item,
+                        parentStyles: this.props.parentStyles,
+                        originalPath: location.pathname
+                      }
+                    }}
                   >
-                    <div
-                      className={classes.imageSrc}
-                      style={{
-                        backgroundImage: `url(${mic3Img})`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                        width: 'auto',
-                        borderRadiusTop: '29px'
-                      }}
-                    />
-                    <span className={classes.imageBackdrop} />
-                    <span className={classes.imageButton}>
-                      <Typography
-                        component="span"
-                        variant="h6"
-                        color="inherit"
-                        className={classes.imageTitle}
-                      >
-                        Episode {item.episode_number}
-                        <span className={classes.imageMarked} />
-                      </Typography>
-                    </span>
-                  </Button>
-
-                  <CardBody>
-                    <h4
-                      style={{ textAlign: 'left' }}
-                      className={classes.cardTitle}
+                    <Button
+                      focusRipple
+                      key={item.id}
+                      className={classNames(classes.cardMedia, classes.image)}
+                      focusVisibleClassName={classes.focusVisible}
                     >
-                      {item.title.split(': ')[1].trim() || item.title}
-                    </h4>
-                    <div style={{ textAlign: 'left', hyphens: 'auto' }}>
-                      <Truncate
-                        lines={3}
-                        trimWhitespace
-                        ellipsis="..."
+                      <div
+                        className={classes.imageSrc}
                         style={{
-                          textAlign: 'left',
-                          width: '100%',
-                          hyphens: 'auto'
+                          backgroundImage: `url(${episodeLogo})`,
+                          backgroundSize: 'cover',
+                          backgroundPosition: 'center',
+                          width: 'auto',
+                          borderRadiusTop: '29px'
                         }}
+                      />
+                      <span className={classes.imageBackdrop} />
+                      <span className={classes.imageButton}>
+                        <Typography
+                          component="span"
+                          variant="h6"
+                          color="inherit"
+                          className={classes.imageTitle}
+                        >
+                          Episode {item.episode_number}
+                          <span className={classes.imageMarked} />
+                        </Typography>
+                      </span>
+                    </Button>
+
+                    <CardBody>
+                      <h4
+                        style={{ textAlign: 'left' }}
+                        className={classes.cardTitle}
                       >
-                        {desc}
-                      </Truncate>
-                    </div>
-                  </CardBody>
-                  <CardFooter className={classes.cardFooter}>
-                    <p>
-                      <OpenInNewRounded className={classes.icons} />
-                      Full Episode
-                    </p>
-                  </CardFooter>
-                </NavLink>
+                        {item.title.split(': ')[1].trim() || item.title}
+                      </h4>
+                      <div style={{ textAlign: 'left', hyphens: 'auto' }}>
+                        <Truncate
+                          lines={3}
+                          trimWhitespace
+                          ellipsis="..."
+                          style={{
+                            textAlign: 'left',
+                            width: '100%',
+                            hyphens: 'auto'
+                          }}
+                        >
+                          {desc}
+                        </Truncate>
+                      </div>
+                    </CardBody>
+                    <CardFooter className={classes.cardFooter}>
+                      <p>
+                        <OpenInNewRounded className={classes.icons} />
+                        Full Episode
+                      </p>
+                    </CardFooter>
+                  </NavLink>
+                </CardActionArea>
               </Card>
             </GridItem>
           );

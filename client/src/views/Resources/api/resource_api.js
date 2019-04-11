@@ -191,6 +191,7 @@ export default [
     title: 'Self Directed Ira',
     slug: 'self-directed-ira',
     tags: 'selfdirectedira',
+    snippet: 'Our Preferred Partners',
     pages: [
       {
         id: 'nuView',

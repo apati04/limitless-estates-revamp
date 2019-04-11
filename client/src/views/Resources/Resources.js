@@ -18,13 +18,14 @@ import landingPageStyle from 'assets/jss/material-kit-react/views/landingPage';
 import api from './api/resource_api';
 import MultiPagePost from './Sections/MultiPagePost';
 import Faq from './Pages/Faq/Faq';
+import FeaturedCompany from 'views/Resources/Sections/FeaturedCompany';
 const dashboardRoutes = [];
 const styles = theme => ({
   ...landingPageStyle,
   customContainer: {
     padding: 0,
     [theme.breakpoints.up('sm')]: {
-      ...landingPageStyle.contianer
+      ...landingPageStyle.container
     }
   },
   mainRaised: {
@@ -44,14 +45,11 @@ class Resources extends React.Component {
         return <ResourcePost pageDetail={currentPage} />;
       case 'investing-risks':
         const pageNum = queryString.parse(this.props.location.search);
-        // if (pageNum.page === '2') {
-        //   return <MultiPagePost pageDetail={currentPage} />;
-        // }
         return (
           <MultiPagePost pageNumber={pageNum.page} pageDetail={currentPage} />
         );
-      // case 'self-direct-401k-ira':
-      //   return <SelfDirect />;
+      case 'self-directed-ira':
+        return <FeaturedCompany data={currentPage} />;
       case 'frequently-asked-questions':
         return <Faq />;
       default:
@@ -63,10 +61,13 @@ class Resources extends React.Component {
     const { classes, match, ...rest } = this.props;
 
     let title = match.params.id;
-    console.log(title);
     let currentRoute = api.find(element => element.slug === title);
+    console.log('curentRoute: ', currentRoute);
     let fullbg = false;
-    if (title === 'frequently-asked-questions') {
+    if (
+      title === 'frequently-asked-questions' ||
+      title === 'self-directed-ira'
+    ) {
       fullbg = true;
     }
     return (
@@ -86,7 +87,7 @@ class Resources extends React.Component {
               {...rest}
             />
             <Parallax filter small={!fullbg} image={currentRoute.image}>
-              {title === 'frequently-asked-questions' ? (
+              {fullbg ? (
                 <div className={classes.container}>
                   <GridContainer>
                     <GridItem xs={12} sm={12} md={6}>

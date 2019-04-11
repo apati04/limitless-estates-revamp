@@ -22,7 +22,8 @@ const styles = theme => ({
 });
 const ExpansionPanel = withStyles({
   root: {
-    border: '1px solid rgba(0,0,0,.125)',
+    borderTop: '1px solid rgba(0,0,0,.125)',
+    borderBottom: '1px solid rgba(0,0,0,.125)',
     boxShadow: 'none',
     '&:not(:last-child)': {
       borderBottom: 0
