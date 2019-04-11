@@ -7,4 +7,7 @@ module.exports = {
   meetupOauthSecret: process.env.MEETUP_OAUTH_SECRET,
   meetupOauthCallback: process.env.MEETUP_OAUTH_CALLBACK,
   oauthBaseUrl: process.env.OAUTH_BASE_URL
+  mapboxToken: process.env.MAPBOX_TOKEN,
+  podcastAPIKey: process.env.PODCAST_API_KEY,
+  podcastIdKey: process.env.PODCAST_ID_KEY
 };
