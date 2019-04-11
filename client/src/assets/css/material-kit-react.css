@@ -121,13 +121,13 @@ legend {
 }
 
 a {
-  color: #5e92f3;
+  color: #003c8f;
   text-decoration: none;
   background-color: transparent;
 }
 a:hover,
 a:focus {
-  color: #003c8f;
+  color: #005bda;
   text-decoration: none;
 }
 

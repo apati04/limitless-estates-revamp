@@ -16,7 +16,7 @@ import Button from 'components/CustomButtons/Button';
 import Truncate from 'react-truncate';
 import ReactHtmlParser from 'react-html-parser';
 import OpenInNewRounded from '@material-ui/icons/OpenInNewRounded';
-import mic3Img from '../mic3test.jpg';
+
 import landingPageStyle from 'assets/jss/material-kit-react/views/landingPage';
 import productStyle from 'assets/jss/material-kit-react/views/landingPageSections/productStyle';
 import imagesStyles from 'assets/jss/material-kit-react/imagesStyles';
@@ -118,13 +118,9 @@ const styles = theme => ({
   rightIcon: {
     marginLeft: theme.spacing.unit
   },
-  // cardGrid: {
-
-  //   [theme.breakpoints.up('840px')]: {
-  //     width: 'calc(33.33333% -16px)',
-  //     display: 'block'
-  //   }
-  // },
+  cardGrid: {
+    padding: 0
+  },
   marginTop: {
     ...theme.container,
     padding: 0,
@@ -134,7 +130,8 @@ const styles = theme => ({
   },
   card: {
     display: 'flex',
-    flexDirection: 'column'
+    flexDirection: 'column',
+    borderRadius: 0
   },
   cardMedia: {
     margin: 0,
@@ -172,7 +169,7 @@ const styles = theme => ({
     verticalAlign: 'middle'
   },
   cardContentMargin: {
-    margin: '0.rem 1rem'
+    margin: '0rem 1rem'
   },
   truncateText: {
     marginTop: theme.spacing.unit * 3,
