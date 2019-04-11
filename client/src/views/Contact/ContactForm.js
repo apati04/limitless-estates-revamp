@@ -128,7 +128,13 @@ class ContactForm extends Component {
                 />
               </CardBody>
               <CardFooter className={classes.cardFooter}>
-                <Button round color="primary" size="lg">
+                <Button
+                  round
+                  type="submit"
+                  disabled={isSubmitting}
+                  color="primary"
+                  size="lg"
+                >
                   Send Message
                 </Button>
               </CardFooter>

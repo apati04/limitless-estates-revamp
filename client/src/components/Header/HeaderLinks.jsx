@@ -94,24 +94,28 @@ function HeaderLinks({ ...props }) {
             >
               Why Invest in Multifamily
             </Link>,
+            { divider: true },
             <Link
               to="/resources/impact-investing"
               className={classes.dropdownLink}
             >
               What is Impact Investing
             </Link>,
+            { divider: true },
             <Link
               to="/resources/self-directed-ira"
               className={classes.dropdownLink}
             >
               Self-Directed IRA
             </Link>,
+            { divider: true },
             <Link
               to="/resources/investing-risks?page=1"
               className={classes.dropdownLink}
             >
               Investing Risks
             </Link>,
+            { divider: true },
             <Link
               to="/resources/frequently-asked-questions"
               className={classes.dropdownLink}
