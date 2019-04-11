@@ -1,15 +1,19 @@
 import React from 'react';
 // @material-ui/core components
+import { NavLink } from 'react-router-dom';
 import withStyles from '@material-ui/core/styles/withStyles';
 import classNames from 'classnames';
 import GridContainer from 'components/Grid/GridContainer';
 import GridItem from 'components/Grid/GridItem';
 import productStyle from 'assets/jss/material-kit-react/views/landingPageSections/productStyle';
 // core components
+import Button from 'components/CustomButtons/Button';
+import Typography from '@material-ui/core/Typography';
+import Breadcrumbs from '@material-ui/lab/Breadcrumbs';
+import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import Card from 'components/Card/Card.jsx';
 import CardBody from 'components/Card/CardBody.jsx';
 import imagesStyles from 'assets/jss/material-kit-react/imagesStyles.jsx';
-import Button from 'components/CustomButtons/Button';
 import { cardTitle } from 'assets/jss/material-kit-react.jsx';
 
 const styles = {
@@ -32,10 +36,9 @@ class FeaturedCompany extends React.Component {
         index
       ) => {
         return (
-          <GridItem key={id} xs={12} sm={12} md={6}>
+          <GridItem key={id} xs={12} sm={12} md={4}>
             <Card
               style={{
-                width: '80%',
                 marginLeft: 'auto',
                 marginRight: 'auto'
               }}
@@ -81,6 +84,23 @@ class FeaturedCompany extends React.Component {
       <div className={classes.section}>
         <GridContainer justify="center">
           <GridItem xs={12} sm={12} md={8}>
+            <Breadcrumbs
+              separator={<NavigateNextIcon fontSize="small" />}
+              aria-label="Breadcrumb"
+            >
+              <NavLink className={classes.navLink} to="/resources">
+                <Typography style={{ color: '#337ab7' }} variant="body2">
+                  All Resources
+                </Typography>
+              </NavLink>
+              <Typography color="textPrimary" variant="body2">
+                {data.title}
+              </Typography>
+            </Breadcrumbs>
+          </GridItem>
+        </GridContainer>
+        <GridContainer justify="center">
+          <GridItem xs={12} sm={12} md={8}>
             <h2 className={classNames(classes.title)}>{data.snippet}</h2>
             <h5 className={classes.description}>
               Keep you user engaged by providing meaningful information.
@@ -90,9 +110,7 @@ class FeaturedCompany extends React.Component {
             </h5>
           </GridItem>
         </GridContainer>
-        <div>
-          <GridContainer>{this.loadCard()}</GridContainer>
-        </div>
+        <GridContainer justify="center">{this.loadCard()}</GridContainer>
       </div>
     );
   }

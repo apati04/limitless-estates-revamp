@@ -4,11 +4,13 @@ export default [
   {
     totalPages: 1,
     type: 'resource',
+    tag: 'Article',
     image:
       'https://images.unsplash.com/photo-1460317442991-0ec209397118?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+    thumbnail: 'https://i.imgur.com/HYKhQFeb.jpg',
     title: 'Why Invest in Multifamily?',
     headline:
-      'Have you heard stats such as “80% of millionaires attribute their wealth to real estate”? Or heard stories of living the good life off passive cash flow from rental property? Read below to find out more',
+      'Have you heard stats such as “80% of millionaires attribute their wealth to real estate”? Find out why investing in real estate is a great choice for investors.',
     slug: 'why-invest-in-multifamily',
     pages: [
       'Have you heard stats such as “80% of millionaires attribute their wealth to real estate”? Or heard stories of living the good life off passive cash flow from rental property? Combine this with the recent years of unpredictable, disappointing stock markets, and you get masses of people realizing they have no control over many of their investments and therefore their life savings. Tired of blindly following the crowd of 401K stuffers, many have started looking at why so many wealthy people own real estate.',
@@ -38,8 +40,9 @@ export default [
     totalPages: 1,
     type: 'resource',
     image: 'https://i.imgur.com/jnCFMkv.jpg',
+    thumbnail: 'https://i.imgur.com/HYKhQFeb.jpg',
     headline:
-      'Impact Investing is simply investing with a purpose. Often called a “double bottom line” investment, impact investing enables investors to put their money to good use in meaningful, intelligent ventures that provide both a financial AND a social return on their investment.',
+      'Learn what impact investing is and how it enables investors to make strategic decisions.',
     slug: 'impact-investing',
     title: 'What is Impact Investing?',
     pages: [
@@ -49,15 +52,16 @@ export default [
       'Impact investing assets under management (AUM), estimated by GIIN to be close to $80 billion today, is expected to grow substantially by as much as $15 billion annually as more institutional investors rush into the sector to meet the demand of their more philanthropic-minded clients.',
       'Often deemed “Doing well by doing good,” Impact Investing is expected to accelerate as tech savvy, socially-focused Millennials, who are more committed to repairing the world than previous generations, become wealthier and a significant force in the investing population. According to the Deloitte report Catalysts for Change, 75 million Millennials are positioned to become the wealthiest generation ever, surpassing the 80 million Baby Boomers. In fact, over the next 40 years, an estimated US$ 41 trillion will be transferred from Baby Boomers to their heirs, resulting in a very powerful Millennial population. This wealth transfer is likely to catapult Impact Investing into a leading asset class in the coming years.'
     ],
-    tag: 'impactinvesting'
+    tag: 'Article'
   },
   {
     type: 'resource',
     image: 'https://i.imgur.com/LZDGUNH.jpg?1',
     slug: 'investing-risks',
     title: 'Risks with investing in Real Estate',
+    thumbnail: 'https://i.imgur.com/HYKhQFeb.jpg',
     headline:
-      'Investing in real estate along with any type of investing involves significant risk, including the risk that you could lose some or all of your money. This section describes some of the most significant risk factors affecting the investment and its Investors.',
+      'This section describes some of the most significant risk factors affecting the investment and its Investors.',
     pages: {
       '1': {
         page: 1,
@@ -184,17 +188,18 @@ export default [
         ]
       }
     },
-    tag: 'risks',
+    tag: 'Reference',
     totalPages: 2
   },
   {
     type: 'resource',
     image: 'https://i.imgur.com/c4fYNoN.jpg',
-    title: 'Self Directed Ira',
+    title: 'Self Directed IRA',
     slug: 'self-directed-ira',
-    tags: 'selfdirectedira',
+    tag: 'Guide',
+    thumbnail: 'https://i.imgur.com/HYKhQFeb.jpg',
     headline:
-      'Learn how you use a self directed ira do invest in real estate. We will guide you along the process.',
+      'Learn how Self-Directed IRAs work and how you can use it to invest in real estate. It takes 4 simple steps to get started.',
     snippet: 'Our Preferred Partners',
     pages: [
       {
@@ -227,8 +232,9 @@ export default [
     slug: 'frequently-asked-questions',
     title: 'Frequently Asked Questions',
     image: 'https://i.imgur.com/4zCa4Ld.jpg',
-    tags: 'faq',
-    headline: `Get answers to questions such as "Is there an investment minimum?", "How will distributions be made?","How much control will I have over the investment?", and more...`,
+    thumbnail: 'https://i.imgur.com/HYKhQFeb.jpg',
+    tag: 'Support',
+    headline: `Get answers to questions such as "Is there an investment minimum?","How much control will I have over the investment?"`,
     pages: [
       {
         title: 'Why should I invest in multifamily properties?',

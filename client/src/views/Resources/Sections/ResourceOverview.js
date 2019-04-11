@@ -12,6 +12,7 @@ import Parallax from 'components/Parallax/Parallax';
 import Header from 'components/Header/Header';
 
 import { cardTitle } from 'assets/jss/material-kit-react.jsx';
+import OverviewCards from './OverviewCards';
 import componentsStyle from 'assets/jss/material-kit-react/views/components.jsx';
 import landingPageStyle from 'assets/jss/material-kit-react/views/landingPage';
 
@@ -57,21 +58,9 @@ class ResourceOverview extends React.Component {
           {...rest}
         />
         <Parallax filter small image={'https://i.imgur.com/oxwtIbj.jpg'} />
-        <div className={classes.container}>
-          <div className={classNames(classes.main, classes.mainRaised)}>
-            <InfoArea
-              title="Why Invest In Multifamily"
-              description={
-                <span>
-                  We focus in multifamily apartment complexes because of the
-                  control it provides in determining the investments results...
-                  <Link to="/resources/why-invest-in-multifamily">
-                    Read More
-                  </Link>
-                </span>
-              }
-              icon={ChatIcon}
-            />
+        <div className={classNames(classes.main, classes.mainRaised)}>
+          <div className={classes.container}>
+            <OverviewCards />
           </div>
         </div>
       </div>

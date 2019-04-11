@@ -5,14 +5,14 @@ import { withStyles } from '@material-ui/core/styles';
 import MainTeam from './Sections/MainTeam';
 
 // core components
-import Header from 'components/Header/Header';
-import Footer from 'components/Footer/Footer';
-import GridContainer from 'components/Grid/GridContainer';
-import GridItem from 'components/Grid/GridItem';
-import HeaderLinks from 'components/Header/HeaderLinks';
-import Parallax from 'components/Parallax/Parallax';
+import Header from 'components/Header/Header.jsx';
+import Footer from 'components/Footer/Footer.jsx';
+import GridContainer from 'components/Grid/GridContainer.jsx';
+import GridItem from 'components/Grid/GridItem.jsx';
+import HeaderLinks from 'components/Header/HeaderLinks.jsx';
+import Parallax from 'components/Parallax/Parallax.jsx';
 
-import landingPageStyle from 'assets/jss/material-kit-react/views/landingPage';
+import landingPageStyle from 'assets/jss/material-kit-react/views/landingPage.jsx';
 
 import WorkSection from '../LandingPage/Sections/WorkSection';
 

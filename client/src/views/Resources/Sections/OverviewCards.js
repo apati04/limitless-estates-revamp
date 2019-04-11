@@ -3,47 +3,150 @@ import React from 'react';
 import withStyles from '@material-ui/core/styles/withStyles';
 import classNames from 'classnames';
 // @material-ui/icons
-import Group from '@material-ui/icons/Group';
-import Public from '@material-ui/icons/Public';
-import Assessment from '@material-ui/icons/Assessment';
+import Card from 'components/Card/Card';
 
+import { Link } from 'react-router-dom';
 import Button from 'components/CustomButtons/Button';
 // core components
 import GridContainer from 'components/Grid/GridContainer';
 import GridItem from 'components/Grid/GridItem';
-import InfoArea from 'components/InfoArea/InfoArea';
-import productStyle from 'assets/jss/material-kit-react/views/landingPageSections/productStyle';
-import typographyStyle from 'assets/jss/material-kit-react/components/typographyStyle';
+import productStyle from 'assets/jss/material-kit-react/views/landingPageSections/productStyle.jsx';
+import NotesIcon from '@material-ui/icons/Notes';
+import typographyStyle from 'assets/jss/material-kit-react/components/typographyStyle.jsx';
 import api from '../api/resource_api';
+
+import { cardTitle } from 'assets/jss/material-kit-react.jsx';
+import imagesStyles from 'assets/jss/material-kit-react/imagesStyles';
 const styles = theme => ({
   ...productStyle,
-  ...typographyStyle
+  ...typographyStyle,
+  cardTitle,
+  ...imagesStyles,
+  imgCardOverlay: {
+    ...imagesStyles.imgCardOverlay,
+    background: 'rgba(0,0,0,0.67)',
+    borderRadius: '6px',
+    color: 'white',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column',
+    [theme.breakpoints.up('sm')]: {
+      padding: '1.875rem'
+    }
+  },
+  iconLeft: {
+    marginRight: '10px'
+  }
 });
 class OverviewCards extends React.Component {
   loadCards = () => {
     const { classes } = this.props;
-    return api.map((item, index) => {
-      return (
-        <GridItem xs={12} sm={12} md={4} key={index + item.type}>
-          <InfoArea
-            title="Community"
-            description="Text about the meetups and how you are building a community through this lalalal placeholder text stuff leedlee leedle leee"
-            icon={() => (
-              <img
-                src={item.image}
-                alt="..."
-                className={
-                  classes.imgRaised +
-                  ' ' +
-                  classes.imgRounded +
-                  ' ' +
-                  classes.imgFluid
-                }
+    const colors = ['primary', 'success', 'warning', 'danger'];
+    return api.map((item, index, arr) => {
+      if (index === arr.length - 1) {
+        return (
+          <GridItem xs={12} sm={12} md={12} key={index + item.type}>
+            <Card>
+              <div
+                style={{
+                  background: `url(${item.image}) no-repeat center`,
+                  backgroundSize: 'cover',
+                  height: '334px',
+                  borderRadius: '6px'
+                }}
+                className={classNames(classes.imgCardTop, classes.imgRaised)}
               />
-            )}
-            iconColor="warning"
-          />
-          <Button>Learn More</Button>
+              <div className={classes.imgCardOverlay}>
+                <div style={{ maxWidth: '32em' }}>
+                  <h6>{item.tag}</h6>
+                  <Link to={`resources/${item.slug}`}>
+                    <h3
+                      style={{ color: 'white', marginTop: 0 }}
+                      className={classes.title}
+                    >
+                      {item.title}
+                    </h3>
+                  </Link>
+                  <p
+                    style={{
+                      color: 'white',
+                      fontWeight: 400,
+                      marginBottom: '10px',
+                      lineHeight: '24px',
+                      overflowWrap: 'break-word'
+                    }}
+                    className={classes.description}
+                  >
+                    {item.headline}
+                  </p>
+                  <Button
+                    component={props => (
+                      <Link {...props} to={`resources/${item.slug}`} />
+                    )}
+                    style={{ marginTop: 'auto' }}
+                    round
+                    color="info"
+                  >
+                    <NotesIcon className={classes.iconLeft} />
+                    Read More
+                  </Button>
+                </div>
+              </div>
+            </Card>
+          </GridItem>
+        );
+      }
+      return (
+        <GridItem xs={12} sm={12} md={6} key={index + item.type}>
+          <Card>
+            <div
+              style={{
+                background: `url(${item.image}) no-repeat center`,
+                backgroundSize: 'cover',
+                height: '334px',
+                borderRadius: '6px'
+              }}
+              className={classNames(classes.imgCardTop, classes.imgRaised)}
+            />
+
+            <div className={classes.imgCardOverlay}>
+              <h6>{item.tag}</h6>
+
+              <Link to={`resources/${item.slug}`}>
+                <h3
+                  style={{ color: 'white', marginTop: 0 }}
+                  className={classes.title}
+                >
+                  {item.title}
+                </h3>
+              </Link>
+              <p
+                style={{
+                  color: 'white',
+                  fontWeight: 400,
+                  marginBottom: '10px',
+                  lineHeight: '24px',
+                  overflowWrap: 'break-word',
+                  width: '80%'
+                }}
+                className={classes.description}
+              >
+                {item.headline}
+              </p>
+              <Button
+                component={props => (
+                  <Link {...props} to={`resources/${item.slug}`} />
+                )}
+                style={{ alignSelf: 'bottom' }}
+                round
+                color={colors[index]}
+              >
+                <NotesIcon className={classes.iconLeft} />
+                Read More
+              </Button>
+            </div>
+          </Card>
         </GridItem>
       );
     });
@@ -54,18 +157,13 @@ class OverviewCards extends React.Component {
       <div className={classes.section}>
         <GridContainer justify="center">
           <GridItem xs={12} sm={12} md={8}>
-            <h2 className={classNames(classes.title)}>Overview</h2>
-            <h5 className={classes.description}>
-              This is the paragraph where you can write more details about your
-              values. Keep you user engaged by providing meaningful information.
-              Remember that by this time, the user is curious, otherwise he
-              wouldn't scroll to get here. every one of these sections will lead
-              to a page
-            </h5>
+            <h2 className={classNames(classes.title)}>
+              Resources for Investing
+            </h2>
           </GridItem>
         </GridContainer>
         <div>
-          <GridContainer>
+          <GridContainer justify="center" alignItems="center">
             {/* <GridItem xs={12} sm={12} md={3}>
               <InfoArea
                 title="Inspire Others"
@@ -76,24 +174,7 @@ class OverviewCards extends React.Component {
               />
             </GridItem> */}
 
-            <GridItem xs={12} sm={12} md={4}>
-              <InfoArea
-                title="stay connected"
-                description="as a passive investor you are in full control and your opinions matter. something cheesy like that. say something about your webinars and Limitless Estates ability to be willing to listen. this icon section should target the potential investor"
-                icon={Public}
-                iconColor="info"
-              />
-              <Button>Learn More</Button>
-            </GridItem>
-            <GridItem xs={12} sm={12} md={4}>
-              <InfoArea
-                title="Strategy"
-                description="Describe and talk about strategizing and how the process works. basically promoting the SelfDirected IRA. this section is targeted for super noobs"
-                icon={Assessment}
-                iconColor="success"
-              />
-              <Button>Learn More</Button>
-            </GridItem>
+            {this.loadCards()}
           </GridContainer>
         </div>
       </div>

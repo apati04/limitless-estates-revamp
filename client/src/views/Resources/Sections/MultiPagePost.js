@@ -75,6 +75,23 @@ class MultiPagePost extends React.Component {
         </GridContainer>
         <GridContainer justify="center">
           <GridItem xs={12} sm={12} md={8}>
+            <Breadcrumbs
+              separator={<NavigateNextIcon fontSize="small" />}
+              aria-label="Breadcrumb"
+            >
+              <NavLink className={classes.navLink} to="/resources">
+                <Typography style={{ color: '#337ab7' }} variant="body2">
+                  All Resources
+                </Typography>
+              </NavLink>
+              <Typography color="textPrimary" variant="body2">
+                {pageDetail.title}
+              </Typography>
+            </Breadcrumbs>
+          </GridItem>
+        </GridContainer>
+        <GridContainer justify="center">
+          <GridItem xs={12} sm={12} md={8}>
             <h2
               style={{ marginBottom: 0 }}
               className={classNames(classes.title)}
