@@ -21,28 +21,33 @@ const styles = theme => ({
 });
 class OverviewCards extends React.Component {
   loadCards = () => {
-    return (api.map((item)=> {
-      return (  <GridItem xs={12} sm={12} md={4}>
-        <InfoArea
-          title="Community"
-          description="Text about the meetups and how you are building a community through this lalalal placeholder text stuff leedlee leedle leee"
-          icon={() => <img
-            src={image}
-            alt="..."
-            className={
-              classes.imgRaised +
-              " " +
-              classes.imgRounded +
-              " " +
-              classes.imgFluid
-            }
-          />}
-          iconColor="warning"
-        />
-        <Button>Learn More</Button>
-      </GridItem>
-    }))
-  }
+    const { classes } = this.props;
+    return api.map((item, index) => {
+      return (
+        <GridItem xs={12} sm={12} md={4} key={index + item.type}>
+          <InfoArea
+            title="Community"
+            description="Text about the meetups and how you are building a community through this lalalal placeholder text stuff leedlee leedle leee"
+            icon={() => (
+              <img
+                src={item.image}
+                alt="..."
+                className={
+                  classes.imgRaised +
+                  ' ' +
+                  classes.imgRounded +
+                  ' ' +
+                  classes.imgFluid
+                }
+              />
+            )}
+            iconColor="warning"
+          />
+          <Button>Learn More</Button>
+        </GridItem>
+      );
+    });
+  };
   render() {
     const { classes } = this.props;
     return (

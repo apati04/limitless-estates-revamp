@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import withStyles from '@material-ui/core/styles/withStyles';
 import Card from 'components/Card/Card';
 import { Link } from 'react-router-dom';
-
+import ChatIcon from '@material-ui/icons/Chat';
 import InfoArea from 'components/InfoArea/InfoArea';
 import imagesStyles from 'assets/jss/material-kit-react/imagesStyles.jsx';
 import HeaderLinks from 'components/Header/HeaderLinks';
@@ -70,7 +70,7 @@ class ResourceOverview extends React.Component {
                   </Link>
                 </span>
               }
-              icon={() =>}
+              icon={ChatIcon}
             />
           </div>
         </div>

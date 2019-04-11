@@ -7,7 +7,7 @@ export default [
     image:
       'https://images.unsplash.com/photo-1460317442991-0ec209397118?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
     title: 'Why Invest in Multifamily?',
-    snippet:
+    headline:
       'Have you heard stats such as “80% of millionaires attribute their wealth to real estate”? Or heard stories of living the good life off passive cash flow from rental property? Read below to find out more',
     slug: 'why-invest-in-multifamily',
     pages: [
@@ -38,7 +38,7 @@ export default [
     totalPages: 1,
     type: 'resource',
     image: 'https://i.imgur.com/jnCFMkv.jpg',
-    snippet:
+    headline:
       'Impact Investing is simply investing with a purpose. Often called a “double bottom line” investment, impact investing enables investors to put their money to good use in meaningful, intelligent ventures that provide both a financial AND a social return on their investment.',
     slug: 'impact-investing',
     title: 'What is Impact Investing?',
@@ -56,6 +56,8 @@ export default [
     image: 'https://i.imgur.com/LZDGUNH.jpg?1',
     slug: 'investing-risks',
     title: 'Risks with investing in Real Estate',
+    headline:
+      'Investing in real estate along with any type of investing involves significant risk, including the risk that you could lose some or all of your money. This section describes some of the most significant risk factors affecting the investment and its Investors.',
     pages: {
       '1': {
         page: 1,
@@ -191,6 +193,8 @@ export default [
     title: 'Self Directed Ira',
     slug: 'self-directed-ira',
     tags: 'selfdirectedira',
+    headline:
+      'Learn how you use a self directed ira do invest in real estate. We will guide you along the process.',
     snippet: 'Our Preferred Partners',
     pages: [
       {
@@ -224,6 +228,7 @@ export default [
     title: 'Frequently Asked Questions',
     image: 'https://i.imgur.com/4zCa4Ld.jpg',
     tags: 'faq',
+    headline: `Get answers to questions such as "Is there an investment minimum?", "How will distributions be made?","How much control will I have over the investment?", and more...`,
     pages: [
       {
         title: 'Why should I invest in multifamily properties?',
