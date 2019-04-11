@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import withStyles from '@material-ui/core/styles/withStyles';
+
 import classNames from 'classnames';
 import GridItem from 'components/Grid/GridItem';
 import Button from 'components/CustomButtons/Button';
@@ -10,13 +10,6 @@ import CardBody from 'components/Card/CardBody';
 import CardFooter from 'components/Card/CardFooter';
 import team from '../api/team';
 import Truncate from 'react-truncate';
-import landingPageStyle from 'assets/jss/material-kit-react/views/landingPage';
-
-const styles = theme => ({
-  root: {
-    flexGrow: 1
-  }
-});
 
 class Staff extends Component {
   loadCards = () => {
@@ -31,7 +24,12 @@ class Staff extends Component {
         <GridItem key={name} xs={12} sm={12} md={6}>
           <Card plain>
             <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
-              <img src={photo.url} alt="..." className={imageClasses} />
+              <img
+                src={photo.url}
+                alt="..."
+                width="236px"
+                className={imageClasses}
+              />
             </GridItem>
             <h4 className={classes.cardTitle}>
               {name}

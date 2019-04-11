@@ -1,6 +1,6 @@
 import React from 'react';
 // nodejs library that concatenates classes
-import classNames from 'classnames';
+
 import { withRouter } from 'react-router-dom';
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles';
@@ -15,6 +15,7 @@ import HeaderLinks from 'components/Header/HeaderLinks.jsx';
 import profilePageStyle from 'assets/jss/material-kit-react/views/profilePage.jsx';
 import ProfileContainer from './ProfileContainer.jsx';
 import lalita from './Profile/lalita.js';
+import kyle from './Profile/kyle';
 class ProfilePage extends React.Component {
   loadPage = () => {
     const { id } = this.props.match.params;
@@ -22,19 +23,13 @@ class ProfilePage extends React.Component {
       case 'lalita':
         return <ProfileContainer {...lalita} />;
       case 'kyle':
-        return <ProfileContainer {...lalita} />;
+        return <ProfileContainer {...kyle} />;
       default:
         return <div />;
     }
   };
   render() {
     const { classes, ...rest } = this.props;
-    const imageClasses = classNames(
-      classes.imgRaised,
-      classes.imgRoundedCircle,
-      classes.imgFluid
-    );
-    const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
     return (
       <div>
         <Header

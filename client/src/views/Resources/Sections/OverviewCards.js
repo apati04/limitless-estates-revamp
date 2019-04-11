@@ -6,17 +6,43 @@ import classNames from 'classnames';
 import Group from '@material-ui/icons/Group';
 import Public from '@material-ui/icons/Public';
 import Assessment from '@material-ui/icons/Assessment';
-import CastConnected from '@material-ui/icons/CastConnected';
+
 import Button from 'components/CustomButtons/Button';
 // core components
 import GridContainer from 'components/Grid/GridContainer';
 import GridItem from 'components/Grid/GridItem';
 import InfoArea from 'components/InfoArea/InfoArea';
 import productStyle from 'assets/jss/material-kit-react/views/landingPageSections/productStyle';
+import typographyStyle from 'assets/jss/material-kit-react/components/typographyStyle';
+import api from '../api/resource_api';
 const styles = theme => ({
-  ...productStyle
+  ...productStyle,
+  ...typographyStyle
 });
 class OverviewCards extends React.Component {
+  loadCards = () => {
+    return (api.map((item)=> {
+      return (  <GridItem xs={12} sm={12} md={4}>
+        <InfoArea
+          title="Community"
+          description="Text about the meetups and how you are building a community through this lalalal placeholder text stuff leedlee leedle leee"
+          icon={() => <img
+            src={image}
+            alt="..."
+            className={
+              classes.imgRaised +
+              " " +
+              classes.imgRounded +
+              " " +
+              classes.imgFluid
+            }
+          />}
+          iconColor="warning"
+        />
+        <Button>Learn More</Button>
+      </GridItem>
+    }))
+  }
   render() {
     const { classes } = this.props;
     return (
@@ -44,15 +70,7 @@ class OverviewCards extends React.Component {
                 vertical
               />
             </GridItem> */}
-            <GridItem xs={12} sm={12} md={4}>
-              <InfoArea
-                title="Community"
-                description="Text about the meetups and how you are building a community through this lalalal placeholder text stuff leedlee leedle leee"
-                icon={Group}
-                iconColor="warning"
-              />
-              <Button>Learn More</Button>
-            </GridItem>
+
             <GridItem xs={12} sm={12} md={4}>
               <InfoArea
                 title="stay connected"

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import GridItem from 'components/Grid/GridItem';
@@ -10,11 +10,6 @@ import CardFooter from 'components/Card/CardFooter';
 
 import Truncate from 'react-truncate';
 import advisors from '../api/advisors';
-const styles = theme => ({
-  root: {
-    flexGrow: 1
-  }
-});
 
 class Advisors extends Component {
   loadCards = () => {
@@ -25,11 +20,16 @@ class Advisors extends Component {
       classes.imgFluid
     );
     return advisors.map(
-      ({ name, title, profilePage, photo, description }, index) => (
+      ({ name, title, profilePage, photo, description, website }, index) => (
         <GridItem key={name} xs={12} sm={12} md={4}>
           <Card plain>
             <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
-              <img src={photo.url} alt="..." className={imageClasses} />
+              <img
+                src={photo.url}
+                alt="..."
+                width="236px"
+                className={imageClasses}
+              />
             </GridItem>
             <h4 className={classes.cardTitle}>
               {name}
@@ -44,14 +44,13 @@ class Advisors extends Component {
               </p>
             </CardBody>
             <CardFooter className={classes.justifyCenter}>
-              <Button justIcon color="transparent" className={classes.margin5}>
-                asdf
-              </Button>
-              <Button justIcon color="transparent" className={classes.margin5}>
-                <i className={classes.socials + ' fab fa-instagram'} />
-              </Button>
-              <Button justIcon color="transparent" className={classes.margin5}>
-                <i className={classes.socials + ' fab fa-facebook'} />
+              <Button
+                simple
+                color="primary"
+                href={website}
+                className={classes.margin5}
+              >
+                Visit Website
               </Button>
             </CardFooter>
           </Card>

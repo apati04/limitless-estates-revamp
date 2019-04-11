@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import 'assets/scss/material-kit-react.scss?v=1.4.0';
+import 'assets/css/material-kit-react.min.css';
 import ScrollToTop from 'util/ScrollToTop';
 
 // import Thankyou from './views/FormPages/Thankyou';

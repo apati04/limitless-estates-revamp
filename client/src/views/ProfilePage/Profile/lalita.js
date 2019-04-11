@@ -76,26 +76,26 @@ export default {
           to both parties. In 2005, I appeared and competed on a reality TV
           show, Golf Channel’s Altered Course Montego Bay.
         </p>,
-         <p key="f8678" style={{ textAlign: 'left' }}>
-         Since July 2016, I have worked for Strato Partners as a Regional Sales
-         Director and Assistant General Manager. In just 2 years, I now hold
-         the position of General Manager. Within this job, I have made myself
-         familiar and competent with defining what is important in managing a
-         $4 million+ business. Strato Partners make it a #1 priority to have
-         each and every guest leave with a great customer experience.
-       </p>,
-       <p key="23rfg" style={{ textAlign: 'left' }}>
-         I constantly set goals for myself, mentally and physically, and I
-         persistently try to achieve them. I am continually learning to grow
-         and improve as a person by pushing limits. I plan to work my way out
-         of the golf industry and completely out of my comfort zone. I have
-         found real estate to be my new quest and chase in life. I am driven
-         and relentless, and these skills make me a valuable asset to my team.
-         My goals for the future would be to become an all-around real estate
-         expert, continually grow my portfolio and to be an entrepreneur duo
-         with my fiancé. For me, it would be so special to be able to look back
-         one day to see how far we’ve come and share the successes together.
-       </p>
+        <p key="f8678" style={{ textAlign: 'left' }}>
+          Since July 2016, I have worked for Strato Partners as a Regional Sales
+          Director and Assistant General Manager. In just 2 years, I now hold
+          the position of General Manager. Within this job, I have made myself
+          familiar and competent with defining what is important in managing a
+          $4 million+ business. Strato Partners make it a #1 priority to have
+          each and every guest leave with a great customer experience.
+        </p>,
+        <p key="23rfg" style={{ textAlign: 'left' }}>
+          I constantly set goals for myself, mentally and physically, and I
+          persistently try to achieve them. I am continually learning to grow
+          and improve as a person by pushing limits. I plan to work my way out
+          of the golf industry and completely out of my comfort zone. I have
+          found real estate to be my new quest and chase in life. I am driven
+          and relentless, and these skills make me a valuable asset to my team.
+          My goals for the future would be to become an all-around real estate
+          expert, continually grow my portfolio and to be an entrepreneur duo
+          with my fiancé. For me, it would be so special to be able to look back
+          one day to see how far we’ve come and share the successes together.
+        </p>
       ]
     }
   ]

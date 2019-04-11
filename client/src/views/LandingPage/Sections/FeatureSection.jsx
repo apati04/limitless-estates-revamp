@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import Group from '@material-ui/icons/Group';
 import Public from '@material-ui/icons/Public';
 import Assessment from '@material-ui/icons/Assessment';
-import CastConnected from '@material-ui/icons/CastConnected';
+
 import Button from 'components/CustomButtons/Button';
 // core components
 import GridContainer from 'components/Grid/GridContainer';

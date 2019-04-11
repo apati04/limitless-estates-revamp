@@ -2,20 +2,12 @@ import React from 'react';
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles';
 import classNames from 'classnames';
-// @material-ui/icons
-import Chat from '@material-ui/icons/Chat';
-import VerifiedUser from '@material-ui/icons/VerifiedUser';
-import Fingerprint from '@material-ui/icons/Fingerprint';
-
-// core components
 import GridContainer from 'components/Grid/GridContainer';
 import GridItem from 'components/Grid/GridItem';
-import InfoArea from 'components/InfoArea/InfoArea';
 import productStyle from 'assets/jss/material-kit-react/views/landingPageSections/productStyle';
 // core components
 import Card from 'components/Card/Card.jsx';
 import CardBody from 'components/Card/CardBody.jsx';
-import CardHeader from 'components/Card/CardHeader';
 import imagesStyles from 'assets/jss/material-kit-react/imagesStyles.jsx';
 import Button from 'components/CustomButtons/Button';
 import { cardTitle } from 'assets/jss/material-kit-react.jsx';
@@ -31,7 +23,7 @@ const styles = {
     textAlign: 'left'
   }
 };
-class ProductSection extends React.Component {
+class FeaturedCompany extends React.Component {
   loadCard = () => {
     const { classes, data } = this.props;
     return data.pages.map(
@@ -106,4 +98,4 @@ class ProductSection extends React.Component {
   }
 }
 
-export default withStyles(styles)(ProductSection);
+export default withStyles(styles)(FeaturedCompany);

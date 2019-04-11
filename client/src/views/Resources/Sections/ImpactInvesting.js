@@ -16,7 +16,7 @@ import GridItem from 'components/Grid/GridItem';
 import InfoArea from 'components/InfoArea/InfoArea';
 import Breadcrumbs from '@material-ui/lab/Breadcrumbs';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
-import HomeIcon from '@material-ui/icons/Home';
+
 import productStyle from 'assets/jss/material-kit-react/views/landingPageSections/productStyle';
 const styles = theme => ({
   ...productStyle,

@@ -211,7 +211,7 @@ class EpisodeGrid extends Component {
     });
   };
   loadEpisodes = () => {
-    const { classes, episodes, location } = this.props;
+    const { classes, location } = this.props;
     return (
       <React.Fragment>
         {this.props.episodes.slice(0, this.state.visible).map((item, index) => {
