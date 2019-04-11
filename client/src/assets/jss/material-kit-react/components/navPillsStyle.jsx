@@ -81,7 +81,7 @@ const navPillsStyle = theme => ({
       color: '#FFFFFF',
       backgroundColor: primaryColor,
       boxShadow:
-        '0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(33, 41, 92, 0.4)'
+        '0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(1, 87, 255, 0.4)'
     }
   },
   info: {

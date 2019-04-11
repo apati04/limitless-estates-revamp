@@ -56,7 +56,7 @@ const paginationStyle = {
       borderColor: primaryColor,
       color: '#FFFFFF',
       boxShadow:
-        '0 4px 5px 0 rgba(33, 41, 92, 0.14), 0 1px 10px 0 rgba(33, 41, 92, 0.12), 0 2px 4px -1px rgba(33, 41, 92, 0.2)'
+        '0 4px 5px 0 rgba(1, 87, 255, 0.14), 0 1px 10px 0 rgba(1, 87, 255, 0.12), 0 2px 4px -1px rgba(1, 87, 255, 0.2)'
     },
     '&:hover,&:focus': {
       zIndex: '2',

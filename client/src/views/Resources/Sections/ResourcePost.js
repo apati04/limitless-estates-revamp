@@ -41,7 +41,7 @@ const styles = theme => ({
     fontWeight: 400
   }
 });
-class WhyInvest extends React.Component {
+class ResourcePost extends React.Component {
   loadPageDescription = () => {
     const { classes, pageDetail } = this.props;
     return pageDetail.pages.map((item, index) => (
@@ -126,4 +126,4 @@ class WhyInvest extends React.Component {
   }
 }
 
-export default withStyles(styles)(WhyInvest);
+export default withStyles(styles)(ResourcePost);

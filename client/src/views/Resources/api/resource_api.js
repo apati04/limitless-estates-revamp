@@ -56,8 +56,8 @@ export default [
     image: 'https://i.imgur.com/LZDGUNH.jpg?1',
     slug: 'investing-risks',
     title: 'Risks with investing in Real Estate',
-    pages: [
-      {
+    pages: {
+      '1': {
         page: 1,
         body: [
           {
@@ -115,7 +115,7 @@ export default [
           }
         ]
       },
-      {
+      '2': {
         page: 2,
         body: [
           {
@@ -181,7 +181,7 @@ export default [
           }
         ]
       }
-    ],
+    },
     tag: 'risks',
     totalPages: 2
   },
