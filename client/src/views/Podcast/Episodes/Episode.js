@@ -13,7 +13,7 @@ import Card from 'components/Card/Card';
 import CardBody from 'components/Card/CardBody';
 
 import Chip from '@material-ui/core/Chip';
-import Breadcrumbs from '@material-ui/lab/Breadcrumbs';
+import Breadcrumbs from 'components/Breadcrumbs/Breadcrumbs';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 
 import HomeIcon from '@material-ui/icons/Home';
@@ -164,19 +164,10 @@ class Episode extends Component {
               <Card elevation={0}>
                 <CardBody>
                   <Breadcrumbs
-                    separator={<NavigateNextIcon fontSize="small" />}
-                    aria-label="Breadcrumb"
-                  >
-                    <NavLink className={classes.navLink} to="/podcasts">
-                      <Typography style={{ color: '#337ab7' }} variant="body2">
-                        <HomeIcon className={classes.icon} />
-                        All Episodes
-                      </Typography>
-                    </NavLink>
-                    <Typography color="textPrimary" variant="body2">
-                      {episodetitle}
-                    </Typography>
-                  </Breadcrumbs>
+                    linkTitle="Episodes"
+                    resource="podcasts"
+                    linkHeader={episodetitle}
+                  />
                   <div style={{ margin: ' 1rem 0' }} />
                   <Player playerUrl={s2} />
 

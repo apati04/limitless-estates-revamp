@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from 'react-router-dom';
 
 import 'assets/css/material-kit-react.min.css';
 import ScrollToTop from 'util/ScrollToTop';
@@ -29,7 +34,8 @@ class App extends Component {
             <Route path="/markets/:id" component={Markets} />
             <Route exact path="/about" component={About} />
             <Route exact path="/resources" component={ResourceOverview} />
-            <Route exact path="/resources/:id" component={Resources} />
+
+            <Route path="/resources/:id" component={Resources} />
             {/* <Route path="/events/meetups/:id" component={Events} /> */}
             <Route exact path="/disclaimer" component={Disclaimer} />
             <Route exact path="/contact" component={Contact} />

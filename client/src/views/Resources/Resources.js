@@ -7,7 +7,7 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import queryString from 'query-string';
 import GridContainer from 'components/Grid/GridContainer';
 import GridItem from 'components/Grid/GridItem';
-
+import Breadcrumbs from 'components/Breadcrumbs/Breadcrumbs';
 // core components
 import Header from 'components/Header/Header';
 import Footer from 'components/Footer/Footer';
@@ -19,6 +19,7 @@ import api from './api/resource_api';
 import MultiPagePost from './Sections/MultiPagePost';
 import Faq from './Pages/Faq/Faq';
 import FeaturedCompany from 'views/Resources/Sections/FeaturedCompany';
+import moduleName from './Sections/';
 const dashboardRoutes = [];
 const styles = theme => ({
   ...landingPageStyle,
@@ -44,9 +45,20 @@ class Resources extends React.Component {
       case 'impact-investing':
         return <ResourcePost pageDetail={currentPage} />;
       case 'investing-risks':
+      case 'investing-risks?page=1':
         const pageNum = queryString.parse(this.props.location.search);
         return (
-          <MultiPagePost pageNumber={pageNum.page} pageDetail={currentPage} />
+          <MultiPagePost pageNumber={pageNum.page} pageDetail={currentPage}>
+            <GridContainer justify="center">
+              <GridItem xs={12} sm={12} md={8}>
+                <Breadcrumbs
+                  resource={currentPage.type}
+                  linkTitle="All Resources"
+                  linkHeader={currentPage.title}
+                />
+              </GridItem>
+            </GridContainer>
+          </MultiPagePost>
         );
       case 'self-directed-ira':
         return <FeaturedCompany data={currentPage} />;
@@ -107,7 +119,7 @@ class Resources extends React.Component {
             <Footer />
           </div>
         ) : (
-          <div />
+          <
         )}
       </React.Fragment>
     );

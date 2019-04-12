@@ -22,16 +22,14 @@ export default [
           to all of our investments) that our team will implement to drive the
           value of our properties{' '}
         </span>,
-        <span key="speciallist2">
-          <strong>can be found </strong>
-        </span>,
+        <span key="speciallist2" />,
         <a
           key="linkitem3"
           target="_blank"
           rel="noopener noreferrer"
           href="https://www.biggerpockets.com/renewsblog/13-ways-increase-rent-add-rental-property/"
         >
-          here
+          <strong>can be found here</strong>
         </a>
       ]
     ]
@@ -55,9 +53,10 @@ export default [
     tag: 'Article'
   },
   {
-    type: 'resource',
+    type: 'resources',
     image: 'https://i.imgur.com/LZDGUNH.jpg?1',
     slug: 'investing-risks',
+    params: '?page=1',
     title: 'Risks with investing in Real Estate',
     thumbnail: 'https://i.imgur.com/HYKhQFeb.jpg',
     headline:

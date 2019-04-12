@@ -56,7 +56,7 @@ class MultiPagePost extends React.Component {
     const totalPages = pageDetail.totalPages;
     return (
       <div className={classes.section}>
-        <GridContainer justify="center">
+        {/* <GridContainer justify="center">
           <GridItem xs={12} sm={12} md={8}>
             <Breadcrumbs
               separator={<NavigateNextIcon fontSize="small" />}
@@ -72,24 +72,8 @@ class MultiPagePost extends React.Component {
               </Typography>
             </Breadcrumbs>
           </GridItem>
-        </GridContainer>
-        <GridContainer justify="center">
-          <GridItem xs={12} sm={12} md={8}>
-            <Breadcrumbs
-              separator={<NavigateNextIcon fontSize="small" />}
-              aria-label="Breadcrumb"
-            >
-              <NavLink className={classes.navLink} to="/resources">
-                <Typography style={{ color: '#337ab7' }} variant="body2">
-                  All Resources
-                </Typography>
-              </NavLink>
-              <Typography color="textPrimary" variant="body2">
-                {pageDetail.title}
-              </Typography>
-            </Breadcrumbs>
-          </GridItem>
-        </GridContainer>
+        </GridContainer> */}
+        {this.props.children}
         <GridContainer justify="center">
           <GridItem xs={12} sm={12} md={8}>
             <h2

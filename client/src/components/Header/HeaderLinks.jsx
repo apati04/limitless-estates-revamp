@@ -1,7 +1,7 @@
 /*eslint-disable*/
 import React from 'react';
 // react components for routing our app without refresh
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles';
@@ -29,7 +29,7 @@ import Button from 'components/CustomButtons/Button.jsx';
 import Hidden from '@material-ui/core/Hidden';
 
 import headerLinksStyle from 'assets/jss/material-kit-react/components/headerLinksStyle.jsx';
-
+const ResourcesMain = props => <Link to="/resources" {...props} />;
 function HeaderLinks({ ...props }) {
   const { classes } = props;
   console.log(props);
@@ -141,12 +141,16 @@ function HeaderLinks({ ...props }) {
             <a
               href="https://www.meetup.com/Out-of-State-Multifamily-Apartment-Investors-Meetup"
               className={classes.dropdownLink}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Multifamily Apartment Investors Meetup - Long Beach
             </a>,
             <a
               href="https://www.meetup.com/Cerritos-Multifamily-Investors-Roundtable"
               className={classes.dropdownLink}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Cerritos Multifamily Investors Roundtable
             </a>
