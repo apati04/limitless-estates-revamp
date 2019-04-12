@@ -19,7 +19,7 @@ import api from './api/resource_api';
 import MultiPagePost from './Sections/MultiPagePost';
 import Faq from './Pages/Faq/Faq';
 import FeaturedCompany from 'views/Resources/Sections/FeaturedCompany';
-import moduleName from './Sections/';
+import Overview from './Sections/OverviewCards';
 const dashboardRoutes = [];
 const styles = theme => ({
   ...landingPageStyle,
@@ -40,13 +40,18 @@ const styles = theme => ({
 });
 class Resources extends React.Component {
   loadPage = currentPage => {
+    console.log(currentPage);
     switch (currentPage.slug) {
       case 'why-invest-in-multifamily':
       case 'impact-investing':
         return <ResourcePost pageDetail={currentPage} />;
       case 'investing-risks':
       case 'investing-risks?page=1':
-        const pageNum = queryString.parse(this.props.location.search);
+        let query = this.props.location;
+        if (!query.search) {
+          query.search = '?page=1';
+        }
+        const pageNum = queryString.parse(query.search);
         return (
           <MultiPagePost pageNumber={pageNum.page} pageDetail={currentPage}>
             <GridContainer justify="center">
@@ -119,7 +124,7 @@ class Resources extends React.Component {
             <Footer />
           </div>
         ) : (
-          <
+          <Overview />
         )}
       </React.Fragment>
     );

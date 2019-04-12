@@ -5,7 +5,7 @@ import classNames from 'classnames';
 // @material-ui/icons
 import Card from 'components/Card/Card';
 
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import Button from 'components/CustomButtons/Button';
 // core components
 import GridContainer from 'components/Grid/GridContainer';
@@ -44,7 +44,7 @@ class OverviewCards extends React.Component {
     const { classes } = this.props;
     const colors = ['primary', 'success', 'warning', 'danger'];
     return api.map((item, index, arr) => {
-      let params = item.params || false;
+      console.log('item; ', item);
       if (index === arr.length - 1) {
         return (
           <GridItem xs={12} sm={12} md={12} key={index + item.type}>
@@ -114,7 +114,12 @@ class OverviewCards extends React.Component {
             <div className={classes.imgCardOverlay}>
               <h6>{item.tag}</h6>
 
-              <Link to={`resources/${item.slug}`}>
+              <Link
+                to={{
+                  pathname: `resources/${item.slug}`,
+                  search: item.params || ''
+                }}
+              >
                 <h3
                   style={{ color: 'white', marginTop: 0 }}
                   className={classes.title}
@@ -137,7 +142,13 @@ class OverviewCards extends React.Component {
               </p>
               <Button
                 component={props => (
-                  <Link {...props} to={`/resources/${item.slug}`} />
+                  <Link
+                    {...props}
+                    to={{
+                      pathname: `resources/${item.slug}`,
+                      search: item.params || ''
+                    }}
+                  />
                 )}
                 style={{ alignSelf: 'bottom' }}
                 round
