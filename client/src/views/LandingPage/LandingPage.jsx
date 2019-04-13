@@ -20,7 +20,7 @@ import landingPageStyle from 'assets/jss/material-kit-react/views/landingPage';
 // Sections for this page
 import FeatureSection from './Sections/FeatureSection';
 import WorkSection from './Sections/WorkSection';
-
+import Modal from './Modal';
 const dashboardRoutes = [];
 const styles = theme => ({
   ...landingPageStyle,
@@ -62,16 +62,7 @@ class LandingPage extends React.Component {
                   achieving double digit returns for our investors.
                 </h4>
                 <br />
-                <Button
-                  color="danger"
-                  size="lg"
-                  href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <i className="fas fa-play" />
-                  Watch video
-                </Button>
+                <Modal url={'https://apax714.wistia.com/medias/pueh6irs0z'} />
               </GridItem>
             </GridContainer>
           </div>
