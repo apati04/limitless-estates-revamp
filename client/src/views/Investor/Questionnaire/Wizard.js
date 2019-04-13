@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
 import { Formik } from 'formik';
 import Icon from '@material-ui/core/Icon';
-import Button from 'components/CustomButtons/Button.js';
+import Button from 'components/CustomButtons/Button';
 import Grid from '@material-ui/core/Grid';
 import Step from '@material-ui/core/Step';
 import Stepper from '@material-ui/core/Stepper';

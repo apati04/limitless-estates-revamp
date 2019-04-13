@@ -20,6 +20,7 @@ import Contact from 'views/Contact/Contact';
 // import Events from 'views/Events/Events';
 import Podcast from 'views/Podcast/Podcast';
 import ResourceOverview from 'views/Resources/Sections/ResourceOverview';
+import Investor from 'views/Investor/Questionnaire';
 class App extends Component {
   render() {
     return (
@@ -30,7 +31,7 @@ class App extends Component {
 
             <Route path="/profile/:id" component={ProfilePage} />
             <Route path="/podcasts" component={Podcast} />
-
+            <Route exact path="/investor" component={Investor} />
             <Route path="/markets/:id" component={Markets} />
             <Route exact path="/about" component={About} />
             <Route exact path="/resources" component={ResourceOverview} />

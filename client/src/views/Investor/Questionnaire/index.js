@@ -7,7 +7,11 @@ import classNames from 'classnames';
 import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
+import productStyle from 'assets/jss/material-kit-react/views/landingPageSections/productStyle';
+import Footer from 'components/Footer/Footer';
+
 const styles = theme => ({
+  ...productStyle,
   root: {
     flexGrow: 1
   },
@@ -25,10 +29,10 @@ const index = props => {
 
   return (
     <div className={classes.root + ' main-content'}>
-      <div style={{ height: '100px', background: '#e7e7e7' }} />
-      <div className={classNames(classes.appContainer)} id="start">
+      <div className={classNames(classes.main)} id="start">
         <Questionnaire />
       </div>
+      <Footer />
     </div>
   );
 };

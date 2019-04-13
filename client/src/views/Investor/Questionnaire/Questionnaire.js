@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { Field, ErrorMessage } from 'formik';
 import { RadioGroup, Checkbox, TextField } from 'formik-material-ui';
 import Grid from '@material-ui/core/Grid';
-
+import InputAdornment from '@material-ui/core/InputAdornment';
 import classNames from 'classnames';
 import Radio from '@material-ui/core/Radio';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -134,7 +134,8 @@ const Questionnaire = props => {
           Q15_isLimitedPartner: '',
           Q16_InvestingExperience: '',
           Q17_InvestmentObjectives: '',
-          Q18_ExtraInformation: ''
+          Q18_ExtraInformation: '',
+          netIncome: ''
         }}
         onSubmit={(values, actions) => {
           let formValues = values;
@@ -377,6 +378,65 @@ const Questionnaire = props => {
             <Grid item xs={12} className={classes.pageGrid}>
               <Card className={classes.card}>
                 <CardContent className={classes.cardContent}>
+                  <Grid item xs={12}>
+                    <Field
+                      name="netIncome"
+                      id="netIncome"
+                      fullWidth
+                      InputLabelProps={{
+                        shrink: false
+                      }}
+                      margin="normal"
+                      className={classes.formControl}
+                      component={TextField}
+                      type="text"
+                      label="What is your net worth excluding your primary residence?"
+                      validate={required}
+                      InputProps={{
+                        startAdornment: (
+                          <InputAdornment postition="start">$</InputAdornment>
+                        )
+                      }}
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Field
+                      name="Q9_LiquidityNeeds"
+                      id="Q9_LiquidityNeeds"
+                      fullWidth
+                      InputLabelProps={{
+                        shrink: false
+                      }}
+                      margin="normal"
+                      className={classes.formControl}
+                      component={TextField}
+                      type="text"
+                      label="What liquidity needs do you have from the funds you may passively invest?"
+                      validate={required}
+                      multiline
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Field
+                      name="Q10_MinimumDollarAmount"
+                      fullWidth
+                      id="Q10_MinimumDollarAmount"
+                      component={TextField}
+                      type="text"
+                      label="What is the minimum dollar amount you are willing to invest?"
+                      InputLabelProps={{
+                        shrink: false
+                      }}
+                      InputProps={{
+                        startAdornment: (
+                          <InputAdornment postition="start">$</InputAdornment>
+                        )
+                      }}
+                      margin="normal"
+                      className={classes.formControl}
+                      validate={required}
+                    />
+                  </Grid>
                   <Grid item xs={12} style={{ paddingBottom: 0 }}>
                     <div className={classes.formControl}>
                       <FormLabel component="legend">
@@ -523,39 +583,6 @@ const Questionnaire = props => {
                         className={classes.errorMessage}
                       />
                     </div>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <Field
-                      name="Q9_LiquidityNeeds"
-                      id="Q9_LiquidityNeeds"
-                      fullWidth
-                      InputLabelProps={{
-                        shrink: false
-                      }}
-                      margin="normal"
-                      className={classes.formControl}
-                      component={TextField}
-                      type="text"
-                      label="What liquidity needs do you have from the funds you may passively invest?"
-                      validate={required}
-                      multiline
-                    />
-                  </Grid>
-                  <Grid item xs={12}>
-                    <Field
-                      name="Q10_MinimumDollarAmount"
-                      fullWidth
-                      id="Q10_MinimumDollarAmount"
-                      component={TextField}
-                      type="text"
-                      label="What is the minimum dollar amount you are willing to invest?"
-                      InputLabelProps={{
-                        shrink: false
-                      }}
-                      margin="normal"
-                      className={classes.formControl}
-                      validate={required}
-                    />
                   </Grid>
                 </CardContent>
               </Card>
