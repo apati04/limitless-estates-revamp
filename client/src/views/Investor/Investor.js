@@ -53,13 +53,7 @@ class Investor extends React.Component {
           }}
           {...rest}
         />
-        <Parallax
-          filter
-          small
-          style={{
-            backgroundImage: 'linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%)'
-          }}
-        />
+        <Parallax filter small image={'images/star.jpg'} />
         <div className={classNames(classes.main, classes.mainRaised)}>
           <div className={classes.customContainer}>
             <Questionnaire />

@@ -8,7 +8,7 @@ import Grid from '@material-ui/core/Grid';
 import Step from '@material-ui/core/Step';
 import Stepper from '@material-ui/core/Stepper';
 import StepLabel from '@material-ui/core/StepLabel';
-import MaskedInput from 'react-text-mask';
+
 const styles = theme => ({
   button: {
     padding: `${theme.spacing.unit}px ${theme.spacing.unit * 3}px`
@@ -166,7 +166,6 @@ class Wizard extends Component {
                           })}
                         </Stepper>
                       </div>
-
                       {activePage}
                       <div
                         style={{
@@ -179,9 +178,8 @@ class Wizard extends Component {
                       >
                         {page > 0 && (
                           <Button
-                            variant="text"
-                            type="button"
-                            color="default"
+                            simple
+                            color="primary"
                             onClick={this.previous}
                             style={{ marginRight: '1rem' }}
                           >
@@ -205,8 +203,7 @@ class Wizard extends Component {
                         {isLastPage && (
                           <Button
                             type="submit"
-                            variant="contained"
-                            color="secondary"
+                            color="success"
                             className={classes.button}
                             disabled={isSubmitting}
                           >
