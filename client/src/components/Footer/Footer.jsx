@@ -24,52 +24,47 @@ function Footer({ ...props }) {
   return (
     <footer className={footerClasses}>
       <div className={classes.container}>
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center'
-          }}
-        >
-          <div>
-            &copy; {1900 + new Date().getYear()} Limitless Estates LLC built by{' '}
-            <a href="mailto:andrew@aicodelab.com" className={aClasses}>
-              AiCodeLab Team
-            </a>
-          </div>
-          <div>
-            <List className={classes.list}>
-              <ListItem className={classes.inlineBlock}>
-                <a
-                  className="external-link"
-                  href="https://ehypauluugknktzawdwva-free.10to8.com/"
-                  className={classes.block}
-                >
-                  Schedule a Call
-                </a>
-              </ListItem>
-              <ListItem className={classes.inlineBlock}>
-                <Link to="/about" className={classes.block}>
-                  About us
-                </Link>
-              </ListItem>
+        <div>
+          <List className={classes.list}>
+            <ListItem className={classes.inlineBlock}>
+              <a
+                className="external-link"
+                href="https://ehypauluugknktzawdwva-free.10to8.com/"
+                className={classes.block}
+              >
+                Schedule a Call
+              </a>
+            </ListItem>
+            <ListItem className={classes.inlineBlock}>
+              <Link to="/about" className={classes.block}>
+                About us
+              </Link>
+            </ListItem>
 
-              <ListItem className={classes.inlineBlock}>
-                <Link to="/resources" className={classes.block}>
-                  Resources
-                </Link>
-              </ListItem>
-              <ListItem className={classes.inlineBlock}>
-                <Link to="/disclaimer" className={classes.block}>
-                  Legal Disclaimer
-                </Link>
-              </ListItem>
-              <ListItem className={classes.inlineBlock}>
-                <Link to="/investor" className={classes.block}>
-                  Investor Questionnaire
-                </Link>
-              </ListItem>
-            </List>
+            <ListItem className={classes.inlineBlock}>
+              <Link to="/resources" className={classes.block}>
+                Resources
+              </Link>
+            </ListItem>
+            <ListItem className={classes.inlineBlock}>
+              <Link to="/disclaimer" className={classes.block}>
+                Legal Disclaimer
+              </Link>
+            </ListItem>
+            <ListItem className={classes.inlineBlock}>
+              <Link to="/investor" className={classes.block}>
+                Investor Questionnaire
+              </Link>
+            </ListItem>
+          </List>
+          <div>
+            <p>
+              &copy; {1900 + new Date().getYear()} Limitless Estates LLC built
+              by{' '}
+              <a href="mailto:andrew@aicodelab.com" className={aClasses}>
+                AiCodeLab Team
+              </a>
+            </p>
           </div>
         </div>
       </div>

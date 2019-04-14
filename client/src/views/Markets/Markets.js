@@ -64,8 +64,6 @@ class Markets extends Component {
         return <Main api={phoenix} />;
       case 'tucson-arizona':
         return <Main api={tucson} />;
-      case 'columbus-ohio':
-        return <Main api={columbus} />;
       default:
         return <Redirect from={`/markets/${id}`} exact to="/" />;
     }

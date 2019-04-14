@@ -57,7 +57,7 @@ function HeaderLinks({ ...props }) {
         <CustomDropdown
           noLiPadding
           buttonText="Markets"
-          dropdownHeader="Current Markets"
+          dropdownHeader="Arizona"
           buttonProps={{
             className: classes.navLink,
             color: 'transparent'
@@ -73,8 +73,9 @@ function HeaderLinks({ ...props }) {
             >
               Phoenix, Arizona
             </Link>,
-            <Link to="/markets/columbus-ohio" className={classes.dropdownLink}>
-              Columbus, Ohio
+            { divider: true },
+            <Link to="/markets/overview" className={classes.dropdownLink}>
+              Overview
             </Link>
           ]}
         />

@@ -16,7 +16,7 @@ import ContactForm from './ContactForm';
 const image =
   'https://s3-us-west-1.amazonaws.com/rem-bucket-9818/limitless-revamp/images/house-872066_1920-min.jpg';
 
-class LoginPage extends React.Component {
+class Contact extends React.Component {
   constructor(props) {
     super(props);
     // we use this to make the card to appear after the page has been rendered
@@ -49,25 +49,28 @@ class LoginPage extends React.Component {
           style={{
             backgroundImage: 'url(' + image + ')',
             backgroundSize: 'cover',
-            backgroundPosition: 'top center'
+            backgroundPosition: 'top center',
+            paddingBottom: '4rem'
           }}
         >
-          <div className={classes.container}>
-            <GridContainer justify="center">
-              <GridItem xs={12} sm={12} md={5}>
-                <Card className={classes[this.state.cardAnimaton]}>
-                  <ContactForm />
-                </Card>
-              </GridItem>
-            </GridContainer>
+          <div className={classes.section}>
+            <div className={classes.container}>
+              <GridContainer justify="center">
+                <GridItem xs={12} sm={12} md={5}>
+                  <Card className={classes[this.state.cardAnimaton]}>
+                    <ContactForm />
+                  </Card>
+                </GridItem>
+              </GridContainer>
+            </div>
+            <div style={{ paddingTop: '4rem' }}>
+              <Footer whiteFont />
+            </div>
           </div>
-          <GridContainer>
-            <Footer whiteFont />
-          </GridContainer>
         </div>
       </div>
     );
   }
 }
 
-export default withStyles(loginPageStyle)(LoginPage);
+export default withStyles(loginPageStyle)(Contact);

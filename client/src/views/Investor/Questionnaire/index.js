@@ -28,7 +28,7 @@ const index = props => {
   const { classes } = props;
 
   return (
-    <div className={classes.root + ' main-content'}>
+    <div className={classes.section}>
       <div className={classNames(classes.main)} id="start">
         <Questionnaire />
       </div>

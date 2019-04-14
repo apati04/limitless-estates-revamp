@@ -45,8 +45,6 @@ const mobileHeader = {
 };
 const container = {
   ...conatinerFluid,
-  ...mobileContainer,
-
   '@media (min-width: 576px)': {
     maxWidth: '540px'
   },
