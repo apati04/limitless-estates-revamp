@@ -42,12 +42,7 @@ class Advisors extends Component {
                   {description}
                 </Truncate>
               </p>
-              <Button
-                simple
-                color="primary"
-                href={website}
-                className={classes.margin5}
-              >
+              <Button simple color="primary" href={website}>
                 Visit Website
               </Button>
             </CardBody>
