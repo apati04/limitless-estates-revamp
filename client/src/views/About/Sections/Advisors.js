@@ -42,8 +42,6 @@ class Advisors extends Component {
                   {description}
                 </Truncate>
               </p>
-            </CardBody>
-            <CardFooter className={classes.justifyCenter}>
               <Button
                 simple
                 color="primary"
@@ -52,7 +50,10 @@ class Advisors extends Component {
               >
                 Visit Website
               </Button>
-            </CardFooter>
+            </CardBody>
+            {/* <CardFooter className={classes.justifyCenter}>
+
+            </CardFooter> */}
           </Card>
         </GridItem>
       )

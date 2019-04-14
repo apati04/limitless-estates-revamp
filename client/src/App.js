@@ -1,10 +1,5 @@
 import React, { Component } from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Redirect
-} from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 import 'assets/css/material-kit-react.min.css';
 import ScrollToTop from 'util/ScrollToTop';
@@ -24,26 +19,24 @@ import Investor from 'views/Investor/Questionnaire';
 class App extends Component {
   render() {
     return (
-      <Router>
-        <ScrollToTop>
-          <Switch>
-            {/* <Route exact path="/" component={Thankyou} /> */}
+      <ScrollToTop>
+        <Switch>
+          {/* <Route exact path="/" component={Thankyou} /> */}
 
-            <Route path="/profile/:id" component={ProfilePage} />
-            <Route path="/podcasts" component={Podcast} />
-            <Route exact path="/investor" component={Investor} />
-            <Route path="/markets/:id" component={Markets} />
-            <Route exact path="/about" component={About} />
-            <Route exact path="/resources" component={ResourceOverview} />
+          <Route path="/profile/:id" component={ProfilePage} />
+          <Route path="/podcasts" component={Podcast} />
+          <Route exact path="/investor" component={Investor} />
+          <Route path="/markets/:id" component={Markets} />
+          <Route exact path="/about" component={About} />
+          <Route exact path="/resources" component={ResourceOverview} />
 
-            <Route path="/resources/:id" component={Resources} />
-            {/* <Route path="/events/meetups/:id" component={Events} /> */}
-            <Route exact path="/disclaimer" component={Disclaimer} />
-            <Route exact path="/contact" component={Contact} />
-            <Route exact path="/" component={LandingPage} />
-          </Switch>
-        </ScrollToTop>
-      </Router>
+          <Route path="/resources/:id" component={Resources} />
+          {/* <Route path="/events/meetups/:id" component={Events} /> */}
+          <Route exact path="/disclaimer" component={Disclaimer} />
+          <Route exact path="/contact" component={Contact} />
+          <Route exact path="/" component={LandingPage} />
+        </Switch>
+      </ScrollToTop>
     );
   }
 }

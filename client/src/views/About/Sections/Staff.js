@@ -38,16 +38,19 @@ class Staff extends Component {
             </h4>
             <CardBody>
               <p className={classes.description}>
-                <Truncate
-                  lines={3}
-                  trimWhitespace
-                  ellipsis={<Link to={profilePage}>...Continue Reading</Link>}
-                >
+                <Truncate lines={4} ellipsis={'...'}>
                   {description}
                 </Truncate>
               </p>
+              <Button
+                simple
+                color="primary"
+                component={props => <Link {...props} to={profilePage} />}
+              >
+                View Full Profile
+              </Button>
             </CardBody>
-            <CardFooter className={classes.justifyCenter}>
+            {/* <CardFooter className={classes.justifyCenter}>
               <Button justIcon color="transparent" className={classes.margin5}>
                 <i className={classes.socials + ' fab fa-twitter'} />
               </Button>
@@ -57,7 +60,7 @@ class Staff extends Component {
               <Button justIcon color="transparent" className={classes.margin5}>
                 <i className={classes.socials + ' fab fa-facebook'} />
               </Button>
-            </CardFooter>
+            </CardFooter> */}
           </Card>
         </GridItem>
       )

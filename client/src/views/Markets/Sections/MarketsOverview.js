@@ -44,7 +44,7 @@ class MarketsOverview extends React.Component {
     const { classes } = this.props;
     const colors = ['primary', 'success', 'warning', 'danger'];
     return api.map((item, index, arr) => {
-      if (index === arr.length - 1) {
+      if (arr.length % 2 !== 0 && index === arr.length - 1) {
         return (
           <GridItem xs={12} sm={12} md={12} key={index + item.type}>
             <Card>
