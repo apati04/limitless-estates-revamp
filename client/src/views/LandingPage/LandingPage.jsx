@@ -51,7 +51,7 @@ class LandingPage extends React.Component {
         />
         <Parallax filter image={'https://i.imgur.com/oxwtIbj.jpg'}>
           <div className={classes.container}>
-            <GridContainer>
+            <GridContainer className={classes.extraPadding}>
               <GridItem xs={12} sm={12} md={6}>
                 <h1 className={classes.title}>
                   Take Control of Your Investments

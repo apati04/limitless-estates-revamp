@@ -31,8 +31,22 @@ const conatinerFluid = {
   marginLeft: 'auto',
   width: '100%'
 };
+
+const mobileContainer = {
+  '@media (max-width: 575px)': {
+    margin: 0,
+    padding: '0 0.2rem'
+  }
+};
+const mobileHeader = {
+  '@media (min-width: 768px)': {
+    maxWidth: '768px'
+  }
+};
 const container = {
   ...conatinerFluid,
+  ...mobileContainer,
+
   '@media (min-width: 576px)': {
     maxWidth: '540px'
   },
@@ -44,12 +58,6 @@ const container = {
   },
   '@media (min-width: 1200px)': {
     maxWidth: '1140px'
-  }
-};
-const mobileContainer = {
-  '@media (max-width: 576px)': {
-    margin: 0,
-    padding: '0 0.2rem'
   }
 };
 const boxShadow = {
@@ -219,5 +227,6 @@ export {
   title,
   cardTitle,
   cardLink,
+  mobileHeader,
   cardSubtitle
 };

@@ -3,6 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 // nodejs library to set properties for components
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles';
 import AppBar from '@material-ui/core/AppBar';
@@ -15,7 +16,12 @@ import Drawer from '@material-ui/core/Drawer';
 import Menu from '@material-ui/icons/Menu';
 // core components
 import headerStyle from 'assets/jss/material-kit-react/components/headerStyle.jsx';
+import { mobileHeader } from 'assets/jss/material-kit-react';
 
+const styles = theme => ({
+  ...headerStyle,
+  mobileHeader
+});
 class Header extends React.Component {
   constructor(props) {
     super(props);
@@ -82,14 +88,18 @@ class Header extends React.Component {
       logo = 'https://i.imgur.com/wwmjzeX.png';
     }
     const brandComponent = (
-      <Button className={classes.title}>
+      <Link to="/">
         <img
           src={colorChange ? 'https://i.imgur.com/GMjqvDd.png' : logo}
           alt="logo"
           title="limitless-estates"
-          height="40"
+          style={{
+            height: '40px',
+            width: 'auto',
+            display: 'block'
+          }}
         />
-      </Button>
+      </Link>
     );
     return (
       <AppBar className={appBarClasses}>
@@ -182,4 +192,4 @@ Header.propTypes = {
   })
 };
 
-export default withStyles(headerStyle)(Header);
+export default withStyles(styles)(Header);

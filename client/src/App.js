@@ -16,6 +16,7 @@ import Contact from 'views/Contact/Contact';
 import Podcast from 'views/Podcast/Podcast';
 import ResourceOverview from 'views/Resources/Sections/ResourceOverview';
 import Investor from 'views/Investor/Questionnaire';
+import ErrorPage from 'views/ErrorPage/ErrorPage';
 class App extends Component {
   render() {
     return (
@@ -35,6 +36,7 @@ class App extends Component {
           <Route exact path="/disclaimer" component={Disclaimer} />
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/" component={LandingPage} />
+          <Route component={ErrorPage} />
         </Switch>
       </ScrollToTop>
     );
