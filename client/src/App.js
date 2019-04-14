@@ -17,21 +17,21 @@ import Podcast from 'views/Podcast/Podcast';
 import ResourceOverview from 'views/Resources/Sections/ResourceOverview';
 import Investor from 'views/Investor/Questionnaire';
 import ErrorPage from 'views/ErrorPage/ErrorPage';
+import MarketsOverview from 'views/Markets/MarketsOverview';
 class App extends Component {
   render() {
     return (
       <ScrollToTop>
         <Switch>
-          {/* <Route exact path="/" component={Thankyou} /> */}
-
           <Route path="/profile/:id" component={ProfilePage} />
           <Route path="/podcasts" component={Podcast} />
           <Route exact path="/investor" component={Investor} />
+          <Route exact path="/markets" component={MarketsOverview} />
           <Route path="/markets/:id" component={Markets} />
           <Route exact path="/about" component={About} />
+          <Route path="/resources/:id" component={Resources} />
           <Route exact path="/resources" component={ResourceOverview} />
 
-          <Route path="/resources/:id" component={Resources} />
           {/* <Route path="/events/meetups/:id" component={Events} /> */}
           <Route exact path="/disclaimer" component={Disclaimer} />
           <Route exact path="/contact" component={Contact} />

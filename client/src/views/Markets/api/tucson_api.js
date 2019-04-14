@@ -1,5 +1,9 @@
 export default {
   headerImageUrl: 'https://i.imgur.com/w5aqhrW.jpg',
+  headline: 'Arizona',
+  title: 'Tucson',
+  snippet:
+    "Tucson is a city in Pima County, Arizona and is the 33rd largest city in the United States.  Tucson Metro Area's population is 1,010,030 people. Since 2000, it has had a population growth of 51.46%.",
   maps: {
     geo: { lat: 32.2151078, lng: -110.9765115 },
     height: '320px',

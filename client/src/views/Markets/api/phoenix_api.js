@@ -1,5 +1,9 @@
 export default {
-  headerImageUrl: '/images/phoenix-sky.jpg',
+  headerImageUrl: 'https://i.imgur.com/64Z6LZY.jpg',
+  title: 'Phoenix',
+  headline: 'Arizona',
+  snippet:
+    "Phoenix is located in the heart of the fastest growing and most dynamic metro area in the country. As of the Census Bureau's 2017 population estimates, metro Phoenix had 4,737,270 residents, making it the 12th largest metro area in the nation by population.",
   maps: {
     geo: { lat: 33.4476487, lng: -112.0743701 },
     height: '320px',

@@ -5,7 +5,7 @@ import classNames from 'classnames';
 // @material-ui/icons
 import Card from 'components/Card/Card';
 
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import Button from 'components/CustomButtons/Button';
 // core components
 import GridContainer from 'components/Grid/GridContainer';
@@ -13,10 +13,10 @@ import GridItem from 'components/Grid/GridItem';
 import productStyle from 'assets/jss/material-kit-react/views/landingPageSections/productStyle.jsx';
 import NotesIcon from '@material-ui/icons/Notes';
 import typographyStyle from 'assets/jss/material-kit-react/components/typographyStyle.jsx';
-import api from '../api/resource_api';
-
 import { cardTitle } from 'assets/jss/material-kit-react.jsx';
 import imagesStyles from 'assets/jss/material-kit-react/imagesStyles';
+import phoenix from '../api/phoenix_api';
+import tucson from '../api/tucson_api';
 const styles = theme => ({
   ...productStyle,
   ...typographyStyle,
@@ -39,11 +39,21 @@ const styles = theme => ({
     marginRight: '10px'
   }
 });
-class MarketsOverview extends React.Component {
+class MarketsOverviewSection extends React.Component {
   loadCards = () => {
-    const { classes } = this.props;
+    const { classes, api } = this.props;
+    let o1 = {
+      image: phoenix.headerImageUrl,
+      title: phoenix.title,
+      headline: phoenix.headline
+    };
+    let o2 = {
+      image: tucson.headerImageUrl,
+      title: tucson.title,
+      headline: tucson.headline
+    };
     const colors = ['primary', 'success', 'warning', 'danger'];
-    return api.map((item, index, arr) => {
+    return [o1, o2].map((item, index, arr) => {
       if (arr.length % 2 !== 0 && index === arr.length - 1) {
         return (
           <GridItem xs={12} sm={12} md={12} key={index + item.type}>
@@ -155,13 +165,6 @@ class MarketsOverview extends React.Component {
     const { classes } = this.props;
     return (
       <div className={classes.section}>
-        <GridContainer justify="center">
-          <GridItem xs={12} sm={12} md={8}>
-            <h2 className={classNames(classes.title)}>
-              Resources for Investing
-            </h2>
-          </GridItem>
-        </GridContainer>
         <div>
           <GridContainer justify="center" alignItems="center">
             {/* <GridItem xs={12} sm={12} md={3}>
@@ -173,7 +176,6 @@ class MarketsOverview extends React.Component {
                 vertical
               />
             </GridItem> */}
-
             {this.loadCards()}
           </GridContainer>
         </div>
@@ -182,4 +184,4 @@ class MarketsOverview extends React.Component {
   }
 }
 
-export default withStyles(styles)(MarketsOverview);
+export default withRouter(withStyles(styles)(MarketsOverviewSection));

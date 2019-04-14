@@ -17,7 +17,6 @@ import columbus from './api/columbus_api';
 import phoenix from './api/phoenix_api';
 import tucson from './api/tucson_api';
 import Main from './Main';
-
 const styles = theme => ({
   ...landingPageStyle,
   mainRaised: {
@@ -65,11 +64,11 @@ class Markets extends Component {
       case 'tucson-arizona':
         return <Main api={tucson} />;
       default:
-        return <Redirect from={`/markets/${id}`} exact to="/" />;
+        return <Redirect to="/markets" />;
     }
   };
   render() {
-    const { classes, ...rest } = this.props;
+    const { classes, match, ...rest } = this.props;
     return (
       <div>
         <Header
@@ -84,10 +83,12 @@ class Markets extends Component {
           }}
           {...rest}
         />
+
         {this.loadHeader()}
         <div className={classNames(classes.main, classes.mainRaised)}>
           <div className={classes.container}>{this.loadPage()}</div>
         </div>
+
         <Footer />
       </div>
     );

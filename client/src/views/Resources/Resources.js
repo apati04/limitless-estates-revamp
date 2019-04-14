@@ -3,6 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles';
+import { withRouter, Redirect } from 'react-router-dom';
 // @material-ui/icons
 import queryString from 'query-string';
 import GridContainer from 'components/Grid/GridContainer';
@@ -70,7 +71,7 @@ class Resources extends React.Component {
       case 'frequently-asked-questions':
         return <Faq />;
       default:
-        return <div>no</div>;
+        return <Redirect to="/resources" />;
     }
   };
 
@@ -124,11 +125,11 @@ class Resources extends React.Component {
             <Footer />
           </div>
         ) : (
-          <Overview />
+          <Redirect to="/resources" />
         )}
       </React.Fragment>
     );
   }
 }
 
-export default withStyles(styles)(Resources);
+export default withRouter(withStyles(styles)(Resources));
