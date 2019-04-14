@@ -15,7 +15,7 @@ import Contact from 'views/Contact/Contact';
 // import Events from 'views/Events/Events';
 import Podcast from 'views/Podcast/Podcast';
 import ResourceOverview from 'views/Resources/Sections/ResourceOverview';
-import Investor from 'views/Investor/Questionnaire';
+import Investor from 'views/Investor/Investor';
 import ErrorPage from 'views/ErrorPage/ErrorPage';
 import MarketsOverview from 'views/Markets/MarketsOverview';
 class App extends Component {

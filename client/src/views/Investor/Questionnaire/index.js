@@ -8,7 +8,6 @@ import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import productStyle from 'assets/jss/material-kit-react/views/landingPageSections/productStyle';
-import Footer from 'components/Footer/Footer';
 
 const styles = theme => ({
   ...productStyle,
@@ -32,7 +31,6 @@ const index = props => {
       <div className={classNames(classes.main)} id="start">
         <Questionnaire />
       </div>
-      <Footer />
     </div>
   );
 };
