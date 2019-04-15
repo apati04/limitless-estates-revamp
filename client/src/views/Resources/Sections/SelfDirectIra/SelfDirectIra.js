@@ -78,7 +78,7 @@ class SelfDirectIraSection extends React.Component {
         <GridContainer justify="center">
           <GridItem xs={12} sm={12} md={8}>
             <h2 className={classNames(classes.title)}>
-              Get Started with These Simple Steps
+              Get Started in Four Simple Steps
             </h2>
           </GridItem>
         </GridContainer>
