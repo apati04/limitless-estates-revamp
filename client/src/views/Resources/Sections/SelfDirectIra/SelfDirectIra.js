@@ -1,128 +1,164 @@
 import React from 'react';
 
-import { withStyles } from '@material-ui/core/styles';
+import withStyles from '@material-ui/core/styles/withStyles';
+import InfoArea from 'components/InfoArea/InfoArea';
 import Typography from '@material-ui/core/Typography';
-import Button from 'components/CustomButtons/Button.js';
-import Grid from '@material-ui/core/Grid';
-import Divider from '@material-ui/core/Divider';
-import Limitless from '../Hero/wistia';
-import Card from '@material-ui/core/Card';
-import grey from '@material-ui/core/colors/grey';
-import CardContent from '@material-ui/core/CardContent';
-import Modal from './Modal';
+import { NavLink } from 'react-router-dom';
+
+import classNames from 'classnames';
+import GridContainer from 'components/Grid/GridContainer';
+import GridItem from 'components/Grid/GridItem';
+import productStyle from 'assets/jss/material-kit-react/views/landingPageSections/productStyle';
+
+import Breadcrumbs from '@material-ui/lab/Breadcrumbs';
+import NavigateNextIcon from '@material-ui/icons/NavigateNext';
+import Card from 'components/Card/Card';
+import CardBody from 'components/Card/CardBody';
+import Button from 'components/CustomButtons/Button';
+import OneSvg from './one.svg';
+import TwoSvg from './two.svg';
+import ThreeSvg from './three.svg';
+import FourSvg from './four.svg';
+import SvgMain from './refinancing.svg';
+import api from '../../api/resource_api';
 const styles = theme => ({
-  root: {
-    flexGrow: 1,
-    padding: `${theme.spacing.unit * 10}px 0`,
-    position: 'relative',
-    [theme.breakpoints.down('sm')]: {
-      padding: `${theme.spacing.unit * 4}px 4px`
-    }
-  },
-  headerContainer: {
-    position: 'relative',
-    height: '100%',
-    ...theme.container
-  },
-  gridItem: {
-    textAlign: 'center',
-    color: 'rgba(255,255,255,0.87)'
-  },
-  overlayEffect: {
-    position: 'absolute',
-    backgroundColor: 'rgba(10, 10, 10, 0.7)',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%'
-  },
-  heroText: {
-    fontWeight: 300,
-    padding: '0 16px'
-  },
-  margin: {
-    margin: theme.spacing.unit
-  },
-  gridContainer: {
-    padding: `0 ${theme.spacing.unit * 6}px`,
-    height: '100%',
-    [theme.breakpoints.down('sm')]: {
-      padding: 0
-    }
-  },
-  heroTitle: {
-    marginBottom: '4rem'
-  },
-  divider: {
-    background: 'red',
-    height: '4px',
-    maxWidth: '199px',
-    margin: '10px auto 40px auto'
-  },
-  cardStyle: {
-    backgroundColor: grey[50]
-  },
-  buttonDiv: {
-    textAlign: 'left',
-    [theme.breakpoints.down('sm')]: {
-      textAlign: 'center',
-      display: 'block',
-      width: '100%'
-    }
-  }
+  ...productStyle
 });
-const Section01 = props => {
-  const { classes } = props;
-  return (
-    <section className={classes.root + ' main-content'}>
-      {/* <div className={classes.overlayEffect} /> */}
-      <div className={classes.headerContainer}>
-        <Grid
-          container
-          spacing={32}
-          justify="center"
-          alignItems="center"
-          wrap="wrap"
-        >
-          <Grid item xs={12}>
-            <Typography align="center" variant="h2" paragraph>
-              How to start investing
-            </Typography>
+const data = api.find(el => el.slug === 'self-directed-ira');
 
-            <Divider variant="middle" className={classes.divider} />
-          </Grid>
-        </Grid>
+class SelfDirectIraSection extends React.Component {
+  loadCard = () => {
+    const { classes } = this.props;
+    return data.pages.map(
+      (
+        { id, company, name, phone, address, logo, email, website, misc },
+        index
+      ) => {
+        return (
+          <GridItem key={id} xs={12} sm={12} md={6}>
+            <Card className={classes.textLeft}>
+              <img
+                style={{ padding: '1rem 2rem', width: '100%' }}
+                className={classes.imgCardTop}
+                src={logo}
+                alt="Card-img-cap"
+                title={company}
+              />
 
-        <Grid
-          container
-          justify="center"
-          spacing={32}
-          alignItems="center"
-          style={{ margin: '1rem 0' }}
-        >
-          <Grid item xs={12} sm={6}>
-            <Typography align="left" paragraph component="p" variant="body1">
-              Don't know where to start? Investing with your 401k/IRA is one of
-              the many options you can use to invest in Real Estate. All it
-              takes is 4 easy to follow steps find out more!
-            </Typography>
+              <CardBody>
+                <h4 className={classes.cardTitle}>{company}</h4>
+                <p>{address}</p>
+                <p>{name}</p>
+                <p>{email}</p>
+                <p>{phone}</p>
+                <Button
+                  simple
+                  style={{
+                    padding: 0,
+                    textTransform: 'lowercase'
+                  }}
+                  color="primary"
+                  size="lg"
+                  href={website}
+                >
+                  {website}
+                </Button>
+              </CardBody>
+            </Card>
+          </GridItem>
+        );
+      }
+    );
+  };
+  render() {
+    const { classes } = this.props;
 
-            <div className={classes.buttonDiv}>
-              <Button
-                variant="contained"
-                color="primary"
-                size="large"
-                className={classes.margin}
-              >
-                Preferred Partners
-              </Button>
-            </div>
-            <div />
-          </Grid>
-        </Grid>
+    return (
+      <div className={classes.section}>
+        <GridContainer justify="center">
+          <GridItem xs={12}>
+            <Breadcrumbs
+              separator={<NavigateNextIcon fontSize="small" />}
+              aria-label="Breadcrumb"
+            >
+              <NavLink className={classes.navLink} to="/resources">
+                <Typography style={{ color: '#337ab7' }} variant="body2">
+                  All Resources
+                </Typography>
+              </NavLink>
+              <Typography color="textPrimary" variant="body2">
+                {data.title}
+              </Typography>
+            </Breadcrumbs>
+          </GridItem>
+        </GridContainer>
+        <div style={{ margin: '64px 0' }} />
+        <GridContainer justify="center">
+          <GridItem xs={12} sm={12} md={8}>
+            <h2 className={classNames(classes.title)}>
+              Get Started with These Simple Steps
+            </h2>
+          </GridItem>
+        </GridContainer>
+        <div style={{ margin: '64px 0' }} />
+        <GridContainer justify="center">
+          <GridItem xs={12} sm={12} md={6}>
+            <img
+              src={SvgMain}
+              style={{
+                width: '100%',
+
+                '@media (max-width: 576px)': {
+                  maxWidth: '480px'
+                }
+              }}
+              alt="ira"
+              title="Ira"
+            />
+          </GridItem>
+          <GridItem xs={12} sm={12} md={6} style={{ textAlign: 'left' }}>
+            <InfoArea
+              icon={props => (
+                <img {...props} src={OneSvg} alt="step1" title="stepOne" />
+              )}
+              iconColor="primary"
+              title="Find a Custodian or Administrator"
+              description="First, establish a self-directed IRA through an experienced custodian who is well-versed with the rules and regulations of such accounts. See our preferred partners below."
+            />
+            <InfoArea
+              icon={props => (
+                <img {...props} src={TwoSvg} alt="step2" title="stepTwo" />
+              )}
+              iconColor="info"
+              title="Open a new IRA Account"
+              description="Open an IRA account by filling out and signing the necessary documents"
+            />
+            <InfoArea
+              icon={props => (
+                <img {...props} src={ThreeSvg} alt="step3" title="stepThree" />
+              )}
+              iconColor="info"
+              title="Fund the Account"
+              description="You can fund your account by either executing rollover from your existing IRA — or your 401(k) or 403(b) account OR make a new contribution to your self directed IRA. You are now ready to invest!"
+            />
+            <InfoArea
+              icon={props => (
+                <img {...props} src={FourSvg} alt="step3" title="stepThree" />
+              )}
+              iconColor="success"
+              title="Authorize and Submit a Purchase"
+              description="After due diligence notify your custodian or administator about your investment and fill out the necessary documents"
+            />
+          </GridItem>
+        </GridContainer>
+        <div style={{ margin: '128px 0' }} />
+
+        <h2 className={classes.title}>Our Preferred Partners</h2>
+
+        <GridContainer justify="center">{this.loadCard()}</GridContainer>
       </div>
-    </section>
-  );
-};
+    );
+  }
+}
 
-export default withStyles(styles)(Section01);
+export default withStyles(styles)(SelfDirectIraSection);
