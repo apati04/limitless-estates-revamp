@@ -21,11 +21,10 @@ const styles = theme => ({
     backgroundColor: theme.palette.primary['A100'],
     overflow: 'hidden',
     [theme.breakpoints.down('sm')]: {
-      padding: 0
+      padding: '0.25em'
     },
     marginTop: 10,
-    padding: 20,
-    paddingBottom: 200
+    padding: 20
   },
   grid: {
     margin: `0 ${theme.spacing.unit * 2}px`
@@ -127,7 +126,7 @@ class Wizard extends Component {
   };
 
   render() {
-    const steps = ['page 1', 'page 2', 'page 3'];
+    const steps = ['Basic Information', 'Finances', 'Experience'];
     const { children, classes } = this.props;
     const { page, values } = this.state;
     const activePage = React.Children.toArray(children)[page];
@@ -191,6 +190,7 @@ class Wizard extends Component {
                           <Button
                             variant="contained"
                             color="primary"
+                            size="lg"
                             type="submit"
                             className={classes.button}
                           >
@@ -204,6 +204,7 @@ class Wizard extends Component {
                           <Button
                             type="submit"
                             color="success"
+                            size="lg"
                             className={classes.button}
                             disabled={isSubmitting}
                           >

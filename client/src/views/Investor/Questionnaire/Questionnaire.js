@@ -358,10 +358,86 @@ const Questionnaire = props => {
                 margin="normal"
                 multiline
               />
+              <div className={classes.formControl}>
+                <Typography
+                  variant="subtitle1"
+                  align="left"
+                  className={classes.customFormLabel}
+                  component="p"
+                >
+                  Do you want to invest in multifamily, value-add projects?
+                </Typography>
+
+                <Field
+                  component={RadioGroup}
+                  validate={required}
+                  name="Q6_InvestInValueAddProjects"
+                  id="Q6_InvestInValueAddProjects"
+                  row
+                >
+                  <FormControlLabel
+                    value="no"
+                    control={<Radio color="primary" />}
+                    label="No"
+                    labelPlacement="end"
+                  />
+                  <FormControlLabel
+                    value="yes"
+                    control={<Radio color="primary" />}
+                    label="Yes"
+                    labelPlacement="end"
+                  />
+                </Field>
+                <div>
+                  <ErrorMessage
+                    name="Q6_InvestInValueAddProjects"
+                    component="p"
+                    className={classes.errorMessage}
+                  />
+                </div>
+              </div>
+
+              <div className={classes.formControl}>
+                <Typography
+                  variant="subtitle1"
+                  align="left"
+                  className={classes.customFormLabel}
+                  component="p"
+                >
+                  How would you rate your risk tolerance?
+                </Typography>
+                <Field
+                  component={RadioGroup}
+                  id="Q13_riskToleranceLevel"
+                  name="Q13_riskToleranceLevel"
+                  validate={required}
+                  row
+                >
+                  <FormControlLabel
+                    value="low"
+                    control={<Radio color="primary" />}
+                    label="Low"
+                  />
+                  <FormControlLabel
+                    value="medium"
+                    control={<Radio color="primary" />}
+                    label="Medium"
+                  />
+                  <FormControlLabel
+                    value="high"
+                    control={<Radio color="primary" />}
+                    label="High"
+                  />
+                </Field>
+                <ErrorMessage
+                  name="Q13_riskToleranceLevel"
+                  component="p"
+                  className={classes.errorMessage}
+                />
+              </div>
             </Grid>
           </Grid>
         </Wizard.Page>
-
         <Wizard.Page>
           <Grid
             container
@@ -459,44 +535,6 @@ const Questionnaire = props => {
                 className={classes.formControl}
                 validate={required}
               />
-              <div className={classes.formControl}>
-                <Typography
-                  variant="subtitle1"
-                  align="left"
-                  className={classes.customFormLabel}
-                  component="p"
-                >
-                  Do you want to invest in multifamily, value-add projects?
-                </Typography>
-
-                <Field
-                  component={RadioGroup}
-                  validate={required}
-                  name="Q6_InvestInValueAddProjects"
-                  id="Q6_InvestInValueAddProjects"
-                  row
-                >
-                  <FormControlLabel
-                    value="no"
-                    control={<Radio color="primary" />}
-                    label="No"
-                    labelPlacement="end"
-                  />
-                  <FormControlLabel
-                    value="yes"
-                    control={<Radio color="primary" />}
-                    label="Yes"
-                    labelPlacement="end"
-                  />
-                </Field>
-                <div>
-                  <ErrorMessage
-                    name="Q6_InvestInValueAddProjects"
-                    component="p"
-                    className={classes.errorMessage}
-                  />
-                </div>
-              </div>
 
               <div className={classes.formControl}>
                 <Typography
@@ -569,45 +607,6 @@ const Questionnaire = props => {
 
                 <ErrorMessage
                   name="Q12_canVerifyFunds"
-                  component="p"
-                  className={classes.errorMessage}
-                />
-              </div>
-
-              <div className={classes.formControl}>
-                <Typography
-                  variant="subtitle1"
-                  align="left"
-                  className={classes.customFormLabel}
-                  component="p"
-                >
-                  How would you rate your risk tolerance?
-                </Typography>
-                <Field
-                  component={RadioGroup}
-                  id="Q13_riskToleranceLevel"
-                  name="Q13_riskToleranceLevel"
-                  validate={required}
-                  row
-                >
-                  <FormControlLabel
-                    value="low"
-                    control={<Radio color="primary" />}
-                    label="Low"
-                  />
-                  <FormControlLabel
-                    value="medium"
-                    control={<Radio color="primary" />}
-                    label="Medium"
-                  />
-                  <FormControlLabel
-                    value="high"
-                    control={<Radio color="primary" />}
-                    label="High"
-                  />
-                </Field>
-                <ErrorMessage
-                  name="Q13_riskToleranceLevel"
                   component="p"
                   className={classes.errorMessage}
                 />
