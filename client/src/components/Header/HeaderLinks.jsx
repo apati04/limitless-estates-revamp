@@ -105,10 +105,7 @@ function HeaderLinks({ ...props }) {
               What is Impact Investing
             </Link>,
             ,
-            <Link
-              to="/resources/self-directed-ira"
-              className={classes.dropdownLink}
-            >
+            <Link to="/self-directed-ira" className={classes.dropdownLink}>
               Self-Directed IRA
             </Link>,
 

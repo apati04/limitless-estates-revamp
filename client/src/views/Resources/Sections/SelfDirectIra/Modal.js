@@ -55,16 +55,20 @@ class SimpleModal extends React.Component {
     this.setState(x);
   }
   render() {
-    const { classes, url } = this.props;
+    const { classes, url, rounded, text } = this.props;
+    const buttonStyle = {
+      rounded
+    };
     return (
       <React.Fragment>
         <Button
           color="danger"
+          {...buttonStyle}
           size="lg"
           onClick={() => this.handleClickOpen('modal')}
         >
           <i className="fas fa-play" />
-          Watch video
+          {text || 'Watch video'}
         </Button>
         <Dialog
           classes={{
@@ -73,7 +77,6 @@ class SimpleModal extends React.Component {
           }}
           open={this.state.modal}
           TransitionComponent={Transition}
-          keepMounted
           onClose={() => this.handleClose('modal')}
           aria-labelledby="modal-slide-title"
           aria-describedby="modal-slide-description"

@@ -18,6 +18,7 @@ import ResourceOverview from 'views/Resources/Sections/ResourceOverview';
 import Investor from 'views/Investor/Investor';
 import ErrorPage from 'views/ErrorPage/ErrorPage';
 import MarketsOverview from 'views/Markets/MarketsOverview';
+import IraContainer from 'views/Resources/IraContainer';
 class App extends Component {
   render() {
     return (
@@ -29,6 +30,7 @@ class App extends Component {
           <Route exact path="/markets" component={MarketsOverview} />
           <Route path="/markets/:id" component={Markets} />
           <Route exact path="/about" component={About} />
+          <Route exact path="/self-directed-ira" component={IraContainer} />
           <Route path="/resources/:id" component={Resources} />
           <Route exact path="/resources" component={ResourceOverview} />
 

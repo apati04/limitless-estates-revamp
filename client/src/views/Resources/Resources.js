@@ -19,7 +19,7 @@ import landingPageStyle from 'assets/jss/material-kit-react/views/landingPage';
 import api from './api/resource_api';
 import MultiPagePost from './Sections/MultiPagePost';
 import Faq from './Pages/Faq/Faq';
-import FeaturedCompany from 'views/Resources/Sections/FeaturedCompany';
+import IraContainer from './IraContainer';
 import Overview from './Sections/OverviewCards';
 const dashboardRoutes = [];
 const styles = theme => ({
@@ -67,7 +67,7 @@ class Resources extends React.Component {
           </MultiPagePost>
         );
       case 'self-directed-ira':
-        return <FeaturedCompany data={currentPage} />;
+        return <Redirect to="/self-directed-ira" />;
       case 'frequently-asked-questions':
         return <Faq />;
       default:
