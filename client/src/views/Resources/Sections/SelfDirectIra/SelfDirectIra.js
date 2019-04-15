@@ -76,24 +76,6 @@ class SelfDirectIraSection extends React.Component {
     return (
       <div className={classes.section}>
         <GridContainer justify="center">
-          <GridItem xs={12}>
-            <Breadcrumbs
-              separator={<NavigateNextIcon fontSize="small" />}
-              aria-label="Breadcrumb"
-            >
-              <NavLink className={classes.navLink} to="/resources">
-                <Typography style={{ color: '#337ab7' }} variant="body2">
-                  All Resources
-                </Typography>
-              </NavLink>
-              <Typography color="textPrimary" variant="body2">
-                {data.title}
-              </Typography>
-            </Breadcrumbs>
-          </GridItem>
-        </GridContainer>
-        <div style={{ margin: '64px 0' }} />
-        <GridContainer justify="center">
           <GridItem xs={12} sm={12} md={8}>
             <h2 className={classNames(classes.title)}>
               Get Started with These Simple Steps
