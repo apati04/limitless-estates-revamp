@@ -14,7 +14,7 @@ import GridItem from 'components/Grid/GridItem';
 import Button from 'components/CustomButtons/Button';
 import HeaderLinks from 'components/Header/HeaderLinks';
 import Parallax from 'components/Parallax/Parallax';
-
+import SubscribeSection from './Sections/SubscribeSection';
 import landingPageStyle from 'assets/jss/material-kit-react/views/landingPage';
 
 // Sections for this page
@@ -53,13 +53,12 @@ class LandingPage extends React.Component {
           <div className={classes.container}>
             <GridContainer className={classes.extraPadding}>
               <GridItem xs={12} sm={12} md={6}>
-                <h1 className={classes.title}>
-                  Take Control of Your Investments
-                </h1>
+                <h1 className={classes.title}>Limitless Estates</h1>
                 <h4>
-                  Our mission is to positively impact the lives of the people in
-                  our local neighborhoods through impact investing while
-                  achieving double digit returns for our investors.
+                  Our vision at Limitless Estates is to provide A-class living
+                  to lower income housing by putting our residents first and
+                  instilling a sense of community while inspiring others to do
+                  the same.
                 </h4>
                 <br />
                 <Modal url={'https://apax714.wistia.com/medias/pueh6irs0z'} />
@@ -70,6 +69,7 @@ class LandingPage extends React.Component {
         <div className={classNames(classes.main, classes.mainRaised)}>
           <div className={classes.container}>
             <FeatureSection />
+            <SubscribeSection />
             <WorkSection />
           </div>
         </div>

@@ -11,7 +11,7 @@ import { TextField } from 'formik-material-ui';
 import { Formik, Field } from 'formik';
 import * as Yup from 'yup';
 import lightBlue from '@material-ui/core/colors/lightBlue';
-import Button from 'components/CustomButtons/Button.js';
+import Button from 'components/CustomButtons/Button';
 const styles = theme => ({
   appContainer: {
     ...theme.container

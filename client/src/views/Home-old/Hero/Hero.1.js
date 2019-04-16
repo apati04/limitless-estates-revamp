@@ -5,7 +5,7 @@ import { withStyles } from '@material-ui/core/styles';
 import { NavLink, Link } from 'react-router-dom';
 import classNames from 'classnames';
 import Typography from '@material-ui/core/Typography';
-import Button from 'components/CustomButtons/Button.js';
+import Button from 'components/CustomButtons/Button';
 import Grid from '@material-ui/core/Grid';
 import Divider from '@material-ui/core/Divider';
 import ReactPlayer from 'react-player';

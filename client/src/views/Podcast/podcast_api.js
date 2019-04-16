@@ -25,6 +25,11 @@ const data = {
       alt: 'Listen on Google Podcasts'
     },
     {
+      appLogo: '/images/Icons/youtube.svg',
+      alt: 'Watch on Youtube',
+      podcastUrl: 'https://www.youtube.com/channel/UCAKq4gSBG8aknnC4iVrI6fg'
+    },
+    {
       appLogo: 'https://i.imgur.com/awIPzsy.png',
       alt: 'RSS Feed',
       podcastUrl: 'https://feeds.buzzsprout.com/255024.rss'

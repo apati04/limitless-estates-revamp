@@ -136,22 +136,12 @@ function HeaderLinks({ ...props }) {
           }}
           buttonIcon={DateRange}
           dropdownList={[
-            <a
-              href="https://www.meetup.com/Out-of-State-Multifamily-Apartment-Investors-Meetup"
-              className={classes.dropdownLink}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <Link to="/events/longbeach" className={classes.dropdownLink}>
               Multifamily Apartment Investors Meetup - Long Beach
-            </a>,
-            <a
-              href="https://www.meetup.com/Cerritos-Multifamily-Investors-Roundtable"
-              className={classes.dropdownLink}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            </Link>,
+            <Link to="/events/cerritos" className={classes.dropdownLink}>
               Cerritos Multifamily Investors Roundtable
-            </a>
+            </Link>
           ]}
         />
       </ListItem>

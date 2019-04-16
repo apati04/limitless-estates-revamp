@@ -11,7 +11,7 @@ import ContactForm from './ContactForm';
 import grey from '@material-ui/core/colors/grey';
 import ContactInfo from './ContactSidebar';
 import Parallax from '../Layouts/Parallax';
-import Button from 'components/CustomButtons/Button.js';
+import Button from 'components/CustomButtons/Button';
 import Hidden from '@material-ui/core/Hidden';
 import CallToAction from '../Home/CallToAction/CallToAction';
 const styles = theme => ({

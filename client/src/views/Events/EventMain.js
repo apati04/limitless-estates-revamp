@@ -48,7 +48,7 @@ const styles = theme => ({
     }
   }
 });
-class CerritosPage extends React.Component {
+class EventMain extends React.Component {
   state = {
     isFetching: true,
     isComplete: false,
@@ -58,17 +58,34 @@ class CerritosPage extends React.Component {
     parsedSchedule: ''
   };
   componentDidMount() {
-    axios.get('/events/meetups/cerritos').then(({ data }) => {
-      let parsedSchedule = ReactHtmlParser(data.results[0].description);
-      this.setState({
-        isFetching: false,
-        isComplete: true,
-        eventList: data.results,
-        eventListLength: data.resultslength,
-        eventObject: data.results[0],
-        parsedSchedule
+    const routeId = this.props.match.url;
+    if (routeId === '/events/longbeach') {
+      axios.get('/events/meetups/lbc').then(({ data }) => {
+        let parsedSchedule = ReactHtmlParser(data.results[0].description);
+        this.setState({
+          isFetching: false,
+          isComplete: true,
+          eventList: data.results,
+          eventListLength: data.resultslength,
+          eventObject: data.results[0],
+          parsedSchedule
+        });
       });
-    });
+      return;
+    }
+    if (routeId === '/events/cerritos') {
+      axios.get('/events/meetups/cerritos').then(({ data }) => {
+        let parsedSchedule = ReactHtmlParser(data.results[0].description);
+        this.setState({
+          isFetching: false,
+          isComplete: true,
+          eventList: data.results,
+          eventListLength: data.resultslength,
+          eventObject: data.results[0],
+          parsedSchedule
+        });
+      });
+    }
   }
   render() {
     const { classes, ...rest } = this.props;
@@ -91,20 +108,25 @@ class CerritosPage extends React.Component {
             />
             <Parallax
               filter
-              image={this.props.image || 'https://i.imgur.com/BfgFUb0.jpg'}
+              image={this.props.image || 'https://i.imgur.com/16LWH6o.jpg'}
             >
               <div className={classes.container}>
                 <GridContainer className={classes.extraPadding}>
                   <GridItem xs={12} sm={12} md={8}>
                     <h1 className={classes.title}>{eventObject.name}</h1>
                     <h4 className={classes.description}>
-                      This meetup is for anyone interested in networking with
-                      other Multifamily/Apartment Real Estate Investors. The
-                      format will be an open round table discussion where each
-                      person will be able to ask/answer the following questions
-                      to the group. The goal is to add value to each and every
-                      person and to help with any needs/issues they may be
-                      having in Real Estate at the current moment.
+                      Are you interested in the financial power of multifamily
+                      real estate? Are you new to Real Estate investing but
+                      don’t know how to start? Are you an experienced investor
+                      with properties in LA but aren’t getting the returns you
+                      desire? Are you interested in cash flow, value-add
+                      properties, and opportunities outside of CA? Are you an
+                      investor and looking for alternative ways to make money?
+                      Are you an action taker looking for your next apartment
+                      deal? If so come join us. We invest in apartments in
+                      markets that simply make sense (or dollars!). Apartment
+                      investing is a team sport. So come join the best team in
+                      LA.
                     </h4>
                   </GridItem>
                 </GridContainer>
@@ -143,4 +165,4 @@ class CerritosPage extends React.Component {
   }
 }
 
-export default withRouter(withStyles(styles)(CerritosPage));
+export default withRouter(withStyles(styles)(EventMain));

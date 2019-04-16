@@ -4,19 +4,13 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import classNames from 'classnames';
 import { NavLink } from 'react-router-dom';
 // @material-ui/icons
-import Group from '@material-ui/icons/Group';
-import Public from '@material-ui/icons/Public';
-import Assessment from '@material-ui/icons/Assessment';
-import Card from 'components/Card/Card';
+
 import Button from 'components/CustomButtons/Button';
 // core components
 import GridContainer from 'components/Grid/GridContainer';
 import GridItem from 'components/Grid/GridItem';
 import InfoArea from 'components/InfoArea/InfoArea';
-import ChildSvg from './child-solid.svg';
-import InspireSvg from './medapps-brands.svg';
-import UsersSolid from './users-solid.svg';
-import TrophySolid from './trophy-solid.svg';
+
 import productStyle from 'assets/jss/material-kit-react/views/landingPageSections/productStyle';
 import blue from '@material-ui/core/colors/blue';
 const styles = theme => ({
@@ -27,44 +21,37 @@ const styles = theme => ({
     '&:hover': {
       backgroundColor: 'rgba(60,72,88,0.1)'
     }
-  },
-  iconSection: {}
+  }
 });
-const childSvg = props => (
-  <img {...props} src={ChildSvg} alt="avatar" title="Impacting Lives" />
-);
-const usersSvg = props => (
-  <img {...props} src={UsersSolid} alt="avatar" title="Community Development" />
-);
-const inspireSvg = props => (
-  <img {...props} src={InspireSvg} alt="avatar" title="Inspire Others" />
-);
-const trophySvg = props => (
-  <img
-    {...props}
-    src={TrophySolid}
-    alt="avatar"
-    title="Create win win win scenarios"
-  />
-);
-class FeatureSection extends React.Component {
+
+class FeaturedEvent extends React.Component {
   render() {
     const { classes } = this.props;
     return (
       <div className={classes.section}>
         <GridContainer justify="center">
           <GridItem xs={12} sm={12} md={8}>
-            <h2 className={classNames(classes.title)}>What we are about</h2>
+            <h2 className={classNames(classes.title)}>
+              This group is for any interested in investing in out-of-state
+              multifamily apartments.
+            </h2>
             <h5 className={classes.description}>
-              Our mission is to positively impact the lives of the people in our
-              local neighborhoods through impact investing while achieving
-              double digit returns for our investors.
+              Are you interested in the financial power of multifamily real
+              estate? Are you new to Real Estate investing but don’t know how to
+              start? Are you an experienced investor with properties in LA but
+              aren’t getting the returns you desire? Are you interested in cash
+              flow, value-add properties, and opportunities outside of CA? Are
+              you an investor and looking for alternative ways to make money?
+              Are you an action taker looking for your next apartment deal? If
+              so come join us. We invest in apartments in markets that simply
+              make sense (or dollars!). Apartment investing is a team sport. So
+              come join the best team in LA.
             </h5>
           </GridItem>
         </GridContainer>
         <div>
           <GridContainer>
-            <GridItem xs={12} sm={12} md={3}>
+            {/* <GridItem xs={12} sm={12} md={3}>
               <div className={classes.iconSectionDiv}>
                 <NavLink
                   className={classes.iconSection}
@@ -108,7 +95,7 @@ class FeatureSection extends React.Component {
                 vertical
               />
               <Button>Learn More</Button>
-            </GridItem>
+            </GridItem> */}
           </GridContainer>
         </div>
       </div>
@@ -116,4 +103,4 @@ class FeatureSection extends React.Component {
   }
 }
 
-export default withStyles(styles)(FeatureSection);
+export default withStyles(styles)(FeaturedEvent);

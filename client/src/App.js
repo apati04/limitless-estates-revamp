@@ -19,6 +19,8 @@ import Investor from 'views/Investor/Investor';
 import ErrorPage from 'views/ErrorPage/ErrorPage';
 import MarketsOverview from 'views/Markets/MarketsOverview';
 import IraContainer from 'views/Resources/IraContainer';
+import CerritosPage from 'views/Events/CerritosPage';
+import LongBeachPage from 'views/Events/LBPage';
 class App extends Component {
   render() {
     return (
@@ -33,6 +35,8 @@ class App extends Component {
           <Route exact path="/self-directed-ira" component={IraContainer} />
           <Route path="/resources/:id" component={Resources} />
           <Route exact path="/resources" component={ResourceOverview} />
+          <Route exact path="/events/longbeach" component={LongBeachPage} />
+          <Route exact path="/events/cerritos" component={CerritosPage} />
 
           {/* <Route path="/events/meetups/:id" component={Events} /> */}
           <Route exact path="/disclaimer" component={Disclaimer} />
