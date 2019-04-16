@@ -10,7 +10,7 @@ import axios from 'axios';
 import { withRouter } from 'react-router-dom';
 import { TextField } from 'formik-material-ui';
 import { withStyles } from '@material-ui/core/styles';
-
+import { withSnackbar } from 'notistack';
 const styles = theme => ({
   ...loginPageStyle,
   cardDiv: {
@@ -29,23 +29,19 @@ class ContactForm extends Component {
           email: '',
           message: ''
         }}
-        validateOnChange={false}
-        validateOnBlur={false}
         onSubmit={async (values, { resetForm, setSubmitting }) => {
-          const onReq = await axios.post('/api/contactformsubmit', {
-            values,
-            type: 'Contact Form'
-          });
-          if (onReq.data.status === 'success') {
-            setSubmitting(false);
-            resetForm();
-            this.props.history.push('/thankyou');
-          } else {
-            setSubmitting(false);
-            resetForm();
-            this.props.history.push('/error');
-          }
-
+          // const onReq = await axios.post('/api/contactformsubmit', {
+          //   values,
+          //   type: 'Contact Form'
+          // });
+          // if (onReq.data.status === 'success') {
+          //   setSubmitting(false);
+          //   resetForm();
+          //
+          // } else {
+          //   setSubmitting(false);
+          //   resetForm();
+          // }
           // if (onReq.data.response.success) {
           //   return this.props.history.push('/info/contact');
           // }
@@ -55,6 +51,18 @@ class ContactForm extends Component {
                         resetForm();
                           setSubmitting(false);
            */
+          if (values) {
+            this.props.history.push('/thankyou');
+          }
+
+          // this.props.enqueueSnackbar('Thank you for Signing up!', {
+          //   anchorOrigin: {
+          //     vertical: 'bottom',
+          //     horizontal: 'right'
+          //   },
+          //   variant: 'success',
+          //   persist: false
+          // });
         }}
         validationSchema={Yup.object().shape({
           fullname: Yup.string().required('Required'),
@@ -72,7 +80,8 @@ class ContactForm extends Component {
           handleBlur,
           handleSubmit,
           setFieldValue,
-          isSubmitting
+          isSubmitting,
+          isValid
         }) => (
           <div className={classes.cardDiv}>
             <form onSubmit={handleSubmit} className={classes.form}>
@@ -128,11 +137,9 @@ class ContactForm extends Component {
               </CardBody>
               <CardFooter className={classes.cardFooter}>
                 <Button
-                  round
                   type="submit"
-                  disabled={isSubmitting}
+                  disabled={!isValid || isSubmitting}
                   color="primary"
-                  size="lg"
                 >
                   Send Message
                 </Button>
@@ -145,4 +152,4 @@ class ContactForm extends Component {
   }
 }
 
-export default withRouter(withStyles(styles)(ContactForm));
+export default withRouter(withStyles(styles)(withSnackbar(ContactForm)));

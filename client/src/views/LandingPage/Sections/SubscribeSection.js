@@ -52,7 +52,7 @@ class SubscribeSection extends Component {
               initialValues={{
                 email: ''
               }}
-              onSubmit={(values, { resetForm, setSubmitting }) => {
+              onSubmit={(values, { resetForm, setSubmitting, setErrors }) => {
                 axios
                   .post('/api/mailchimp/subscribe', values)
                   .then(() => {
@@ -67,9 +67,10 @@ class SubscribeSection extends Component {
                     resetForm();
                     setSubmitting(false);
                   })
-                  .catch(() => {
+                  .catch(error => {
                     resetForm();
                     setSubmitting(false);
+                    setErrors(error);
                     this.props.enqueueSnackbar('Something went wrong.', {
                       anchorOrigin: {
                         vertical: 'bottom',
@@ -92,7 +93,8 @@ class SubscribeSection extends Component {
                 touched,
                 handleSubmit,
                 setFieldValue,
-                isSubmitting
+                isSubmitting,
+                isValid
               }) => (
                 <form
                   onSubmit={handleSubmit}
@@ -101,13 +103,20 @@ class SubscribeSection extends Component {
                   autoComplete="off"
                 >
                   <Card>
-                    <CardHeader color="primary">
-                      <h3 style={{ textAlign: 'center' }}>
+                    <CardHeader style={{ backgroundColor: '#59698d' }}>
+                      <h3
+                        style={{
+                          textAlign: 'center',
+                          color: 'white',
+                          marginTop: 0.875 + 'rem'
+                        }}
+                        className={classes.title}
+                      >
                         Sign up to get your FREE <br /> Passive Investors Guide!
                       </h3>
                     </CardHeader>
                     <CardBody
-                      style={{ paddingLeft: '30px', paddingRight: '30px' }}
+                      style={{ paddingLeft: '56px', paddingRight: '56px' }}
                     >
                       <Field
                         component={TextField}
@@ -117,14 +126,20 @@ class SubscribeSection extends Component {
                         fullWidth
                         margin="normal"
                       />
-                      <Button
-                        variant="contained"
-                        color="primary"
-                        type="submit"
-                        disabled={isSubmitting}
+                      <div
+                        style={{
+                          marginTop: '0.5rem'
+                        }}
                       >
-                        Get the Guide
-                      </Button>
+                        <Button
+                          fullWidth
+                          color="success"
+                          type="submit"
+                          disabled={!isValid || isSubmitting}
+                        >
+                          Get the Guide
+                        </Button>
+                      </div>
                     </CardBody>
                   </Card>
                 </form>
