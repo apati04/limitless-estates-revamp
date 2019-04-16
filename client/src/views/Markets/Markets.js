@@ -44,17 +44,7 @@ class Markets extends Component {
       title = 'Investing in Columbus';
       image = columbus.headerImageUrl;
     }
-    return (
-      <Parallax filter image={image}>
-        <div className={classes.container}>
-          <GridContainer>
-            <GridItem xs={12} sm={12} md={6}>
-              <h1 className={classes.title}>{title}</h1>
-            </GridItem>
-          </GridContainer>
-        </div>
-      </Parallax>
-    );
+    return <Parallax small filter image={image} />;
   };
   loadPage = () => {
     const { id } = this.props.match.params;

@@ -36,14 +36,14 @@ class SubscribeSection extends Component {
     const { classes } = this.props;
 
     return (
-      <div className={classes.section}>
+      <div style={{ background: '#f7f7f7' }} className={classes.section}>
         <GridContainer justify="space-between">
           <GridItem xs={12} sm={12} md={6}>
             <img
               src="https://i.imgur.com/D4wijRG.jpg"
               className="img-fluid d-block"
               alt="img"
-              style={{ width: '100%' }}
+              style={{ width: '100%', marginLeft: '15px' }}
               title="guide"
             />
           </GridItem>

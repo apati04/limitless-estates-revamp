@@ -10,22 +10,17 @@ import GridContainer from 'components/Grid/GridContainer';
 import GridItem from 'components/Grid/GridItem';
 import productStyle from 'assets/jss/material-kit-react/views/landingPageSections/productStyle';
 import loadContent from './loadContent';
-
 function Main(props) {
   const { classes, api } = props;
-
   const { content, maps } = api;
-
   const [marketTitle, ...mainContent] = content;
-
   return (
     <section className={classes.section}>
       <GridContainer justify="center">
-        <GridItem xs={12}>
+        <GridItem xs={12} sm={12} md={10}>
           <Typography align="left" variant="h3" paragraph>
             {marketTitle.title.value}
           </Typography>
-          />
           <Typography
             variant="body1"
             style={{ textAlign: 'left', fontSize: '1rem' }}
@@ -33,7 +28,7 @@ function Main(props) {
             {loadContent(mainContent)}
           </Typography>
         </GridItem>
-        <GridItem xs={12} sm={12}>
+        <GridItem xs={12} sm={12} md={10}>
           <GoogleMap
             height={maps.height}
             width={maps.width}

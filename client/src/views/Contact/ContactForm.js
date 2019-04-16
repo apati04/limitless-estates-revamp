@@ -34,14 +34,23 @@ class ContactForm extends Component {
           //   values,
           //   type: 'Contact Form'
           // });
-          // if (onReq.data.status === 'success') {
-          //   setSubmitting(false);
-          //   resetForm();
-          //
-          // } else {
-          //   setSubmitting(false);
-          //   resetForm();
-          // }
+          const onReq = { data: { status: 'error' } };
+          if (onReq.data.status === 'success') {
+            setSubmitting(false);
+            this.props.history.push('/thankyou');
+            resetForm();
+          } else {
+            setSubmitting(false);
+            resetForm();
+            this.props.enqueueSnackbar('Something went wrong.', {
+              anchorOrigin: {
+                vertical: 'bottom',
+                horizontal: 'right'
+              },
+              variant: 'error',
+              persist: false
+            });
+          }
           // if (onReq.data.response.success) {
           //   return this.props.history.push('/info/contact');
           // }
@@ -52,7 +61,6 @@ class ContactForm extends Component {
                           setSubmitting(false);
            */
           if (values) {
-            this.props.history.push('/thankyou');
           }
 
           // this.props.enqueueSnackbar('Thank you for Signing up!', {

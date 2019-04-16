@@ -99,17 +99,8 @@ class EventMain extends React.Component {
                     <h1 className={classes.title}>{eventObject.name}</h1>
                     <h4 className={classes.description}>
                       Are you interested in the financial power of multifamily
-                      real estate? Are you new to Real Estate investing but
-                      don’t know how to start? Are you an experienced investor
-                      with properties in LA but aren’t getting the returns you
-                      desire? Are you interested in cash flow, value-add
-                      properties, and opportunities outside of CA? Are you an
-                      investor and looking for alternative ways to make money?
-                      Are you an action taker looking for your next apartment
-                      deal? If so come join us. We invest in apartments in
-                      markets that simply make sense (or dollars!). Apartment
-                      investing is a team sport. So come join the best team in
-                      LA.
+                      real estate? If so come join us. We invest in apartments
+                      in markets that simply make sense (or dollars!).
                     </h4>
                   </GridItem>
                 </GridContainer>

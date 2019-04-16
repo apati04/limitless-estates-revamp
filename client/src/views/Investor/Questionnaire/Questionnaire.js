@@ -152,7 +152,7 @@ const Questionnaire = props => {
               if (data.status === 'success') {
                 actions.setSubmitting(false);
                 actions.resetForm();
-                props.history.push('/');
+                props.history.push('/thankyou');
               } else {
                 throw Error('something happened');
               }

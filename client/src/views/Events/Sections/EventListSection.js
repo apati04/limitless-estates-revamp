@@ -38,7 +38,6 @@ class EventListSection extends React.Component {
   };
 
   handleChange = panel => (event, expanded) => {
-
     this.setState({
       expanded: expanded ? panel : false
     });
@@ -53,6 +52,7 @@ class EventListSection extends React.Component {
       let eventTitle = event.name.split('-');
       return (
         <ExpansionPanel
+          style={{ boxShadow: 'unset' }}
           key={index}
           expanded={expanded === `panel${index}`}
           onChange={this.handleChange(`panel${index}`)}
@@ -97,19 +97,27 @@ class EventListSection extends React.Component {
               </Hidden>
             </div>
           </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
+          <ExpansionPanelDetails
+            style={{ borderBottom: '1px solid rgba(0, 0, 0, 0.12)' }}
+          >
             <div
               style={{
                 display: 'flex',
                 justifyContent: 'space-between',
-                width: '100%'
+                alignItems: 'flex-start',
+                flexWrap: 'wrap'
               }}
             >
               <div style={{ textAlign: 'left' }}>
                 <h4 className={classes.title}>Event Details</h4>
                 <h5 className={classes.description}>{this.props.schedule}</h5>
               </div>
-              <div style={{ textAlign: 'left' }}>
+              <div
+                style={{
+                  textAlign: 'left',
+                  flexBasis: 'auto'
+                }}
+              >
                 <h4 className={classes.title}>How to Find Us</h4>
                 <h5 className={classes.description}>{event.how_to_find_us}</h5>
               </div>

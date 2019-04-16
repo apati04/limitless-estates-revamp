@@ -72,18 +72,26 @@ class LandingPage extends React.Component {
           </div>
         </Parallax>
         <div className={classNames(classes.main, classes.mainRaised)}>
+          <div
+            style={{
+              background: '#f7f7f7'
+            }}
+          >
+            <div className={classes.container}>
+              <FeatureSection />
+            </div>
+          </div>
           <div className={classes.container}>
-            <FeatureSection />
             <MainTeam />
-
-            <SubscribeSection
-              title="Sign up to get your FREE"
-              subHeader="Passive Investors Guide!"
-            />
 
             <div />
             {/* <WorkSection /> */}
           </div>
+
+          <SubscribeSection
+            title="Sign up to get your FREE"
+            subHeader="Passive Investors Guide!"
+          />
         </div>
         <Footer />
       </div>
