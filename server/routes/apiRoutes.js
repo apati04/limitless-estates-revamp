@@ -1,7 +1,8 @@
 const express = require('express');
 const axios = require('axios');
-const router = express.Router();
+const keys = require('../config/keys');
 
+const router = express.Router();
 router.post('/mailchimp/subscribe', async (req, res) => {
   const region = keys.mailChimpApiKey.split('-')[1];
   const rootURL = `https://${region}.api.mailchimp.com/3.0/lists/3c16a06b45/members/`;

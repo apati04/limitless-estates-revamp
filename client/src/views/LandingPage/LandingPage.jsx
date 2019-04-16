@@ -62,7 +62,6 @@ class LandingPage extends React.Component {
                 <Button
                   color="primary"
                   size="lg"
-                  rounded
                   style={{ marginLeft: '16px' }}
                   component={props => <Link {...props} to="/investor" />}
                 >
@@ -76,10 +75,12 @@ class LandingPage extends React.Component {
           <div className={classes.container}>
             <FeatureSection />
             <MainTeam />
+
             <SubscribeSection
               title="Sign up to get your FREE"
               subHeader="Passive Investors Guide!"
             />
+
             <div />
             {/* <WorkSection /> */}
           </div>

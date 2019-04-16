@@ -3,12 +3,15 @@ import ReactDOM from 'react-dom';
 import './style.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
+import { SnackbarProvider } from 'notistack';
 
 // import HocTheme from './hoc/HocTheme';
 import * as serviceWorker from './serviceWorker';
 ReactDOM.render(
   <BrowserRouter>
-    <App />
+    <SnackbarProvider>
+      <App />
+    </SnackbarProvider>
   </BrowserRouter>,
   document.getElementById('root')
 );
