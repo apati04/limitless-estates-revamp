@@ -19,7 +19,6 @@ const styles = theme => ({
   navColor: theme.palette.primary.main
 });
 function NavMain(props) {
-  // console.log('props location', props.currLocation);
   const { classes, ...rest } = props;
   return (
     <Fragment>

@@ -33,7 +33,6 @@ class SubscribeForm extends Component {
           email: ''
         }}
         onSubmit={async values => {
-          console.log('values: ', values);
           // const onReq = await axios.post('/dev/contactreq', {
           //   token: values.recaptcha
           // });

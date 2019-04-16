@@ -147,7 +147,7 @@ class Episode extends Component {
     } = this.props;
     const s1 = episode.audio_url.split('/');
     const s2 = s1[s1.length - 1].split('.')[0];
-    console.log(this.props.location);
+
     const episodetitle = episode.title.split(':')[1].trim();
     const newDate = new Date(episode.published_at).toDateString();
     // const minutes = Math.floor(episode.duration / 60);

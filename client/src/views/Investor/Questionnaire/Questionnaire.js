@@ -108,7 +108,6 @@ const fLabel = {
 const Questionnaire = props => {
   const { classes } = props;
 
-  console.log('requires: ', props);
   return (
     <React.Fragment>
       <Typography align="center" variant="h5" component="h1">
@@ -159,7 +158,6 @@ const Questionnaire = props => {
               }
             })
             .catch(err => {
-              console.log(err);
               props.history.push('/error');
             });
         }}
@@ -227,7 +225,6 @@ const Questionnaire = props => {
                           placeholder="(###) ###-####"
                           onChange={event => {
                             const { value } = event.target;
-                            console.log(props.field);
                             props.form.setFieldValue(props.field.name, value);
                           }}
                           {...props}

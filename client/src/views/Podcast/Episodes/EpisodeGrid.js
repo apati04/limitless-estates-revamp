@@ -222,7 +222,7 @@ class EpisodeGrid extends Component {
               }
             }
           });
-          console.log('item', item);
+
           return (
             <GridItem
               key={item.id}

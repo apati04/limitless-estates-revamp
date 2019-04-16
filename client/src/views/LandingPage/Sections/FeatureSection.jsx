@@ -62,23 +62,16 @@ class FeatureSection extends React.Component {
             </h5>
           </GridItem>
         </GridContainer>
-        <div>
+        <div style={{ marginTop: '64px' }}>
           <GridContainer>
             <GridItem xs={12} sm={12} md={3}>
-              <div className={classes.iconSectionDiv}>
-                <NavLink
-                  className={classes.iconSection}
-                  to="/resources/impact-investing"
-                >
-                  <InfoArea
-                    title="Impacting Lives"
-                    description=""
-                    icon={childSvg}
-                    iconColor="info"
-                    vertical
-                  />
-                </NavLink>
-              </div>
+              <InfoArea
+                title="Impacting Lives"
+                description=""
+                icon={childSvg}
+                iconColor="info"
+                vertical
+              />
             </GridItem>
             <GridItem xs={12} sm={12} md={3}>
               <InfoArea
@@ -92,22 +85,22 @@ class FeatureSection extends React.Component {
             <GridItem xs={12} sm={12} md={3}>
               <InfoArea
                 title="Inspire Others"
-                description="as a passive investor you are in full control and your opinions matter. something cheesy like that. say something about your webinars and Limitless Estates ability to be willing to listen. this icon section should target the potential investor"
+                description=""
                 icon={inspireSvg}
                 iconColor="info"
                 vertical
               />
-              <Button>Learn More</Button>
+              {/* <Button>Learn More</Button> */}
             </GridItem>
             <GridItem xs={12} sm={12} md={3}>
               <InfoArea
                 title="Create Win Win Win Scenarios"
-                description="Describe and talk about strategizing and how the process works. basically promoting the SelfDirected IRA. this section is targeted for super noobs"
+                description=""
                 icon={trophySvg}
                 iconColor="success"
                 vertical
               />
-              <Button>Learn More</Button>
+              {/* <Button>Learn More</Button> */}
             </GridItem>
           </GridContainer>
         </div>

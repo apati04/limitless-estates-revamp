@@ -38,7 +38,7 @@ class EventListSection extends React.Component {
   };
 
   handleChange = panel => (event, expanded) => {
-    console.log('clicked: ', panel, 'event: ', event);
+
     this.setState({
       expanded: expanded ? panel : false
     });
@@ -46,10 +46,10 @@ class EventListSection extends React.Component {
   loadListItems = () => {
     const { classes } = this.props;
     const { expanded } = this.state;
-    console.log(this.props.eventList);
+
     return this.props.eventList.map((event, index) => {
       let panel = 'panel' + index;
-      console.log(typeof panel);
+
       let eventTitle = event.name.split('-');
       return (
         <ExpansionPanel

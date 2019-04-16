@@ -1,117 +1,129 @@
 import React, { Component } from 'react';
 
-import Card from 'components/Card/Card';
-import CardBody from 'components/Card/Card';
+import Card from 'components/Card/Card.jsx';
+import CardBody from 'components/Card/CardBody.jsx';
+import CardHeader from 'components/Card/CardHeader.jsx';
+import Button from 'components/CustomButtons/Button.jsx';
 
-import { withFormik, Form, Field } from 'formik';
+import { cardTitle } from 'assets/jss/material-kit-react.jsx';
+import { withRouter } from 'react-router-dom';
+import withStyles from '@material-ui/core/styles/withStyles';
+import { Field, Formik } from 'formik';
 import { TextField } from 'formik-material-ui';
-import Button from 'components/CustomButtons/Button';
+import SuccessNotify from './SuccessNotify';
 import * as Yup from 'yup';
 import axios from 'axios';
-const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+import GridContainer from 'components/Grid/GridContainer';
+import GridItem from 'components/Grid/GridItem';
+import landingPageStyle from 'assets/jss/material-kit-react/views/landingPage';
+import productStyle from 'assets/jss/material-kit-react/views/landingPageSections/productStyle';
 
-class Subscribe extends Component {
+const styles = theme => ({
+  ...productStyle,
+  cardTitle,
+  cardDiv: {
+    paddingLeft: '1.25rem',
+    paddingRight: '1.25rem'
+  }
+});
+
+class SubscribeSection extends Component {
   state = {
-    modal: false
+    success: false
   };
-  toggle = e => {
-    const { resetForm, setSubmitting } = this.props;
-    let isValid = true;
-    if (Object.values(this.props.errors).includes('Required')) {
-      return;
-    } else {
-      this.setState({ modal: !this.state.modal });
-    }
-  };
-  onSubmit = e => {
-    // check if email is missing
-    // if exists, call method to sub
-    console.log(e);
+  resetState = () => {
+    this.setState({ success: false });
   };
   render() {
-    const { values, errors, touched, isSubmitting } = this.props;
+    const { values, errors, touched, isSubmitting, classes } = this.props;
     return (
-      <section>
-        <div
-          style={{ marginTop: '40px', marginBottom: '40px' }}
-          className="container p-4"
-        >
-          <Form>
-            <div className="row justify-content-between align-items-start">
-              <div className="col-md-6 investors-guide-form mb-3">
-                <img
-                  src="https://i.imgur.com/D4wijRG.jpg"
-                  className="img-fluid d-block"
-                  alt="img"
-                  title="guide"
-                />
-              </div>
-              <div className="col-md-6 investors-guide-form">
-                <Card>
-                  <div className="card-header view  mdb-color">
-                    <h3
-                      style={{
-                        fontFamily: 'Playfair Display',
-                        textAlign: 'center',
-                        color: '#fff',
-                        opacity: '0.98'
-                      }}
-                      className=""
-                    >
-                      Sign up to get your <br />
-                      <strong>FREE Passive Investors Guide!</strong>
-                    </h3>
-                  </div>
-                  <CardBody>
-                    <div
-                      style={{
-                        display: 'flex',
-                        flexWrap: 'wrap',
-                        alignItems: 'baseline',
-                        paddingLeft: '4px',
-                        paddingRight: '4px'
-                      }}
-                      className="md-form input-group mb-2"
+      <div className={classes.section}>
+        <GridContainer justify="space-between">
+          <GridItem xs={12} sm={12} md={6}>
+            <img
+              src="https://i.imgur.com/D4wijRG.jpg"
+              className="img-fluid d-block"
+              alt="img"
+              style={{ width: '100%' }}
+              title="guide"
+            />
+          </GridItem>
+          <GridItem xs={12} sm={12} md={6}>
+            <Formik
+              initialValues={{
+                email: ''
+              }}
+              onSubmit={async (values, { resetForm, setSubmitting }) => {
+                await axios.post('/api/mailchimp/subscribe', values);
+
+                resetForm();
+                setSubmitting(false);
+                this.setState({ success: true });
+                this.resetState();
+                // const onReq = await axios.post('/dev/contactreq', {
+                //   token: values.recaptcha
+                // });
+                // if (onReq.data.response.success) {
+                //   return this.props.history.push('/info/contact');
+                // }
+                // return this.props.history.push('/error/');
+              }}
+              validationSchema={Yup.object().shape({
+                //   recaptcha: Yup.string().required(),
+                email: Yup.string()
+                  .email('Email is not valid')
+                  .required('Required')
+              })}
+              render={({
+                values,
+                errors,
+                touched,
+                handleSubmit,
+                setFieldValue,
+                isSubmitting
+              }) => (
+                <form
+                  onSubmit={handleSubmit}
+                  className={classes.cardDiv}
+                  noValidate
+                  autoComplete="off"
+                >
+                  <Card>
+                    <CardHeader color="success">
+                      <h3 style={{ textAlign: 'center' }}>
+                        Sign up to get your FREE <br /> Passive Investors Guide!
+                      </h3>
+                    </CardHeader>
+                    <CardBody
+                      style={{ paddingLeft: '30px', paddingRight: '30px' }}
                     >
                       <Field
                         component={TextField}
                         type="email"
+                        label="Your Email Address"
                         name="email"
-                        placeholder="Your Email Address"
+                        fullWidth
+                        margin="normal"
                       />
-
                       <Button
+                        variant="contained"
+                        color="primary"
                         type="submit"
-                        onClick={this.toggle}
-                        className="btn  btn-block primary-color"
                         disabled={isSubmitting}
                       >
-                        <strong>Sign Up</strong>
+                        Get the Guide
                       </Button>
-                    </div>
-                  </CardBody>
-                </Card>
-              </div>
-            </div>
-          </Form>
-        </div>
-      </section>
+                    </CardBody>
+                  </Card>
+                </form>
+              )}
+            />
+          </GridItem>
+        </GridContainer>
+        {this.state.success && <SuccessNotify />}
+      </div>
     );
   }
 }
 
-export default withFormik({
-  mapPropsToValues({ email = '' }) {
-    return { email };
-  },
-  validationSchema: Yup.object().shape({
-    email: Yup.string()
-      .email('Email is not valid')
-      .required('Required')
-  }),
-  async handleSubmit(values, { resetForm, setErrors, setSubmitting }) {
-    const req = await axios.post('/api/mailchimp/subscribe', values);
-    resetForm();
-    setSubmitting(false);
-  }
-})(Subscribe);
+export default withRouter(withStyles(styles)(SubscribeSection));

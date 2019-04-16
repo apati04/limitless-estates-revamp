@@ -12,6 +12,7 @@ import { Formik, Field } from 'formik';
 import * as Yup from 'yup';
 import lightBlue from '@material-ui/core/colors/lightBlue';
 import Button from 'components/CustomButtons/Button';
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 const styles = theme => ({
   appContainer: {
     ...theme.container
@@ -101,7 +102,6 @@ class Thankyou extends Component {
   render() {
     const { classes, theme } = this.props;
 
-    console.log(theme.breakpoints.up('sm'));
     return (
       <div className={classes.root}>
         <div className={classNames(classes.appContainer, 'main-content')}>
@@ -149,7 +149,6 @@ class Thankyou extends Component {
                       email: ''
                     }}
                     onSubmit={async values => {
-                      console.log('values: ', values);
                       // const onReq = await axios.post('/dev/contactreq', {
                       //   token: values.recaptcha
                       // });

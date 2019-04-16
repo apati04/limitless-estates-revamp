@@ -41,7 +41,6 @@ const styles = theme => ({
 });
 class Resources extends React.Component {
   loadPage = currentPage => {
-    console.log(currentPage);
     switch (currentPage.slug) {
       case 'why-invest-in-multifamily':
       case 'impact-investing':
@@ -80,7 +79,7 @@ class Resources extends React.Component {
 
     let title = match.params.id;
     let currentRoute = api.find(element => element.slug === title);
-    console.log('curentRoute: ', currentRoute);
+
     let fullbg = false;
     if (
       title === 'frequently-asked-questions' ||

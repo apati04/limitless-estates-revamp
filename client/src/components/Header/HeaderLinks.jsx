@@ -32,7 +32,7 @@ import headerLinksStyle from 'assets/jss/material-kit-react/components/headerLin
 const ResourcesMain = props => <Link to="/resources" {...props} />;
 function HeaderLinks({ ...props }) {
   const { classes } = props;
-  console.log(props);
+
   return (
     <List className={classes.list}>
       <ListItem className={classes.listItem}>
@@ -72,11 +72,11 @@ function HeaderLinks({ ...props }) {
               className={classes.dropdownLink}
             >
               Phoenix, Arizona
-            </Link>,
-            { divider: true },
-            <Link to="/markets/overview" className={classes.dropdownLink}>
-              Overview
             </Link>
+            // { divider: true },
+            // <Link to="/markets/overview" className={classes.dropdownLink}>
+            //   Overview
+            // </Link>
           ]}
         />
       </ListItem>

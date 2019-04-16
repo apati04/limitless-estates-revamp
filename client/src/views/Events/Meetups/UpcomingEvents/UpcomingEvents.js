@@ -85,7 +85,7 @@ const styles = theme => ({
 class UpcomingEvents extends React.Component {
   loadCards = () => {
     const { classes, eventList } = this.props;
-    console.log('cards: ', eventList);
+
     return eventList.map((event, index) => {
       let endTime = event.time + event.duration;
 

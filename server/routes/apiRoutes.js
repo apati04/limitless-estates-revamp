@@ -2,6 +2,29 @@ const express = require('express');
 const axios = require('axios');
 const router = express.Router();
 
+router.post('/mailchimp/subscribe', async (req, res) => {
+  const region = keys.mailChimpApiKey.split('-')[1];
+  const rootURL = `https://${region}.api.mailchimp.com/3.0/lists/3c16a06b45/members/`;
+  const data = {
+    email_address: req.body.email,
+    status: 'subscribed'
+  };
+  try {
+    const sub = await axios.post(rootURL, data, {
+      headers: {
+        Accept: 'application/json',
+        Authorization: `Basic ${Buffer.from(
+          `apikey:${keys.mailChimpApiKey}`
+        ).toString('base64')}`,
+        json: true
+      }
+    });
+    res.status(201).send({ message: 'success' });
+  } catch (err) {
+    res.status(400).send({ message: 'error', err });
+  }
+});
+
 router.post('/investorformsubmit', (req, res) => {
   const { values, type } = req.body;
   console.log(values);

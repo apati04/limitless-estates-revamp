@@ -79,7 +79,7 @@ class FeaturedCompany extends React.Component {
   };
   render() {
     const { classes, data } = this.props;
-    console.log('data: ', data);
+
     return (
       <div className={classes.section}>
         <GridContainer justify="center">

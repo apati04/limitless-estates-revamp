@@ -44,7 +44,6 @@ class OverviewCards extends React.Component {
     const { classes } = this.props;
     const colors = ['primary', 'success', 'warning', 'danger'];
     return api.map((item, index, arr) => {
-      console.log('item; ', item);
       if (index === arr.length - 1) {
         return (
           <GridItem xs={12} sm={12} md={12} key={index + item.type}>

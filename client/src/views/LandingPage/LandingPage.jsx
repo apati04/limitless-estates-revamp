@@ -3,10 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles';
-
-// @material-ui/icons
-
-// core components
+import { Link } from 'react-router-dom';
 import Header from 'components/Header/Header';
 import Footer from 'components/Footer/Footer';
 import GridContainer from 'components/Grid/GridContainer';
@@ -16,7 +13,7 @@ import HeaderLinks from 'components/Header/HeaderLinks';
 import Parallax from 'components/Parallax/Parallax';
 import SubscribeSection from './Sections/SubscribeSection';
 import landingPageStyle from 'assets/jss/material-kit-react/views/landingPage';
-
+import MainTeam from '../About/Sections/MainTeam';
 // Sections for this page
 import FeatureSection from './Sections/FeatureSection';
 import WorkSection from './Sections/WorkSection';
@@ -62,6 +59,15 @@ class LandingPage extends React.Component {
                 </h4>
                 <br />
                 <Modal url={'https://apax714.wistia.com/medias/pueh6irs0z'} />
+                <Button
+                  color="primary"
+                  size="lg"
+                  rounded
+                  style={{ marginLeft: '16px' }}
+                  component={props => <Link {...props} to="/investor" />}
+                >
+                  Investor Questionnaire
+                </Button>
               </GridItem>
             </GridContainer>
           </div>
@@ -69,8 +75,13 @@ class LandingPage extends React.Component {
         <div className={classNames(classes.main, classes.mainRaised)}>
           <div className={classes.container}>
             <FeatureSection />
-            <SubscribeSection />
-            <WorkSection />
+            <MainTeam />
+            <SubscribeSection
+              title="Sign up to get your FREE"
+              subHeader="Passive Investors Guide!"
+            />
+            <div />
+            {/* <WorkSection /> */}
           </div>
         </div>
         <Footer />

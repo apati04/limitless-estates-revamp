@@ -39,9 +39,8 @@ class ContactForm extends Component {
           if (onReq.data.status === 'success') {
             setSubmitting(false);
             resetForm();
-            this.props.history.push('/');
+            this.props.history.push('/thankyou');
           } else {
-            console.log('error', onReq);
             setSubmitting(false);
             resetForm();
             this.props.history.push('/error');

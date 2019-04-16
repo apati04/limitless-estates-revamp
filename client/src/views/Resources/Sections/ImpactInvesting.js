@@ -52,7 +52,7 @@ class ImpactInvesting extends React.Component {
   };
   render() {
     const { classes, pageDetail } = this.props;
-    console.log('page, :', pageDetail);
+
     return (
       <div className={classes.section}>
         <GridContainer justify="center">
