@@ -78,7 +78,6 @@ class Markets extends Component {
         <div className={classNames(classes.main, classes.mainRaised)}>
           <div className={classes.container}>{this.loadPage()}</div>
         </div>
-
         <Footer />
       </div>
     );

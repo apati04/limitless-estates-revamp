@@ -15,7 +15,7 @@ function Main(props) {
   const { content, maps } = api;
   const [marketTitle, ...mainContent] = content;
   return (
-    <section className={classes.section}>
+    <div className={classes.section}>
       <GridContainer justify="center">
         <GridItem xs={12} sm={12} md={10}>
           <Typography align="left" variant="h3" paragraph>
@@ -39,7 +39,7 @@ function Main(props) {
           />
         </GridItem>
       </GridContainer>
-    </section>
+    </div>
   );
 }
 

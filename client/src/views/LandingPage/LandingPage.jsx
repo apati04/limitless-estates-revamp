@@ -74,7 +74,8 @@ class LandingPage extends React.Component {
         <div className={classNames(classes.main, classes.mainRaised)}>
           <div
             style={{
-              background: '#f7f7f7'
+              background: '#f7f7f7',
+              borderRadius: '6px'
             }}
           >
             <div className={classes.container}>
@@ -87,11 +88,19 @@ class LandingPage extends React.Component {
             <div />
             {/* <WorkSection /> */}
           </div>
-
-          <SubscribeSection
-            title="Sign up to get your FREE"
-            subHeader="Passive Investors Guide!"
-          />
+          <div
+            style={{
+              background: '#f7f7f7',
+              borderBottomRadius: '6px'
+            }}
+          >
+            <div className={classes.container}>
+              <SubscribeSection
+                title="Sign up to get your FREE"
+                subHeader="Passive Investors Guide!"
+              />
+            </div>
+          </div>
         </div>
         <Footer />
       </div>
