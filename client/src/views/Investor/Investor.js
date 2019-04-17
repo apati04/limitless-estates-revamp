@@ -53,7 +53,7 @@ class Investor extends React.Component {
           }}
           {...rest}
         />
-        <Parallax filter small image={'images/star.jpg'} />
+        <Parallax filter small image={'images/uni.jpg'} />
         <div className={classNames(classes.main, classes.mainRaised)}>
           <div className={classes.customContainer}>
             <Questionnaire />
