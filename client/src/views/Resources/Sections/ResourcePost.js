@@ -88,7 +88,7 @@ class ResourcePost extends React.Component {
                 vertical
               />
             </GridItem> */}
-            <GridItem xs={12} sm={12} md={4}>
+            {/* <GridItem xs={12} sm={12} md={4}>
               <InfoArea
                 title="Community"
                 description="Text about the meetups and how you are building a community through this lalalal placeholder text stuff leedlee leedle leee"
@@ -117,7 +117,7 @@ class ResourcePost extends React.Component {
                 vertical
               />
               <Button>Learn More</Button>
-            </GridItem>
+            </GridItem> */}
           </GridContainer>
         </div>
       </div>
