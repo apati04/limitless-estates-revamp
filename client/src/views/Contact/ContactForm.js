@@ -59,8 +59,6 @@ class ContactForm extends Component {
                         resetForm();
                           setSubmitting(false);
            */
-          if (values) {
-          }
 
           // this.props.enqueueSnackbar('Thank you for Signing up!', {
           //   anchorOrigin: {

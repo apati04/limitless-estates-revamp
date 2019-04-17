@@ -62,7 +62,7 @@ class LandingPage extends React.Component {
                 <Button
                   color="primary"
                   size="lg"
-                  style={{ marginLeft: '16px' }}
+                  style={{ '@media(minWidth: 576px)': { marginLeft: '16px' } }}
                   component={props => <Link {...props} to="/investor" />}
                 >
                   Investor Questionnaire
