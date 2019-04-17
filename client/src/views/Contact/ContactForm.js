@@ -30,11 +30,10 @@ class ContactForm extends Component {
           message: ''
         }}
         onSubmit={async (values, { resetForm, setSubmitting }) => {
-          // const onReq = await axios.post('/api/contactformsubmit', {
-          //   values,
-          //   type: 'Contact Form'
-          // });
-          const onReq = { data: { status: 'error' } };
+          const onReq = await axios.post('/api/contactformsubmit', {
+            values,
+            type: 'Contact Form'
+          });
           if (onReq.data.status === 'success') {
             setSubmitting(false);
             this.props.history.push('/thankyou');
