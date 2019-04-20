@@ -27,6 +27,8 @@ class App extends Component {
     return (
       <ScrollToTop>
         <Switch>
+          <Redirect from="/info/questionnaire" to="/investor" />
+          <Redirect from="/info/contact" to="/contact" />
           <Route path="/profile/:id" component={ProfilePage} />
           <Route path="/podcasts" component={Podcast} />
           <Route exact path="/investor" component={Investor} />
@@ -43,7 +45,7 @@ class App extends Component {
           <Route exact path="/disclaimer" component={Disclaimer} />
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/" component={LandingPage} />
-          <Redirect from="/info/questionnaire" to="/investor" />
+
           <Route component={ErrorPage} />
         </Switch>
       </ScrollToTop>

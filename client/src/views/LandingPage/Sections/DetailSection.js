@@ -58,12 +58,18 @@ class DetailSection extends Component {
             <List>{this.loadListItems(ListItemFields)}</List>
             <div style={{ textAlign: 'left' }}>
               <Button
-                color="primary"
+                color="transparent"
+                style={{
+                  border: '1px solid #01579b',
+                  opacity: 0.8
+                }}
                 component={props => (
                   <Link {...props} to="/resources/why-invest-in-multifamily" />
                 )}
               >
-                Learn More About Investing in Multifamily
+                <span style={{ color: '#01579b' }}>
+                  Learn More About Investing in Multifamily
+                </span>
               </Button>
             </div>
           </GridItem>

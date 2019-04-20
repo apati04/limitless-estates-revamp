@@ -1,17 +1,20 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import classNames from 'classnames';
 import GridContainer from 'components/Grid/GridContainer';
 import GridItem from 'components/Grid/GridItem';
 import withStyles from '@material-ui/core/styles/withStyles';
+import Button from 'components/CustomButtons/Button';
 import landingPageStyle from 'assets/jss/material-kit-react/views/landingPage';
 import productStyle from 'assets/jss/material-kit-react/views/landingPageSections/productStyle';
 const styles = theme => ({
-  ...landingPageStyle,
+  ...productStyle,
   sectionStyle: {
     ...productStyle.section
   },
   title: {
     ...landingPageStyle.title,
-    marginTop: 0,
+    marginTop: 14,
     [theme.breakpoints.down('xs')]: {
       fontSize: '2.3125rem'
     }
@@ -38,7 +41,7 @@ const styles = theme => ({
   },
   darkOverlay: {
     '&:before': {
-      background: 'rgba(0, 0, 0, 0.6)'
+      background: 'rgba(0, 0, 0, 0.64)'
     },
     '&:after,&:before': {
       position: 'absolute',
@@ -57,34 +60,70 @@ const styles = theme => ({
     zIndex: '500'
   }
 });
-const LandingParallax = props => {
-  const imgpara = 'https://i.imgur.com/vnCJr0J.jpg';
+const ParallaxSection = props => {
   const { classes } = props;
+  let bgHeight = 320;
+  if (props.description) {
+    bgHeight = 400;
+  }
   return (
-    <div>
-      <div
-        className={classes.view}
-        style={{
-          backgroundImage: `url(${imgpara})`,
-          backgroundSize: 'cover',
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center',
-          height: '320px'
-        }}
-      >
-        <div className={classes.darkOverlay}>
-          <div className={classes.mask}>
-            <GridContainer justify="center" alignItems="center">
-              <GridItem xs={12} className={classes.gridItem}>
-                <h1 className={classes.title}>
-                  Reasons to Invest in Multifamily
-                </h1>
-              </GridItem>
-            </GridContainer>
-          </div>
+    <div
+      className={classNames(classes.section, classes.view)}
+      style={{
+        backgroundImage: `url(${props.image})`,
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        height: bgHeight + 'px'
+      }}
+    >
+      <div className={classes.darkOverlay}>
+        <div className={classes.mask}>
+          <GridContainer justify="center" alignItems="center">
+            <GridItem xs={12} className={classes.gridItem}>
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  flexWrap: 'wrap',
+                  flexDirection: 'column'
+                }}
+              >
+                <h2 className={classes.title}>{props.title}</h2>
+                {props.description && (
+                  <div style={{ maxWidth: '560px', zIndex: '400' }}>
+                    <h4
+                      style={{
+                        fontWeight: '400',
+                        color: 'rgba(255,255,255,0.87)'
+                      }}
+                      className={classes.description}
+                    >
+                      {props.description}
+                    </h4>
+                    <Button
+                      color="success"
+                      style={{
+                        fontWeight: 500,
+                        letterSpacing: '1.2',
+                        marginTop: 14,
+                        marginBottom: 14
+                      }}
+                      component={props => (
+                        <Link {...props} to="/resources/impact-investing" />
+                      )}
+                    >
+                      Read More on Impact Investing
+                    </Button>
+                  </div>
+                )}
+              </div>
+            </GridItem>
+          </GridContainer>
         </div>
       </div>
     </div>
   );
 };
-export default withStyles(styles)(LandingParallax);
+export default withStyles(styles)(ParallaxSection);

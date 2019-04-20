@@ -86,10 +86,18 @@ class LandingPage extends React.Component {
               <FeatureSection />
             </div>
           </div>
-          <ParallaxSection />
+          <ParallaxSection
+            image="https://i.imgur.com/vnCJr0J.jpg"
+            title="Reasons to Invest in Multifamily"
+          />
           <div className={classes.container}>
             <DetailSection />
           </div>
+          <ParallaxSection
+            image="https://i.imgur.com/kC8zbBM.jpg"
+            title="Impact Investing"
+            description="Impact investing enables investors to put their money to good use in meaningful, intelligent ventures that provide both a financial AND a social return on their investment."
+          />
           <div className={classes.container}>
             <MainTeam />
           </div>
