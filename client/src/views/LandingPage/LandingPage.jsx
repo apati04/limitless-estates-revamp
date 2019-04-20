@@ -112,8 +112,10 @@ class LandingPage extends React.Component {
                 title="Sign up to get your FREE"
                 subHeader="Passive Investors Guide!"
               />
-              <WorkWithUsForm />
             </div>
+          </div>
+          <div className={classes.container}>
+            <WorkWithUsForm />
           </div>
         </div>
         <Footer />
