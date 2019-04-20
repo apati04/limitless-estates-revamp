@@ -77,7 +77,7 @@ const LandingParallax = props => {
             <GridContainer justify="center" alignItems="center">
               <GridItem xs={12} className={classes.gridItem}>
                 <h1 className={classes.title}>
-                  Reasons to invest in multifamily
+                  Reasons to Invest in Multifamily
                 </h1>
               </GridItem>
             </GridContainer>
