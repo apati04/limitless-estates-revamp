@@ -13,11 +13,15 @@ import HeaderLinks from 'components/Header/HeaderLinks';
 import Parallax from 'components/Parallax/Parallax';
 import SubscribeSection from './Sections/SubscribeSection';
 import landingPageStyle from 'assets/jss/material-kit-react/views/landingPage';
-import MainTeam from '../About/Sections/MainTeam';
+
 // Sections for this page
+import MainTeam from '../About/Sections/MainTeam';
 import FeatureSection from './Sections/FeatureSection';
-import WorkSection from './Sections/WorkSection';
+import ParallaxSection from './Sections/ParallaxSection';
+import WorkWithUsForm from 'views/FormPages/WorkWithUsForm';
+import DetailSection from './Sections/DetailSection';
 import Modal from './Modal';
+
 const dashboardRoutes = [];
 const styles = theme => ({
   ...landingPageStyle,
@@ -82,11 +86,12 @@ class LandingPage extends React.Component {
               <FeatureSection />
             </div>
           </div>
+          <ParallaxSection />
+          <div className={classes.container}>
+            <DetailSection />
+          </div>
           <div className={classes.container}>
             <MainTeam />
-
-            <div />
-            {/* <WorkSection /> */}
           </div>
           <div
             style={{
@@ -99,6 +104,7 @@ class LandingPage extends React.Component {
                 title="Sign up to get your FREE"
                 subHeader="Passive Investors Guide!"
               />
+              <WorkWithUsForm />
             </div>
           </div>
         </div>

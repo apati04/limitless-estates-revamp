@@ -61,6 +61,18 @@ router.post('/investorformsubmit', (req, res) => {
     })
     .catch(err => res.status(500).send({ error: err }));
 });
+router.post('/formsectionpost', async (req, res) => {
+  const { values, type } = req.body;
+  const formSubmit = axios.post(
+    'https://hooks.zapier.com/hooks/catch/4733528/708gw7/',
+    {
+      ...values,
+      type
+    }
+  );
+  console.log(formSubmit);
+});
+
 router.post('/contactformsubmit', (req, res) => {
   const { values, type } = req.body;
   axios
