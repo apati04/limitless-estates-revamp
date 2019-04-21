@@ -2,15 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import withStyles from '@material-ui/core/styles/withStyles';
-import Card from 'components/Card/Card';
-import { Link } from 'react-router-dom';
-import ChatIcon from '@material-ui/icons/Chat';
-import InfoArea from 'components/InfoArea/InfoArea';
 import imagesStyles from 'assets/jss/material-kit-react/imagesStyles.jsx';
 import HeaderLinks from 'components/Header/HeaderLinks';
 import Parallax from 'components/Parallax/Parallax';
 import Header from 'components/Header/Header';
-
 import { cardTitle } from 'assets/jss/material-kit-react.jsx';
 import OverviewCards from './OverviewCards';
 import componentsStyle from 'assets/jss/material-kit-react/views/components.jsx';

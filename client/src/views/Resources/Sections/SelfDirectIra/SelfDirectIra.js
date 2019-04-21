@@ -45,7 +45,13 @@ class SelfDirectIraSection extends React.Component {
                 title={company}
               />
 
-              <CardBody>
+              <CardBody
+                style={{
+                  textAlign: 'left',
+                  paddingLeft: '2rem',
+                  paddingRight: '2rem'
+                }}
+              >
                 <h4 className={classes.cardTitle}>{company}</h4>
                 <p>{address}</p>
                 <p>{name}</p>
@@ -89,8 +95,7 @@ class SelfDirectIraSection extends React.Component {
               src={SvgMain}
               style={{
                 width: '100%',
-
-                '@media (max-width: 576px)': {
+                '@media (maxWidth: 576px)': {
                   maxWidth: '480px'
                 }
               }}
