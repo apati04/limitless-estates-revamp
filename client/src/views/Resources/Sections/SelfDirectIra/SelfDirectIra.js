@@ -37,14 +37,15 @@ class SelfDirectIraSection extends React.Component {
         return (
           <GridItem key={id} xs={12} sm={12} md={6}>
             <Card className={classes.textLeft}>
-              <img
-                style={{ padding: '1rem 2rem', width: '100%' }}
-                className={classes.imgCardTop}
-                src={logo}
-                alt="Card-img-cap"
-                title={company}
-              />
-
+              <a href={website} target="_blank" rel="noopener noreferrer">
+                <img
+                  style={{ padding: '1rem 2rem', width: '100%' }}
+                  className={classes.imgCardTop}
+                  src={logo}
+                  alt={company + ' logo'}
+                  title={company}
+                />
+              </a>
               <CardBody
                 style={{
                   textAlign: 'left',
@@ -52,7 +53,6 @@ class SelfDirectIraSection extends React.Component {
                   paddingRight: '2rem'
                 }}
               >
-                <h4 className={classes.cardTitle}>{company}</h4>
                 <p>{address}</p>
                 <p>{name}</p>
                 <p>{email}</p>

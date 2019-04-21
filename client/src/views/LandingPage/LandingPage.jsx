@@ -13,7 +13,6 @@ import HeaderLinks from 'components/Header/HeaderLinks';
 import Parallax from 'components/Parallax/Parallax';
 import SubscribeSection from './Sections/SubscribeSection';
 import landingPageStyle from 'assets/jss/material-kit-react/views/landingPage';
-
 // Sections for this page
 import MainTeam from '../About/Sections/MainTeam';
 import FeatureSection from './Sections/FeatureSection';
