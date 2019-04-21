@@ -1,23 +1,20 @@
 import React from 'react';
 // @material-ui/core components
-import { NavLink } from 'react-router-dom';
 import withStyles from '@material-ui/core/styles/withStyles';
 import classNames from 'classnames';
 import GridContainer from 'components/Grid/GridContainer';
 import GridItem from 'components/Grid/GridItem';
 import productStyle from 'assets/jss/material-kit-react/views/landingPageSections/productStyle';
-import Typography from '@material-ui/core/Typography';
 import ReactPlayer from 'react-player';
 import Header from 'components/Header/Header';
 import Footer from 'components/Footer/Footer';
-
+import { isMobile } from 'react-device-detect';
 import HeaderLinks from 'components/Header/HeaderLinks';
 import Parallax from 'components/Parallax/Parallax';
 import SelfDirectIra from './Sections/SelfDirectIra/SelfDirectIra';
-import Breadcrumbs from '@material-ui/lab/Breadcrumbs';
-import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import landingPageStyle from 'assets/jss/material-kit-react/views/landingPage';
 import api from './api/resource_api';
+import Modal from '../LandingPage/Modal';
 // svg icons
 
 const dashboardRoutes = [];
@@ -57,6 +54,33 @@ const styles = theme => ({
 });
 const data = api.find(el => el.slug === 'self-directed-ira');
 class IraContainer extends React.Component {
+  renderContent = () => {
+    const { classes } = this.props;
+    if (isMobile) {
+      return (
+        <GridItem xs={12}>
+          <Modal url={'https://apax714.wistia.com/medias/mtdamm7u8i'} />
+        </GridItem>
+      );
+    }
+    return (
+      <GridItem xs={12} sm={12} md={6}>
+        <div className={classes.playerWrapper}>
+          <ReactPlayer
+            className={classes.reactPlayer}
+            url={'https://apax714.wistia.com/medias/mtdamm7u8i'}
+            width="100%"
+            height="100%"
+          />
+        </div>
+      </GridItem>
+    );
+
+    /**
+     *
+            </GridContainer>
+     */
+  };
   render() {
     const { classes, ...rest } = this.props;
     return (
@@ -82,16 +106,7 @@ class IraContainer extends React.Component {
                 </h1>
                 <h4>{data.headline}</h4>
               </GridItem>
-              <GridItem xs={12} sm={12} md={6}>
-                <div className={classes.playerWrapper}>
-                  <ReactPlayer
-                    className={classes.reactPlayer}
-                    url={'https://apax714.wistia.com/medias/mtdamm7u8i'}
-                    width="100%"
-                    height="100%"
-                  />
-                </div>
-              </GridItem>
+              {this.renderContent()}
             </GridContainer>
           </div>
         </Parallax>
