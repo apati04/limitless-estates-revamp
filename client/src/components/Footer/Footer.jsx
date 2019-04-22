@@ -61,8 +61,8 @@ function Footer({ ...props }) {
             <p>
               &copy; {1900 + new Date().getYear()} Limitless Estates LLC built
               by{' '}
-              <a href="mailto:andrew@aicodelab.com" className={aClasses}>
-                AiCodeLab Team
+              <a href="mailto:apax714@gmail.com" className={aClasses}>
+                Aitech
               </a>
             </p>
           </div>
