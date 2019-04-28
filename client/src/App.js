@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, lazy, Suspense } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
 import 'assets/css/material-kit-react.min.css';
@@ -22,6 +22,8 @@ import IraContainer from 'views/Resources/IraContainer';
 import CerritosPage from 'views/Events/CerritosPage';
 import LongBeachPage from 'views/Events/LBPage';
 import SuccessPage from 'views/SuccessPage/SuccessPage';
+
+const AsyncPodcast = lazy(() => import('views/Podcast/Podcast'));
 class App extends Component {
   render() {
     return (
@@ -30,7 +32,14 @@ class App extends Component {
           <Redirect from="/info/questionnaire" to="/investor" />
           <Redirect from="/info/contact" to="/contact" />
           <Route path="/profile/:id" component={ProfilePage} />
-          <Route path="/podcasts" component={Podcast} />
+          <Route
+            path="/podcasts"
+            render={() => (
+              <Suspense fallback={<div>Loading...</div>}>
+                <AsyncPodcast />
+              </Suspense>
+            )}
+          />
           <Route exact path="/investor" component={Investor} />
           <Route exact path="/markets" component={MarketsOverview} />
           <Route path="/markets/:id" component={Markets} />

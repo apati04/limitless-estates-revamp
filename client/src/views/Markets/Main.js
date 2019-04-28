@@ -21,12 +21,9 @@ function Main(props) {
           <Typography align="left" variant="h3" paragraph>
             {marketTitle.title.value}
           </Typography>
-          <Typography
-            variant="body1"
-            style={{ textAlign: 'left', fontSize: '1rem' }}
-          >
+          <div style={{ textAlign: 'left', fontSize: '1rem' }}>
             {loadContent(mainContent)}
-          </Typography>
+          </div>
         </GridItem>
         <GridItem xs={12} sm={12} md={10}>
           <GoogleMap

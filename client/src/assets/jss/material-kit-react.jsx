@@ -34,7 +34,6 @@ const conatinerFluid = {
 
 const mobileContainer = {
   '@media (max-width: 575px)': {
-    margin: 0,
     padding: '0 0.2rem'
   }
 };

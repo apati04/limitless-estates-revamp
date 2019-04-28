@@ -19,8 +19,6 @@ import landingPageStyle from 'assets/jss/material-kit-react/views/landingPage';
 import api from './api/resource_api';
 import MultiPagePost from './Sections/MultiPagePost';
 import Faq from './Pages/Faq/Faq';
-import IraContainer from './IraContainer';
-import Overview from './Sections/OverviewCards';
 const dashboardRoutes = [];
 const styles = theme => ({
   ...landingPageStyle,
@@ -35,7 +33,7 @@ const styles = theme => ({
     [theme.breakpoints.down('sm')]: {
       marginLeft: 0,
       marginRight: 0,
-      padding: 0
+      padding: `0px ${theme.spacing.unit * 2}px`
     }
   }
 });
