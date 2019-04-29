@@ -10,6 +10,13 @@ import GridContainer from 'components/Grid/GridContainer';
 import GridItem from 'components/Grid/GridItem';
 import productStyle from 'assets/jss/material-kit-react/views/landingPageSections/productStyle';
 import loadContent from './loadContent';
+const styles = theme => ({
+  ...productStyle,
+  description: {
+    ...productStyle.description,
+    textAlign: 'left'
+  }
+});
 function Main(props) {
   const { classes, api } = props;
   const { content, maps } = api;
@@ -21,9 +28,7 @@ function Main(props) {
           <Typography align="left" variant="h3" paragraph>
             {marketTitle.title.value}
           </Typography>
-          <div style={{ textAlign: 'left', fontSize: '1rem' }}>
-            {loadContent(mainContent)}
-          </div>
+          <div>{loadContent(mainContent, classes)}</div>
         </GridItem>
         <GridItem xs={12} sm={12} md={10}>
           <GoogleMap
@@ -40,4 +45,4 @@ function Main(props) {
   );
 }
 
-export default withRouter(withStyles(productStyle)(Main));
+export default withRouter(withStyles(styles)(Main));
