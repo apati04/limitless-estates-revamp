@@ -11,13 +11,13 @@ class TeamSection extends React.Component {
       <div className={classes.section}>
         <h2 className={classes.title}>Limitless Estates Team</h2>
         <div>
-          <GridContainer>
+          <GridContainer justify="center">
             <Staff classes={classes} />
           </GridContainer>
         </div>
         <h2 className={classes.title}>Our Advisors</h2>
         <div>
-          <GridContainer>
+          <GridContainer justify="center">
             <Advisors classes={classes} />
           </GridContainer>
         </div>

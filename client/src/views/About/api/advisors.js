@@ -51,8 +51,10 @@ module.exports = [
     },
     description:
       'Mr. Trowbridge is a California licensed attorney, real estate broker and author. He provides education, legal, and real estate consulting services to companies specializing in the brokerage and syndication of investment real estate. He has authored security documents for over $1.5 billion worth of equity raised since 2014.  Mr. Trowbridge handles all legal matters related to SEC compliance.'
-  },
-  {
+  }
+];
+/**
+ * {
     name: 'Old Capital Lending',
     title: 'Mortgage Broker & Advisor',
     website: 'http://www.oldcapitallending.com/',
@@ -62,4 +64,4 @@ module.exports = [
     description:
       'Since 1998, Old Capital has been a premier provider of commercial Capital solutions and advisory services for commercial real estate investors.'
   }
-];
+ */

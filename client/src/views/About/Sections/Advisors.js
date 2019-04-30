@@ -6,7 +6,6 @@ import GridItem from 'components/Grid/GridItem';
 import Button from 'components/CustomButtons/Button';
 import Card from 'components/Card/Card';
 import CardBody from 'components/Card/CardBody';
-import CardFooter from 'components/Card/CardFooter';
 
 import Truncate from 'react-truncate';
 import advisors from '../api/advisors';
