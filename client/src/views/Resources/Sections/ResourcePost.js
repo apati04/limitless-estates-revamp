@@ -4,16 +4,12 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
 // @material-ui/icons
-import Group from '@material-ui/icons/Group';
-import Public from '@material-ui/icons/Public';
-import Assessment from '@material-ui/icons/Assessment';
 
-import Button from 'components/CustomButtons/Button';
 import Typography from '@material-ui/core/Typography';
 // core components
 import GridContainer from 'components/Grid/GridContainer';
 import GridItem from 'components/Grid/GridItem';
-import InfoArea from 'components/InfoArea/InfoArea';
+
 import Breadcrumbs from '@material-ui/lab/Breadcrumbs';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import productStyle from 'assets/jss/material-kit-react/views/landingPageSections/productStyle';

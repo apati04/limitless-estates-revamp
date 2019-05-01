@@ -4,9 +4,9 @@ import classNames from 'classnames';
 // @material-ui/core components
 import { withRouter } from 'react-router-dom';
 import withStyles from '@material-ui/core/styles/withStyles';
-import FeaturedEvent from './Sections/FeaturedEvent';
+
 // @material-ui/icons
-import { HashLink as Link } from 'react-router-hash-link';
+
 // core components
 import Fade from '@material-ui/core/Fade';
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -14,7 +14,7 @@ import Header from 'components/Header/Header';
 import Footer from 'components/Footer/Footer';
 import GridContainer from 'components/Grid/GridContainer';
 import GridItem from 'components/Grid/GridItem';
-import Button from 'components/CustomButtons/Button';
+
 import HeaderLinks from 'components/Header/HeaderLinks';
 import Parallax from 'components/Parallax/Parallax';
 import ReactHtmlParser from 'react-html-parser';

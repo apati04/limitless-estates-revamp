@@ -2,13 +2,9 @@ import React from 'react';
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles';
 import classNames from 'classnames';
-import { NavLink } from 'react-router-dom';
+
 // @material-ui/icons
-import Group from '@material-ui/icons/Group';
-import Public from '@material-ui/icons/Public';
-import Assessment from '@material-ui/icons/Assessment';
-import Card from 'components/Card/Card';
-import Button from 'components/CustomButtons/Button';
+
 // core components
 import GridContainer from 'components/Grid/GridContainer';
 import GridItem from 'components/Grid/GridItem';
@@ -18,7 +14,7 @@ import InspireSvg from './medapps-brands.svg';
 import UsersSolid from './users-solid.svg';
 import TrophySolid from './trophy-solid.svg';
 import productStyle from 'assets/jss/material-kit-react/views/landingPageSections/productStyle';
-import blue from '@material-ui/core/colors/blue';
+
 const styles = theme => ({
   ...productStyle,
   iconSectionDiv: {

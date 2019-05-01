@@ -1,17 +1,16 @@
 import React from 'react';
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles';
-import { NavLink, Link, withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import classNames from 'classnames';
 // @material-ui/icons
 
 import Button from 'components/CustomButtons/Button';
-import Typography from '@material-ui/core/Typography';
+
 // core components
 import GridContainer from 'components/Grid/GridContainer';
 import GridItem from 'components/Grid/GridItem';
-import Breadcrumbs from '@material-ui/lab/Breadcrumbs';
-import NavigateNextIcon from '@material-ui/icons/NavigateNext';
+
 import Icon from '@material-ui/core/Icon';
 import productStyle from 'assets/jss/material-kit-react/views/landingPageSections/productStyle';
 const styles = theme => ({

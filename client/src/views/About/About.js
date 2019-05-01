@@ -14,8 +14,6 @@ import Parallax from 'components/Parallax/Parallax.jsx';
 
 import landingPageStyle from 'assets/jss/material-kit-react/views/landingPage.jsx';
 
-import WorkSection from '../LandingPage/Sections/WorkSection';
-
 const dashboardRoutes = [];
 const styles = theme => ({
   ...landingPageStyle,

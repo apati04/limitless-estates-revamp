@@ -5,7 +5,7 @@ import classNames from 'classnames';
 // @material-ui/icons
 import Card from 'components/Card/Card';
 
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Button from 'components/CustomButtons/Button';
 // core components
 import GridContainer from 'components/Grid/GridContainer';

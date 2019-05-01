@@ -3,12 +3,8 @@ import React from 'react';
 import classNames from 'classnames';
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles';
-import { withRouter, Redirect } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 // @material-ui/icons
-import queryString from 'query-string';
-import GridContainer from 'components/Grid/GridContainer';
-import GridItem from 'components/Grid/GridItem';
-import Breadcrumbs from 'components/Breadcrumbs/Breadcrumbs';
 // core components
 import Header from 'components/Header/Header';
 import Footer from 'components/Footer/Footer';

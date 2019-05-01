@@ -9,9 +9,6 @@ import Divider from '@material-ui/core/Divider';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-
-import DoneIcon from '@material-ui/icons/Done';
-import InfoArea from 'components/InfoArea/InfoArea';
 import Button from 'components/CustomButtons/Button';
 const styles = theme => ({
   ...productStyle,

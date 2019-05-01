@@ -2,17 +2,15 @@ import React from 'react';
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles';
 import classNames from 'classnames';
-import { NavLink } from 'react-router-dom';
+
 // @material-ui/icons
 
-import Button from 'components/CustomButtons/Button';
 // core components
 import GridContainer from 'components/Grid/GridContainer';
 import GridItem from 'components/Grid/GridItem';
-import InfoArea from 'components/InfoArea/InfoArea';
 
 import productStyle from 'assets/jss/material-kit-react/views/landingPageSections/productStyle';
-import blue from '@material-ui/core/colors/blue';
+
 const styles = theme => ({
   ...productStyle,
   iconSectionDiv: {

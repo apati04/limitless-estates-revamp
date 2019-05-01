@@ -2,16 +2,12 @@ import React from 'react';
 
 import withStyles from '@material-ui/core/styles/withStyles';
 import InfoArea from 'components/InfoArea/InfoArea';
-import Typography from '@material-ui/core/Typography';
-import { NavLink } from 'react-router-dom';
 
 import classNames from 'classnames';
 import GridContainer from 'components/Grid/GridContainer';
 import GridItem from 'components/Grid/GridItem';
 import productStyle from 'assets/jss/material-kit-react/views/landingPageSections/productStyle';
 
-import Breadcrumbs from '@material-ui/lab/Breadcrumbs';
-import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import Card from 'components/Card/Card';
 import CardBody from 'components/Card/CardBody';
 import Button from 'components/CustomButtons/Button';

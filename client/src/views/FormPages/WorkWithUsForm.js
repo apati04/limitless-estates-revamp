@@ -9,7 +9,7 @@ import { TextField } from 'formik-material-ui';
 // core components
 import GridContainer from 'components/Grid/GridContainer';
 import GridItem from 'components/Grid/GridItem';
-import CustomInput from 'components/CustomInput/CustomInput';
+
 import Button from 'components/CustomButtons/Button';
 import * as Yup from 'yup';
 import workStyle from 'assets/jss/material-kit-react/views/landingPageSections/workStyle';

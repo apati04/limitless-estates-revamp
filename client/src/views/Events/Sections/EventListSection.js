@@ -4,7 +4,6 @@ import { withStyles } from '@material-ui/core/styles';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
-import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Moment from 'react-moment';
 import Tooltip from '@material-ui/core/Tooltip';
@@ -47,8 +46,6 @@ class EventListSection extends React.Component {
     const { expanded } = this.state;
 
     return this.props.eventList.map((event, index) => {
-      let panel = 'panel' + index;
-
       let eventTitle = event.name.split('-');
       return (
         <ExpansionPanel
@@ -149,7 +146,6 @@ class EventListSection extends React.Component {
   };
   render() {
     const { classes } = this.props;
-    const { expanded } = this.state;
     return (
       <div>
         <h1 style={{ textAlign: 'center' }} className={classes.title}>

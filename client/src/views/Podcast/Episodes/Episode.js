@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
 import withStyles from '@material-ui/core/styles/withStyles';
 
 import GridContainer from 'components/Grid/GridContainer';
@@ -14,9 +13,7 @@ import CardBody from 'components/Card/CardBody';
 
 import Chip from '@material-ui/core/Chip';
 import Breadcrumbs from 'components/Breadcrumbs/Breadcrumbs';
-import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 
-import HomeIcon from '@material-ui/icons/Home';
 import Player from '../Player';
 const styles = theme => ({
   podcastCard: {

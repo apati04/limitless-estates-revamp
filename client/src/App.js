@@ -1,4 +1,4 @@
-import React, { Component, lazy, Suspense } from 'react';
+import React, { Component } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
 import 'assets/css/material-kit-react.min.css';
@@ -13,7 +13,6 @@ import Resources from 'views/Resources/Resources';
 import Disclaimer from 'views/Legal/Disclaimer';
 import Contact from 'views/Contact/Contact';
 // import Events from 'views/Events/Events';
-import Podcast from 'views/Podcast/Podcast';
 import ResourceOverview from 'views/Resources/Sections/ResourceOverview';
 import Investor from 'views/Investor/Investor';
 import ErrorPage from 'views/ErrorPage/ErrorPage';
@@ -22,8 +21,7 @@ import IraContainer from 'views/Resources/IraContainer';
 import CerritosPage from 'views/Events/CerritosPage';
 import LongBeachPage from 'views/Events/LBPage';
 import SuccessPage from 'views/SuccessPage/SuccessPage';
-
-const AsyncPodcast = lazy(() => import('views/Podcast/Podcast'));
+import Podcast from 'views/Podcast/Podcast';
 class App extends Component {
   render() {
     return (
@@ -32,14 +30,7 @@ class App extends Component {
           <Redirect from="/info/questionnaire" to="/investor" />
           <Redirect from="/info/contact" to="/contact" />
           <Route path="/profile/:id" component={ProfilePage} />
-          <Route
-            path="/podcasts"
-            render={() => (
-              <Suspense fallback={<div>Loading...</div>}>
-                <AsyncPodcast />
-              </Suspense>
-            )}
-          />
+          <Route path="/podcasts" component={Podcast} />
           <Route exact path="/investor" component={Investor} />
           <Route exact path="/markets" component={MarketsOverview} />
           <Route path="/markets/:id" component={Markets} />
@@ -63,31 +54,3 @@ class App extends Component {
 }
 
 export default App;
-//    <Route path="/podcasts" component={Views.Podcast} />
-//
-// <Route exact path="/kyle" component={Views.Kyle} />
-// <Route
-//   exact
-//   path="/profile/lalita"
-//   component={Views.Lalita}
-// />
-//
-// <Route path="/markets/:id" component={Views.Markets} />
-// <Route exact path="/investor" component={Views.Investor} />
-// <Route
-//   path="/investor/questionnaire"
-//   component={Views.Questionnaire}
-// />
-// <Route
-//   exact
-//   path="/resources/:id"
-//   render={props => {
-//     return (
-//       <Views.Resources
-//         currRouteId={props.match.params.id}
-//         currLocation={props.location}
-//       />
-//     );
-//   }}
-// />
-//

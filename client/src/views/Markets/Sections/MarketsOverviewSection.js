@@ -41,7 +41,7 @@ const styles = theme => ({
 });
 class MarketsOverviewSection extends React.Component {
   loadCards = () => {
-    const { classes, api } = this.props;
+    const { classes } = this.props;
     let o1 = {
       image: phoenix.headerImageUrl,
       title: phoenix.title,

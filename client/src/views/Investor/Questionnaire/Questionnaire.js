@@ -9,13 +9,10 @@ import Radio from '@material-ui/core/Radio';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import MaskedInput from 'react-text-mask';
 import FormHelperText from '@material-ui/core/FormHelperText';
-import FormLabel from '@material-ui/core/FormLabel';
 import FormGroup from '@material-ui/core/FormGroup';
 import axios from 'axios';
 import withStyles from '@material-ui/core/styles/withStyles';
 import Wizard from './Wizard';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
 import { Typography } from '@material-ui/core';
 const required = value => (value ? undefined : 'Required');
 

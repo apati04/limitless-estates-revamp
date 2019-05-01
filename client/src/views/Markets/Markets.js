@@ -5,8 +5,6 @@ import classNames from 'classnames';
 import withStyles from '@material-ui/core/styles/withStyles';
 import Header from 'components/Header/Header';
 import Footer from 'components/Footer/Footer';
-import GridContainer from 'components/Grid/GridContainer';
-import GridItem from 'components/Grid/GridItem';
 
 import HeaderLinks from 'components/Header/HeaderLinks';
 import Parallax from 'components/Parallax/Parallax';
@@ -32,16 +30,13 @@ const dashboardRoutes = [];
 class Markets extends Component {
   loadHeader = () => {
     const { id } = this.props.match.params;
-    const { classes } = this.props;
-    let image, title;
+
+    let image;
     if (id === 'phoenix-arizona') {
-      title = 'Investing in Phoenix';
       image = phoenix.headerImageUrl;
     } else if (id === 'tucson-arizona') {
-      title = 'Investing in Tucson';
       image = tucson.headerImageUrl;
     } else {
-      title = 'Investing in Columbus';
       image = columbus.headerImageUrl;
     }
     return <Parallax small filter image={image} />;
