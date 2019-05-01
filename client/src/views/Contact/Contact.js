@@ -26,12 +26,7 @@ class Contact extends React.Component {
   }
   componentDidMount() {
     // we add a hidden class to the card and after 700 ms we delete it and the transition appears
-    setTimeout(
-      function() {
-        this.setState({ cardAnimaton: '' });
-      }.bind(this),
-      700
-    );
+    this.setState({ cardAnimaton: '' });
   }
   render() {
     const { classes, ...rest } = this.props;
