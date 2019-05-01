@@ -22,10 +22,7 @@ const SuccessPage = props => {
         >
           <GridItem xs={12} style={{ textAlign: 'center' }}>
             <h1>Thank you for your submission!</h1>
-            <h3>
-              {' '}
-              One of the memembers will get back to you as soon as possible!
-            </h3>
+            <h3> We will get back to you as soon as possible!</h3>
           </GridItem>
           <GridItem xs={12} style={{ textAlign: 'center' }}>
             <CheckCircleIcon style={{ color: 'green', fontSize: '80px' }} />
