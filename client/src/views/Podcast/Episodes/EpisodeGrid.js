@@ -203,7 +203,12 @@ class EpisodeGrid extends Component {
     error: false
   };
   componentDidMount() {
-    this.setState({ items: this.props.episodes });
+    let len = this.props.episodes.length - 1;
+    let episodeArray = [];
+    for (let i = 0; i < len; i++) {
+      episodeArray.push(this.props.episodes[i]);
+    }
+    this.setState({ items: episodeArray });
   }
   loadMore = () => {
     this.setState(prev => {
@@ -215,6 +220,10 @@ class EpisodeGrid extends Component {
     return (
       <React.Fragment>
         {this.props.episodes.slice(0, this.state.visible).map((item, index) => {
+          let episodeZero;
+          if (item.id === 949981) {
+            episodeZero = '0';
+          }
           let desc = ReactHtmlParser(item.summary, {
             transform: function(node, index) {
               if (node.type === 'tag' && node.name === 'br') {
@@ -269,40 +278,49 @@ class EpisodeGrid extends Component {
                           color="inherit"
                           className={classes.imageTitle}
                         >
-                          Episode {item.episode_number}
+                          Episode {episodeZero || item.episode_number}
                           <span className={classes.imageMarked} />
                         </Typography>
                       </span>
                     </Button>
-
-                    <CardBody>
-                      <h4
-                        style={{ textAlign: 'left' }}
-                        className={classes.cardTitle}
-                      >
-                        {item.title.split(': ')[1].trim() || item.title}
-                      </h4>
-                      <div style={{ textAlign: 'left', hyphens: 'auto' }}>
-                        <Truncate
-                          lines={3}
-                          trimWhitespace
-                          ellipsis="..."
-                          style={{
-                            textAlign: 'left',
-                            width: '100%',
-                            hyphens: 'auto'
-                          }}
+                    <div
+                      style={{
+                        height: '275px',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'center',
+                        alignItems: 'stretch'
+                      }}
+                    >
+                      <CardBody>
+                        <h4
+                          style={{ textAlign: 'left' }}
+                          className={classes.cardTitle}
                         >
-                          {desc}
-                        </Truncate>
-                      </div>
-                    </CardBody>
-                    <CardFooter className={classes.cardFooter}>
-                      <p>
-                        <OpenInNewRounded className={classes.icons} />
-                        Full Episode
-                      </p>
-                    </CardFooter>
+                          {item.title.split(': ')[1].trim() || item.title}
+                        </h4>
+                        <div style={{ textAlign: 'left', hyphens: 'auto' }}>
+                          <Truncate
+                            lines={3}
+                            trimWhitespace
+                            ellipsis="..."
+                            style={{
+                              textAlign: 'left',
+                              width: '100%',
+                              hyphens: 'auto'
+                            }}
+                          >
+                            {desc}
+                          </Truncate>
+                        </div>
+                      </CardBody>
+                      <CardFooter className={classes.cardFooter}>
+                        <p>
+                          <OpenInNewRounded className={classes.icons} />
+                          Full Episode
+                        </p>
+                      </CardFooter>
+                    </div>
                   </NavLink>
                 </CardActionArea>
               </Card>

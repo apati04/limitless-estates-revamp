@@ -129,12 +129,13 @@ class Podcast extends Component {
   componentDidMount() {
     axios.get('/podcasts/podcast').then(result => {
       const [intro, ...rest] = result.data.data;
-      this.setState({ intro, episodes: rest, fetching: false });
+      this.setState({ intro, episodes: result.data.data, fetching: false });
     });
   }
 
   render() {
     const { classes, ...rest } = this.props;
+    console.log('episodes: ', this.state.episodes);
     return (
       <div>
         <Header
