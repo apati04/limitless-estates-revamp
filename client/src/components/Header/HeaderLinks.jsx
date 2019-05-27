@@ -20,7 +20,8 @@ import {
   Group,
   Home,
   Build,
-  Explore
+  Explore,
+  Phone
 } from '@material-ui/icons';
 
 // core components
@@ -156,11 +157,11 @@ function HeaderLinks({ ...props }) {
       </ListItem>
       <ListItem className={classes.listItem}>
         <Button
-          component={props => <Link {...props} to="/contact" />}
           color="transparent"
           className={classes.navLink}
+          href="https://ehypauluugknktzawdwva-free.10to8.com/"
         >
-          <Mail className={classes.icons} /> Contact
+          <Phone className={classes.icons} /> Schedule a Call
         </Button>
       </ListItem>
     </List>

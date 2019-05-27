@@ -27,15 +27,6 @@ function Footer({ ...props }) {
         <div>
           <List className={classes.list}>
             <ListItem className={classes.inlineBlock}>
-              <a
-                className="external-link"
-                href="https://ehypauluugknktzawdwva-free.10to8.com/"
-                className={classes.block}
-              >
-                Schedule a Call
-              </a>
-            </ListItem>
-            <ListItem className={classes.inlineBlock}>
               <Link to="/about" className={classes.block}>
                 About us
               </Link>
@@ -54,6 +45,11 @@ function Footer({ ...props }) {
             <ListItem className={classes.inlineBlock}>
               <Link to="/investor" className={classes.block}>
                 Investor Questionnaire
+              </Link>
+            </ListItem>
+            <ListItem className={classes.inlineBlock}>
+              <Link to="/contact" className={classes.block}>
+                Contact Us
               </Link>
             </ListItem>
           </List>
