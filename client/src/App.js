@@ -24,38 +24,83 @@ import LongBeachPage from 'views/Events/LBPage';
 import SuccessPage from 'views/SuccessPage/SuccessPage';
 import Podcast from 'views/Podcast/Podcast';
 class App extends Component {
-  render() {
-    return (
-      <BrowserRouter>
-        <SnackbarProvider>
-          <ScrollToTop>
-            <Switch>
-              <Redirect from="/info/questionnaire" to="/investor" />
-              <Redirect from="/info/contact" to="/contact" />
-              <Route path="/profile/:id" component={ProfilePage} />
-              <Route path="/podcasts" component={Podcast} />
-              <Route exact path="/investor" component={Investor} />
-              <Route exact path="/markets" component={MarketsOverview} />
-              <Route path="/markets/:id" component={Markets} />
-              <Route exact path="/about" component={About} />
-              <Route exact path="/self-directed-ira" component={IraContainer} />
-              <Route path="/resources/:id" component={Resources} />
-              <Route exact path="/resources" component={ResourceOverview} />
-              <Route exact path="/events/longbeach" component={LongBeachPage} />
-              <Route exact path="/events/cerritos" component={CerritosPage} />
-              <Route exact path="/thankyou" component={SuccessPage} />
-              {/* <Route path="/events/meetups/:id" component={Events} /> */}
-              <Route exact path="/disclaimer" component={Disclaimer} />
-              <Route exact path="/contact" component={Contact} />
-              <Route exact path="/" component={LandingPage} />
+    render() {
+        return (
+            <BrowserRouter>
+                <SnackbarProvider>
+                    <ScrollToTop>
+                        <Switch>
+                            <Redirect
+                                from="/info/questionnaire"
+                                to="/investor"
+                            />
+                            <Redirect from="/info/contact" to="/contact" />
+                            <Redirect
+                                from="/events/meetups"
+                                to="/events/longbeach"
+                            />
+                            <Route
+                                path="/profile/:id"
+                                component={ProfilePage}
+                            />
+                            <Route path="/podcasts" component={Podcast} />
+                            <Route
+                                exact
+                                path="/investor"
+                                component={Investor}
+                            />
+                            <Route
+                                exact
+                                path="/markets"
+                                component={MarketsOverview}
+                            />
+                            <Route path="/markets/:id" component={Markets} />
+                            <Route exact path="/about" component={About} />
+                            <Route
+                                exact
+                                path="/self-directed-ira"
+                                component={IraContainer}
+                            />
+                            <Route
+                                path="/resources/:id"
+                                component={Resources}
+                            />
+                            <Route
+                                exact
+                                path="/resources"
+                                component={ResourceOverview}
+                            />
+                            <Route
+                                exact
+                                path="/events/longbeach"
+                                component={LongBeachPage}
+                            />
+                            <Route
+                                exact
+                                path="/events/cerritos"
+                                component={CerritosPage}
+                            />
+                            <Route
+                                exact
+                                path="/thankyou"
+                                component={SuccessPage}
+                            />
+                            {/* <Route path="/events/meetups/:id" component={Events} /> */}
+                            <Route
+                                exact
+                                path="/disclaimer"
+                                component={Disclaimer}
+                            />
+                            <Route exact path="/contact" component={Contact} />
+                            <Route exact path="/" component={LandingPage} />
 
-              <Route component={ErrorPage} />
-            </Switch>
-          </ScrollToTop>
-        </SnackbarProvider>
-      </BrowserRouter>
-    );
-  }
+                            <Route component={ErrorPage} />
+                        </Switch>
+                    </ScrollToTop>
+                </SnackbarProvider>
+            </BrowserRouter>
+        );
+    }
 }
 
 export default App;
