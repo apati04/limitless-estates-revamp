@@ -135,7 +135,6 @@ class Podcast extends Component {
 
   render() {
     const { classes, ...rest } = this.props;
-    console.log('episodes: ', this.state.episodes);
     return (
       <div>
         <Header
