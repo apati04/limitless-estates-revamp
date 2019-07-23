@@ -138,7 +138,10 @@ function HeaderLinks({ ...props }) {
           buttonIcon={DateRange}
           dropdownList={[
             <Link to="/events/longbeach" className={classes.dropdownLink}>
-              Multifamily Apartment Investors Meetup - Long Beach
+              MultifamilyMasters.com - Long Beach
+            </Link>,
+            <Link to="/events/phoenix" className={classes.dropdownLink}>
+              MultifamilyMasters.com - Phoenix
             </Link>,
             <Link to="/events/cerritos" className={classes.dropdownLink}>
               Cerritos Multifamily Investors Roundtable

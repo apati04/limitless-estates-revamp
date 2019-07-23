@@ -72,13 +72,13 @@ class App extends Component {
                             />
                             <Route
                                 exact
-                                path="/events/longbeach"
-                                component={LongBeachPage}
+                                path="/events/cerritos"
+                                component={CerritosPage}
                             />
                             <Route
                                 exact
-                                path="/events/cerritos"
-                                component={CerritosPage}
+                                path="/events/:id"
+                                component={LongBeachPage}
                             />
                             <Route
                                 exact
