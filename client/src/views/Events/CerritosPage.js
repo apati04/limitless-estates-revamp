@@ -55,7 +55,7 @@ class CerritosPage extends React.Component {
     parsedSchedule: ''
   };
   componentDidMount() {
-    axios.get('/events/meetups/cerritos').then(({ data }) => {
+    axios.get('/events/meetups/cerritosmeetup').then(({ data }) => {
       let parsedSchedule = ReactHtmlParser(data.results[0].description);
       this.setState({
         isFetching: false,

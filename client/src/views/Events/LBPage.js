@@ -58,8 +58,7 @@ class EventMain extends React.Component {
     parsedSchedule: ''
   };
   componentDidMount() {
-    const { id } = this.props.match.params;
-    axios.get(`/events/meetups/${id}`).then(({ data }) => {
+    axios.get('/events/meetups/lbc').then(({ data }) => {
       let parsedSchedule = ReactHtmlParser(data.results[0].description);
       this.setState({
         isFetching: false,

@@ -21,6 +21,8 @@ import MarketsOverview from 'views/Markets/MarketsOverview';
 import IraContainer from 'views/Resources/IraContainer';
 import CerritosPage from 'views/Events/CerritosPage';
 import LongBeachPage from 'views/Events/LBPage';
+import PhoenixPage from 'views/Events/PhoenixPage';
+
 import SuccessPage from 'views/SuccessPage/SuccessPage';
 import Podcast from 'views/Podcast/Podcast';
 class App extends Component {
@@ -77,8 +79,13 @@ class App extends Component {
                             />
                             <Route
                                 exact
-                                path="/events/:id"
+                                path="/events/longbeach"
                                 component={LongBeachPage}
+                            />
+                            <Route
+                                exact
+                                path="/events/phoenix"
+                                component={PhoenixPage}
                             />
                             <Route
                                 exact

@@ -26,7 +26,7 @@ app.use((req, res, next) => {
 require('./server/services/passport');
 require('./server/routes/meetupRoutes')(app);
 app.use('/podcasts', podcastRoutes);
-app.use('/events', eventRoutes);
+app.use('/events/', eventRoutes);
 app.use('/api', apiRoutes);
 app.use((error, req, res, next) => {
   console.log(error);

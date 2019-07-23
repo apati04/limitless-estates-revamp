@@ -3,7 +3,22 @@ const axios = require('axios');
 const keys = require('../config/keys');
 const router = express.Router();
 
-router.get('/meetups/cerritos', async (req, res) => {
+
+
+router.get('/meetups/lbc', async (req, res) => {
+  const apiKey = keys.meetupApiKey;
+  const url = `https://api.meetup.com/MultiFamilyMasters/events?sign=true&key=${apiKey}&status=upcoming&page=20&fields=featured_photo,event_hosts,rsvp_rules&photo-host=public`;
+  try {
+    const response = await axios.get(url);
+    const filterData = response.data.filter(({ name }) =>
+      name.includes('Long Beach Chapter')
+    );
+    res.status(200).send({ results: filterData });
+  } catch (err) {
+    res.status(404).send({ error: err });
+  }
+});
+router.get('/meetups/cerritosmeetup', async (req, res) => {
   const rootUrl = `https://api.meetup.com/Cerritos-Multifamily-Investors-Roundtable/events?sign=true&key=${
     keys.meetupApiKey
     }&status=upcoming&fields=featured_photo,event_hosts,rsvp_rules&page=6&photo-host=public`;
@@ -17,17 +32,10 @@ router.get('/meetups/cerritos', async (req, res) => {
   }
 });
 
-router.get('/meetups/:loc', async (req, res) => {
+router.get('/meetups/phoenix', async (req, res) => {
   const apiKey = keys.meetupApiKey;
-  const { loc } = req.params;
   const url = `https://api.meetup.com/MultiFamilyMasters/events?sign=true&key=${apiKey}&status=upcoming&page=20&fields=featured_photo,event_hosts,rsvp_rules&photo-host=public`;
-  let meetupName;
-  if(loc === 'longbeach') {
-     meetupName = 'Long Beach Chapter';
-  }
-  if(loc === 'phoenix') {
-    meetupName = 'Phoenix Chapter'
-  }
+  let meetupName = 'Phoenix Chapter'
   try {
     const response = await axios.get(url);
     const filterData = response.data.filter(({ name }) =>
@@ -38,6 +46,5 @@ router.get('/meetups/:loc', async (req, res) => {
     res.status(404).send({ error: err });
   }
 });
-
 
 module.exports = router;
