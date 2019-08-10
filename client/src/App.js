@@ -25,6 +25,17 @@ import PhoenixPage from 'views/Events/PhoenixPage';
 
 import SuccessPage from 'views/SuccessPage/SuccessPage';
 import Podcast from 'views/Podcast/Podcast';
+import ReactPlayer from 'react-player';
+const Test = () => (
+    <div>
+        <div>
+            A Millenials Guide to Real Estate Investing by Antoine Martel
+            <ReactPlayer url="https://www.youtube.com/watch?v=kRI4gDBfulU" />
+        </div>
+        <div>One Rental at a Time with Michael Zuber</div>
+        <ReactPlayer url="https://www.youtube.com/watch?v=lp7iveQwOss&feature=youtu.be" />
+    </div>
+);
 class App extends Component {
     render() {
         return (
@@ -32,6 +43,7 @@ class App extends Component {
                 <SnackbarProvider>
                     <ScrollToTop>
                         <Switch>
+                            <Route path="/f" exact component={Test} />
                             <Redirect
                                 from="/info/questionnaire"
                                 to="/investor"
