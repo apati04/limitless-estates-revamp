@@ -25,7 +25,7 @@ import PhoenixPage from 'views/Events/PhoenixPage';
 
 import SuccessPage from 'views/SuccessPage/SuccessPage';
 import Podcast from 'views/Podcast/Podcast';
-import Media from 'views/Media/Media';
+import MediaContainer from 'views/Media/MediaContainer';
 class App extends Component {
     render() {
         return (
@@ -52,7 +52,11 @@ class App extends Component {
                                 path="/investor"
                                 component={Investor}
                             />
-                            <Route path="/media" exact component={Media} />
+                            <Route
+                                path="/media"
+                                exact
+                                component={MediaContainer}
+                            />
                             <Route
                                 exact
                                 path="/markets"

@@ -16,35 +16,18 @@ import Button from 'components/CustomButtons/Button';
 import Truncate from 'react-truncate';
 import ReactHtmlParser from 'react-html-parser';
 import OpenInNewRounded from '@material-ui/icons/OpenInNewRounded';
-
 import landingPageStyle from 'assets/jss/material-kit-react/views/landingPage';
 import productStyle from 'assets/jss/material-kit-react/views/landingPageSections/productStyle';
 import imagesStyles from 'assets/jss/material-kit-react/imagesStyles';
 import grey from '@material-ui/core/colors/grey';
+import Divider from '@material-ui/core/Divider';
 import mediaApi from './api/mediaApi';
 const styles = theme => ({
     ...landingPageStyle,
     ...productStyle,
     ...imagesStyles,
     image: {
-        position: 'relative',
-        height: 200,
-        [theme.breakpoints.down('xs')]: {
-            width: '100% !important',
-            height: 100
-        },
-        '&:hover, &$focusVisible': {
-            zIndex: 1,
-            '& $imageBackdrop': {
-                opacity: 0.4
-            },
-            '& $imageMarked': {
-                opacity: 0
-            },
-            '& $imageTitle': {
-                border: '4px solid currentColor'
-            }
-        }
+        position: 'relative'
     },
     focusVisible: {},
     imageButton: {
@@ -60,7 +43,6 @@ const styles = theme => ({
     },
     imageSrc: {
         ...imagesStyles,
-
         position: 'absolute',
         left: 0,
         right: 0,
@@ -76,7 +58,7 @@ const styles = theme => ({
         top: 0,
         bottom: 0,
         backgroundColor: theme.palette.common.black,
-        opacity: 0.4,
+        opacity: 0.18,
         transition: theme.transitions.create('opacity')
     },
     imageTitle: {
@@ -84,15 +66,7 @@ const styles = theme => ({
         padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit *
             4}px ${theme.spacing.unit + 6}px`
     },
-    imageMarked: {
-        height: 3,
-        width: 18,
-        backgroundColor: theme.palette.common.white,
-        position: 'absolute',
-        bottom: -2,
-        left: 'calc(50% - 9px)',
-        transition: theme.transitions.create('opacity')
-    },
+
     gridListTile: {
         padding: theme.spacing.unit,
         margin: 0
@@ -119,7 +93,7 @@ const styles = theme => ({
         marginLeft: theme.spacing.unit
     },
     cardGrid: {
-        padding: 0
+        padding: '0 8px'
     },
     marginTop: {
         ...theme.container,
@@ -131,18 +105,26 @@ const styles = theme => ({
     card: {
         display: 'flex',
         flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'flex-start',
         borderRadius: 0
+        // [theme.breakpoints.up('sm')]: {
+        //     maxWidth: 275
+        // }
     },
     cardMedia: {
         margin: 0,
+        '&:hover': {
+            backgroundColor: 'none',
+            color: 'none'
+        },
         boxShadow: 'unset',
         paddingTop: '66.66667%',
         width: '100%'
     },
     cardActions: {
         justifyContent: 'space-between',
-        margin: `0 ${theme.spacing.unit}px`,
-        padding: '8px 14px'
+        margin: `0 ${theme.spacing.unit}px`
     },
     eventName: {
         // overflow: 'hidden',
@@ -168,9 +150,7 @@ const styles = theme => ({
         marginRight: theme.spacing.unit + 1,
         verticalAlign: 'middle'
     },
-    cardContentMargin: {
-        margin: '0rem 1rem'
-    },
+    cardContentMargin: {},
     truncateText: {
         marginTop: theme.spacing.unit * 3,
         color: '#5f6368',
@@ -182,10 +162,10 @@ const styles = theme => ({
     navLink: {
         color: '#5f6368',
         textDecorationLine: 'none',
-        '-webkit-text-decoration': 'none',
-        '&:hover': {
-            color: grey[800] + '!important'
-        }
+        '-webkit-text-decoration': 'none'
+        // '&:hover': {
+        //     color: grey[800] + '!important'
+        // }
     },
     gradient: {
         backgroundImage: 'linear-gradient( 135deg, #3C8CE7 10%, #00EAFF 100%)'
@@ -210,24 +190,16 @@ class MediaGrid extends Component {
                         <GridItem
                             key={item.id}
                             xs={12}
-                            sm={6}
-                            md={4}
-                            lg={4}
+                            sm={4}
+                            md={3}
+                            lg={3}
                             className={classes.cardGrid + ' tile fade-in'}
                         >
-                            <Card elevation={0} className={classes.card}>
-                                <CardActionArea component="div">
-                                    <NavLink
+                            <Card className={classes.card}>
+                                <div style={{ width: '100%', height: '100%' }}>
+                                    <a
+                                        href={item.url}
                                         className={classes.navLink}
-                                        to={{
-                                            pathname: `/media/${item.id}`,
-                                            state: {
-                                                episode: item,
-                                                parentStyles: this.props
-                                                    .parentStyles,
-                                                originalPath: location.pathname
-                                            }
-                                        }}
                                     >
                                         <Button
                                             focusRipple
@@ -236,9 +208,6 @@ class MediaGrid extends Component {
                                                 classes.cardMedia,
                                                 classes.image
                                             )}
-                                            focusVisibleClassName={
-                                                classes.focusVisible
-                                            }
                                         >
                                             <div
                                                 className={classes.imageSrc}
@@ -277,27 +246,29 @@ class MediaGrid extends Component {
                                                 </Typography>
                                             </span>
                                         </Button>
-                                        <div
+
+                                        <CardBody
                                             style={{
-                                                height: '275px',
+                                                padding: '8px 16px',
                                                 display: 'flex',
+                                                minHeight: '96px',
                                                 flexDirection: 'column',
-                                                justifyContent: 'center',
+                                                justifyContent: 'flex-start',
                                                 alignItems: 'stretch'
                                             }}
                                         >
-                                            <CardBody>
-                                                <h4
-                                                    style={{
-                                                        textAlign: 'left'
-                                                    }}
-                                                    className={
-                                                        classes.cardTitle
-                                                    }
-                                                >
-                                                    {item.title}
-                                                </h4>
-                                                <div
+                                            <Typography
+                                                align="left"
+                                                variant="body2"
+                                                component="h2"
+                                                style={{
+                                                    marginTop: '4px'
+                                                }}
+                                            >
+                                                {item.title} <br />
+                                                {item.author}
+                                            </Typography>
+                                            {/* <div
                                                     style={{
                                                         textAlign: 'left',
                                                         hyphens: 'auto'
@@ -315,23 +286,23 @@ class MediaGrid extends Component {
                                                     >
                                                         description
                                                     </Truncate>
-                                                </div>
-                                            </CardBody>
-                                            <CardFooter
-                                                className={classes.cardFooter}
+                                                </div> */}
+                                        </CardBody>
+                                        {/* <Typography
+                                                variant="caption"
+                                                align="left"
+                                                style={{ fontSize: '14px' }}
                                             >
-                                                <p>
-                                                    <OpenInNewRounded
-                                                        className={
-                                                            classes.icons
-                                                        }
-                                                    />
-                                                    Full Episode
-                                                </p>
-                                            </CardFooter>
-                                        </div>
-                                    </NavLink>
-                                </CardActionArea>
+                                                <OpenInNewRounded
+                                                    style={{
+                                                        fontSize: '18px'
+                                                    }}
+                                                    className={classes.icons}
+                                                />
+                                                Watch Episode
+                                            </Typography> */}
+                                    </a>
+                                </div>
                             </Card>
                         </GridItem>
                     );
@@ -343,9 +314,13 @@ class MediaGrid extends Component {
         const { classes } = this.props;
         return (
             <div className={classNames(classes.container)}>
+                <Typography align="left" paragraph variant="h4">
+                    Featured Media
+                </Typography>
+                <Divider />
                 <GridContainer
-                    justify="space-between"
-                    alignItems="flex-start"
+                    justify="flex-start"
+                    alignItems="baseline"
                     wrap="wrap"
                 >
                     {this.loadEpisodes()}
