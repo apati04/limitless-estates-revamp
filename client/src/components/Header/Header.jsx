@@ -93,7 +93,7 @@ class Header extends React.Component {
           alt="logo"
           title="limitless-estates"
           style={{
-            height: '40px'
+            maxHeight: '40px'
           }}
         />
       </Link>

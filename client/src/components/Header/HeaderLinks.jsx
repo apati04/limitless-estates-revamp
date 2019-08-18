@@ -183,6 +183,15 @@ function HeaderLinks({ ...props }) {
                     <VideoLibrary className={classes.icons} /> Media
                 </Button>
             </ListItem>
+            <ListItem className={classes.listItem}>
+                <Button
+                    color="transparent"
+                    className={classes.navLink}
+                    href="https://ehypauluugknktzawdwva-free.10to8.com/"
+                >
+                    <Phone className={classes.icons} /> Schedule a Call
+                </Button>
+            </ListItem>
         </List>
     );
 }
