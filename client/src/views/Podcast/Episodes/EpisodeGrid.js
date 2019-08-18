@@ -119,7 +119,6 @@ const styles = theme => ({
     marginLeft: theme.spacing.unit
   },
   cardGrid: {
-    padding: 0
   },
   marginTop: {
     ...theme.container,

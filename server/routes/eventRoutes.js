@@ -34,13 +34,16 @@ router.get('/meetups/cerritosmeetup', async (req, res) => {
 
 router.get('/meetups/phoenix', async (req, res) => {
   const apiKey = keys.meetupApiKey;
-  const url = `https://api.meetup.com/MultiFamilyMasters/events?sign=true&key=${apiKey}&status=upcoming&page=20&fields=featured_photo,event_hosts,rsvp_rules&photo-host=public`;
-  let meetupName = 'Phoenix Chapter'
+  const url = `https://api.meetup.com/MultifamilyMasters-com-Phoenix-AZ/events?sign=true&key=${apiKey}&status=upcoming&page=20&fields=featured_photo,event_hosts,rsvp_rules&photo-host=public`;
+  let meetupName = 'Phoenix'
+
   try {
     const response = await axios.get(url);
+
     const filterData = response.data.filter(({ name }) =>
       name.includes(meetupName)
     );
+
     res.status(200).send({ results: filterData });
   } catch (err) {
     res.status(404).send({ error: err });
