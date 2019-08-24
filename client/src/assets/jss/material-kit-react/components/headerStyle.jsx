@@ -106,7 +106,8 @@ const headerStyle = {
   transparent: {
     backgroundColor: 'transparent !important',
     boxShadow: 'none',
-    paddingTop: '25px',
+    top: '32px',
+    paddingTop: '0',
     color: '#FFFFFF'
   },
   dark: {
