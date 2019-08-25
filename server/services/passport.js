@@ -20,7 +20,6 @@ passport.use(
       proxy: true
     },
     function(accessToken, refreshToken, profile, done) {
-      console.log('passport: ', accessToken);
       return done(null, { accessToken, profile });
     }
   )

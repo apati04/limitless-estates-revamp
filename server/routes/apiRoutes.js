@@ -28,7 +28,6 @@ router.post('/mailchimp/subscribe', async (req, res) => {
 
 router.post('/investorformsubmit', (req, res) => {
   const { values, type } = req.body;
-  console.log(values);
   const {
     Q4_contactByTextMessage: textMessage,
     Q4_contactByPhone: phone,
@@ -70,7 +69,6 @@ router.post('/formsectionpost', async (req, res) => {
       type
     }
   );
-  console.log(formSubmit);
 });
 
 router.post('/contactformsubmit', (req, res) => {
@@ -114,7 +112,6 @@ router.post('/mailchimp/contactus', async (req, res) => {
     });
     res.send({ results: survey.data });
   } catch (err) {
-    console.log('error: ', err);
     res.send({ error: err });
   }
 });

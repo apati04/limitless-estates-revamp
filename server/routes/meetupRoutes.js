@@ -21,14 +21,12 @@ module.exports = app => {
     })
   );
   app.get('/user', (req, res) => {
-    console.log('user');
     res.status(200).send({ user: req.user });
   });
   app.get('/404', (req, res) => {
     res.send('error');
   });
   app.get('/member', isAuth, async (req, res) => {
-    console.log('/member: ', req.user);
     const { accessToken } = req.user;
     const eventId = 'gblcppyzgbmb';
     try {
