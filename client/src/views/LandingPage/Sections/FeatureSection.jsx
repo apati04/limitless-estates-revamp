@@ -71,7 +71,7 @@ class FeatureSection extends React.Component {
             </GridItem>
             <GridItem xs={12} sm={12} md={3}>
               <InfoArea
-                title="Community Developement"
+                title="Community Development"
                 description=""
                 icon={usersSvg}
                 iconColor="warning"
