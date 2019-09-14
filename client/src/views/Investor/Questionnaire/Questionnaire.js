@@ -511,7 +511,7 @@ const Questionnaire = props => {
                 id="Q10_MinimumDollarAmount"
                 component={TextField}
                 type="text"
-                label="What is the minimum dollar amount you are willing to invest?"
+                label="What's the amount you are looking to invest?"
                 InputLabelProps={{
                   shrink: false
                 }}
