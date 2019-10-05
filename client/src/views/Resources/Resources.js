@@ -43,6 +43,8 @@ class Resources extends React.Component {
       case 'why-invest-in-multifamily':
       case 'impact-investing':
         return <ResourcePost pageDetail={currentPage} />;
+      case 'why-be-a-passive-investor':
+      case 'why-be-a-passive-investor?page=1':
       case 'investing-risks':
       case 'investing-risks?page=1':
         let query = this.props.location;

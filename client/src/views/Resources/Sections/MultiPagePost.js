@@ -85,7 +85,7 @@ class MultiPagePost extends React.Component {
               style={{ fontFamily: 'Roboto Slab' }}
               className={classNames(classes.description)}
             >
-              <strong>Part {pageNumber}</strong>
+              {totalPages > 1 && <strong>Part {pageNumber}</strong>}
             </h4>
             {this.loadPageDescription()}
           </GridItem>
