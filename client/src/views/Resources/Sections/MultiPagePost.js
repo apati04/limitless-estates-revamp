@@ -42,7 +42,7 @@ class MultiPagePost extends React.Component {
     return pageDetail.pages[pageNumber].body.map(
       ({ title, description }, index) => (
         <div key={index}>
-          <h3 className={classes.title}>{title}</h3>
+          {title ? <h3 className={classes.title}>{title}</h3> : <div/> }
           <h5 className={classes.description}>{description}</h5>
         </div>
       )

@@ -44,59 +44,59 @@ class OverviewCards extends React.Component {
     const { classes } = this.props;
     const colors = ['primary', 'success', 'warning', 'danger'];
     return api.map((item, index, arr) => {
-      if (index === arr.length - 1) {
-        return (
-          <GridItem xs={12} sm={12} md={12} key={index + item.type}>
-            <Card>
-              <div
-                style={{
-                  background: `url(${item.image}) no-repeat center`,
-                  backgroundSize: 'cover',
-                  height: '334px',
-                  borderRadius: '6px'
-                }}
-                className={classNames(classes.imgCardTop, classes.imgRaised)}
-              />
-              <div className={classes.imgCardOverlay}>
-                <div style={{ maxWidth: '32em' }}>
-                  <h6>{item.tag}</h6>
-                  <Link to={`/resources/${item.slug}`}>
-                    <h3
-                      style={{ color: 'white', marginTop: 0 }}
-                      className={classes.title}
-                    >
-                      {item.title}
-                    </h3>
-                  </Link>
-                  <p
-                    style={{
-                      color: 'white',
-                      fontWeight: 400,
-                      marginBottom: '10px',
-                      lineHeight: '24px',
-                      overflowWrap: 'break-word'
-                    }}
-                    className={classes.description}
-                  >
-                    {item.headline}
-                  </p>
-                  <Button
-                    component={props => (
-                      <Link {...props} to={`/resources/${item.slug}`} />
-                    )}
-                    style={{ marginTop: 'auto' }}
-                    round
-                    color="info"
-                  >
-                    <NotesIcon className={classes.iconLeft} />
-                    Read More
-                  </Button>
-                </div>
-              </div>
-            </Card>
-          </GridItem>
-        );
-      }
+      // if (index === arr.length - 1) {
+      //   return (
+      //     <GridItem xs={12} sm={12} md={12} key={index + item.type}>
+      //       <Card>
+      //         <div
+      //           style={{
+      //             background: `url(${item.image}) no-repeat center`,
+      //             backgroundSize: 'cover',
+      //             height: '334px',
+      //             borderRadius: '6px'
+      //           }}
+      //           className={classNames(classes.imgCardTop, classes.imgRaised)}
+      //         />
+      //         <div className={classes.imgCardOverlay}>
+      //           <div style={{ maxWidth: '32em' }}>
+      //             <h6>{item.tag}</h6>
+      //             <Link to={`/resources/${item.slug}`}>
+      //               <h3
+      //                 style={{ color: 'white', marginTop: 0 }}
+      //                 className={classes.title}
+      //               >
+      //                 {item.title}
+      //               </h3>
+      //             </Link>
+      //             <p
+      //               style={{
+      //                 color: 'white',
+      //                 fontWeight: 400,
+      //                 marginBottom: '10px',
+      //                 lineHeight: '24px',
+      //                 overflowWrap: 'break-word'
+      //               }}
+      //               className={classes.description}
+      //             >
+      //               {item.headline}
+      //             </p>
+      //             <Button
+      //               component={props => (
+      //                 <Link {...props} to={`/resources/${item.slug}`} />
+      //               )}
+      //               style={{ marginTop: 'auto' }}
+      //               round
+      //               color="info"
+      //             >
+      //               <NotesIcon className={classes.iconLeft} />
+      //               Read More
+      //             </Button>
+      //           </div>
+      //         </div>
+      //       </Card>
+      //     </GridItem>
+      //   );
+      // }
       return (
         <GridItem xs={12} sm={12} md={6} key={index + item.type}>
           <Card>

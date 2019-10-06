@@ -89,7 +89,7 @@ function HeaderLinks({ ...props }) {
                 <CustomDropdown
                     noLiPadding
                     buttonText="Learn"
-                    dropdownHeader="Resources"
+                    dropdownHeader={<Link style={{color: 'black'}} to="/resources">RESOURCES</Link>}
                     buttonProps={{
                         className: classes.navLink,
                         color: 'transparent'
@@ -102,7 +102,12 @@ function HeaderLinks({ ...props }) {
                         >
                             Why Invest in Multifamily
                         </Link>,
-
+                        <Link
+                            to="/resources/why-be-a-passive-investor"
+                            className={classes.dropdownLink}
+                        >
+                            Why be a Passive Investor
+                        </Link>,
                         <Link
                             to="/resources/impact-investing"
                             className={classes.dropdownLink}

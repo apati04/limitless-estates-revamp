@@ -1,4 +1,5 @@
 import React from 'react';
+import shortid from 'shortid';
 export default [
   {
     totalPages: 1,
@@ -16,7 +17,7 @@ export default [
       'When it comes to real estate investments, we focus in multifamily apartment complexes because of the control it provides in determining the investments results. Some of the most powerful factors in real estate are control, debt (leverage), and taxes. For the average investor, leverage is commonly used in real estate, but not in stocks or private lending. In addition, the IRS and owners of investment rental property might as well be best friends because the IRS has made so many rules to benefit us!',
       'In multifamily (5+ units) or other commercial investment real estate, the value of the property is based on the income the property produces. This is exactly why the wealthy focus on commercial property such as multifamily apartment complexes. Being that you control the income and expenses in a property, you also control the value. What this means is if you have a way to increase income either by raising rents, billing residents back for utilities, or adding any other source of ancillary income to the operations of the property, you will also add value. Also, if you decrease expenses by renegotiating operating expense costs, billing residents back for utilities, reducing turnovers and vacancy, putting in energy efficient light bulbs and plumbing fixtures, or ANY other way to cut operating expenses, you increase the value of your property.',
       [
-        <span key="speciallist1">
+        <span key={shortid.generate()}>
           An article for more tips on ways to increase rents (some may not apply
           to all of our investments) that our team will implement to drive the
           value of our properties{' '}
@@ -191,20 +192,26 @@ export default [
   },
   {
     type: 'resources',
-    image: 'https://i.imgur.com/LZDGUNH.jpg?1',
+    image: 'https://i.imgur.com/yiVwS9d.jpg?1',
     slug: 'why-be-a-passive-investor',
     title: 'Why Be a Passive Investor',
-    thumbnail: 'https://i.imgur.com/HYKhQFeb.jpg',
+    thumbnail: 'https://i.imgur.com/yiVwS9dh.jpg?1',
     headline:
-      'This section describes some of the most significant risk factors affecting the investment and its Investors.',
+      'This section describes what it means to be a passive investor and the  benefits that come along with it.',
     pages: {
       '1': {
         page: 1,
         body: [
           {
-            title: 'Overview',
-            description:
-             [ "Passive investing's goal is to build wealth gradually.  Passive income typically refers to an income stream that is somewhat automated. You make an upfront capital investment — often in real estate, a mutual fund or other equity-based vehicle — and then receive an ownership stake in that investment, from which you are paid dividends or other types of regular income.  What makes this form of income passive is that you are not directly managing the investment. Passive real estate investing, therefore, is a form of real estate investing in which you place your capital into a real estate venture that you will not have any direct responsibility for managing.", <br/>,<br/>, "If you want to get into the real estate investment game, but don't have the time to find, finance, manage, and sell properties yourself, perhaps passively investing as a limited partner is the right way for you to go.",  <br/>,<br/>, "True financial freedom is achieved when passive income outpaces living expenses, giving the investor freedom to pursue his or her passions or to accelerate their wealth creation with more aggressive investing. With a focused plan and a commitment to consistently planting “money seeds” in the right soil, any investor can create passive income that lasts for generations. Here are some more reasons to consider becoming a passive investor."]
+            title: '',
+            description: [
+              "The goal of passive investing is to build wealth gradually. Passive income typically refers to an income stream that is somewhat automated. You make an upfront capital investment - often in real estate, a mutual fund of other equity-based vehicle - and then receive an ownership stake in that investment, from which you are paid dividends or other types of regular income. What makes this form of income passive is that you are not directly managing the investment. Passive real estate investing, therefore, is a form of real estate investing in which you place your capital into a real estate venture that you will not have any direct responsibility for managing.",
+               <br key={shortid.generate()}/>,<br key={shortid.generate()}/>,
+               "If you want to get into the real estate investment game, but don't have the time to find, finance, manage, and sell properties yourself, perhaps passively investing as a limited partner is the right way for you to go.",
+               <br key={shortid.generate()} />,
+               <br key={shortid.generate()}/>,
+               'True financial freedom is achieved when passive income outpaces living expenses, giving the investor freedom to pursue his or her passions or to accelerate their wealth creation with more aggressive investing. With a focused plan and a commitment to consistently planting “money seeds” in the right soil, any investor can create passive income that lasts for generations. Here are some more reasons to consider becoming a passive investor.'
+            ]
           },
           {
             title: 'Earn money while you sleep',
