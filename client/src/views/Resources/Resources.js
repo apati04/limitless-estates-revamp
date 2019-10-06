@@ -43,6 +43,8 @@ class Resources extends React.Component {
       case 'why-invest-in-multifamily':
       case 'impact-investing':
         return <ResourcePost pageDetail={currentPage} />;
+      case 'why-be-a-passive-investor':
+      case 'why-be-a-passive-investor?page=1':
       case 'investing-risks':
       case 'investing-risks?page=1':
         let query = this.props.location;
@@ -79,11 +81,15 @@ class Resources extends React.Component {
     let currentRoute = api.find(element => element.slug === title);
 
     let fullbg = false;
+    let mdHeight = false;
     if (
       title === 'frequently-asked-questions' ||
       title === 'self-directed-ira'
     ) {
       fullbg = true;
+    }
+    if (title === 'why-be-a-passive-investor') {
+      mdHeight = true;
     }
     return (
       <React.Fragment>
@@ -101,7 +107,7 @@ class Resources extends React.Component {
               }}
               {...rest}
             />
-            <Parallax filter small={!fullbg} image={currentRoute.image}>
+            <Parallax filter medium={mdHeight} small={!fullbg} image={currentRoute.image}>
               {fullbg ? (
                 <div className={classes.container}>
                   <GridContainer>
