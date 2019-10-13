@@ -17,12 +17,12 @@ router.get('/meetups/lbc', async (req, res) => {
   }
 });
 router.get('/meetups/cerritosmeetup', async (req, res) => {
-  const rootUrl = `https://api.meetup.com/Cerritos-Multifamily-Investors-Roundtable/events?sign=true&status=upcoming&fields=featured_photo,event_hosts,rsvp_rules&page=6&photo-host=public`;
+  const rootUrl = `https://api.meetup.com/Multifamily-Investors-Roundtable/events?sign=true&status=upcoming&fields=featured_photo,event_hosts,rsvp_rules&page=6&photo-host=public`;
   try {
     const response = await axios.get(rootUrl);
     if (response.data[0]) {
       const filterData = response.data.filter(({ name, fee }) => {
-        return name.includes('Cerritos Multifamily Investors Roundtable');
+        return name.includes('Multifamily Investors Roundtable');
       });
       res.status(200).send({ results: filterData });
     }
