@@ -81,7 +81,7 @@ class LongBeach extends Component {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Kyle Mitchell and Lalita Patipaksiri
+                  Kyle Mitchell and Lalita Mitchell
                 </a>
               </p>
               <div className="text-justify">

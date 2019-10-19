@@ -63,7 +63,7 @@ function ContactSidebar(props) {
       </ListItem>
       <ListItem>
         <ListItemText
-          primary="Lalita Patipaksiri"
+          primary="Lalita Mitchell"
           secondary="lpatipaksiri@limitless-estates.com"
         />
       </ListItem>

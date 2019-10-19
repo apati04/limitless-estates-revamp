@@ -3,7 +3,7 @@ import React from 'react';
 export default {
   backgroundImage: '',
   profileImg: 'https://i.imgur.com/Lok4G0b.jpg?1',
-  name: 'Lalita Patipaksiri',
+  name: 'Lalita Mitchell',
   role: 'Managing Partner',
   social: [
     { icon: 'linkedin', link: 'https://www.linkedin.com/in/jadalalita' },

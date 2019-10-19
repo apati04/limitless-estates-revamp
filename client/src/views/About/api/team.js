@@ -14,7 +14,7 @@ module.exports = [
       'https://drive.google.com/file/d/1AkzYG9obV9Lsa6JTWlitH9bgDC_SL3I7/view?usp=sharing'
   },
   {
-    name: 'Lalita Patipaksiri',
+    name: 'Lalita Mitchell',
     title: 'Managing Partner',
     type: 'Team',
     profilePage: '/profile/lalita',

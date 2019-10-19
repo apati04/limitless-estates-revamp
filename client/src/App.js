@@ -76,7 +76,7 @@ class App extends Component {
                     style={linkStyle}
                     href="https://investor.passiveincomemultifamily.com/login"
                   >
-                    Investor Login
+                    Limitless Investor Login
                   </a>
                 </Typography>
               </div>
