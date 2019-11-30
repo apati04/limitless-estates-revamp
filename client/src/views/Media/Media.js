@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'recompose';
 import { NavLink, withRouter } from 'react-router-dom';
+import Truncate from 'react-truncate';
 import withStyles from '@material-ui/core/styles/withStyles';
 import GridItem from 'components/Grid/GridItem';
 import Card from 'components/Card/Card';
 import CardBody from 'components/Card/CardBody';
 import CardFooter from 'components/Card/CardFooter';
+import { cardTitle, cardLink, cardSubtitle } from "assets/jss/material-kit-react.jsx";
 
 import classNames from 'classnames';
 import GridContainer from 'components/Grid/GridContainer';
@@ -21,6 +23,7 @@ const styles = theme => ({
     ...landingPageStyle,
     ...productStyle,
     ...imagesStyles,
+    cardTitle, cardLink, cardSubtitle,
     image: {
         position: 'relative'
     },
@@ -88,7 +91,8 @@ const styles = theme => ({
         marginLeft: theme.spacing.unit
     },
     cardGrid: {
-        // padding: '0 16px'
+        // padding: '0 16px',
+        textAlign: 'left'
     },
     marginTop: {
         ...theme.container,
@@ -100,11 +104,12 @@ const styles = theme => ({
     card: {
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'flex-start',
+        justifyContent: 'space-between',
+        alignItems: 'stretch',
         margin: '16px 0px',
-        borderRadius: 0
-
+        borderRadius: 0,
+        height: '100%',
+        width: '100%',
         // [theme.breakpoints.up('sm')]: {
         //     maxWidth: 275
         // }
@@ -177,7 +182,33 @@ class MediaGrid extends Component {
     state = {
         error: false
     };
-
+    loadCards = () => {
+        const {classes } = this.props;
+        return (
+            <Card style={{ width: "20rem", textAlign: 'left'}}>
+                <CardBody>
+                    <h4 className={classes.cardTitle}>Card Title</h4>
+                    <h6 className={classes.cardSubtitle}>Card Subtitle</h6>
+                    <p>
+                        Some quick example text to build on the card title and
+                        make up the bulk of the card's content.
+        </p>
+                    <a
+                        href="#pablo"
+                        className={classes.cardLink}
+                        onClick={(e) => e.preventDefault()}>
+                        Card link
+        </a>
+                    <a
+                        href="#pablo"
+                        className={classes.cardLink}
+                        onClick={(e) => e.preventDefault()}>
+                        Another link
+        </a>
+                </CardBody>
+            </Card>
+        )
+    }
     loadEpisodes = () => {
         const { classes, location } = this.props;
         return (
@@ -192,8 +223,7 @@ class MediaGrid extends Component {
                             lg={4}
                             className={classes.cardGrid + ' tile fade-in'}
                         >
-                            <Card className={classes.card}>
-                                <div style={{ width: '100%', height: '100%' }}>
+                            <Card>
                                     <a
                                         href={item.url}
                                         className={classes.navLink}
@@ -211,8 +241,8 @@ class MediaGrid extends Component {
                                                 style={{
                                                     background: `url(${item.thumbnail})`,
                                                     backgroundSize: 'cover',
-                                                    backgroundPosition:
-                                                        'center',
+                                                    backgroundPosition: `${item.bgPos ||
+                                                        'center'}`,
                                                     width: 'auto',
                                                     borderRadiusTop: '29px'
                                                 }}
@@ -242,58 +272,26 @@ class MediaGrid extends Component {
                                             </span>
                                         </Button>
 
-                                        <CardBody
-                                            style={{
-                                                padding: '8px 16px',
-                                                display: 'flex',
-                                                minHeight: '96px',
-                                                height: '128px',
-                                                flexDirection: 'column',
-                                                justifyContent: 'flex-start',
-                                                alignItems: 'stretch',
-                                                position: 'relative'
-                                            }}
-                                        >
-                                            <Typography
-                                                align='left'
-                                                variant='body'
-                                                component='h4'
-                                                style={{ color: 'black' }}
-                                                gutterBottom
-                                            >
-                                                {item.title}
-                                            </Typography>
-                                            <Typography
+                                        <CardBody>
+                                        <h6 className={classes.cardSubtitle} style={{marginBottom: 0}}>{item.date}</h6>
+
+                                        <h4 className={classes.cardTitle} style={{marginTop: 0, marginBottom: 4}}>{item.title}</h4>
+                                        <h6 className={classes.cardSubtitle} style={{marginTop: 0, marginBottom: '10px'}}>{item.author}</h6>
+
+                                        {item.snippet ? <p>
+                                            <Truncate
+                                                lines={3}
+                                                trimWhitespace
+                                                ellipsis="..."
                                                 style={{
-                                                    position: 'absolute',
-                                                    bottom: 0,
-                                                    left: 0,
-                                                    padding: '16px 16px'
+                                                    textAlign: 'left',
+                                                    width: '100%',
+                                                    hyphens: 'auto'
                                                 }}
-                                                align='left'
-                                                variant='subtitle'
                                             >
-                                                {item.author}
-                                            </Typography>
-                                            {/* <div
-                                                    style={{
-                                                        textAlign: 'left',
-                                                        hyphens: 'auto'
-                                                    }}
-                                                >
-                                                    <Truncate
-                                                        lines={3}
-                                                        trimWhitespace
-                                                        ellipsis="..."
-                                                        style={{
-                                                            textAlign: 'left',
-                                                            width: '100%',
-                                                            hyphens: 'auto'
-                                                        }}
-                                                    >
-                                                        description
-                                                    </Truncate>
-                                                </div> */}
+                                                {item.snippet || ''}
+                                            </Truncate>
+                                        </p> : null} 
                                         </CardBody>
                                         {/* <Typography
                                                 variant="caption"
@@ -309,7 +307,6 @@ class MediaGrid extends Component {
                                                 Watch Episode
                                             </Typography> */}
                                     </a>
-                                </div>
                             </Card>
                         </GridItem>
                     );
@@ -325,11 +322,13 @@ class MediaGrid extends Component {
                     Other Podcasts & Shows Featuring Limitless Estates
                 </Typography>
                 <Divider style={{ margin: '16px 0' }} />
+            
                 <GridContainer
                     justify='flex-start'
                     alignItems='baseline'
                     wrap='wrap'
                 >
+                    {this.loadCards()}
                     {this.loadEpisodes()}
                 </GridContainer>
             </div>
