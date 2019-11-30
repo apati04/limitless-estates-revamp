@@ -23,6 +23,7 @@ import Fade from '@material-ui/core/Grow';
 import axios from 'axios';
 import landingPageStyle from 'assets/jss/material-kit-react/views/landingPage';
 import productStyle from 'assets/jss/material-kit-react/views/landingPageSections/productStyle';
+import windowWidth from '../../util/windowWidth';
 // --------TEMP DATA
 // import podcastData from './tempdata';
 // __ tmpdata
@@ -135,6 +136,14 @@ class Podcast extends Component {
 
   render() {
     const { classes, ...rest } = this.props;
+    let isDesktop = true;
+    if (this.props.location.pathname.split('/').filter(v => v).length > 1) {
+      if (this.props.wWidth === null) {
+        isDesktop = window.innerWidth > 500;
+      } else {
+        isDesktop = this.props.wWidth > 500;
+      }
+    }
     return (
       <div>
         <Header
@@ -154,9 +163,10 @@ class Podcast extends Component {
             <Fade in style={{ transformOrigin: '0 0 0' }} unmountOnExit>
               <div
                 style={{ marginBottom: '5rem' }}
-                className={classes.container}
-              >
+                className={classes.container}>
+                {isDesktop && 
                 <Card className={classes.card}>
+           
                   <CardBody
                     className={classes.cardBody}
                     style={{ padding: '2rem' }}
@@ -211,6 +221,7 @@ class Podcast extends Component {
                     </GridContainer>
                   </CardBody>
                 </Card>
+                }
                 <Switch>
                   <Route path="/podcasts/:epid" component={Episode} />
                   <Route
@@ -249,4 +260,4 @@ Podcast.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withRouter(withStyles(styles)(Podcast));
+export default withRouter(withStyles(styles)(windowWidth(Podcast)));

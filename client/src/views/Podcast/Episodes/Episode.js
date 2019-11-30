@@ -101,9 +101,9 @@ const styles = theme => ({
     fontWeight: 400
   },
   root: {
-    padding: `${theme.spacing.unit}px 15px`,
+    padding: `${theme.spacing.unit}px 8px`,
     background: '#f5f5f5',
-    margin: `0 0 ${theme.spacing.unit * 2}px 0`
+    // margin: `0 0 ${theme.spacing.unit * 2}px 0`
   },
   player: {
     margin: `0 0 ${theme.spacing.unit * 2}px 0px`,
