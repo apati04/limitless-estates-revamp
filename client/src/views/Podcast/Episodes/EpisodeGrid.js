@@ -21,7 +21,7 @@ import landingPageStyle from 'assets/jss/material-kit-react/views/landingPage';
 import productStyle from 'assets/jss/material-kit-react/views/landingPageSections/productStyle';
 import imagesStyles from 'assets/jss/material-kit-react/imagesStyles';
 import grey from '@material-ui/core/colors/grey';
-import episodeLogo from './ep.svg';
+import episodeLogo from '../mic3test.jpg';
 const styles = theme => ({
   ...landingPageStyle,
   ...productStyle,
@@ -36,13 +36,13 @@ const styles = theme => ({
     '&:hover, &$focusVisible': {
       zIndex: 1,
       '& $imageBackdrop': {
-        opacity: 0.4
+        opacity: 0.5
       },
       '& $imageMarked': {
         opacity: 0
       },
       '& $imageTitle': {
-        border: '4px solid currentColor'
+        border: '2px solid currentColor'
       }
     }
   },
@@ -76,7 +76,7 @@ const styles = theme => ({
     top: 0,
     bottom: 0,
     backgroundColor: theme.palette.common.black,
-    opacity: 0.4,
+    opacity: 0.6,
     transition: theme.transitions.create('opacity')
   },
   imageTitle: {
