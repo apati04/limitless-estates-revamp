@@ -8,8 +8,12 @@ import GridItem from 'components/Grid/GridItem';
 import Card from 'components/Card/Card';
 import CardBody from 'components/Card/CardBody';
 import CardFooter from 'components/Card/CardFooter';
-import { cardTitle, cardLink, cardSubtitle } from "assets/jss/material-kit-react.jsx";
-
+import ReactHtmlParser from 'react-html-parser';
+import {
+    cardTitle,
+    cardLink,
+    cardSubtitle
+} from 'assets/jss/material-kit-react.jsx';
 import classNames from 'classnames';
 import GridContainer from 'components/Grid/GridContainer';
 import Typography from '@material-ui/core/Typography';
@@ -19,11 +23,18 @@ import productStyle from 'assets/jss/material-kit-react/views/landingPageSection
 import imagesStyles from 'assets/jss/material-kit-react/imagesStyles';
 import Divider from '@material-ui/core/Divider';
 import mediaApi from './api/mediaApi';
+import ReadMore from '../../components/ReadMore';
 const styles = theme => ({
     ...landingPageStyle,
     ...productStyle,
     ...imagesStyles,
-    cardTitle, cardLink, cardSubtitle,
+    cardTitle,
+    cardLink,
+    cardSubtitle,
+    textMuted: {
+        color: '#6c757d',
+        margin: 0
+    },
     image: {
         position: 'relative'
     },
@@ -48,6 +59,9 @@ const styles = theme => ({
         bottom: 0,
         backgroundSize: 'cover',
         backgroundPosition: 'center 40%'
+    },
+    episodebutton: {
+        paddingRight: 0
     },
     imageBackdrop: {
         position: 'absolute',
@@ -108,11 +122,9 @@ const styles = theme => ({
         alignItems: 'stretch',
         margin: '16px 0px',
         borderRadius: 0,
-        height: '100%',
         width: '100%',
-        // [theme.breakpoints.up('sm')]: {
-        //     maxWidth: 275
-        // }
+        height: '95%',
+        position: 'relative'
     },
     cardMedia: {
         margin: 0,
@@ -164,10 +176,11 @@ const styles = theme => ({
     navLink: {
         color: '#5f6368',
         textDecorationLine: 'none',
-        '-webkit-text-decoration': 'none'
-        // '&:hover': {
-        //     color: grey[800] + '!important'
-        // }
+        '-webkit-text-decoration': 'none',
+        display: 'flex',
+        width: '100%',
+        justifyContent: 'space-between',
+        alignItems: 'center'
     },
     gradient: {
         backgroundImage: 'linear-gradient( 135deg, #3C8CE7 10%, #00EAFF 100%)'
@@ -175,6 +188,14 @@ const styles = theme => ({
     buttonContainer: {
         textAlign: 'center',
         width: '100%'
+    },
+    cardBody: {
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'stretch',
+        justifyContent: 'space-between',
+        padding: '8px 16px'
     }
 });
 
@@ -182,33 +203,6 @@ class MediaGrid extends Component {
     state = {
         error: false
     };
-    loadCards = () => {
-        const {classes } = this.props;
-        return (
-            <Card style={{ width: "20rem", textAlign: 'left'}}>
-                <CardBody>
-                    <h4 className={classes.cardTitle}>Card Title</h4>
-                    <h6 className={classes.cardSubtitle}>Card Subtitle</h6>
-                    <p>
-                        Some quick example text to build on the card title and
-                        make up the bulk of the card's content.
-        </p>
-                    <a
-                        href="#pablo"
-                        className={classes.cardLink}
-                        onClick={(e) => e.preventDefault()}>
-                        Card link
-        </a>
-                    <a
-                        href="#pablo"
-                        className={classes.cardLink}
-                        onClick={(e) => e.preventDefault()}>
-                        Another link
-        </a>
-                </CardBody>
-            </Card>
-        )
-    }
     loadEpisodes = () => {
         const { classes, location } = this.props;
         return (
@@ -223,77 +217,104 @@ class MediaGrid extends Component {
                             lg={4}
                             className={classes.cardGrid + ' tile fade-in'}
                         >
-                            <Card>
+                            <Card className={classes.card}>
+                                       <a
+                                        href={item.url}
+                                        className={classes.navLink}
+                                    >
+                                <Button
+                                    focusRipple
+                                    key={item.id}
+                                    className={classNames(
+                                        classes.cardMedia,
+                                        classes.image
+                                    )}
+                                >
+                                    <div
+                                        className={classes.imageSrc}
+                                        style={{
+                                            background: `url(${item.thumbnail})`,
+                                            backgroundSize: 'cover',
+                                            backgroundPosition: `${item.bgPos ||
+                                                'center'}`,
+                                            width: 'auto',
+                                            borderRadiusTop: '29px'
+                                        }}
+                                    />
+                                    <span className={classes.imageBackdrop} />
+                                    <span className={classes.imageButton}>
+                                        <Typography
+                                            component='span'
+                                            variant='h6'
+                                            color='inherit'
+                                            className={classes.imageTitle}
+                                        >
+                                            <span
+                                                className={classes.imageMarked}
+                                            />
+                                        </Typography>
+                                    </span>
+                                </Button>
+                                </a>
+
+                                <CardBody className={classes.cardBody}>
+                                    <div style={{ width: '100%' }}>
+                                        <h4
+                                            className={classes.cardTitle}
+                                            style={{
+                                                marginTop: 0,
+                                                marginBottom: 4,
+                                                minHeight: 40
+                                            }}
+                                        >
+                                            {item.title}
+                                        </h4>
+                                        <h6
+                                            className={classes.cardSubtitle}
+                                            style={{
+                                                marginTop: 0,
+                                                marginBottom: '10px'
+                                            }}
+                                        >
+                                            {item.author}
+                                        </h6>
+
+                                        {item.description && (
+                                            <ReadMore lines={6} trimWhitespace>
+                                                {ReactHtmlParser(
+                                                    item.description
+                                                ) || ''}
+                                            </ReadMore>
+                                        )}
+                                    </div>
+                                </CardBody>
+                                <CardFooter
+                                    style={{
+                                        display: 'flex',
+                                        justifyContent: 'space-between',
+                                        alignItems: 'center',
+                                        padding: '0 16px 8px'
+                                    }}
+                                >
                                     <a
                                         href={item.url}
                                         className={classes.navLink}
                                     >
+                                        {item.duration && (
+                                            <p className={classes.textMuted}>
+                                                {item.duration} min
+                                            </p>
+                                        )}
                                         <Button
-                                            focusRipple
-                                            key={item.id}
-                                            className={classNames(
-                                                classes.cardMedia,
-                                                classes.image
-                                            )}
+                                            style={{ marginLeft: 'auto' }}
+                                            simple
+                                            color='facebook'
+                                            className={classes.episodebutton}
                                         >
-                                            <div
-                                                className={classes.imageSrc}
-                                                style={{
-                                                    background: `url(${item.thumbnail})`,
-                                                    backgroundSize: 'cover',
-                                                    backgroundPosition: `${item.bgPos ||
-                                                        'center'}`,
-                                                    width: 'auto',
-                                                    borderRadiusTop: '29px'
-                                                }}
-                                            />
-                                            <span
-                                                className={
-                                                    classes.imageBackdrop
-                                                }
-                                            />
-                                            <span
-                                                className={classes.imageButton}
-                                            >
-                                                <Typography
-                                                    component='span'
-                                                    variant='h6'
-                                                    color='inherit'
-                                                    className={
-                                                        classes.imageTitle
-                                                    }
-                                                >
-                                                    <span
-                                                        className={
-                                                            classes.imageMarked
-                                                        }
-                                                    />
-                                                </Typography>
-                                            </span>
+                                            Go to Episode Page
                                         </Button>
-
-                                        <CardBody>
-                                        <h6 className={classes.cardSubtitle} style={{marginBottom: 0}}>{item.date}</h6>
-
-                                        <h4 className={classes.cardTitle} style={{marginTop: 0, marginBottom: 4}}>{item.title}</h4>
-                                        <h6 className={classes.cardSubtitle} style={{marginTop: 0, marginBottom: '10px'}}>{item.author}</h6>
-
-                                        {item.snippet ? <p>
-                                            <Truncate
-                                                lines={3}
-                                                trimWhitespace
-                                                ellipsis="..."
-                                                style={{
-                                                    textAlign: 'left',
-                                                    width: '100%',
-                                                    hyphens: 'auto'
-                                                }}
-                                            >
-                                                {item.snippet || ''}
-                                            </Truncate>
-                                        </p> : null} 
-                                        </CardBody>
-                                        {/* <Typography
+                                    </a>
+                                    {/* <Typography
                                                 variant="caption"
                                                 align="left"
                                                 style={{ fontSize: '14px' }}
@@ -306,7 +327,7 @@ class MediaGrid extends Component {
                                                 />
                                                 Watch Episode
                                             </Typography> */}
-                                    </a>
+                                </CardFooter>
                             </Card>
                         </GridItem>
                     );
@@ -317,18 +338,24 @@ class MediaGrid extends Component {
     render() {
         const { classes } = this.props;
         return (
-            <div className={classNames(classes.container)}>
+            <div
+                style={{
+                    width: '100%',
+                    height: '100%',
+                    padding: '10px',
+                    overflowX: 'hidden'
+                }}
+            >
                 <Typography align='left' paragraph variant='h4'>
                     Other Podcasts & Shows Featuring Limitless Estates
                 </Typography>
                 <Divider style={{ margin: '16px 0' }} />
-            
+
                 <GridContainer
-                    justify='flex-start'
-                    alignItems='baseline'
+                    justify='space-between'
+                    alignItems='stretch'
                     wrap='wrap'
                 >
-                    {this.loadCards()}
                     {this.loadEpisodes()}
                 </GridContainer>
             </div>
