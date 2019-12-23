@@ -100,7 +100,8 @@ const fLabel = {
   Q15:
     'Have you invested as a limited partner (LP) on a syndication deal in the past?',
   Q16: 'In a short paragraph please provide us with your investing experience.',
-  Q17: 'What are your current investment objectives?'
+  Q17: 'What are your current investment objectives?',
+  Q19: 'How did you hear about us?'
 };
 const Questionnaire = props => {
   const { classes } = props;
@@ -132,6 +133,7 @@ const Questionnaire = props => {
           Q16_InvestingExperience: '',
           Q17_InvestmentObjectives: '',
           Q18_ExtraInformation: '',
+          Q19_HearAboutUs: '',
           netIncome: '',
           householdIncome: ''
         }}
@@ -685,7 +687,21 @@ const Questionnaire = props => {
                 margin="normal"
                 className={classNames(classes.formControl)}
               />
-
+              <Field
+                name="Q19_HearAboutUs"
+                id="Q19_HearAboutUs"
+                fullWidth
+                component={TextField}
+                type="text"
+                label={fLabel.Q19}
+                validate={required}
+                InputLabelProps={{
+                  shrink: false
+                }}
+                multiline
+                margin="normal"
+                className={classNames(classes.formControl)}
+              />
               <Field
                 name="Q18_ExtraInformation"
                 id="Q18_ExtraInformation"
