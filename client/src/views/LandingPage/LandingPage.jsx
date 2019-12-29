@@ -1,6 +1,7 @@
 import React from 'react';
 // nodejs library that concatenates classes
 import classNames from 'classnames';
+import clsx from 'clsx';
 // @material-ui/core components
 import withStyles from '@material-ui/core/styles/withStyles';
 import { Link } from 'react-router-dom';
@@ -30,7 +31,25 @@ const styles = theme => ({
       marginLeft: 0,
       marginRight: 0
     }
-  }
+  },
+  customGridHeader: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start'
+  },
+  customSubtitle: {
+    margin: '8px 0 16px 0',
+    color: 'rgba(255,255,255,0.88)',
+    letterSpacing: '0.399998px',
+    fontWeight: 500,
+    fontSize: '1.5rem'
+  },
+  customTitle: {
+    marginBottom: 0,
+    letterSpacing: '0.399998px',
+    fontSize: '2.25rem'
+  },
+
 });
 class LandingPage extends React.Component {
   render() {
@@ -52,9 +71,16 @@ class LandingPage extends React.Component {
         <Parallax filter image={'https://i.imgur.com/oxwtIbj.jpg'}>
           <div className={classes.container}>
             <GridContainer className={classes.extraPadding}>
-              <GridItem xs={12} sm={12} md={6}>
-                <h1 className={classes.title}>Limitless Estates</h1>
-                <h4>
+              <GridItem xs={12} className={classes.customGridHeader}>
+                <h2 className={clsx(classes.title, classes.customTitle)}>Limitless Estates</h2>
+                <small className={clsx(classes.subtitle, classes.customSubtitle)}>
+                  Multifamily Real Estate Investment Firm
+                </small>
+              </GridItem>
+              <GridItem xs={12} sm={12} md={8}>
+
+
+                <h4 style={{ marginTop: '1em', marginBottom: '1em' }}>
                   Our vision at Limitless Estates is to provide A-class living
                   to lower income housing by putting our residents first and
                   instilling a sense of community while inspiring others to do

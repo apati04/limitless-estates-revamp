@@ -44,18 +44,30 @@ const styles = {
 };
 class App extends Component {
   state = {
-    hover: false
+    hover: false,
+    fbHover: false,
   };
+  toggleFbHover = () => {
+    this.setState(prevState => ({ fbHover: !prevState.fbHover }));
+
+  }
   toggleHover = () => {
     this.setState(prevState => ({ hover: !prevState.hover }));
   };
   render() {
     let linkStyle;
+    let fbLinkStyle;
     const { classes } = this.props;
     if (this.state.hover) {
       linkStyle = { textDecorationLine: 'underline', color: '#99C72B' };
+      fbLinkStyle = { textDecorationLine: 'none', color: 'white' };
+    } else if (this.state.fbHover) {
+      fbLinkStyle = { textDecorationLine: 'underline', color: '#99C72B' };
+      linkStyle = { textDecorationLine: 'none', color: 'white' };
     } else {
       linkStyle = { textDecorationLine: 'none', color: 'white' };
+      fbLinkStyle = { textDecorationLine: 'none', color: 'white' };
+
     }
     return (
       <BrowserRouter>
@@ -66,9 +78,23 @@ class App extends Component {
                 style={{
                   maxWidth: '97%',
                   paddingLeft: '6px',
-                  paddingRight: '6px'
+                  paddingRight: '6px',
+                  display: 'flex',
+                  justifyContent: 'flex-end',
                 }}
               >
+
+                <Typography style={{ fontSize: '10px' }} variant="overline">
+                  <a
+                    onMouseEnter={this.toggleFbHover}
+                    onMouseLeave={this.toggleFbHover}
+                    style={fbLinkStyle}
+                    href="https://www.facebook.com/groups/2295439830526220/"
+                  >
+                    Facebook Group
+                  </a>
+                </Typography>
+                <span style={{ fontWeight: 'bold', marginLeft: 8, marginRight: 8, color: 'rgba(255,255,255,0.88)' }}>|</span>
                 <Typography style={{ fontSize: '10px' }} variant="overline">
                   <a
                     onMouseEnter={this.toggleHover}
@@ -79,6 +105,7 @@ class App extends Component {
                     Limitless Investor Login
                   </a>
                 </Typography>
+
               </div>
             </div>
             <Switch>
