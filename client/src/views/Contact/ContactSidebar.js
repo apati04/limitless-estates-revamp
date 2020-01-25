@@ -42,82 +42,56 @@ const styles = theme => ({
 function ContactSidebar(props) {
   const { classes } = props;
   return (
-    <List className={classes.root}>
-      <ListSubheader>
-        <Typography paragraph variant="subtitle1">
-          Please use the contact form to reach us. For general questions, visit
-          our FAQs page.
-        </Typography>
-      </ListSubheader>
-      <Divider variant="middle" style={{ margin: '1em 1em' }} />
-      <ListSubheader>
-        <Typography gutterBottom variant="h6">
-          General Contact Information
-        </Typography>
-      </ListSubheader>
-      <ListItem>
-        <ListItemText
-          primary="Kyle Mitchell"
-          secondary="kmitchell@limitless-estates.com"
-        />
-      </ListItem>
-      <ListItem>
-        <ListItemText
-          primary="Lalita Mitchell"
-          secondary="lpatipaksiri@limitless-estates.com"
-        />
-      </ListItem>
-      <Divider variant="middle" style={{ margin: '1em 1em' }} />
+      <List className={classes.root}>
+          <ListSubheader>
+              <Typography paragraph variant='subtitle1'>
+                  Please use the contact form to reach us. For general questions, visit our FAQs page.
+              </Typography>
+          </ListSubheader>
+          <Divider variant='middle' style={{ margin: '1em 1em' }} />
+          <ListSubheader>
+              <Typography gutterBottom variant='h6'>
+                  General Contact Information
+              </Typography>
+          </ListSubheader>
+          <ListItem>
+              <ListItemText primary='Kyle Mitchell' secondary='kmitchell@limitless-estates.com' />
+          </ListItem>
+          <ListItem>
+              <ListItemText primary='Lalita Mitchell' secondary='lpatipaksiri@limitless-estates.com' />
+          </ListItem>
+          <Divider variant='middle' style={{ margin: '1em 1em' }} />
 
-      <ListSubheader>
-        <Typography variant="h6">Schedule a call</Typography>
-      </ListSubheader>
-      <ListItem
-        button
-        component="a"
-        href="https://ehypauluugknktzawdwva-free.10to8.com/"
-        className={classes.listHover}
-      >
-        <Avatar>
-          <DateRangeOutlined />
-        </Avatar>
+          <ListSubheader>
+              <Typography variant='h6'>Schedule a call</Typography>
+          </ListSubheader>
+          <ListItem button component='a' href='https://calendly.com/limitlessestates/30min' className={classes.listHover}>
+              <Avatar>
+                  <DateRangeOutlined />
+              </Avatar>
 
-        <ListItemText primary="See Availabile Times" />
-      </ListItem>
-      <Divider variant="middle" style={{ margin: '1em 1em' }} />
-      <ListSubheader>
-        <Typography gutterBottom variant="h6">
-          Stay connected
-        </Typography>
-      </ListSubheader>
-      <ListItem>
-        <div>
-          <Fab
-            size="small"
-            color="primary"
-            href="https://www.google.com"
-            className={classes.fabSpacing}
-          >
-            <i className="fab fa-facebook-f" />
-          </Fab>
-          <Fab
-            size="small"
-            color="primary"
-            href="https://www.google.com"
-            className={classes.fabSpacing}
-          >
-            <i className="fab fa-linkedin-in" />
-          </Fab>
-          <Fab
-            size="small"
-            href="https://www.google.com"
-            className={classNames(classes.youtubeButton, classes.fabSpacing)}
-          >
-            <i className="fab fa-youtube" />
-          </Fab>
-        </div>
-      </ListItem>
-    </List>
+              <ListItemText primary='See Availabile Times' />
+          </ListItem>
+          <Divider variant='middle' style={{ margin: '1em 1em' }} />
+          <ListSubheader>
+              <Typography gutterBottom variant='h6'>
+                  Stay connected
+              </Typography>
+          </ListSubheader>
+          <ListItem>
+              <div>
+                  <Fab size='small' color='primary' href='https://www.google.com' className={classes.fabSpacing}>
+                      <i className='fab fa-facebook-f' />
+                  </Fab>
+                  <Fab size='small' color='primary' href='https://www.google.com' className={classes.fabSpacing}>
+                      <i className='fab fa-linkedin-in' />
+                  </Fab>
+                  <Fab size='small' href='https://www.google.com' className={classNames(classes.youtubeButton, classes.fabSpacing)}>
+                      <i className='fab fa-youtube' />
+                  </Fab>
+              </div>
+          </ListItem>
+      </List>
   );
 }
 

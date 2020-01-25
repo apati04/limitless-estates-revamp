@@ -38,44 +38,30 @@ function HeaderLinks({ ...props }) {
     return (
         <List className={classes.list}>
             <ListItem className={classes.listItem}>
-                <Button
-                    component={props => <Link {...props} to="/" />}
-                    color="transparent"
-                    className={classes.navLink}
-                >
+                <Button component={props => <Link {...props} to='/' />} color='transparent' className={classes.navLink}>
                     <Home className={classes.icons} /> Home
                 </Button>
             </ListItem>
             <ListItem className={classes.listItem}>
-                <Button
-                    component={props => <Link {...props} to="/about" />}
-                    color="transparent"
-                    className={classes.navLink}
-                >
+                <Button component={props => <Link {...props} to='/about' />} color='transparent' className={classes.navLink}>
                     <Group className={classes.icons} /> About
                 </Button>
             </ListItem>
             <ListItem className={classes.listItem}>
                 <CustomDropdown
                     noLiPadding
-                    buttonText="Markets"
-                    dropdownHeader="Arizona"
+                    buttonText='Markets'
+                    dropdownHeader='Arizona'
                     buttonProps={{
                         className: classes.navLink,
                         color: 'transparent'
                     }}
                     buttonIcon={Timeline}
                     dropdownList={[
-                        <Link
-                            to="/markets/tucson-arizona"
-                            className={classes.dropdownLink}
-                        >
+                        <Link to='/markets/tucson-arizona' className={classes.dropdownLink}>
                             Tucson, Arizona
                         </Link>,
-                        <Link
-                            to="/markets/phoenix-arizona"
-                            className={classes.dropdownLink}
-                        >
+                        <Link to='/markets/phoenix-arizona' className={classes.dropdownLink}>
                             Phoenix, Arizona
                         </Link>
                         // { divider: true },
@@ -88,51 +74,37 @@ function HeaderLinks({ ...props }) {
             <ListItem className={classes.listItem}>
                 <CustomDropdown
                     noLiPadding
-                    buttonText="Learn"
-                    dropdownHeader={<Link style={{color: 'black'}} to="/resources">RESOURCES</Link>}
+                    buttonText='Learn'
+                    dropdownHeader={
+                        <Link style={{ color: 'black' }} to='/resources'>
+                            RESOURCES
+                        </Link>
+                    }
                     buttonProps={{
                         className: classes.navLink,
                         color: 'transparent'
                     }}
                     buttonIcon={Explore}
                     dropdownList={[
-                        <Link
-                            to="/resources/why-invest-in-multifamily"
-                            className={classes.dropdownLink}
-                        >
+                        <Link to='/resources/why-invest-in-multifamily' className={classes.dropdownLink}>
                             Why Invest in Multifamily
                         </Link>,
-                        <Link
-                            to="/resources/why-be-a-passive-investor"
-                            className={classes.dropdownLink}
-                        >
+                        <Link to='/resources/why-be-a-passive-investor' className={classes.dropdownLink}>
                             Why be a Passive Investor
                         </Link>,
-                        <Link
-                            to="/resources/impact-investing"
-                            className={classes.dropdownLink}
-                        >
+                        <Link to='/resources/impact-investing' className={classes.dropdownLink}>
                             What is Impact Investing
                         </Link>,
                         ,
-                        <Link
-                            to="/self-directed-ira"
-                            className={classes.dropdownLink}
-                        >
+                        <Link to='/self-directed-ira' className={classes.dropdownLink}>
                             Self-Directed IRA
                         </Link>,
 
-                        <Link
-                            to="/resources/investing-risks?page=1"
-                            className={classes.dropdownLink}
-                        >
+                        <Link to='/resources/investing-risks?page=1' className={classes.dropdownLink}>
                             Investing Risks
                         </Link>,
 
-                        <Link
-                            to="/resources/frequently-asked-questions"
-                            className={classes.dropdownLink}
-                        >
+                        <Link to='/resources/frequently-asked-questions' className={classes.dropdownLink}>
                             Frequently Asked Questions
                         </Link>
                     ]}
@@ -141,59 +113,38 @@ function HeaderLinks({ ...props }) {
             <ListItem className={classes.listItem}>
                 <CustomDropdown
                     noLiPadding
-                    buttonText="Events"
-                    dropdownHeader="Hosted on Meetup.com"
+                    buttonText='Events'
+                    dropdownHeader='Hosted on Meetup.com'
                     buttonProps={{
                         className: classes.navLink,
                         color: 'transparent'
                     }}
                     buttonIcon={DateRange}
                     dropdownList={[
-                        <Link
-                            to="/events/longbeach"
-                            className={classes.dropdownLink}
-                        >
+                        <Link to='/events/longbeach' className={classes.dropdownLink}>
                             MultifamilyMasters.com - Long Beach
                         </Link>,
-                        <Link
-                            to="/events/phoenix"
-                            className={classes.dropdownLink}
-                        >
+                        <Link to='/events/phoenix' className={classes.dropdownLink}>
                             MultifamilyMasters.com - Phoenix
                         </Link>,
-                        <Link
-                            to="/events/cerritos"
-                            className={classes.dropdownLink}
-                        >
+                        <Link to='/events/cerritos' className={classes.dropdownLink}>
                             Cerritos Multifamily Investors Roundtable
                         </Link>
                     ]}
                 />
             </ListItem>
             <ListItem className={classes.listItem}>
-                <Button
-                    component={props => <Link {...props} to="/podcasts" />}
-                    color="transparent"
-                    className={classes.navLink}
-                >
+                <Button component={props => <Link {...props} to='/podcasts' />} color='transparent' className={classes.navLink}>
                     <Headset className={classes.icons} /> Podcast
                 </Button>
             </ListItem>
             <ListItem className={classes.listItem}>
-                <Button
-                    component={props => <Link {...props} to="/media" />}
-                    color="transparent"
-                    className={classes.navLink}
-                >
+                <Button component={props => <Link {...props} to='/media' />} color='transparent' className={classes.navLink}>
                     <VideoLibrary className={classes.icons} /> Media
                 </Button>
             </ListItem>
             <ListItem className={classes.listItem}>
-                <Button
-                    color="transparent"
-                    className={classes.navLink}
-                    href="https://ehypauluugknktzawdwva-free.10to8.com/"
-                >
+                <Button color='transparent' className={classes.navLink} href='https://calendly.com/limitlessestates/30min'>
                     <Phone className={classes.icons} /> Schedule a Call
                 </Button>
             </ListItem>
