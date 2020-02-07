@@ -77,12 +77,7 @@ export default {
           apartment units.{' '}
         </p>,
         <p key="workadf987238r" style={{ textAlign: 'left' }}>
-          <strong>Real Estate Agent: </strong> I am a licensed Realtor in
-          California and have been buying and selling Real Estate since 2015.
-          One of the ways I love to give back is by donating 20% of my
-          commissions to the local charities of my client’s choice. My goal is
-          to one day be able to donate 100% of my commissions back to local
-          charities.
+          <strong>Real Estate Agent: </strong> I have been investing in income producing Real Estate since 2013, our company currently manages approximately $17M in multifamily assets in the Arizona markets.  I also own a portfolio of single family homes in 3 different markets. I am Managing Partner and Co-Founder of Limitless Estates, LLC, where our vision is to provide A class living to lower income housing by putting our residents first and instilling a sense of community while inspiring others to do the same. My goal is to add massive value to others while helping build generational wealth through Multifamily real estate investing.
         </p>
       ]
     },
