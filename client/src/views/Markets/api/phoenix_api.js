@@ -33,9 +33,6 @@ export default {
         {
             ul: [
                 'Population, job and rental rate growth all outpacing national average',
-                'Ranked 5th in U.S. for high-tech job growth and Top 10 fastest growing economies',
-                '3rd largest labor pool in the West',
-                'The Phoenix Metro has welcomed 47+ corporate headquarter relocations in the last 3 years',
                 'Ranked 3rd in U.S. for high-tech job growth and 3rd largest labor pool in the West',
                 'Top 10 fastest growing economies and 4th fastest growing Metro',
                 'Highest rent growth in the Nation',
