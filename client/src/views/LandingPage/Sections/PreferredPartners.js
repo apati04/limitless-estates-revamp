@@ -10,7 +10,7 @@ class PreferredPartners extends React.Component {
         return (
             <div className={classes.section}>
                 <h2 style={{ color: 'black' }} className={classes.title}>
-                    Preffered Partners
+                    Prefered Partners
                 </h2>
                 <div style={{ paddingTop: '32px' }}>
                     <GridContainer justify="center">
