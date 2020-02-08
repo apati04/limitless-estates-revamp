@@ -12,7 +12,7 @@ import ReactHtmlParser from 'react-html-parser';
 import {
     cardTitle,
     cardLink,
-    cardSubtitle
+    cardSubtitle,
 } from 'assets/jss/material-kit-react.jsx';
 import classNames from 'classnames';
 import GridContainer from 'components/Grid/GridContainer';
@@ -33,10 +33,10 @@ const styles = theme => ({
     cardSubtitle,
     textMuted: {
         color: '#6c757d',
-        margin: 0
+        margin: 0,
     },
     image: {
-        position: 'relative'
+        position: 'relative',
     },
     focusVisible: {},
     imageButton: {
@@ -48,7 +48,7 @@ const styles = theme => ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        color: theme.palette.common.white
+        color: theme.palette.common.white,
     },
     imageSrc: {
         ...imagesStyles,
@@ -58,10 +58,10 @@ const styles = theme => ({
         top: 0,
         bottom: 0,
         backgroundSize: 'cover',
-        backgroundPosition: 'center 40%'
+        backgroundPosition: 'center 40%',
     },
     episodebutton: {
-        paddingRight: 0
+        paddingRight: 0,
     },
     imageBackdrop: {
         position: 'absolute',
@@ -71,23 +71,23 @@ const styles = theme => ({
         bottom: 0,
         backgroundColor: theme.palette.common.black,
         opacity: 0.18,
-        transition: theme.transitions.create('opacity')
+        transition: theme.transitions.create('opacity'),
     },
     imageTitle: {
         position: 'relative',
         padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit *
-            4}px ${theme.spacing.unit + 6}px`
+            4}px ${theme.spacing.unit + 6}px`,
     },
 
     gridListTile: {
         padding: theme.spacing.unit,
-        margin: 0
+        margin: 0,
     },
     imageStyle: {
         width: '100%',
         display: 'block',
         objectFit: 'cover',
-        paddingTop: '66.66667%'
+        paddingTop: '66.66667%',
     },
     layout: {
         width: 'auto',
@@ -95,25 +95,25 @@ const styles = theme => ({
         marginRight: theme.spacing.unit,
         [theme.breakpoints.up(1100 + theme.spacing.unit * 3 * 2)]: {
             marginLeft: 'auto',
-            marginRight: 'auto'
-        }
+            marginRight: 'auto',
+        },
     },
     leftIcon: {
-        marginRight: theme.spacing.unit
+        marginRight: theme.spacing.unit,
     },
     rightIcon: {
-        marginLeft: theme.spacing.unit
+        marginLeft: theme.spacing.unit,
     },
     cardGrid: {
         // padding: '0 16px',
-        textAlign: 'left'
+        textAlign: 'left',
     },
     marginTop: {
         ...theme.container,
         padding: 0,
         [theme.breakpoints.up('sm')]: {
-            marginTop: theme.spacing.unit * 4
-        }
+            marginTop: theme.spacing.unit * 4,
+        },
     },
     card: {
         display: 'flex',
@@ -124,51 +124,51 @@ const styles = theme => ({
         borderRadius: 0,
         width: '100%',
         height: '95%',
-        position: 'relative'
+        position: 'relative',
     },
     cardMedia: {
         margin: 0,
         '&:hover': {
             backgroundColor: 'none',
-            color: 'none'
+            color: 'none',
         },
         boxShadow: 'unset',
         paddingTop: '66.66667%',
-        width: '100%'
+        width: '100%',
     },
     cardActions: {
         justifyContent: 'space-between',
-        margin: `0 ${theme.spacing.unit}px`
+        margin: `0 ${theme.spacing.unit}px`,
     },
     eventName: {
         // overflow: 'hidden',
         // textOverflow: 'ellipsis',
         // 'white-space': 'nowrap'
-        lineHeight: 'normal'
+        lineHeight: 'normal',
     },
     eventDate: {},
     eventDetailText: {
         color: 'rgba(0,0,0,0.87)',
         fontWeight: '300',
-        fontSize: '1rem'
+        fontSize: '1rem',
     },
 
     gridContent: {
         padding: '4px',
         [theme.breakpoints.down('md')]: {
-            padding: 0
-        }
+            padding: 0,
+        },
     },
     loadMore: {},
     icons: {
         marginRight: theme.spacing.unit + 1,
-        verticalAlign: 'middle'
+        verticalAlign: 'middle',
     },
     cardContentMargin: {},
     truncateText: {
         marginTop: theme.spacing.unit * 3,
         color: '#5f6368',
-        fontWeight: 400
+        fontWeight: 400,
         // display: 'flex',
         // justifyContent: 'flex-start',
         // alignItems: 'center'
@@ -180,14 +180,14 @@ const styles = theme => ({
         display: 'flex',
         width: '100%',
         justifyContent: 'space-between',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     gradient: {
-        backgroundImage: 'linear-gradient( 135deg, #3C8CE7 10%, #00EAFF 100%)'
+        backgroundImage: 'linear-gradient( 135deg, #3C8CE7 10%, #00EAFF 100%)',
     },
     buttonContainer: {
         textAlign: 'center',
-        width: '100%'
+        width: '100%',
     },
     cardBody: {
         width: '100%',
@@ -195,13 +195,13 @@ const styles = theme => ({
         flexDirection: 'column',
         alignItems: 'stretch',
         justifyContent: 'space-between',
-        padding: '8px 16px'
-    }
+        padding: '8px 16px',
+    },
 });
 
 class MediaGrid extends Component {
     state = {
-        error: false
+        error: false,
     };
     loadEpisodes = () => {
         const { classes, location } = this.props;
@@ -218,43 +218,44 @@ class MediaGrid extends Component {
                             className={classes.cardGrid + ' tile fade-in'}
                         >
                             <Card className={classes.card}>
-                                       <a
-                                        href={item.url}
-                                        className={classes.navLink}
+                                <a href={item.url} className={classes.navLink}>
+                                    <Button
+                                        focusRipple
+                                        key={item.id}
+                                        className={classNames(
+                                            classes.cardMedia,
+                                            classes.image
+                                        )}
                                     >
-                                <Button
-                                    focusRipple
-                                    key={item.id}
-                                    className={classNames(
-                                        classes.cardMedia,
-                                        classes.image
-                                    )}
-                                >
-                                    <div
-                                        className={classes.imageSrc}
-                                        style={{
-                                            background: `url(${item.thumbnail})`,
-                                            backgroundSize: 'cover',
-                                            backgroundPosition: `${item.bgPos ||
-                                                'center'}`,
-                                            width: 'auto',
-                                            borderRadiusTop: '29px'
-                                        }}
-                                    />
-                                    <span className={classes.imageBackdrop} />
-                                    <span className={classes.imageButton}>
-                                        <Typography
-                                            component='span'
-                                            variant='h6'
-                                            color='inherit'
-                                            className={classes.imageTitle}
-                                        >
-                                            <span
-                                                className={classes.imageMarked}
-                                            />
-                                        </Typography>
-                                    </span>
-                                </Button>
+                                        <div
+                                            className={classes.imageSrc}
+                                            style={{
+                                                background: `url(${item.thumbnail})`,
+                                                backgroundSize: 'cover',
+                                                backgroundPosition: `${item.bgPos ||
+                                                    'center'}`,
+                                                width: 'auto',
+                                                borderRadiusTop: '29px',
+                                            }}
+                                        />
+                                        <span
+                                            className={classes.imageBackdrop}
+                                        />
+                                        <span className={classes.imageButton}>
+                                            <Typography
+                                                component="span"
+                                                variant="h6"
+                                                color="inherit"
+                                                className={classes.imageTitle}
+                                            >
+                                                <span
+                                                    className={
+                                                        classes.imageMarked
+                                                    }
+                                                />
+                                            </Typography>
+                                        </span>
+                                    </Button>
                                 </a>
 
                                 <CardBody className={classes.cardBody}>
@@ -264,19 +265,27 @@ class MediaGrid extends Component {
                                             style={{
                                                 marginTop: 0,
                                                 marginBottom: 4,
-                                                minHeight: 40
+                                                minHeight: 36,
                                             }}
                                         >
                                             {item.title}
                                         </h4>
+
                                         <h6
                                             className={classes.cardSubtitle}
                                             style={{
                                                 marginTop: 0,
-                                                marginBottom: '10px'
+                                                marginBottom: '10px',
+                                                color: '#7d50df',
                                             }}
                                         >
-                                            {item.author}
+                                            <a
+                                                href={item.url}
+                                                rel="noopener noreferrer"
+                                                target="_blank"
+                                            >
+                                                {item.author}
+                                            </a>
                                         </h6>
 
                                         {item.description && (
@@ -293,12 +302,14 @@ class MediaGrid extends Component {
                                         display: 'flex',
                                         justifyContent: 'space-between',
                                         alignItems: 'center',
-                                        padding: '0 16px 8px'
+                                        padding: '0 16px 8px',
                                     }}
                                 >
                                     <a
                                         href={item.url}
                                         className={classes.navLink}
+                                        rel="noopener noreferrer"
+                                        target="_blank"
                                     >
                                         {item.duration && (
                                             <p className={classes.textMuted}>
@@ -308,7 +319,7 @@ class MediaGrid extends Component {
                                         <Button
                                             style={{ marginLeft: 'auto' }}
                                             simple
-                                            color='facebook'
+                                            color="facebook"
                                             className={classes.episodebutton}
                                         >
                                             Go to Episode Page
@@ -343,18 +354,18 @@ class MediaGrid extends Component {
                     width: '100%',
                     height: '100%',
                     padding: '10px',
-                    overflowX: 'hidden'
+                    overflowX: 'hidden',
                 }}
             >
-                <Typography align='left' paragraph variant='h4'>
+                <Typography align="left" paragraph variant="h4">
                     Other Podcasts & Shows Featuring Limitless Estates
                 </Typography>
                 <Divider style={{ margin: '16px 0' }} />
 
                 <GridContainer
-                    justify='space-between'
-                    alignItems='stretch'
-                    wrap='wrap'
+                    justify="space-between"
+                    alignItems="stretch"
+                    wrap="wrap"
                 >
                     {this.loadEpisodes()}
                 </GridContainer>
@@ -364,7 +375,7 @@ class MediaGrid extends Component {
 }
 
 MediaGrid.propTypes = {
-    classes: PropTypes.object.isRequired
+    classes: PropTypes.object.isRequired,
 };
 
 export default compose(withRouter, withStyles(styles))(MediaGrid);

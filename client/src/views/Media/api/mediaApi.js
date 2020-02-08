@@ -3,6 +3,18 @@ import shortid from 'shortid';
 // media api
 export default [
     {
+        id: shortid.generate(),
+        title: 'WS428: Making the Jump to a Multi-Million Dollar Deal',
+        show: 'The Real Estate Syndication Show',
+        author: 'Whitney Sewell',
+        description:
+            'On today’s show, we once again welcome Kyle Mitchell, a real estate entrepreneur with a focus on multi-family syndication. He is the co-founder of Limitless Estates, whose vision is to provide A-class living to lower-income housing by putting the residents first and instilling a sense of community while inspiring others to do the same. He is also the co-host of a weekly real estate podcast called Passive Income through Multi-family Real Estate.',
+        url:
+            'https://podcasts.apple.com/us/podcast/ws428-making-jump-to-multi-million-dollar-deal-kyle/id1439314703?i=1000460624452',
+        thumbnail: 'https://i.imgur.com/8eNquAO.jpg',
+        duration: 33,
+    },
+    {
         title:
             'Kyle Mitchell: Scaling from a $1.5M deal to a $15M deal in 1 year.',
         show: 'The Capital Raiser Show',
@@ -21,7 +33,7 @@ export default [
         title:
             'POWC #232 - Stay Patient & Stick to your Criteria with Kyle Mitchell',
         show: 'Pillars Of Wealth Creation',
-        author: 'with Todd Dexheimer',
+        author: 'Todd Dexheimer',
         url:
             'https://podcasts.apple.com/us/podcast/powc-232-stay-patient-stick-to-your-criteria-kyle-mitchell/id1296372835?i=1000461095832',
         duration: 34,
@@ -49,7 +61,7 @@ export default [
     {
         id: shortid.generate(),
         title: '42-Unit Midtown On 2nd Apartments In Tucson, AZ',
-        author: 'By Dan Handford featuring Kyle Mitchell',
+        author: 'Dan Handford featuring Kyle Mitchell',
         url:
             'https://podcasts.apple.com/us/podcast/42-unit-midtown-on-2nd-apartments-in-tucson-az-kyle/id1449591388?i=1000454311271',
         thumbnail:
@@ -87,7 +99,7 @@ export default [
     {
         id: shortid.generate(),
         title: 'Real Estate Investing for Woman',
-        author: ' Moneeka Sawyer feat. Lalita and Kyle Mitchell',
+        author: 'Moneeka Sawyer feat. Lalita and Kyle Mitchell',
         thumbnail:
             'https://toppodcast.com/wp-content/uploads/2019/08/55602-600x600bb-300x300.png',
         url:
@@ -101,7 +113,7 @@ export default [
         id: shortid.generate(),
         title: 'A Millenials Guide to Real Estate Investing',
         thumbnail: 'https://i.imgur.com/yVk0qyE.jpg',
-        author: 'by Antoine Martel',
+        author: 'Antoine Martel',
         type: 'video',
         url: 'https://www.youtube.com/watch?v=kRI4gDBfulU',
         links: [
@@ -114,7 +126,7 @@ export default [
     {
         id: shortid.generate(),
         title: 'One Rental at a Time',
-        author: 'with Michael Zuber',
+        author: 'Michael Zuber',
         url: 'https://youtu.be/lp7iveQwOss',
         thumbnail: 'https://i.imgur.com/ZKxWJMV.jpg',
         description:
@@ -147,7 +159,7 @@ export default [
         title: 'Parent Pump Radio',
         thumbnail: 'https://i.imgur.com/TwJdfFK.jpg',
         url: 'https://youtu.be/BQ65azTVTrU',
-        author: 'with Jacqueline Huynh',
+        author: 'Jacqueline Huynh',
         duration: 27,
         description:
             'Our guest, Kyle Mitchell, is a real estate investor, entrepreneur, and successful business owner.   He owns properties in 3 different markets (Illinois, Ohio & Arkansas) and just closed on a 42 multifamily unit syndication in Tucson, Arizona <br/> He is the co-host of a weekly real estate podcast called “Passive Income through Multifamily Real Estate” where he speaks with various experts in the real estate industry to help educate and create clarity for passive investors.',
@@ -156,7 +168,7 @@ export default [
         id: shortid.generate(),
         show: 'The Real Estate Syndication Show',
         title: 'The Impacts of your First Deal ',
-        author: 'with Whitney Sewell ft. Kyle Mitchell',
+        author: 'Whitney Sewell ft. Kyle Mitchell',
         url:
             'https://lifebridgecapital.com/2019/07/ws269-the-impacts-of-your-first-deal-with-kyle-mitchell',
         thumbnail: 'https://i.imgur.com/iWfeVtr.jpg',
@@ -181,7 +193,7 @@ export default [
     {
         id: shortid.generate(),
         title: 'Best Ever Real Estate Advice',
-        author: 'with Joe Fairless',
+        author: 'Joe Fairless',
         url:
             'https://joefairless.com/podcast/jf1784-doing-first-multifamily-syndication-only-eight-months-in-with-kyle-mitchell/',
         thumbnail: 'https://i.imgur.com/aRtJP9V.jpg',
@@ -192,7 +204,7 @@ export default [
     {
         id: shortid.generate(),
         title: 'Apartment Building Investing Podcast',
-        author: 'with Michael Blank',
+        author: 'Michael Blank',
         url: 'https://www.themichaelblank.com/podcasts/session172/',
         thumbnail: 'https://i.imgur.com/gEcTchd.jpg',
         duration: 35,
@@ -202,7 +214,7 @@ export default [
     {
         id: shortid.generate(),
         title: 'Dream Chasers',
-        author: 'with Adam Carswell',
+        author: 'Adam Carswell',
         url:
             'https://anchor.fm/dreamchasers/episodes/DREAM-CHASERS-KYLE-MITCHELL--Ep63-e4o3kt',
         thumbnail: 'https://i.imgur.com/EpLb1qo.jpg',
@@ -212,7 +224,7 @@ export default [
     {
         id: shortid.generate(),
         title: 'Lifetime Cashflow throught Real Estate Investing',
-        author: 'with Rod Khleif',
+        author: 'Rod Khleif',
         url: 'https://www.youtube.com/watch?v=TznHiN2xHmo&feature=youtu.be',
         thumbnail: 'https://i.imgur.com/j1CNNhh.jpg',
         description:
@@ -222,7 +234,7 @@ export default [
     {
         id: shortid.generate(),
         title: 'Commit to Wealth',
-        author: 'with Juan Vargas',
+        author: 'Juan Vargas',
         thumbnail:
             'https://is1-ssl.mzstatic.com/image/thumb/Podcasts123/v4/42/21/3f/42213f79-9e3f-beef-e7b4-5ce04ecfa9a8/mza_2031876574054219942.jpg/268x0w.jpg',
         url:
@@ -245,7 +257,7 @@ Moving from single family to multifamily Investor communications through webinar
         url:
             'https://podcasts.apple.com/us/podcast/making-money-in-multifamily-real-estate-podcast/id1471965852?i=1000449131664',
         title: '7 Hour Road Trips To Become A Presence In The Market',
-        author: 'with Dave Morgia & Kyle Mitchell',
+        author: 'Dave Morgia & Kyle Mitchell',
         description:
             '<p>Kyle Mitchell and his wife Lalita Patipaksiri found themselves taking 7 hour road trips in order to make an impact on their market in Phoenix and Tucson, AZ. Their commitment to this arduous process was rewarded when after 6 months of making great connections within their market, they closed on a 42 unit property in a great area of Tucson</p>',
         duration: 29,
