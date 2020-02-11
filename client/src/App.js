@@ -30,6 +30,7 @@ import Podcast from 'views/Podcast/Podcast';
 import MediaContainer from 'views/Media/MediaContainer';
 import headerStyles from 'assets/jss/material-kit-react/components/headerStyle';
 import headerLinkStyles from 'assets/jss/material-kit-react/components/headerLinksStyle';
+import withTracker from './withTracker';
 // header
 const styles = {
     topHeader: {
@@ -190,7 +191,11 @@ class App extends Component {
                                 path="/disclaimer"
                                 component={Disclaimer}
                             />
-                            <Route exact path="/contact" component={Contact} />
+                            <Route
+                                exact
+                                path="/contact"
+                                component={withTracker(Contact)}
+                            />
                             <Route exact path="/" component={LandingPage} />
                             <Route component={ErrorPage} />
                         </Switch>
