@@ -22,6 +22,7 @@ import WorkWithUsForm from 'views/FormPages/WorkWithUsForm';
 import DetailSection from './Sections/DetailSection';
 import Modal from './Modal';
 import PreferredPartners from './Sections/PreferredPartners';
+
 const dashboardRoutes = [];
 const styles = theme => ({
     ...landingPageStyle,

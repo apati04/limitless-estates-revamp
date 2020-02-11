@@ -1,10 +1,15 @@
 import React from 'react';
+import ReactGA from 'react-ga';
 import withStyles from '@material-ui/core/styles/withStyles';
 import GridContainer from 'components/Grid/GridContainer';
 import GridItem from 'components/Grid/GridItem';
 import teamStyle from 'assets/jss/material-kit-react/views/landingPageSections/teamStyle';
+import GoogleAnalytics from 'react-ga';
 
 class PreferredPartners extends React.Component {
+    componentDidMount() {
+        GoogleAnalytics.initialize('UA-158031317-1');
+    }
     render() {
         const { classes } = this.props;
         return (
@@ -15,14 +20,22 @@ class PreferredPartners extends React.Component {
                 <div style={{ paddingTop: '32px' }}>
                     <GridContainer justify="center">
                         <GridItem xs={6}>
-                            <a href="https://mwpatton.com/" target="_blank">
+                            <GoogleAnalytics.OutboundLink
+                                eventLabel="mwpatton"
+                                to="https://mwpatton.com/"
+                                target="_blank"
+                            >
                                 <img
                                     src="https://i.imgur.com/JHpbqgd.png"
                                     alt="crowdfundingLawyers"
                                     width="220px"
                                     height="auto"
                                 />
-                            </a>
+                            </GoogleAnalytics.OutboundLink>
+
+                            {/* <a href="https://mwpatton.com/" target="_blank">
+
+                            </a> */}
                         </GridItem>
                         <GridItem xs={6}>
                             <a
