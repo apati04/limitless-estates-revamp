@@ -45,7 +45,8 @@
     "react-truncate": "^2.4.0",
     "recompose": "^0.30.0",
     "shortid": "^2.2.14",
-    "yup": "^0.27.0"
+    "yup": "^0.27.0",
+    "snyk": "^1.316.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -56,7 +57,9 @@
     "build-package": "npm run build-package-css && babel src --out-dir dist",
     "compile-sass": "node-sass src/assets/scss/material-kit-react.scss src/assets/css/material-kit-react.css",
     "minify-sass": "node-sass src/assets/scss/material-kit-react.scss src/assets/css/material-kit-react.min.css --output-style compressed",
-    "map-sass": "node-sass src/assets/scss/material-kit-react.scss src/assets/css/material-kit-react.css --source-map true"
+    "map-sass": "node-sass src/assets/scss/material-kit-react.scss src/assets/css/material-kit-react.css --source-map true",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -69,5 +72,6 @@
   ],
   "devDependencies": {
     "uglify-js-brunch": "^2.10.0"
-  }
+  },
+  "snyk": true
 }
