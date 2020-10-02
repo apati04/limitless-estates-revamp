@@ -11,7 +11,7 @@
     "axios": "^0.18.1",
     "classnames": "^2.2.6",
     "clsx": "^1.0.4",
-    "firebase": "^7.8.1",
+    "firebase": "^7.22.0",
     "formik": "^1.5.1",
     "formik-material-ui": "0.0.16",
     "google-map-react": "^1.1.2",
