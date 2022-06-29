@@ -22,7 +22,7 @@
         "compression": "^1.7.3",
         "express": "^4.16.4",
         "helmet": "^3.21.1",
-        "passport": "^0.4.0",
+        "passport": "^0.6.0",
         "passport-meetup": "^1.0.0",
         "passport-oauth2-meetup": "^1.1.0"
     },
